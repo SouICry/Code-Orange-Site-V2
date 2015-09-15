@@ -9,6 +9,7 @@ $header-height : 50px;
   left:0;
   width:100%;
   z-index:999;
+  font-family: zekton, sans-serif;
 }
 #header-filler {
   height: $header-height;
@@ -26,12 +27,12 @@ $header-height : 50px;
 
   .tab {
     float:left;
-    background-color:darkslateblue;
     height:$header-height;
     padding: 0 20px;
     line-height: $header-height;
     text-align: center;
     border:none;
+
   }
 }
 
@@ -41,7 +42,6 @@ $header-height : 50px;
 
   .tab {
     float:left;
-    background-color:darkslateblue;
     height:$header-height;
     padding: 0 20px;
     line-height: $header-height;

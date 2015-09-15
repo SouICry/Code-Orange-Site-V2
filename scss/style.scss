@@ -1,192 +1,37 @@
+@import 'variables_mixins';
+@import 'defaults';
+
+@import 'text';
 @import 'header';
 @import 'footer';
 @import 'carousel';
-
-
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
+@import 'layout';
 
 
 
-
-
-$tablet-width: 640px;
-$small-desktop-width: 1024px;
-$medium-desktop-width: 1280px;
-$large-desktop-width: 1440px;
-
-
-@mixin tablet {
-  @media (min-width: #{$tablet-width}) and (max-width: #{$small-desktop-width - 1px}) {
-    @content;
-  }
-}
-@mixin desktop {
-  @media (min-width: #{$small-desktop-width}) {
-    @content;
-  }
-}
-@mixin small-desktop {
-  @media (min-width: #{$small-desktop-width}) and (max-width: #{$medium-desktop-width - 1px}) {
-    @content;
-  }
-}
-@mixin medium-desktop {
-  @media (min-width: #{$medium-desktop-width}) and (max-width: #{$large-desktop-width - 1px}) {
-    @content;
-  }
-}
-@mixin large-desktop {
-  @media (min-width: #{$large-desktop-width}) {
-    @content;
-  }
+.outline {
+  border: 3px solid red;
 }
 
 
-
-
-
-
-img, button:focus {
-  border-style:none;
-  outline:none;
-}
 
 
 
 html {
-  min-height:100%;
+  min-height: 100%;
 }
 
 body {
   background-color: transparent;
-  min-height:100%;
+  min-height: 100%;
 
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
-
 
 #body {
 
 }
-
-
-
-.row {
-  width:100%;
-}
-
-/* Phone */
-.column {
-  width:100%;
-  margin:auto;
-  @include small-desktop {
-    width: $small-desktop-width;
-  }
-  @include medium-desktop {
-    width: $medium-desktop-width;
-  }
-  @include large-desktop {
-    width: $large-desktop-width;
-  }
-}
-
-.content {
-  width:80%;
-  float:left;
-
-}
-
-.sidebar {
-  width:20%;
-  float:right;
-  border:5px solid black;
-}
-
-
-.block {
-  float:left;
-  position:relative;
-  width:100%;
-  box-shadow: none;
-  &:hover{
-    box-shadow: 0 0 10px 1px #666;
-  }
-  &:active {
-    box-shadow: 0 0 15px 2px #444;
-  }
-  &:after {
-    content: "";
-    display: block;
-    padding-bottom: 100%;
-  }
-  .block-content {
-    width:100%;
-    height:100%;
-    position:absolute;
-    background-color:gainsboro;
-  }
-}
-
-
-
-
-.block-2 {
-  @extend .block;
-  width:100%;
-  @include tablet {
-    width: 100%;
-  }
-  @include desktop {
-    width: 50%;
-  }
-}
-
-.block-3 {
-  @extend .block;
-  width:100%;
-  @include tablet {
-    width: 100%;
-  }
-  @include desktop {
-    width: 33.3333%;
-  }
-}
-
-.block-4 {
-  @extend .block;
-  width: 100%;
-  @include tablet {
-    width: 50%;
-  }
-  @include desktop {
-    width: 25%;
-  }
-}
-.block-6 {
-  @extend .block;
-  width: 50%;
-  @include tablet {
-    width: 33.33333%;
-  }
-  @include desktop {
-    width: 16.66666%;
-  }
-}
-
-
-
-
-
-
-
-
-
 
 
 #title-bar {

@@ -1,0 +1,16 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+img, button:focus {
+  border-style: none;
+  outline: none;
+}
+
+img, iframe {
+  width:100%;
+}
