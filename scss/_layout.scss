@@ -44,12 +44,12 @@
   box-shadow: none;
   z-index: 0;
   &:hover {
-    box-shadow: 0 0 10px 1px #666;
-    z-index: 50;
+    @include outline-shadow;
+    z-index: 10;
   }
   &:active {
-    box-shadow: 0 0 15px 2px #444;
-    z-index: 50;
+    @include emphasis-shadow;
+    z-index: 10;
   }
   &:after {
     content: "";

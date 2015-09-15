@@ -6,7 +6,7 @@
 @import 'footer';
 @import 'carousel';
 @import 'layout';
-
+@import 'content';
 
 
 .outline {
@@ -22,7 +22,7 @@ html {
 }
 
 body {
-  background-color: transparent;
+  background-color: #b2dfdb ;
   min-height: 100%;
 
   margin: 0;

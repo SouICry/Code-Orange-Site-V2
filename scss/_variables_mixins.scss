@@ -1,3 +1,6 @@
+$header-height : 50px;
+
+
 $tablet-width: 640px;
 $small-desktop-width: 1024px;
 $medium-desktop-width: 1280px;
@@ -27,3 +30,25 @@ $large-desktop-width: 1440px;
     @content;
   }
 }
+
+
+@mixin outline-shadow {
+  box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.8);
+  @include tablet {
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.8);
+  }
+  @include desktop {
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8);
+  }
+}
+@mixin emphasis-shadow {
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.8);
+  @include tablet {
+    box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.8);
+  }
+  @include desktop {
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.8);
+  }
+}
+
+

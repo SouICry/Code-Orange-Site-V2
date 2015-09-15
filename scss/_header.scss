@@ -1,4 +1,4 @@
-$header-height : 50px;
+@import 'variables_mixins';
 
 
 #header {
@@ -9,6 +9,8 @@ $header-height : 50px;
   left:0;
   width:100%;
   z-index:999;
+  @include outline-shadow;
+
   font-family: zekton, sans-serif;
 }
 #header-filler {

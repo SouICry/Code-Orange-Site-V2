@@ -1,0 +1,59 @@
+@import 'variables_mixins';
+
+p {
+  margin: 0 10px 16px 10px;
+  @include tablet {
+    margin: 0 20px 20px 20px;
+  }
+  @include desktop {
+    margin: 0 40px 24px 40px;
+  }
+}
+
+h1 {
+  @extend p;
+
+  margin-top:42px;
+  @include tablet {
+    margin-top:63px;
+  }
+  @include desktop {
+    margin-top:84px;
+  }
+}
+
+h2 {
+  @extend p;
+
+  margin-top:36px;
+  @include tablet {
+    margin-top:54px;
+  }
+  @include desktop {
+    margin-top:72px;
+  }
+}
+
+h3 {
+  @extend p;
+
+  margin-top:30px;
+  @include tablet {
+    margin-top:45px;
+  }
+  @include desktop {
+    margin-top:60px;
+  }
+}
+
+h4 {
+  @extend p;
+
+  margin-top:24px;
+  @include tablet {
+    margin-top:36px;
+  }
+  @include desktop {
+    margin-top:48px;
+  }
+}

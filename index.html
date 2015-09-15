@@ -45,10 +45,10 @@
     <div id="header-filler"></div>
     <div id="title-bar">
         <div class="carousel">
-            <div style="width:300px;height:300px;border:1px solid black;">aa</div>
-            <div style="width:300px;height:300px;border:1px solid black;">bb</div>
-            <div style="width:300px;height:300px;border:1px solid black;">c</div>
-            <div style="width:300px;height:300px;border:1px solid black;">d</div>
+            <div style="width:300px;height:300px;">aa</div>
+            <div style="width:300px;height:300px;">bb</div>
+            <div style="width:300px;height:300px;">c</div>
+            <div style="width:300px;height:300px;">d</div>
         </div>
     </div>
     <div class="row">
@@ -101,14 +101,12 @@
     $(document).ready(function () {
         $('.carousel').slick({
             dots: false,
-            autoplay: true,
+            autoplay: false,
             autoplaySpeed: 2000,
             speed: 800,
             touchThreshold: 100,
             adaptiveHeight: true
         });
-
-
     });
 
 
