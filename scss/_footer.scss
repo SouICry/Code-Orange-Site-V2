@@ -1,0 +1,11 @@
+$footer-height : 250px;
+#footer {
+  background-color:gainsboro;
+  height:$footer-height;
+  z-index:1;
+  width:100%;
+
+}
+#footer-filler {
+  height:$footer-height;
+}

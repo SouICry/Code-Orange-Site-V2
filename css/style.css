@@ -1,0 +1,266 @@
+#header {
+  background-color: orange;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999; }
+
+#header-filler {
+  height: 50px;
+  width: 100%;
+  background-color: blue; }
+
+#logo {
+  background-color: orangered;
+  width: 100px;
+  height: 50px;
+  float: left; }
+
+#nav {
+  float: left; }
+  #nav .tab {
+    float: left;
+    background-color: darkslateblue;
+    height: 50px;
+    padding: 0 20px;
+    line-height: 50px;
+    text-align: center;
+    border: none; }
+
+#user {
+  float: right; }
+  #user .tab {
+    float: left;
+    background-color: darkslateblue;
+    height: 50px;
+    padding: 0 20px;
+    line-height: 50px;
+    text-align: center;
+    border: none; }
+
+#footer {
+  background-color: gainsboro;
+  height: 250px;
+  z-index: 1;
+  width: 100%; }
+
+#footer-filler {
+  height: 250px; }
+
+/* Carousel buttons*/
+.slick-arrow, .slick-prev, .slick-next {
+  width: 5%;
+  min-width: 50px;
+  height: 100%;
+  background-color: transparent;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  font-size: 100%;
+  border: none; }
+  .slick-arrow img, .slick-prev img, .slick-next img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); }
+
+.slick-prev {
+  left: 0; }
+
+.slick-next {
+  right: 0; }
+
+/* Slider - https://kenwheeler.github.io/slick/ */
+.slick-slider {
+  position: relative;
+  display: block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent; }
+
+.slick-list {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0; }
+
+.slick-list:focus {
+  outline: none; }
+
+.slick-list.dragging {
+  cursor: pointer;
+  cursor: hand; }
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }
+
+.slick-track {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block; }
+
+.slick-track:before,
+.slick-track:after {
+  display: table;
+  content: ''; }
+
+.slick-track:after {
+  clear: both; }
+
+.slick-loading .slick-track {
+  visibility: hidden; }
+
+.slick-slide {
+  display: none;
+  float: left;
+  height: 100%;
+  min-height: 1px; }
+
+[dir='rtl'] .slick-slide {
+  float: right; }
+
+.slick-slide img {
+  display: block; }
+
+.slick-slide.slick-loading img {
+  display: none; }
+
+.slick-slide.dragging img {
+  pointer-events: none; }
+
+.slick-initialized .slick-slide {
+  display: block; }
+
+.slick-loading .slick-slide {
+  visibility: hidden; }
+
+.slick-vertical .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent; }
+
+.slick-arrow.slick-hidden, .slick-hidden.slick-prev, .slick-hidden.slick-next {
+  display: none; }
+
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+img, button:focus {
+  border-style: none;
+  outline: none; }
+
+html {
+  min-height: 100%; }
+
+body {
+  background-color: transparent;
+  min-height: 100%;
+  margin: 0;
+  padding: 0; }
+
+.row {
+  width: 100%; }
+
+/* Phone */
+.column {
+  width: 100%;
+  margin: auto; }
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    .column {
+      width: 1024px; } }
+  @media (min-width: 1280px) and (max-width: 1439px) {
+    .column {
+      width: 1280px; } }
+  @media (min-width: 1440px) {
+    .column {
+      width: 1440px; } }
+
+.content {
+  width: 80%;
+  float: left; }
+
+.sidebar {
+  width: 20%;
+  float: right;
+  border: 5px solid black; }
+
+.block, .block-2, .block-3, .block-4, .block-6 {
+  float: left;
+  position: relative;
+  width: 100%;
+  box-shadow: none; }
+  .block:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover {
+    box-shadow: 0 0 10px 1px #666; }
+  .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active {
+    box-shadow: 0 0 15px 2px #444; }
+  .block:after, .block-2:after, .block-3:after, .block-4:after, .block-6:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%; }
+  .block .block-content, .block-2 .block-content, .block-3 .block-content, .block-4 .block-content, .block-6 .block-content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: gainsboro; }
+
+.block-2 {
+  width: 100%; }
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .block-2 {
+      width: 100%; } }
+  @media (min-width: 1024px) {
+    .block-2 {
+      width: 50%; } }
+
+.block-3 {
+  width: 100%; }
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .block-3 {
+      width: 100%; } }
+  @media (min-width: 1024px) {
+    .block-3 {
+      width: 33.3333%; } }
+
+.block-4 {
+  width: 100%; }
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .block-4 {
+      width: 50%; } }
+  @media (min-width: 1024px) {
+    .block-4 {
+      width: 25%; } }
+
+.block-6 {
+  width: 50%; }
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .block-6 {
+      width: 33.33333%; } }
+  @media (min-width: 1024px) {
+    .block-6 {
+      width: 16.66666%; } }
+
+#title-bar {
+  background-color: darkorange;
+  min-height: 150px;
+  width: 100%; }
+
+/*# sourceMappingURL=style.css.map */

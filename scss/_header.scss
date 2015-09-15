@@ -1,0 +1,52 @@
+$header-height : 50px;
+
+
+#header {
+  background-color: orange;
+  height: $header-height;
+  position: fixed;
+  top: 0;
+  left:0;
+  width:100%;
+  z-index:999;
+}
+#header-filler {
+  height: $header-height;
+  width: 100%;
+  background-color: blue;
+}
+#logo {
+  background-color: orangered;
+  width:100px;
+  height: $header-height;
+  float:left;
+}
+#nav {
+  float:left;
+
+  .tab {
+    float:left;
+    background-color:darkslateblue;
+    height:$header-height;
+    padding: 0 20px;
+    line-height: $header-height;
+    text-align: center;
+    border:none;
+  }
+}
+
+
+#user {
+  float:right;
+
+  .tab {
+    float:left;
+    background-color:darkslateblue;
+    height:$header-height;
+    padding: 0 20px;
+    line-height: $header-height;
+    text-align: center;
+    border:none;
+  }
+}
+
