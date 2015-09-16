@@ -1,9 +1,38 @@
+@font-face {
+  font-family: zekton;
+  src: url("../font/zekton-webfont-webfont.woff") format("woff"), url("../font/zekton-webfont-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: "Roboto";
+  src: local(Roboto Thin), url("../font/Roboto-Thin.woff2") format("woff2"), url("../font/Roboto-Thin.woff") format("woff"), url("../font/Roboto-Thin.ttf") format("truetype");
+  font-weight: 200; }
+@font-face {
+  font-family: "Roboto";
+  src: local(Roboto Light), url("../font/Roboto-Light.woff2") format("woff2"), url("../font/Roboto-Light.woff") format("woff"), url("../font/Roboto-Light.ttf") format("truetype");
+  font-weight: 300; }
+@font-face {
+  font-family: "Roboto";
+  src: local(Roboto Regular), url("../font/Roboto-Regular.woff2") format("woff2"), url("../font/Roboto-Regular.woff") format("woff"), url("../font/Roboto-Regular.ttf") format("truetype");
+  font-weight: 400; }
+@font-face {
+  font-family: "Roboto";
+  src: url("../font/Roboto-Medium.woff2") format("woff2"), url("../font/Roboto-Medium.woff") format("woff"), url("../font/Roboto-Medium.ttf") format("truetype");
+  font-weight: 500; }
+@font-face {
+  font-family: "Roboto";
+  src: url("../font/Roboto-Bold.woff2") format("woff2"), url("../font/Roboto-Bold.woff") format("woff"), url("../font/Roboto-Bold.ttf") format("truetype");
+  font-weight: 700; }
 html {
   box-sizing: border-box;
-  font-family: sans-serif; }
+  font-family: "Roboto", sans-serif; }
 
 *, *:before, *:after {
-  box-sizing: inherit; }
+  box-sizing: inherit;
+  -webkit-font-smoothing: antialiased; }
+
+*:focus {
+  outline: none; }
 
 img, button:focus {
   border-style: none;
@@ -15,11 +44,23 @@ img, iframe {
 p, h1, h2, h3, h4 {
   font-size: 17px;
   text-decoration: none; }
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    p, h1, h2, h3, h4 {
+      font-size: 17px; } }
+  @media (min-width: 1280px) and (max-width: 1439px) {
+    p, h1, h2, h3, h4 {
+      font-size: 18px; } }
+  @media (min-width: 1440px) {
+    p, h1, h2, h3, h4 {
+      font-size: 19px; } }
 
 a {
   text-decoration: none; }
   a:hover {
     text-decoration: underline; }
+
+#header {
+  font-family: zekton, sans-serif; }
 
 .heading, h1, h2, h3, h4 {
   font-family: zekton, sans-serif;
@@ -65,34 +106,22 @@ h4 {
     h4 {
       font-size: 30px; } }
 
-@font-face {
-  font-family: zekton;
-  src: url("../font/zekton-webfont-webfont.eot");
-  src: url("../font/zekton-webfont-webfont.eot?#iefix") format("embedded-opentype"), url("../font/zekton-webfont-webfont.woff") format("woff"), url("../font/zekton-webfont-webfont.ttf") format("truetype"), url("../font/zekton-webfont-webfont.svg#zektonregular") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../font/roboto-latin.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
 #header {
-  background-color: orange;
+  background-color: #ff9800;
   height: 50px;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 999;
-  box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5);
   font-family: zekton, sans-serif; }
   @media (min-width: 640px) and (max-width: 1023px) {
     #header {
-      box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.8); } }
+      box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5); } }
   @media (min-width: 1024px) {
     #header {
-      box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8); } }
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5); } }
 
 #header-filler {
   height: 50px;
@@ -100,30 +129,29 @@ h4 {
   background-color: blue; }
 
 #logo {
-  background-color: orangered;
   width: 100px;
   height: 50px;
   float: left; }
 
-#nav {
+#nav, #user {
   float: left; }
-  #nav .tab {
+  #nav a, #user a {
+    color: #ffd180;
+    font-size: 20px;
+    height: 100%;
+    display: block;
     float: left;
-    height: 50px;
     padding: 0 20px;
-    line-height: 50px;
+    line-height: 48px;
     text-align: center;
-    border: none; }
+    border: none;
+    list-style: none; }
+    #nav a:hover, #user a:hover {
+      border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+      text-decoration: none; }
 
 #user {
   float: right; }
-  #user .tab {
-    float: left;
-    height: 50px;
-    padding: 0 20px;
-    line-height: 50px;
-    text-align: center;
-    border: none; }
 
 #footer {
   background-color: #80cbc4;
@@ -264,18 +292,36 @@ h4 {
 
 .content {
   float: left;
-  width: 100%; }
-  @media (min-width: 1024px) {
+  width: 100%;
+  margin: 0; }
+  @media (min-width: 1024px) and (max-width: 1279px) {
     .content {
-      width: 80%; } }
+      width: 800px;
+      margin: 0; } }
+  @media (min-width: 1280px) and (max-width: 1439px) {
+    .content {
+      width: 840px;
+      margin-left: 100px; } }
+  @media (min-width: 1440px) {
+    .content {
+      margin-left: 280px;
+      width: 880px; } }
 
 .sidebar {
   width: 0;
-  float: right; }
+  float: left; }
   @media (min-width: 1024px) {
     .sidebar {
-      width: 20%;
-      display: block; } }
+      width: 20%; } }
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    .sidebar {
+      width: 224px; } }
+  @media (min-width: 1280px) and (max-width: 1439px) {
+    .sidebar {
+      width: 240px; } }
+  @media (min-width: 1440px) {
+    .sidebar {
+      width: 280px; } }
 
 .block, .block-2, .block-3, .block-4, .block-6 {
   float: left;
@@ -284,23 +330,23 @@ h4 {
   box-shadow: none;
   z-index: 0; }
   .block:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover {
-    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5);
     z-index: 10; }
     @media (min-width: 640px) and (max-width: 1023px) {
       .block:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover {
-        box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.8); } }
+        box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5); } }
     @media (min-width: 1024px) {
       .block:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover {
-        box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8); } }
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5); } }
   .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active {
-    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8);
     z-index: 10; }
     @media (min-width: 640px) and (max-width: 1023px) {
       .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active {
-        box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.8); } }
+        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.8); } }
     @media (min-width: 1024px) {
       .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active {
-        box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.8); } }
+        box-shadow: 0 0 25px 2px rgba(0, 0, 0, 0.8); } }
   .block:after, .block-2:after, .block-3:after, .block-4:after, .block-6:after {
     content: "";
     display: block;
@@ -405,7 +451,7 @@ body {
   padding: 0; }
 
 #title-bar {
-  background-color: darkorange;
+  background-color: #ff9800;
   min-height: 150px;
   width: 100%; }
 

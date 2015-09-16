@@ -1,10 +1,17 @@
 html {
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 *, *:before, *:after {
   box-sizing: inherit;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+
+*:focus {
+  outline: none;
 }
 
 img, button:focus {
@@ -15,3 +22,4 @@ img, button:focus {
 img, iframe {
   width:100%;
 }
+

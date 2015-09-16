@@ -23,17 +23,35 @@
 .content {
   float: left;
   width: 100%;
-  @include desktop {
-    width: 80%;
+  margin:0;
+  @include small-desktop {
+    width: 800px;
+    margin:0;
+  }
+  @include medium-desktop {
+    width: 840px;
+    margin-left:100px;
+  }
+  @include large-desktop {
+    margin-left:280px;
+    width: 880px;
   }
 }
 
 .sidebar {
   width: 0;
-  float: right;
+  float: left;
   @include desktop {
     width: 20%;
-    display: block;
+  }
+  @include small-desktop {
+    width: 224px;
+  }
+  @include medium-desktop {
+    width: 240px;
+  }
+  @include large-desktop {
+    width: 280px;
   }
 }
 

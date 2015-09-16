@@ -1,4 +1,6 @@
 @import 'variables_mixins';
+@import 'color';
+@import 'font';
 @import 'defaults';
 
 @import 'text';
@@ -22,7 +24,7 @@ html {
 }
 
 body {
-  background-color: #b2dfdb ;
+  background-color: $teal-lighten-4;
   min-height: 100%;
 
   margin: 0;
@@ -35,7 +37,7 @@ body {
 
 
 #title-bar {
-  background-color: darkorange;
+  background-color: $orange;
   min-height: 150px;
   width: 100%;
 }

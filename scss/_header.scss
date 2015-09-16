@@ -2,7 +2,7 @@
 
 
 #header {
-  background-color: orange;
+  background-color: $orange;
   height: $header-height;
   position: fixed;
   top: 0;
@@ -19,7 +19,6 @@
   background-color: blue;
 }
 #logo {
-  background-color: orangered;
   width:100px;
   height: $header-height;
   float:left;
@@ -27,28 +26,29 @@
 #nav {
   float:left;
 
-  .tab {
+
+  a {
+    color: $orange-accent-1;
+    font-size:20px;
+    height:100%;
+    display:block;
     float:left;
-    height:$header-height;
     padding: 0 20px;
-    line-height: $header-height;
+    line-height: $header-height - 2px;
     text-align: center;
     border:none;
+    list-style: none;
+    &:hover{
+      border-bottom:2px solid rgba(255,255,255,0.5);
+      text-decoration: none;
+    }
 
   }
 }
 
 
 #user {
+  @extend #nav;
   float:right;
-
-  .tab {
-    float:left;
-    height:$header-height;
-    padding: 0 20px;
-    line-height: $header-height;
-    text-align: center;
-    border:none;
-  }
 }
 
