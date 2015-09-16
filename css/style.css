@@ -25,7 +25,8 @@
   font-weight: 700; }
 html {
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif; }
+  font-family: "Roboto", sans-serif;
+  width: 100%; }
 
 *, *:before, *:after {
   box-sizing: inherit;
@@ -108,8 +109,8 @@ h4 {
 
 #header {
   background-color: #ff9800;
-  height: 50px;
   position: fixed;
+  height: auto;
   top: 0;
   left: 0;
   width: 100%;
@@ -129,29 +130,54 @@ h4 {
   background-color: blue; }
 
 #logo {
-  width: 100px;
   height: 50px;
   float: left; }
 
-#nav, #user {
-  float: left; }
-  #nav a, #user a {
+#user, #logo {
+  height: 50px;
+  float: right; }
+  #user a, #logo a {
+    float: left;
+    white-space: nowrap;
     color: #ffd180;
     font-size: 20px;
     height: 100%;
-    display: block;
-    float: left;
     padding: 0 20px;
     line-height: 48px;
     text-align: center;
     border: none;
     list-style: none; }
-    #nav a:hover, #user a:hover {
+    #user a:hover, #logo a:hover {
       border-bottom: 2px solid rgba(255, 255, 255, 0.5);
       text-decoration: none; }
 
-#user {
-  float: right; }
+#logo {
+  float: left; }
+
+#nav {
+  height: 50px;
+  overflow: hidden;
+  float: left;
+  max-width: 100%; }
+
+.scroll-hide {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 90px; }
+  .scroll-hide .scroll-fix {
+    width: 800px; }
+  .scroll-hide a {
+    float: left;
+    color: #ffd180;
+    font-size: 20px;
+    height: 100%;
+    padding: 0 20px;
+    line-height: 48px;
+    text-align: center; }
+    .scroll-hide a:hover {
+      border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+      text-decoration: none; }
 
 #footer {
   background-color: #80cbc4;
@@ -309,10 +335,12 @@ h4 {
 
 .sidebar {
   width: 0;
-  float: left; }
+  float: left;
+  display: none; }
   @media (min-width: 1024px) {
     .sidebar {
-      width: 20%; } }
+      width: 20%;
+      display: block; } }
   @media (min-width: 1024px) and (max-width: 1279px) {
     .sidebar {
       width: 224px; } }

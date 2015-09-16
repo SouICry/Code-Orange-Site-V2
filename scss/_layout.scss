@@ -41,8 +41,10 @@
 .sidebar {
   width: 0;
   float: left;
+  display:none;
   @include desktop {
     width: 20%;
+    display: block;
   }
   @include small-desktop {
     width: 224px;
