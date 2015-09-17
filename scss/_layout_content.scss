@@ -1,12 +1,18 @@
-@import 'variables_mixins';
+
 
 p {
-  margin: 0 10px 16px 10px;
+  margin: 0 5px 16px 10px;
   @include tablet {
-    margin: 0 20px 20px 20px;
+    margin: 0 10px 20px 20px;
   }
-  @include desktop {
+  @include small-desktop {
+    margin: 0 20px 24px 40px;
+  }
+  @include medium-desktop {
     margin: 0 40px 24px 40px;
+  }
+  @include large-desktop {
+    margin: 0 60px 24px 40px;
   }
 }
 
@@ -57,3 +63,4 @@ h4 {
     margin-top:48px;
   }
 }
+

@@ -1,0 +1,139 @@
+@import 'variables_mixins';
+@import 'layout_block';
+
+.row {
+  width: 100%;
+  margin: 0;
+}
+
+.column {
+  width: 100%;
+  margin: auto;
+  @include small-desktop {
+    width: $small-desktop-width;
+  }
+  @include medium-desktop {
+    width: $medium-desktop-width;
+  }
+  @include large-desktop {
+    width: $large-desktop-width;
+  }
+}
+
+.content-section {
+  float: left;
+  width: 100%;
+  margin: 0;
+  @include small-desktop {
+    width: 800px;
+    margin: 0;
+  }
+  @include medium-desktop {
+    width: 840px;
+    margin-left: 100px;
+  }
+  @include large-desktop {
+    width: 1160px;
+    margin: 0;
+  }
+
+  .content-row {
+    float: left;
+    width: 100%;
+    margin: 0;
+
+    /* Sticky scroll until end of content row*/
+    .sidebar-left {
+      width: 100%;
+      float: left;
+      margin: 0;
+      @include large-desktop {
+        width: 280px;
+      }
+      /*Max 2 blocks*/
+      .block {
+        background-color: $orange;
+        @extend .block;
+        width: 100%;
+        @include large-phone {
+          width: 50%;
+        }
+        @include tablet {
+          width: 33.33333%;
+        }
+        @include desktop {
+          width: 33.33333%;
+        }
+        @include small-desktop {
+          width: 33.33333%;
+        }
+        @include medium-desktop {
+          width: 33.33333%;
+        }
+        @include large-desktop {
+          width: 100%;
+        }
+      }
+
+    }
+
+    .content {
+      float: left;
+      margin: 0;
+      width: 100%;
+      @include large-desktop {
+        width: 880px;
+      }
+    }
+  }
+}
+
+.sidebar-right {
+  width: 100%;
+  float: left;
+
+  @include small-desktop {
+    width: 224px;
+  }
+  @include medium-desktop {
+    width: 240px;
+  }
+  @include large-desktop {
+    width: 280px;
+  }
+
+  .sidebar-blocks {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+
+    .block {
+      @extend .block;
+      flex: 1 1 auto;
+      width: 100%;
+      min-width: 100%;
+      @include large-phone {
+        width: 50%;
+        min-width: 50%;
+      }
+      @include tablet {
+        width: 33%;
+        min-width: 33%;
+      }
+      @include desktop {
+        width: 100%;
+        min-width: 100%;
+      }
+    }
+  }
+
+  .page-nav {
+    width: 100%;
+    display: none;
+    @include desktop {
+      display: block;
+    }
+  }
+}
+
+

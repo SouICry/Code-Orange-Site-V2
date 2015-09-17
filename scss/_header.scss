@@ -1,9 +1,8 @@
 @import 'variables_mixins';
 
 #header {
-  background-color: $orange;
+  background-color: $orange-darken-3;
   position: fixed;
-  height: auto;
   top: 0;
   left: 0;
   width: 100%;
@@ -11,13 +10,28 @@
   @include outline-shadow;
 
   font-family: zekton, sans-serif;
+
+  overflow: hidden;
+  height: $header-height * 2;
+  @include medium-desktop {
+    height: $header-height;
+  }
+  @include large-desktop {
+    height: $header-height;
+  }
 }
 
-#header-filler {
-  height: $header-height;
+#body {
   width: 100%;
-  background-color: blue;
+  margin-top: $header-height * 2;
+  @include medium-desktop {
+    margin-top: $header-height;
+  }
+  @include large-desktop {
+    margin-top: $header-height;
+  }
 }
+
 
 #logo {
   height: $header-height;
@@ -34,12 +48,12 @@
     font-size: 20px;
     height: 100%;
     padding: 0 20px;
-    line-height: $header-height - 2px;
+    line-height: $header-height - 3px;
     text-align: center;
     border: none;
     list-style: none;
     &:hover {
-      border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+      border-bottom: 3px solid $orange-accent-1;
       text-decoration: none;
     }
 
@@ -65,18 +79,19 @@
   height: $header-height + 40px;
 
   .scroll-fix {
-    width:800px;
+    width: 780px;
   }
   a {
+
     float: left;
     color: $orange-accent-1;
     font-size: 20px;
     height: 100%;
     padding: 0 20px;
-    line-height: $header-height - 2px;
+    line-height: $header-height - 3px;
     text-align: center;
     &:hover {
-      border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+      border-bottom: 3px solid $orange-accent-1;
       text-decoration: none;
     }
   }
