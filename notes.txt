@@ -1,0 +1,119 @@
+2 layered nav -
+selection page shrinks into nav with blocks for that given section
+
+
+
+
+
+Menu
+
+
+
+
+New
+Mobile header bar for home page or login. logged in user go to internal page directly. No hamburger menu
+
+1 level tab bar - diff for external/internal.
+Each page (possibly) has sections, with brief (expandable) descriptions and 2nd level blocks linking to each part, not displayed on menu.
+
+Banner links - for summer camp(?)
+
+External pages
+
+About
+	- Section 1
+		Awards
+		Calendar
+		Contact Us
+	- Section 2
+		Major sponsor 1
+		Major sponsor 2
+		All sponsors
+Robots
+	- Section 1
+		...
+FIRST
+	- Section 1
+		OC FRC Teams
+	- Section 2
+		Games
+
+Tutorials
+	- Section 1
+		Electronics
+		Scouting
+		Machining
+Media
+	- Section 1
+		Gallery
+		Videos
+
+
+Internal pages
+
+
+
+
+
+
+Current
+3 level drawer/dropdown
+
+Home
+About Us
+	Awards
+	Robots
+		Cloud 9
+		Hanalei
+		Mavericks
+		...
+	Sponsors
+	Contact Us
+	About Website
+About FIRST
+	OC FRC Teams
+	Aerial Assist
+	Ultimate Ascent
+	2015 game
+	2016 game...
+Summer Camp
+Tutorials
+	Electronics
+	Scouting
+	Machining
+	...
+Media
+	Gallery
+	Videos
+Calendar
+Resources
+	Blog
+	Meeting Agenda
+	Sign-Ups
+	Mentors
+	More
+Donate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,5 +1,4 @@
 
-
 .block {
   float: left;
   position: relative;
@@ -51,6 +50,7 @@
 }
 
 .block-4 {
+  background-color: $orange-lighten-2;
   @extend .block;
   width: 100%;
   @include large-phone {
@@ -77,3 +77,40 @@
     width: 16.66666%;
   }
 }
+
+
+
+#nav1 {
+  height: auto;
+  overflow-y: hidden;
+  overflow-x: visible;
+  width:100%;
+  margin: auto;
+}
+
+#nav1 .scroll-hide  {
+  max-width:100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  height: auto;
+  .scroll-fix {
+    overflow-x: visible;
+    width: auto; /* Arbitrarily Large enough to fit everything.
+                      Does change how the whole slider floats though */
+  }
+  a {
+    float: left;
+    color: $orange-accent-1;
+    font-size: 20px;
+    width: 200px;
+    height: 240px;
+    padding: 0 20px;
+    line-height: 200px;
+    text-align: center;
+    &:hover {
+      border-bottom: 3px solid $orange-accent-1;
+      text-decoration: none;
+    }
+  }
+}
+

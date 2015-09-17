@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/materialize.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+<div id="header">
+    <div class="row">
+        <div class="column">
+            <div id="logo">
+                <a href="#">Code Orange</a>
+            </div>
+            <div id="user">
+                <a href="#">Login</a>
+            </div>
+            <div id="nav">
+                <div class="scroll-hide">
+                    <div class="scroll-fix">
+                        <a href="#">About</a>
+                        <a href="#">Robots</a>
+                        <a href="#"><i>FIRST</i></a>
+                        <a href="#">Tutorials</a>
+                        <a href="#">&nbsp;</a>
+                        <a href="index.html">Index</a>
+                        <a href="selection.html">Selection</a>
+                        <a href="content.html">Content</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="body">
+    <div id="title-bar">
+        <div class="row">
+            <div class="column">
+                <h1>Robots</h1>
+                <span>aaaa</span>
+            </div>
+        </div>
+        <div class="row">
+
+            <div id="nav1">
+
+                <div class="scroll-hide">
+                    <div class="column">
+                        <div class="scroll-fix">
+
+                            <a href="#">About</a>
+                            <a href="#">Robots</a>
+                            <a href="#"><i>FIRST</i></a>
+                            <a href="#">Tutorials</a>
+                            <a href="#">&nbsp;</a>
+                            <a href="index.html">Index</a>
+                            <a href="selection.html">Selection</a>
+                            <a href="content.html">Content</a>
+                            <a href="#">About</a>
+                            <a href="#">Robots</a>
+                            <a href="#"><i>FIRST</i></a>
+                            <a href="#">Tutorials</a>
+                            <a href="#">About</a>
+                            <a href="#">Robots</a>
+                            <a href="#"><i>FIRST</i></a>
+                            <a href="#">Tutorials</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <h1>Robots</h1>
+                <span>aaaa</span>
+            </div>
+        </div>
+    </div>
+    <div id="footer"></div>
+
+
+    <script src="js/jquery-2.1.4.js"></script>
+    <script src="js/slick-modified.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('h1').click(function () {
+                $('#nav1 .scroll-fix').css('width', 'auto');
+                $('#nav1 .scroll-hide').css('overflow-y', 'visible');
+                $('#nav1').css('height', 'auto');
+                $('#nav1  .scroll-hide').css('height', 'auto');
+            });
+            $('span').click(function () {
+                var w = $('#nav1 a').outerHeight();
+                $('#nav1 .scroll-fix').css('width', '9001px');
+                $('#nav1 .scroll-hide').css('overflow-y', 'hidden')
+
+                $('#nav1').css('height', w + 'px');
+                $('#nav1  .scroll-hide').css('height', w + 40 + 'px');
+
+            });
+        });
+    </script>
+</body>
+</html>

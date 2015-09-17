@@ -5,9 +5,11 @@
   width: 100%;
   margin: 0;
   padding: 0;
+  overflow: visible;
 }
 
 .column {
+  overflow: visible;
   width: 100%;
   margin: 0 auto;
   padding: 0;
@@ -53,27 +55,32 @@
         width: 280px;
       }
       /*Max 2 blocks*/
-      .block {
-        background-color: gainsboro;
-        @extend .block;
-        width: 100%;
-        @include large-phone {
-          width: 50%;
-        }
-        @include tablet {
-          width: 33.33333%;
-        }
-        @include desktop {
-          width: 33.33333%;
-        }
-        @include small-desktop {
-          width: 33.33333%;
-        }
-        @include medium-desktop {
-          width: 33.33333%;
-        }
-        @include large-desktop {
+      .sidebar-blocks {
+        margin: auto;
+        max-width: 100%;
+        .block {
+          background-color: gainsboro;
+          margin: auto;
+          @extend .block;
           width: 100%;
+          @include large-phone {
+            width: 50%;
+          }
+          @include tablet {
+            width: 33.33333%;
+          }
+          @include desktop {
+            width: 33.33333%;
+          }
+          @include small-desktop {
+            width: 33.33333%;
+          }
+          @include medium-desktop {
+            width: 33.33333%;
+          }
+          @include large-desktop {
+            width: 100%;
+          }
         }
       }
 

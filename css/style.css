@@ -103,7 +103,7 @@ h4 {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 50;
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5);
   font-family: zekton, sans-serif;
   overflow: hidden;
@@ -163,14 +163,14 @@ h4 {
   float: left;
   max-width: 100%; }
 
-.scroll-hide {
+#nav .scroll-hide {
   max-width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   height: 90px; }
-  .scroll-hide .scroll-fix {
+  #nav .scroll-hide .scroll-fix {
     width: 780px; }
-  .scroll-hide a {
+  #nav .scroll-hide a {
     float: left;
     color: #ffd180;
     font-size: 20px;
@@ -178,15 +178,17 @@ h4 {
     padding: 0 20px;
     line-height: 47px;
     text-align: center; }
-    .scroll-hide a:hover {
+    #nav .scroll-hide a:hover {
       border-bottom: 3px solid #ffd180;
       text-decoration: none; }
 
 #title-bar {
   float: left;
+  z-index: 40;
+  position: relative;
   width: 100%;
   background-color: #fb8c00;
-  margin: 0 0 12px 0;
+  margin: 0;
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5); }
   @media (min-width: 720px) and (max-width: 1023px) {
     #title-bar {
@@ -289,7 +291,7 @@ h1 {
 .slick-list {
   position: relative;
   display: block;
-  overflow: hidden;
+  overflow: visible;
   margin: 0;
   padding: 0; }
 
@@ -357,35 +359,35 @@ h1 {
 .slick-arrow.slick-hidden, .slick-hidden.slick-prev, .slick-hidden.slick-next {
   display: none; }
 
-.block, .block-2, .block-3, .block-4, .block-6, .content-section .content-row .sidebar-left .block, .content-section .content-row .sidebar-left .block-2, .content-section .content-row .sidebar-left .block-3, .content-section .content-row .sidebar-left .block-4, .content-section .content-row .sidebar-left .block-6, .sidebar-right .sidebar-blocks .block, .sidebar-right .sidebar-blocks .block-2, .sidebar-right .sidebar-blocks .block-3, .sidebar-right .sidebar-blocks .block-4, .sidebar-right .sidebar-blocks .block-6 {
+.block, .block-2, .block-3, .block-4, .block-6, .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-blocks .block-6, .sidebar-right .sidebar-blocks .block, .sidebar-right .sidebar-blocks .block-2, .sidebar-right .sidebar-blocks .block-3, .sidebar-right .sidebar-blocks .block-4, .sidebar-right .sidebar-blocks .block-6 {
   float: left;
   position: relative;
   width: 100%;
   box-shadow: none;
   z-index: 0; }
-  .block:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover, .content-section .content-row .sidebar-left .block:hover, .content-section .content-row .sidebar-left .block-2:hover, .content-section .content-row .sidebar-left .block-3:hover, .content-section .content-row .sidebar-left .block-4:hover, .content-section .content-row .sidebar-left .block-6:hover, .sidebar-right .sidebar-blocks .block:hover, .sidebar-right .sidebar-blocks .block-2:hover, .sidebar-right .sidebar-blocks .block-3:hover, .sidebar-right .sidebar-blocks .block-4:hover, .sidebar-right .sidebar-blocks .block-6:hover {
+  .block:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:hover, .sidebar-right .sidebar-blocks .block:hover, .sidebar-right .sidebar-blocks .block-2:hover, .sidebar-right .sidebar-blocks .block-3:hover, .sidebar-right .sidebar-blocks .block-4:hover, .sidebar-right .sidebar-blocks .block-6:hover {
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5);
     z-index: 10; }
     @media (min-width: 720px) and (max-width: 1023px) {
-      .block:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover, .content-section .content-row .sidebar-left .block:hover, .content-section .content-row .sidebar-left .block-2:hover, .content-section .content-row .sidebar-left .block-3:hover, .content-section .content-row .sidebar-left .block-4:hover, .content-section .content-row .sidebar-left .block-6:hover, .sidebar-right .sidebar-blocks .block:hover, .sidebar-right .sidebar-blocks .block-2:hover, .sidebar-right .sidebar-blocks .block-3:hover, .sidebar-right .sidebar-blocks .block-4:hover, .sidebar-right .sidebar-blocks .block-6:hover {
+      .block:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:hover, .sidebar-right .sidebar-blocks .block:hover, .sidebar-right .sidebar-blocks .block-2:hover, .sidebar-right .sidebar-blocks .block-3:hover, .sidebar-right .sidebar-blocks .block-4:hover, .sidebar-right .sidebar-blocks .block-6:hover {
         box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5); } }
     @media (min-width: 1024px) {
-      .block:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover, .content-section .content-row .sidebar-left .block:hover, .content-section .content-row .sidebar-left .block-2:hover, .content-section .content-row .sidebar-left .block-3:hover, .content-section .content-row .sidebar-left .block-4:hover, .content-section .content-row .sidebar-left .block-6:hover, .sidebar-right .sidebar-blocks .block:hover, .sidebar-right .sidebar-blocks .block-2:hover, .sidebar-right .sidebar-blocks .block-3:hover, .sidebar-right .sidebar-blocks .block-4:hover, .sidebar-right .sidebar-blocks .block-6:hover {
+      .block:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:hover, .sidebar-right .sidebar-blocks .block:hover, .sidebar-right .sidebar-blocks .block-2:hover, .sidebar-right .sidebar-blocks .block-3:hover, .sidebar-right .sidebar-blocks .block-4:hover, .sidebar-right .sidebar-blocks .block-6:hover {
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5); } }
-  .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .content-section .content-row .sidebar-left .block:active, .content-section .content-row .sidebar-left .block-2:active, .content-section .content-row .sidebar-left .block-3:active, .content-section .content-row .sidebar-left .block-4:active, .content-section .content-row .sidebar-left .block-6:active, .sidebar-right .sidebar-blocks .block:active, .sidebar-right .sidebar-blocks .block-2:active, .sidebar-right .sidebar-blocks .block-3:active, .sidebar-right .sidebar-blocks .block-4:active, .sidebar-right .sidebar-blocks .block-6:active {
+  .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .content-section .content-row .sidebar-left .sidebar-blocks .block:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:active, .sidebar-right .sidebar-blocks .block:active, .sidebar-right .sidebar-blocks .block-2:active, .sidebar-right .sidebar-blocks .block-3:active, .sidebar-right .sidebar-blocks .block-4:active, .sidebar-right .sidebar-blocks .block-6:active {
     box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8);
     z-index: 10; }
     @media (min-width: 720px) and (max-width: 1023px) {
-      .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .content-section .content-row .sidebar-left .block:active, .content-section .content-row .sidebar-left .block-2:active, .content-section .content-row .sidebar-left .block-3:active, .content-section .content-row .sidebar-left .block-4:active, .content-section .content-row .sidebar-left .block-6:active, .sidebar-right .sidebar-blocks .block:active, .sidebar-right .sidebar-blocks .block-2:active, .sidebar-right .sidebar-blocks .block-3:active, .sidebar-right .sidebar-blocks .block-4:active, .sidebar-right .sidebar-blocks .block-6:active {
+      .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .content-section .content-row .sidebar-left .sidebar-blocks .block:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:active, .sidebar-right .sidebar-blocks .block:active, .sidebar-right .sidebar-blocks .block-2:active, .sidebar-right .sidebar-blocks .block-3:active, .sidebar-right .sidebar-blocks .block-4:active, .sidebar-right .sidebar-blocks .block-6:active {
         box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.8); } }
     @media (min-width: 1024px) {
-      .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .content-section .content-row .sidebar-left .block:active, .content-section .content-row .sidebar-left .block-2:active, .content-section .content-row .sidebar-left .block-3:active, .content-section .content-row .sidebar-left .block-4:active, .content-section .content-row .sidebar-left .block-6:active, .sidebar-right .sidebar-blocks .block:active, .sidebar-right .sidebar-blocks .block-2:active, .sidebar-right .sidebar-blocks .block-3:active, .sidebar-right .sidebar-blocks .block-4:active, .sidebar-right .sidebar-blocks .block-6:active {
+      .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .content-section .content-row .sidebar-left .sidebar-blocks .block:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:active, .sidebar-right .sidebar-blocks .block:active, .sidebar-right .sidebar-blocks .block-2:active, .sidebar-right .sidebar-blocks .block-3:active, .sidebar-right .sidebar-blocks .block-4:active, .sidebar-right .sidebar-blocks .block-6:active {
         box-shadow: 0 0 25px 2px rgba(0, 0, 0, 0.8); } }
-  .block:after, .block-2:after, .block-3:after, .block-4:after, .block-6:after, .content-section .content-row .sidebar-left .block:after, .content-section .content-row .sidebar-left .block-2:after, .content-section .content-row .sidebar-left .block-3:after, .content-section .content-row .sidebar-left .block-4:after, .content-section .content-row .sidebar-left .block-6:after, .sidebar-right .sidebar-blocks .block:after, .sidebar-right .sidebar-blocks .block-2:after, .sidebar-right .sidebar-blocks .block-3:after, .sidebar-right .sidebar-blocks .block-4:after, .sidebar-right .sidebar-blocks .block-6:after {
+  .block:after, .block-2:after, .block-3:after, .block-4:after, .block-6:after, .content-section .content-row .sidebar-left .sidebar-blocks .block:after, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:after, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:after, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:after, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:after, .sidebar-right .sidebar-blocks .block:after, .sidebar-right .sidebar-blocks .block-2:after, .sidebar-right .sidebar-blocks .block-3:after, .sidebar-right .sidebar-blocks .block-4:after, .sidebar-right .sidebar-blocks .block-6:after {
     content: "";
     display: block;
     padding-bottom: 100%; }
-  .block .block-content, .block-2 .block-content, .block-3 .block-content, .block-4 .block-content, .block-6 .block-content, .content-section .content-row .sidebar-left .block .block-content, .content-section .content-row .sidebar-left .block-2 .block-content, .content-section .content-row .sidebar-left .block-3 .block-content, .content-section .content-row .sidebar-left .block-4 .block-content, .content-section .content-row .sidebar-left .block-6 .block-content, .sidebar-right .sidebar-blocks .block .block-content, .sidebar-right .sidebar-blocks .block-2 .block-content, .sidebar-right .sidebar-blocks .block-3 .block-content, .sidebar-right .sidebar-blocks .block-4 .block-content, .sidebar-right .sidebar-blocks .block-6 .block-content {
+  .block .block-content, .block-2 .block-content, .block-3 .block-content, .block-4 .block-content, .block-6 .block-content, .content-section .content-row .sidebar-left .sidebar-blocks .block .block-content, .content-section .content-row .sidebar-left .sidebar-blocks .block-2 .block-content, .content-section .content-row .sidebar-left .sidebar-blocks .block-3 .block-content, .content-section .content-row .sidebar-left .sidebar-blocks .block-4 .block-content, .content-section .content-row .sidebar-left .sidebar-blocks .block-6 .block-content, .sidebar-right .sidebar-blocks .block .block-content, .sidebar-right .sidebar-blocks .block-2 .block-content, .sidebar-right .sidebar-blocks .block-3 .block-content, .sidebar-right .sidebar-blocks .block-4 .block-content, .sidebar-right .sidebar-blocks .block-6 .block-content {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -410,6 +412,7 @@ h1 {
       width: 33.3333%; } }
 
 .block-4 {
+  background-color: #ffb74d;
   width: 100%; }
   @media (min-width: 480px) and (max-width: 719px) {
     .block-4 {
@@ -433,35 +436,65 @@ h1 {
     .block-6 {
       width: 16.66666%; } }
 
-.block, .block-2, .block-3, .block-4, .block-6, .content-section .content-row .sidebar-left .block, .content-section .content-row .sidebar-left .block-2, .content-section .content-row .sidebar-left .block-3, .content-section .content-row .sidebar-left .block-4, .content-section .content-row .sidebar-left .block-6, .sidebar-right .sidebar-blocks .block, .sidebar-right .sidebar-blocks .block-2, .sidebar-right .sidebar-blocks .block-3, .sidebar-right .sidebar-blocks .block-4, .sidebar-right .sidebar-blocks .block-6 {
+#nav1 {
+  height: auto;
+  overflow-y: hidden;
+  overflow-x: visible;
+  width: 100%;
+  margin: auto; }
+
+#nav1 .scroll-hide {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  height: auto; }
+  #nav1 .scroll-hide .scroll-fix {
+    overflow-x: visible;
+    width: auto;
+    /* Arbitrarily Large enough to fit everything.
+         Does change how the whole slider floats though */ }
+  #nav1 .scroll-hide a {
+    float: left;
+    color: #ffd180;
+    font-size: 20px;
+    width: 200px;
+    height: 240px;
+    padding: 0 20px;
+    line-height: 200px;
+    text-align: center; }
+    #nav1 .scroll-hide a:hover {
+      border-bottom: 3px solid #ffd180;
+      text-decoration: none; }
+
+.block, .block-2, .block-3, .block-4, .block-6, .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-blocks .block-6, .sidebar-right .sidebar-blocks .block, .sidebar-right .sidebar-blocks .block-2, .sidebar-right .sidebar-blocks .block-3, .sidebar-right .sidebar-blocks .block-4, .sidebar-right .sidebar-blocks .block-6 {
   float: left;
   position: relative;
   width: 100%;
   box-shadow: none;
   z-index: 0; }
-  .block:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover, .content-section .content-row .sidebar-left .block:hover, .content-section .content-row .sidebar-left .block-2:hover, .content-section .content-row .sidebar-left .block-3:hover, .content-section .content-row .sidebar-left .block-4:hover, .content-section .content-row .sidebar-left .block-6:hover, .sidebar-right .sidebar-blocks .block:hover, .sidebar-right .sidebar-blocks .block-2:hover, .sidebar-right .sidebar-blocks .block-3:hover, .sidebar-right .sidebar-blocks .block-4:hover, .sidebar-right .sidebar-blocks .block-6:hover {
+  .block:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:hover, .sidebar-right .sidebar-blocks .block:hover, .sidebar-right .sidebar-blocks .block-2:hover, .sidebar-right .sidebar-blocks .block-3:hover, .sidebar-right .sidebar-blocks .block-4:hover, .sidebar-right .sidebar-blocks .block-6:hover {
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5);
     z-index: 10; }
     @media (min-width: 720px) and (max-width: 1023px) {
-      .block:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover, .content-section .content-row .sidebar-left .block:hover, .content-section .content-row .sidebar-left .block-2:hover, .content-section .content-row .sidebar-left .block-3:hover, .content-section .content-row .sidebar-left .block-4:hover, .content-section .content-row .sidebar-left .block-6:hover, .sidebar-right .sidebar-blocks .block:hover, .sidebar-right .sidebar-blocks .block-2:hover, .sidebar-right .sidebar-blocks .block-3:hover, .sidebar-right .sidebar-blocks .block-4:hover, .sidebar-right .sidebar-blocks .block-6:hover {
+      .block:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:hover, .sidebar-right .sidebar-blocks .block:hover, .sidebar-right .sidebar-blocks .block-2:hover, .sidebar-right .sidebar-blocks .block-3:hover, .sidebar-right .sidebar-blocks .block-4:hover, .sidebar-right .sidebar-blocks .block-6:hover {
         box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5); } }
     @media (min-width: 1024px) {
-      .block:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover, .content-section .content-row .sidebar-left .block:hover, .content-section .content-row .sidebar-left .block-2:hover, .content-section .content-row .sidebar-left .block-3:hover, .content-section .content-row .sidebar-left .block-4:hover, .content-section .content-row .sidebar-left .block-6:hover, .sidebar-right .sidebar-blocks .block:hover, .sidebar-right .sidebar-blocks .block-2:hover, .sidebar-right .sidebar-blocks .block-3:hover, .sidebar-right .sidebar-blocks .block-4:hover, .sidebar-right .sidebar-blocks .block-6:hover {
+      .block:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:hover, .sidebar-right .sidebar-blocks .block:hover, .sidebar-right .sidebar-blocks .block-2:hover, .sidebar-right .sidebar-blocks .block-3:hover, .sidebar-right .sidebar-blocks .block-4:hover, .sidebar-right .sidebar-blocks .block-6:hover {
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5); } }
-  .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .content-section .content-row .sidebar-left .block:active, .content-section .content-row .sidebar-left .block-2:active, .content-section .content-row .sidebar-left .block-3:active, .content-section .content-row .sidebar-left .block-4:active, .content-section .content-row .sidebar-left .block-6:active, .sidebar-right .sidebar-blocks .block:active, .sidebar-right .sidebar-blocks .block-2:active, .sidebar-right .sidebar-blocks .block-3:active, .sidebar-right .sidebar-blocks .block-4:active, .sidebar-right .sidebar-blocks .block-6:active {
+  .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .content-section .content-row .sidebar-left .sidebar-blocks .block:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:active, .sidebar-right .sidebar-blocks .block:active, .sidebar-right .sidebar-blocks .block-2:active, .sidebar-right .sidebar-blocks .block-3:active, .sidebar-right .sidebar-blocks .block-4:active, .sidebar-right .sidebar-blocks .block-6:active {
     box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8);
     z-index: 10; }
     @media (min-width: 720px) and (max-width: 1023px) {
-      .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .content-section .content-row .sidebar-left .block:active, .content-section .content-row .sidebar-left .block-2:active, .content-section .content-row .sidebar-left .block-3:active, .content-section .content-row .sidebar-left .block-4:active, .content-section .content-row .sidebar-left .block-6:active, .sidebar-right .sidebar-blocks .block:active, .sidebar-right .sidebar-blocks .block-2:active, .sidebar-right .sidebar-blocks .block-3:active, .sidebar-right .sidebar-blocks .block-4:active, .sidebar-right .sidebar-blocks .block-6:active {
+      .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .content-section .content-row .sidebar-left .sidebar-blocks .block:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:active, .sidebar-right .sidebar-blocks .block:active, .sidebar-right .sidebar-blocks .block-2:active, .sidebar-right .sidebar-blocks .block-3:active, .sidebar-right .sidebar-blocks .block-4:active, .sidebar-right .sidebar-blocks .block-6:active {
         box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.8); } }
     @media (min-width: 1024px) {
-      .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .content-section .content-row .sidebar-left .block:active, .content-section .content-row .sidebar-left .block-2:active, .content-section .content-row .sidebar-left .block-3:active, .content-section .content-row .sidebar-left .block-4:active, .content-section .content-row .sidebar-left .block-6:active, .sidebar-right .sidebar-blocks .block:active, .sidebar-right .sidebar-blocks .block-2:active, .sidebar-right .sidebar-blocks .block-3:active, .sidebar-right .sidebar-blocks .block-4:active, .sidebar-right .sidebar-blocks .block-6:active {
+      .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .content-section .content-row .sidebar-left .sidebar-blocks .block:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:active, .sidebar-right .sidebar-blocks .block:active, .sidebar-right .sidebar-blocks .block-2:active, .sidebar-right .sidebar-blocks .block-3:active, .sidebar-right .sidebar-blocks .block-4:active, .sidebar-right .sidebar-blocks .block-6:active {
         box-shadow: 0 0 25px 2px rgba(0, 0, 0, 0.8); } }
-  .block:after, .block-2:after, .block-3:after, .block-4:after, .block-6:after, .content-section .content-row .sidebar-left .block:after, .content-section .content-row .sidebar-left .block-2:after, .content-section .content-row .sidebar-left .block-3:after, .content-section .content-row .sidebar-left .block-4:after, .content-section .content-row .sidebar-left .block-6:after, .sidebar-right .sidebar-blocks .block:after, .sidebar-right .sidebar-blocks .block-2:after, .sidebar-right .sidebar-blocks .block-3:after, .sidebar-right .sidebar-blocks .block-4:after, .sidebar-right .sidebar-blocks .block-6:after {
+  .block:after, .block-2:after, .block-3:after, .block-4:after, .block-6:after, .content-section .content-row .sidebar-left .sidebar-blocks .block:after, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:after, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:after, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:after, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:after, .sidebar-right .sidebar-blocks .block:after, .sidebar-right .sidebar-blocks .block-2:after, .sidebar-right .sidebar-blocks .block-3:after, .sidebar-right .sidebar-blocks .block-4:after, .sidebar-right .sidebar-blocks .block-6:after {
     content: "";
     display: block;
     padding-bottom: 100%; }
-  .block .block-content, .block-2 .block-content, .block-3 .block-content, .block-4 .block-content, .block-6 .block-content, .content-section .content-row .sidebar-left .block .block-content, .content-section .content-row .sidebar-left .block-2 .block-content, .content-section .content-row .sidebar-left .block-3 .block-content, .content-section .content-row .sidebar-left .block-4 .block-content, .content-section .content-row .sidebar-left .block-6 .block-content, .sidebar-right .sidebar-blocks .block .block-content, .sidebar-right .sidebar-blocks .block-2 .block-content, .sidebar-right .sidebar-blocks .block-3 .block-content, .sidebar-right .sidebar-blocks .block-4 .block-content, .sidebar-right .sidebar-blocks .block-6 .block-content {
+  .block .block-content, .block-2 .block-content, .block-3 .block-content, .block-4 .block-content, .block-6 .block-content, .content-section .content-row .sidebar-left .sidebar-blocks .block .block-content, .content-section .content-row .sidebar-left .sidebar-blocks .block-2 .block-content, .content-section .content-row .sidebar-left .sidebar-blocks .block-3 .block-content, .content-section .content-row .sidebar-left .sidebar-blocks .block-4 .block-content, .content-section .content-row .sidebar-left .sidebar-blocks .block-6 .block-content, .sidebar-right .sidebar-blocks .block .block-content, .sidebar-right .sidebar-blocks .block-2 .block-content, .sidebar-right .sidebar-blocks .block-3 .block-content, .sidebar-right .sidebar-blocks .block-4 .block-content, .sidebar-right .sidebar-blocks .block-6 .block-content {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -486,6 +519,7 @@ h1 {
       width: 33.3333%; } }
 
 .block-4 {
+  background-color: #ffb74d;
   width: 100%; }
   @media (min-width: 480px) and (max-width: 719px) {
     .block-4 {
@@ -508,13 +542,45 @@ h1 {
   @media (min-width: 1024px) {
     .block-6 {
       width: 16.66666%; } }
+
+#nav1 {
+  height: auto;
+  overflow-y: hidden;
+  overflow-x: visible;
+  width: 100%;
+  margin: auto; }
+
+#nav1 .scroll-hide {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  height: auto; }
+  #nav1 .scroll-hide .scroll-fix {
+    overflow-x: visible;
+    width: auto;
+    /* Arbitrarily Large enough to fit everything.
+         Does change how the whole slider floats though */ }
+  #nav1 .scroll-hide a {
+    float: left;
+    color: #ffd180;
+    font-size: 20px;
+    width: 200px;
+    height: 240px;
+    padding: 0 20px;
+    line-height: 200px;
+    text-align: center; }
+    #nav1 .scroll-hide a:hover {
+      border-bottom: 3px solid #ffd180;
+      text-decoration: none; }
 
 .row {
   width: 100%;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  overflow: visible; }
 
 .column {
+  overflow: visible;
   width: 100%;
   margin: 0 auto;
   padding: 0; }
@@ -557,27 +623,31 @@ h1 {
       @media (min-width: 1440px) {
         .content-section .content-row .sidebar-left {
           width: 280px; } }
-      .content-section .content-row .sidebar-left .block, .content-section .content-row .sidebar-left .block-2, .content-section .content-row .sidebar-left .block-3, .content-section .content-row .sidebar-left .block-4, .content-section .content-row .sidebar-left .block-6 {
-        background-color: gainsboro;
-        width: 100%; }
-        @media (min-width: 480px) and (max-width: 719px) {
-          .content-section .content-row .sidebar-left .block, .content-section .content-row .sidebar-left .block-2, .content-section .content-row .sidebar-left .block-3, .content-section .content-row .sidebar-left .block-4, .content-section .content-row .sidebar-left .block-6 {
-            width: 50%; } }
-        @media (min-width: 720px) and (max-width: 1023px) {
-          .content-section .content-row .sidebar-left .block, .content-section .content-row .sidebar-left .block-2, .content-section .content-row .sidebar-left .block-3, .content-section .content-row .sidebar-left .block-4, .content-section .content-row .sidebar-left .block-6 {
-            width: 33.33333%; } }
-        @media (min-width: 1024px) {
-          .content-section .content-row .sidebar-left .block, .content-section .content-row .sidebar-left .block-2, .content-section .content-row .sidebar-left .block-3, .content-section .content-row .sidebar-left .block-4, .content-section .content-row .sidebar-left .block-6 {
-            width: 33.33333%; } }
-        @media (min-width: 1024px) and (max-width: 1279px) {
-          .content-section .content-row .sidebar-left .block, .content-section .content-row .sidebar-left .block-2, .content-section .content-row .sidebar-left .block-3, .content-section .content-row .sidebar-left .block-4, .content-section .content-row .sidebar-left .block-6 {
-            width: 33.33333%; } }
-        @media (min-width: 1280px) and (max-width: 1439px) {
-          .content-section .content-row .sidebar-left .block, .content-section .content-row .sidebar-left .block-2, .content-section .content-row .sidebar-left .block-3, .content-section .content-row .sidebar-left .block-4, .content-section .content-row .sidebar-left .block-6 {
-            width: 33.33333%; } }
-        @media (min-width: 1440px) {
-          .content-section .content-row .sidebar-left .block, .content-section .content-row .sidebar-left .block-2, .content-section .content-row .sidebar-left .block-3, .content-section .content-row .sidebar-left .block-4, .content-section .content-row .sidebar-left .block-6 {
-            width: 100%; } }
+      .content-section .content-row .sidebar-left .sidebar-blocks {
+        margin: auto;
+        max-width: 100%; }
+        .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-blocks .block-6 {
+          background-color: gainsboro;
+          margin: auto;
+          width: 100%; }
+          @media (min-width: 480px) and (max-width: 719px) {
+            .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-blocks .block-6 {
+              width: 50%; } }
+          @media (min-width: 720px) and (max-width: 1023px) {
+            .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-blocks .block-6 {
+              width: 33.33333%; } }
+          @media (min-width: 1024px) {
+            .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-blocks .block-6 {
+              width: 33.33333%; } }
+          @media (min-width: 1024px) and (max-width: 1279px) {
+            .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-blocks .block-6 {
+              width: 33.33333%; } }
+          @media (min-width: 1280px) and (max-width: 1439px) {
+            .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-blocks .block-6 {
+              width: 33.33333%; } }
+          @media (min-width: 1440px) {
+            .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-blocks .block-6 {
+              width: 100%; } }
     .content-section .content-row .content {
       float: left;
       margin: 0;
@@ -602,20 +672,20 @@ h1 {
     width: 100%;
     display: flex;
     flex-flow: row wrap; }
-    .sidebar-right .sidebar-blocks .content-section .content-row .sidebar-left .block, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block, .sidebar-right .sidebar-blocks .content-section .content-row .sidebar-left .block-2, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-2, .sidebar-right .sidebar-blocks .content-section .content-row .sidebar-left .block-3, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-3, .sidebar-right .sidebar-blocks .content-section .content-row .sidebar-left .block-4, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-4, .sidebar-right .sidebar-blocks .content-section .content-row .sidebar-left .block-6, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-6, .sidebar-right .sidebar-blocks .block, .sidebar-right .sidebar-blocks .block-2, .sidebar-right .sidebar-blocks .block-3, .sidebar-right .sidebar-blocks .block-4, .sidebar-right .sidebar-blocks .block-6 {
+    .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-2, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-3, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-4, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-6, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-6, .sidebar-right .sidebar-blocks .block, .sidebar-right .sidebar-blocks .block-2, .sidebar-right .sidebar-blocks .block-3, .sidebar-right .sidebar-blocks .block-4, .sidebar-right .sidebar-blocks .block-6 {
       flex: 1 1 auto;
       width: 100%;
       min-width: 100%; }
       @media (min-width: 480px) and (max-width: 719px) {
-        .sidebar-right .sidebar-blocks .content-section .content-row .sidebar-left .block, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block, .sidebar-right .sidebar-blocks .content-section .content-row .sidebar-left .block-2, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-2, .sidebar-right .sidebar-blocks .content-section .content-row .sidebar-left .block-3, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-3, .sidebar-right .sidebar-blocks .content-section .content-row .sidebar-left .block-4, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-4, .sidebar-right .sidebar-blocks .content-section .content-row .sidebar-left .block-6, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-6, .sidebar-right .sidebar-blocks .block, .sidebar-right .sidebar-blocks .block-2, .sidebar-right .sidebar-blocks .block-3, .sidebar-right .sidebar-blocks .block-4, .sidebar-right .sidebar-blocks .block-6 {
+        .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-2, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-3, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-4, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-6, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-6, .sidebar-right .sidebar-blocks .block, .sidebar-right .sidebar-blocks .block-2, .sidebar-right .sidebar-blocks .block-3, .sidebar-right .sidebar-blocks .block-4, .sidebar-right .sidebar-blocks .block-6 {
           width: 50%;
           min-width: 50%; } }
       @media (min-width: 720px) and (max-width: 1023px) {
-        .sidebar-right .sidebar-blocks .content-section .content-row .sidebar-left .block, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block, .sidebar-right .sidebar-blocks .content-section .content-row .sidebar-left .block-2, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-2, .sidebar-right .sidebar-blocks .content-section .content-row .sidebar-left .block-3, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-3, .sidebar-right .sidebar-blocks .content-section .content-row .sidebar-left .block-4, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-4, .sidebar-right .sidebar-blocks .content-section .content-row .sidebar-left .block-6, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-6, .sidebar-right .sidebar-blocks .block, .sidebar-right .sidebar-blocks .block-2, .sidebar-right .sidebar-blocks .block-3, .sidebar-right .sidebar-blocks .block-4, .sidebar-right .sidebar-blocks .block-6 {
+        .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-2, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-3, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-4, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-6, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-6, .sidebar-right .sidebar-blocks .block, .sidebar-right .sidebar-blocks .block-2, .sidebar-right .sidebar-blocks .block-3, .sidebar-right .sidebar-blocks .block-4, .sidebar-right .sidebar-blocks .block-6 {
           width: 33%;
           min-width: 33%; } }
       @media (min-width: 1024px) {
-        .sidebar-right .sidebar-blocks .content-section .content-row .sidebar-left .block, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block, .sidebar-right .sidebar-blocks .content-section .content-row .sidebar-left .block-2, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-2, .sidebar-right .sidebar-blocks .content-section .content-row .sidebar-left .block-3, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-3, .sidebar-right .sidebar-blocks .content-section .content-row .sidebar-left .block-4, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-4, .sidebar-right .sidebar-blocks .content-section .content-row .sidebar-left .block-6, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-6, .sidebar-right .sidebar-blocks .block, .sidebar-right .sidebar-blocks .block-2, .sidebar-right .sidebar-blocks .block-3, .sidebar-right .sidebar-blocks .block-4, .sidebar-right .sidebar-blocks .block-6 {
+        .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-2, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-3, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-4, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-6, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-6, .sidebar-right .sidebar-blocks .block, .sidebar-right .sidebar-blocks .block-2, .sidebar-right .sidebar-blocks .block-3, .sidebar-right .sidebar-blocks .block-4, .sidebar-right .sidebar-blocks .block-6 {
           width: 100%;
           min-width: 100%; } }
   .sidebar-right .page-nav {

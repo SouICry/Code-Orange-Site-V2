@@ -1,8 +1,11 @@
 #title-bar {
   float: left;
+  z-index: 40;
+  position: relative;
   width: 100%;
   background-color: $orange-darken-1;
-  margin: 0 0 12px 0;
+  margin: 0;
+
   @include outline-shadow;
 
 

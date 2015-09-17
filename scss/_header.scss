@@ -6,7 +6,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 50;
   @include outline-shadow;
 
   font-family: zekton, sans-serif;
@@ -73,7 +73,7 @@
   max-width:100%;
 }
 
-.scroll-hide  {
+#nav .scroll-hide  {
   max-width:100%;
   overflow-x: auto;
   overflow-y: hidden;
@@ -96,6 +96,7 @@
     }
   }
 }
+
 
 
 
