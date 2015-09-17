@@ -5,6 +5,7 @@
 
 @import 'text';
 @import 'header';
+@import 'title-bar';
 @import 'footer';
 @import 'carousel';
 @import 'layout_block';
@@ -15,8 +16,6 @@
 .outline {
   border: 3px solid red;
 }
-
-
 
 
 
@@ -37,8 +36,3 @@ body {
 }
 
 
-#title-bar {
-  background-color: $orange;
-  min-height: 150px;
-  width: 100%;
-}

@@ -1,0 +1,60 @@
+#title-bar {
+  float: left;
+  width: 100%;
+  background-color: $orange-darken-1;
+  margin: 0 0 12px 0;
+  @include outline-shadow;
+
+
+  span {
+    @extend .heading;
+    display: block;
+    float: left;
+    color: $orange-accent-1;
+
+    font-size: 24px;
+    line-height: 46px;
+    margin: 52px 0 16px 8px;
+    @include tablet {
+      font-size: 26px;
+      line-height: 50px;
+      margin: 75px 0 20px 8px;
+    }
+    @include desktop {
+      font-size:28px;
+      line-height: 54px;
+      margin: 130px 0 24px 8px;
+    }
+  }
+}
+
+h1 {
+  float: left;
+  @extend .heading;
+  color: $orange-accent-1;
+
+  font-size: 46px;
+  @include tablet {
+    font-size: 50px;
+  }
+  @include desktop {
+    font-size:54px;
+  }
+}
+
+h1 {
+  margin: 42px 5px 16px 20px;
+  @include tablet {
+    margin: 63px 10px 20px 30px;
+  }
+  @include small-desktop {
+    margin: 84px 20px 24px 40px;
+  }
+  @include medium-desktop {
+    margin: 84px 40px 24px 40px;
+  }
+  @include large-desktop {
+    margin: 84px 60px 24px 40px;
+  }
+
+}

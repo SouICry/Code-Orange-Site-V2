@@ -1,5 +1,4 @@
 
-
 p {
   margin: 0 5px 16px 10px;
   @include tablet {
@@ -16,51 +15,41 @@ p {
   }
 }
 
-h1 {
-  @extend p;
 
-  margin-top:42px;
-  @include tablet {
-    margin-top:63px;
-  }
-  @include desktop {
-    margin-top:84px;
-  }
-}
 
 h2 {
   @extend p;
 
-  margin-top:36px;
+  margin-top: 36px;
   @include tablet {
-    margin-top:54px;
+    margin-top: 54px;
   }
   @include desktop {
-    margin-top:72px;
+    margin-top: 72px;
   }
 }
 
 h3 {
   @extend p;
 
-  margin-top:30px;
+  margin-top: 30px;
   @include tablet {
-    margin-top:45px;
+    margin-top: 45px;
   }
   @include desktop {
-    margin-top:60px;
+    margin-top: 60px;
   }
 }
 
 h4 {
   @extend p;
 
-  margin-top:24px;
+  margin-top: 24px;
   @include tablet {
-    margin-top:36px;
+    margin-top: 36px;
   }
   @include desktop {
-    margin-top:48px;
+    margin-top: 48px;
   }
 }
 
