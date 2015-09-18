@@ -34,9 +34,10 @@ Robots
 		...
 FIRST
 	- Section 1
+		About FIRST
 		OC FRC Teams
-	- Section 2
-		Games
+	- Section 2: Games
+		...
 
 Tutorials
 	- Section 1

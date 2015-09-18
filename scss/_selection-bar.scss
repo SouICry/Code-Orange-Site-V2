@@ -1,0 +1,117 @@
+#selection-bar {
+  float: left;
+  z-index: 40;
+  position: relative;
+  width: 100%;
+  background-color: $orange-darken-1;
+  margin: 0;
+
+  @include outline-shadow;
+}
+
+
+
+$slider-item-height: 200px;
+$slider-item-width: 200px;
+$slider-item-padding: 0;
+
+$hide-scrollbar: 40px;
+/* Arbitrarily large enough */
+$max-slider-width: 9001px;
+/* Arbitrarily large enough to fit all items horizontally in nav mode. Or cutoff beyond this point*/
+
+$slider-item-outline-shadow-size: 10px;
+/* Only if using outline-shadow*/
+
+.selection-content {
+  .slider {
+    height: auto;
+  }
+  .slider .scroll-hide {
+    overflow-y: visible;
+    height: auto;
+  }
+  .slider .scroll-fix {
+    width: auto;
+  }
+  .slider a {
+    width: calc(25% - #{$slider-item-outline-shadow-size * 2});
+    margin: $slider-item-outline-shadow-size;
+
+      &:after {
+      content: "";
+      display: block;
+      //padding-bottom: calc(100% - #{$hide-scrollbar - $slider-item-outline-shadow-size});
+      padding-bottom: 100%;
+    }
+    &:hover {
+      @include outline-shadow;
+      background-color: rgba(200, 200, 200, 0.05);
+      text-decoration: none;
+    }
+    &:active {
+      @include emphasis-shadow;
+      background-color: rgba(200, 200, 200, 0.08);
+      text-decoration: none;
+    }
+  }
+}
+
+.selection-nav {
+  .slider {
+    height: $slider-item-height;
+  }
+  .slider .scroll-hide {
+    overflow-y: hidden;
+    height: $slider-item-height + $hide-scrollbar;
+  }
+  .slider .scroll-fix {
+    width: $max-slider-width;
+  }
+  .slider a {
+    margin: 0;
+    width: $slider-item-width;
+    height: $slider-item-height;
+    line-height: $slider-item-height;
+    &:hover {
+      border-bottom: $slider-item-height * 0.02 solid $orange-accent-1;
+      text-decoration: none;
+    }
+    &:active {
+      border-bottom: $slider-item-height * 0.02 solid $orange-accent-1;
+      text-decoration: none;
+    }
+  }
+}
+
+.slider {
+  overflow-y: hidden;
+  overflow-x: visible;
+  width: 100%;
+  margin: auto;
+}
+
+.slider .scroll-hide {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.slider .scroll-fix {
+  overflow-x: visible;
+}
+
+.slider a {
+  position: relative;
+  float: left;
+  color: $orange-accent-1;
+  font-size: 20px;
+  padding: $slider-item-padding;
+  text-align: center;
+  background-color: transparent;
+}
+
+.slider-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}

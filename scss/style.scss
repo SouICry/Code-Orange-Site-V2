@@ -5,12 +5,13 @@
 
 @import 'text';
 @import 'header';
-@import 'title-bar';
+@import 'selection-bar';
 @import 'footer';
 @import 'carousel';
 @import 'layout_block';
 @import 'layout_structure';
 @import 'layout_content';
+@import 'title';
 
 
 .outline {
@@ -31,8 +32,5 @@ body {
   padding: 0;
 }
 
-#body {
-
-}
 
 

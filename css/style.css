@@ -63,7 +63,7 @@ a {
 #header {
   font-family: zekton, sans-serif; }
 
-.heading, h2, h3, h4, #title-bar span, h1 {
+.heading, h2, h3, h4, .title span, h1 {
   font-family: zekton, sans-serif;
   font-weight: bold; }
 
@@ -182,7 +182,7 @@ h4 {
       border-bottom: 3px solid #ffd180;
       text-decoration: none; }
 
-#title-bar {
+#selection-bar {
   float: left;
   z-index: 40;
   position: relative;
@@ -191,57 +191,100 @@ h4 {
   margin: 0;
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5); }
   @media (min-width: 720px) and (max-width: 1023px) {
-    #title-bar {
+    #selection-bar {
       box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5); } }
   @media (min-width: 1024px) {
-    #title-bar {
+    #selection-bar {
       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5); } }
-  #title-bar span {
-    display: block;
-    float: left;
-    color: #ffd180;
-    font-size: 24px;
-    line-height: 46px;
-    margin: 52px 0 16px 8px; }
-    @media (min-width: 720px) and (max-width: 1023px) {
-      #title-bar span {
-        font-size: 26px;
-        line-height: 50px;
-        margin: 75px 0 20px 8px; } }
-    @media (min-width: 1024px) {
-      #title-bar span {
-        font-size: 28px;
-        line-height: 54px;
-        margin: 130px 0 24px 8px; } }
 
-h1 {
+/* Arbitrarily large enough */
+/* Arbitrarily large enough to fit all items horizontally in nav mode. Or cutoff beyond this point*/
+/* Only if using outline-shadow*/
+.selection-content .slider {
+  height: auto; }
+.selection-content .slider .scroll-hide {
+  overflow-y: visible;
+  height: auto; }
+.selection-content .slider .scroll-fix {
+  width: auto; }
+.selection-content .slider a {
+  width: calc(25% - 20px);
+  margin: 10px; }
+  .selection-content .slider a:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%; }
+  .selection-content .slider a:hover {
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5);
+    background-color: rgba(200, 200, 200, 0.05);
+    text-decoration: none; }
+    @media (min-width: 720px) and (max-width: 1023px) {
+      .selection-content .slider a:hover {
+        box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5); } }
+    @media (min-width: 1024px) {
+      .selection-content .slider a:hover {
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5); } }
+  .selection-content .slider a:active {
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8);
+    background-color: rgba(200, 200, 200, 0.08);
+    text-decoration: none; }
+    @media (min-width: 720px) and (max-width: 1023px) {
+      .selection-content .slider a:active {
+        box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.8); } }
+    @media (min-width: 1024px) {
+      .selection-content .slider a:active {
+        box-shadow: 0 0 25px 0px rgba(0, 0, 0, 0.8); } }
+
+.selection-nav .slider {
+  height: 200px; }
+.selection-nav .slider .scroll-hide {
+  overflow-y: hidden;
+  height: 240px; }
+.selection-nav .slider .scroll-fix {
+  width: 9001px; }
+.selection-nav .slider a {
+  margin: 0;
+  width: 200px;
+  height: 200px;
+  line-height: 200px; }
+  .selection-nav .slider a:hover {
+    border-bottom: 4px solid #ffd180;
+    text-decoration: none; }
+  .selection-nav .slider a:active {
+    border-bottom: 4px solid #ffd180;
+    text-decoration: none; }
+
+.slider {
+  overflow-y: hidden;
+  overflow-x: visible;
+  width: 100%;
+  margin: auto; }
+
+.slider .scroll-hide {
+  max-width: 100%;
+  overflow-x: auto; }
+
+.slider .scroll-fix {
+  overflow-x: visible; }
+
+.slider a {
+  position: relative;
   float: left;
   color: #ffd180;
-  font-size: 46px; }
-  @media (min-width: 720px) and (max-width: 1023px) {
-    h1 {
-      font-size: 50px; } }
-  @media (min-width: 1024px) {
-    h1 {
-      font-size: 54px; } }
+  font-size: 20px;
+  padding: 0;
+  text-align: center;
+  background-color: transparent; }
 
-h1 {
-  margin: 42px 5px 16px 20px; }
-  @media (min-width: 720px) and (max-width: 1023px) {
-    h1 {
-      margin: 63px 10px 20px 30px; } }
-  @media (min-width: 1024px) and (max-width: 1279px) {
-    h1 {
-      margin: 84px 20px 24px 40px; } }
-  @media (min-width: 1280px) and (max-width: 1439px) {
-    h1 {
-      margin: 84px 40px 24px 40px; } }
-  @media (min-width: 1440px) {
-    h1 {
-      margin: 84px 60px 24px 40px; } }
+.slider-content {
+  position: absolute;
+  width: 100%;
+  height: 100%; }
 
 #footer {
-  background-color: #80cbc4;
+  position: relative;
+  float: left;
+  background-color: #0097a7;
   height: 250px;
   z-index: 1;
   width: 100%; }
@@ -379,10 +422,10 @@ h1 {
     z-index: 10; }
     @media (min-width: 720px) and (max-width: 1023px) {
       .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .content-section .content-row .sidebar-left .sidebar-blocks .block:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:active, .sidebar-right .sidebar-blocks .block:active, .sidebar-right .sidebar-blocks .block-2:active, .sidebar-right .sidebar-blocks .block-3:active, .sidebar-right .sidebar-blocks .block-4:active, .sidebar-right .sidebar-blocks .block-6:active {
-        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.8); } }
+        box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.8); } }
     @media (min-width: 1024px) {
       .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .content-section .content-row .sidebar-left .sidebar-blocks .block:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:active, .sidebar-right .sidebar-blocks .block:active, .sidebar-right .sidebar-blocks .block-2:active, .sidebar-right .sidebar-blocks .block-3:active, .sidebar-right .sidebar-blocks .block-4:active, .sidebar-right .sidebar-blocks .block-6:active {
-        box-shadow: 0 0 25px 2px rgba(0, 0, 0, 0.8); } }
+        box-shadow: 0 0 25px 0px rgba(0, 0, 0, 0.8); } }
   .block:after, .block-2:after, .block-3:after, .block-4:after, .block-6:after, .content-section .content-row .sidebar-left .sidebar-blocks .block:after, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:after, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:after, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:after, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:after, .sidebar-right .sidebar-blocks .block:after, .sidebar-right .sidebar-blocks .block-2:after, .sidebar-right .sidebar-blocks .block-3:after, .sidebar-right .sidebar-blocks .block-4:after, .sidebar-right .sidebar-blocks .block-6:after {
     content: "";
     display: block;
@@ -390,6 +433,8 @@ h1 {
   .block .block-content, .block-2 .block-content, .block-3 .block-content, .block-4 .block-content, .block-6 .block-content, .content-section .content-row .sidebar-left .sidebar-blocks .block .block-content, .content-section .content-row .sidebar-left .sidebar-blocks .block-2 .block-content, .content-section .content-row .sidebar-left .sidebar-blocks .block-3 .block-content, .content-section .content-row .sidebar-left .sidebar-blocks .block-4 .block-content, .content-section .content-row .sidebar-left .sidebar-blocks .block-6 .block-content, .sidebar-right .sidebar-blocks .block .block-content, .sidebar-right .sidebar-blocks .block-2 .block-content, .sidebar-right .sidebar-blocks .block-3 .block-content, .sidebar-right .sidebar-blocks .block-4 .block-content, .sidebar-right .sidebar-blocks .block-6 .block-content {
     width: 100%;
     height: 100%;
+    top: 0;
+    left: 0;
     position: absolute;
     background-color: gainsboro; }
 
@@ -435,36 +480,6 @@ h1 {
   @media (min-width: 1024px) {
     .block-6 {
       width: 16.66666%; } }
-
-#nav1 {
-  height: auto;
-  overflow-y: hidden;
-  overflow-x: visible;
-  width: 100%;
-  margin: auto; }
-
-#nav1 .scroll-hide {
-  max-width: 100%;
-  overflow-x: auto;
-  overflow-y: visible;
-  height: auto; }
-  #nav1 .scroll-hide .scroll-fix {
-    overflow-x: visible;
-    width: auto;
-    /* Arbitrarily Large enough to fit everything.
-         Does change how the whole slider floats though */ }
-  #nav1 .scroll-hide a {
-    float: left;
-    color: #ffd180;
-    font-size: 20px;
-    width: 200px;
-    height: 240px;
-    padding: 0 20px;
-    line-height: 200px;
-    text-align: center; }
-    #nav1 .scroll-hide a:hover {
-      border-bottom: 3px solid #ffd180;
-      text-decoration: none; }
 
 .block, .block-2, .block-3, .block-4, .block-6, .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-blocks .block-6, .sidebar-right .sidebar-blocks .block, .sidebar-right .sidebar-blocks .block-2, .sidebar-right .sidebar-blocks .block-3, .sidebar-right .sidebar-blocks .block-4, .sidebar-right .sidebar-blocks .block-6 {
   float: left;
@@ -486,10 +501,10 @@ h1 {
     z-index: 10; }
     @media (min-width: 720px) and (max-width: 1023px) {
       .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .content-section .content-row .sidebar-left .sidebar-blocks .block:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:active, .sidebar-right .sidebar-blocks .block:active, .sidebar-right .sidebar-blocks .block-2:active, .sidebar-right .sidebar-blocks .block-3:active, .sidebar-right .sidebar-blocks .block-4:active, .sidebar-right .sidebar-blocks .block-6:active {
-        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.8); } }
+        box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.8); } }
     @media (min-width: 1024px) {
       .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .content-section .content-row .sidebar-left .sidebar-blocks .block:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:active, .sidebar-right .sidebar-blocks .block:active, .sidebar-right .sidebar-blocks .block-2:active, .sidebar-right .sidebar-blocks .block-3:active, .sidebar-right .sidebar-blocks .block-4:active, .sidebar-right .sidebar-blocks .block-6:active {
-        box-shadow: 0 0 25px 2px rgba(0, 0, 0, 0.8); } }
+        box-shadow: 0 0 25px 0px rgba(0, 0, 0, 0.8); } }
   .block:after, .block-2:after, .block-3:after, .block-4:after, .block-6:after, .content-section .content-row .sidebar-left .sidebar-blocks .block:after, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:after, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:after, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:after, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:after, .sidebar-right .sidebar-blocks .block:after, .sidebar-right .sidebar-blocks .block-2:after, .sidebar-right .sidebar-blocks .block-3:after, .sidebar-right .sidebar-blocks .block-4:after, .sidebar-right .sidebar-blocks .block-6:after {
     content: "";
     display: block;
@@ -497,6 +512,8 @@ h1 {
   .block .block-content, .block-2 .block-content, .block-3 .block-content, .block-4 .block-content, .block-6 .block-content, .content-section .content-row .sidebar-left .sidebar-blocks .block .block-content, .content-section .content-row .sidebar-left .sidebar-blocks .block-2 .block-content, .content-section .content-row .sidebar-left .sidebar-blocks .block-3 .block-content, .content-section .content-row .sidebar-left .sidebar-blocks .block-4 .block-content, .content-section .content-row .sidebar-left .sidebar-blocks .block-6 .block-content, .sidebar-right .sidebar-blocks .block .block-content, .sidebar-right .sidebar-blocks .block-2 .block-content, .sidebar-right .sidebar-blocks .block-3 .block-content, .sidebar-right .sidebar-blocks .block-4 .block-content, .sidebar-right .sidebar-blocks .block-6 .block-content {
     width: 100%;
     height: 100%;
+    top: 0;
+    left: 0;
     position: absolute;
     background-color: gainsboro; }
 
@@ -542,36 +559,6 @@ h1 {
   @media (min-width: 1024px) {
     .block-6 {
       width: 16.66666%; } }
-
-#nav1 {
-  height: auto;
-  overflow-y: hidden;
-  overflow-x: visible;
-  width: 100%;
-  margin: auto; }
-
-#nav1 .scroll-hide {
-  max-width: 100%;
-  overflow-x: auto;
-  overflow-y: visible;
-  height: auto; }
-  #nav1 .scroll-hide .scroll-fix {
-    overflow-x: visible;
-    width: auto;
-    /* Arbitrarily Large enough to fit everything.
-         Does change how the whole slider floats though */ }
-  #nav1 .scroll-hide a {
-    float: left;
-    color: #ffd180;
-    font-size: 20px;
-    width: 200px;
-    height: 240px;
-    padding: 0 20px;
-    line-height: 200px;
-    text-align: center; }
-    #nav1 .scroll-hide a:hover {
-      border-bottom: 3px solid #ffd180;
-      text-decoration: none; }
 
 .row {
   width: 100%;
@@ -736,6 +723,54 @@ h4 {
   @media (min-width: 1024px) {
     h4 {
       margin-top: 48px; } }
+
+.title {
+  float: left;
+  width: 100%;
+  margin: 0; }
+  .title span {
+    display: block;
+    float: left;
+    color: #ffd180;
+    font-size: 24px;
+    line-height: 46px;
+    margin: 52px 0 16px 8px; }
+    @media (min-width: 720px) and (max-width: 1023px) {
+      .title span {
+        font-size: 26px;
+        line-height: 50px;
+        margin: 75px 0 20px 8px; } }
+    @media (min-width: 1024px) {
+      .title span {
+        font-size: 28px;
+        line-height: 54px;
+        margin: 130px 0 24px 8px; } }
+
+h1 {
+  float: left;
+  color: #ffd180;
+  font-size: 46px; }
+  @media (min-width: 720px) and (max-width: 1023px) {
+    h1 {
+      font-size: 50px; } }
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 54px; } }
+
+h1 {
+  margin: 42px 5px 16px 20px; }
+  @media (min-width: 720px) and (max-width: 1023px) {
+    h1 {
+      margin: 63px 10px 20px 30px; } }
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    h1 {
+      margin: 84px 20px 24px 40px; } }
+  @media (min-width: 1280px) and (max-width: 1439px) {
+    h1 {
+      margin: 84px 40px 24px 40px; } }
+  @media (min-width: 1440px) {
+    h1 {
+      margin: 84px 60px 24px 40px; } }
 
 .outline {
   border: 3px solid red; }
