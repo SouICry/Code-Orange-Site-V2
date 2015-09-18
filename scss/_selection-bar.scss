@@ -1,3 +1,6 @@
+
+
+
 #selection-bar {
   float: left;
   z-index: 40;
@@ -8,8 +11,6 @@
 
   @include outline-shadow;
 }
-
-
 
 $slider-item-height: 200px;
 $slider-item-width: 200px;

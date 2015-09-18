@@ -63,7 +63,7 @@ a {
 #header {
   font-family: zekton, sans-serif; }
 
-.heading, h2, h3, h4, .title span, h1 {
+.heading, h2, h3, h4, .title .sub-title, h1 {
   font-family: zekton, sans-serif;
   font-weight: bold; }
 
@@ -284,7 +284,7 @@ h4 {
 #footer {
   position: relative;
   float: left;
-  background-color: #0097a7;
+  background-color: #00897b;
   height: 250px;
   z-index: 1;
   width: 100%; }
@@ -435,8 +435,7 @@ h4 {
     height: 100%;
     top: 0;
     left: 0;
-    position: absolute;
-    background-color: gainsboro; }
+    position: absolute; }
 
 .block-2 {
   width: 100%; }
@@ -514,8 +513,7 @@ h4 {
     height: 100%;
     top: 0;
     left: 0;
-    position: absolute;
-    background-color: gainsboro; }
+    position: absolute; }
 
 .block-2 {
   width: 100%; }
@@ -614,7 +612,6 @@ h4 {
         margin: auto;
         max-width: 100%; }
         .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-blocks .block-6 {
-          background-color: gainsboro;
           margin: auto;
           width: 100%; }
           @media (min-width: 480px) and (max-width: 719px) {
@@ -724,41 +721,49 @@ h4 {
     h4 {
       margin-top: 48px; } }
 
+#body h1, #body .sub-title {
+  color: #a7ffeb; }
+#body .title {
+  margin: 0;
+  padding: 20px 0 40px 0; }
+  @media (min-width: 1440px) {
+    #body .title {
+      margin-left: 20%; } }
+
+#selection-bar h1, #selection-bar .sub-title {
+  color: #ffd180; }
+
 .title {
   float: left;
   width: 100%;
   margin: 0; }
-  .title span {
+  .title .sub-title {
     display: block;
     float: left;
-    color: #ffd180;
     font-size: 24px;
     line-height: 46px;
     margin: 52px 0 16px 8px; }
     @media (min-width: 720px) and (max-width: 1023px) {
-      .title span {
+      .title .sub-title {
         font-size: 26px;
         line-height: 50px;
         margin: 75px 0 20px 8px; } }
     @media (min-width: 1024px) {
-      .title span {
+      .title .sub-title {
         font-size: 28px;
         line-height: 54px;
         margin: 130px 0 24px 8px; } }
 
 h1 {
   float: left;
-  color: #ffd180;
-  font-size: 46px; }
+  font-size: 46px;
+  margin: 42px 5px 16px 20px; }
   @media (min-width: 720px) and (max-width: 1023px) {
     h1 {
       font-size: 50px; } }
   @media (min-width: 1024px) {
     h1 {
       font-size: 54px; } }
-
-h1 {
-  margin: 42px 5px 16px 20px; }
   @media (min-width: 720px) and (max-width: 1023px) {
     h1 {
       margin: 63px 10px 20px 30px; } }
@@ -779,7 +784,7 @@ html {
   min-height: 100%; }
 
 body {
-  background-color: #b2dfdb;
+  background-color: #009688;
   min-height: 100%;
   margin: 0;
   padding: 0; }
