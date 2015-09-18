@@ -6,8 +6,11 @@
   .title {
     margin: 0;
     padding: 20px 0 40px 0;
+    @include medium-desktop {
+      padding-left: 10%;
+    }
     @include large-desktop {
-      //padding-left: 20%;
+      padding-left: 20%;
     }
   }
 }

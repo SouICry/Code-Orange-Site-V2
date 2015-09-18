@@ -14,13 +14,13 @@
   margin: 0 auto;
   padding: 0;
   @include small-desktop {
-    width: $small-desktop-width;
+    width: $small-desktop-width - 40px;
   }
   @include medium-desktop {
-    width: $medium-desktop-width;
+    width: $medium-desktop-width - 40px;
   }
   @include large-desktop {
-    width: $large-desktop-width;
+    width: $large-desktop-width - 40px;
   }
 }
 
@@ -29,15 +29,14 @@
   width: 100%;
   margin: 0;
   @include small-desktop {
-    width: 800px;
     margin: 0;
   }
   @include medium-desktop {
-    width: 840px;
-    margin-left: 100px;
+    width: 1080px;
+    margin: 0 80px;
   }
   @include large-desktop {
-    width: 1160px;
+    width: 1080px;
     margin: 0;
   }
 
@@ -51,34 +50,39 @@
       width: 100%;
       float: left;
       margin: 0;
-
+      @include large-phone {
+        width: 50%;
+      }
+      @include tablet{
+        width: 50%;
+      }
+      @include small-desktop {
+        width: 234px;
+        margin-right: 10px;
+      }
+      @include medium-desktop {
+        width: 280px;
+        margin-right: 20px;
+      }
       @include large-desktop {
         width: 280px;
+        margin-right: 20px;
       }
-      /*Max 2 blocks*/
+
       .sidebar-blocks {
-        margin: auto;
-        max-width: 100%;
+        width: 100%;
+
         .block {
-          margin: auto;
           @extend .block;
+          margin: auto;
           width: 100%;
           @include large-phone {
             width: 50%;
           }
           @include tablet {
-            width: 33.33333%;
+            width: 33%;
           }
           @include desktop {
-            width: 33.33333%;
-          }
-          @include small-desktop {
-            width: 33.33333%;
-          }
-          @include medium-desktop {
-            width: 33.33333%;
-          }
-          @include large-desktop {
             width: 100%;
           }
         }
@@ -90,8 +94,14 @@
       float: left;
       margin: 0;
       width: 100%;
+      @include small-desktop {
+        width: 740px;
+      }
+      @include medium-desktop {
+        width: 780px;
+      }
       @include large-desktop {
-        width: 880px;
+        width: 780px;
       }
     }
   }
@@ -100,47 +110,58 @@
 .sidebar-right {
   width: 100%;
   float: left;
+  margin: 0;
 
   @include small-desktop {
-    width: 224px;
+    width: 740px;
+    margin-left: 244px;
   }
   @include medium-desktop {
-    width: 240px;
+    width: 780px;
+    margin: 0 80px 0 80px + 300px;
   }
   @include large-desktop {
-    width: 280px;
+    width: 260px;
+    margin-left: 20px;
   }
 
   .sidebar-blocks {
-    width: 100%;
-    display: flex;
-    flex-flow: row wrap;
-
+    margin: auto;
+    max-width: 100%;
     .block {
+      margin: auto;
       @extend .block;
-      flex: 1 1 auto;
       width: 100%;
-      min-width: 100%;
       @include large-phone {
         width: 50%;
-        min-width: 50%;
       }
       @include tablet {
-        width: 33%;
-        min-width: 33%;
+
+        width: 33.33333%;
       }
       @include desktop {
+        width: 33.33333%;
+      }
+      @include small-desktop {
+        width: 33.33333%;
+      }
+      @include medium-desktop {
+        width: 33.33333%;
+      }
+      @include large-desktop {
         width: 100%;
-        min-width: 100%;
       }
     }
   }
 
+
   .page-nav {
-    width: 100%;
+    margin: 0;
+    width: 0;
     display: none;
-    @include desktop {
+    @include large-desktop {
       display: block;
+      width: 100%;
     }
   }
 }

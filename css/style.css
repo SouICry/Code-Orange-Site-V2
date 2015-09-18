@@ -71,7 +71,7 @@ h2 {
   font-size: 28px; }
   @media (min-width: 720px) and (max-width: 1023px) {
     h2 {
-      font-size: 36px; } }
+      font-size: 42px; } }
   @media (min-width: 1024px) {
     h2 {
       font-size: 42px; } }
@@ -80,7 +80,7 @@ h3 {
   font-size: 26px; }
   @media (min-width: 720px) and (max-width: 1023px) {
     h3 {
-      font-size: 30px; } }
+      font-size: 34px; } }
   @media (min-width: 1024px) {
     h3 {
       font-size: 34px; } }
@@ -414,6 +414,7 @@ h4 {
   z-index: 0; }
   .block:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:hover, .sidebar-right .sidebar-blocks .block:hover, .sidebar-right .sidebar-blocks .block-2:hover, .sidebar-right .sidebar-blocks .block-3:hover, .sidebar-right .sidebar-blocks .block-4:hover, .sidebar-right .sidebar-blocks .block-6:hover {
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5);
+    background-color: rgba(200, 200, 200, 0.1);
     z-index: 10; }
     @media (min-width: 720px) and (max-width: 1023px) {
       .block:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:hover, .sidebar-right .sidebar-blocks .block:hover, .sidebar-right .sidebar-blocks .block-2:hover, .sidebar-right .sidebar-blocks .block-3:hover, .sidebar-right .sidebar-blocks .block-4:hover, .sidebar-right .sidebar-blocks .block-6:hover {
@@ -423,6 +424,7 @@ h4 {
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5); } }
   .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .content-section .content-row .sidebar-left .sidebar-blocks .block:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:active, .sidebar-right .sidebar-blocks .block:active, .sidebar-right .sidebar-blocks .block-2:active, .sidebar-right .sidebar-blocks .block-3:active, .sidebar-right .sidebar-blocks .block-4:active, .sidebar-right .sidebar-blocks .block-6:active {
     box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8);
+    background-color: rgba(200, 200, 200, 0.2);
     z-index: 10; }
     @media (min-width: 720px) and (max-width: 1023px) {
       .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .content-section .content-row .sidebar-left .sidebar-blocks .block:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:active, .sidebar-right .sidebar-blocks .block:active, .sidebar-right .sidebar-blocks .block-2:active, .sidebar-right .sidebar-blocks .block-3:active, .sidebar-right .sidebar-blocks .block-4:active, .sidebar-right .sidebar-blocks .block-6:active {
@@ -492,6 +494,7 @@ h4 {
   z-index: 0; }
   .block:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:hover, .sidebar-right .sidebar-blocks .block:hover, .sidebar-right .sidebar-blocks .block-2:hover, .sidebar-right .sidebar-blocks .block-3:hover, .sidebar-right .sidebar-blocks .block-4:hover, .sidebar-right .sidebar-blocks .block-6:hover {
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5);
+    background-color: rgba(200, 200, 200, 0.1);
     z-index: 10; }
     @media (min-width: 720px) and (max-width: 1023px) {
       .block:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:hover, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:hover, .sidebar-right .sidebar-blocks .block:hover, .sidebar-right .sidebar-blocks .block-2:hover, .sidebar-right .sidebar-blocks .block-3:hover, .sidebar-right .sidebar-blocks .block-4:hover, .sidebar-right .sidebar-blocks .block-6:hover {
@@ -501,6 +504,7 @@ h4 {
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5); } }
   .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .content-section .content-row .sidebar-left .sidebar-blocks .block:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:active, .sidebar-right .sidebar-blocks .block:active, .sidebar-right .sidebar-blocks .block-2:active, .sidebar-right .sidebar-blocks .block-3:active, .sidebar-right .sidebar-blocks .block-4:active, .sidebar-right .sidebar-blocks .block-6:active {
     box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8);
+    background-color: rgba(200, 200, 200, 0.2);
     z-index: 10; }
     @media (min-width: 720px) and (max-width: 1023px) {
       .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .content-section .content-row .sidebar-left .sidebar-blocks .block:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-2:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-3:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-4:active, .content-section .content-row .sidebar-left .sidebar-blocks .block-6:active, .sidebar-right .sidebar-blocks .block:active, .sidebar-right .sidebar-blocks .block-2:active, .sidebar-right .sidebar-blocks .block-3:active, .sidebar-right .sidebar-blocks .block-4:active, .sidebar-right .sidebar-blocks .block-6:active {
@@ -575,13 +579,13 @@ h4 {
   padding: 0; }
   @media (min-width: 1024px) and (max-width: 1279px) {
     .column {
-      width: 1024px; } }
+      width: 984px; } }
   @media (min-width: 1280px) and (max-width: 1439px) {
     .column {
-      width: 1280px; } }
+      width: 1240px; } }
   @media (min-width: 1440px) {
     .column {
-      width: 1440px; } }
+      width: 1400px; } }
 
 .content-section {
   float: left;
@@ -589,15 +593,14 @@ h4 {
   margin: 0; }
   @media (min-width: 1024px) and (max-width: 1279px) {
     .content-section {
-      width: 800px;
       margin: 0; } }
   @media (min-width: 1280px) and (max-width: 1439px) {
     .content-section {
-      width: 840px;
-      margin-left: 100px; } }
+      width: 1080px;
+      margin: 0 80px; } }
   @media (min-width: 1440px) {
     .content-section {
-      width: 1160px;
+      width: 1080px;
       margin: 0; } }
   .content-section .content-row {
     float: left;
@@ -607,14 +610,27 @@ h4 {
     .content-section .content-row .sidebar-left {
       width: 100%;
       float: left;
-      margin: 0;
-      /*Max 2 blocks*/ }
+      margin: 0; }
+      @media (min-width: 480px) and (max-width: 719px) {
+        .content-section .content-row .sidebar-left {
+          width: 50%; } }
+      @media (min-width: 720px) and (max-width: 1023px) {
+        .content-section .content-row .sidebar-left {
+          width: 50%; } }
+      @media (min-width: 1024px) and (max-width: 1279px) {
+        .content-section .content-row .sidebar-left {
+          width: 234px;
+          margin-right: 10px; } }
+      @media (min-width: 1280px) and (max-width: 1439px) {
+        .content-section .content-row .sidebar-left {
+          width: 280px;
+          margin-right: 20px; } }
       @media (min-width: 1440px) {
         .content-section .content-row .sidebar-left {
-          width: 280px; } }
+          width: 280px;
+          margin-right: 20px; } }
       .content-section .content-row .sidebar-left .sidebar-blocks {
-        margin: auto;
-        max-width: 100%; }
+        width: 100%; }
         .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-blocks .block-6 {
           margin: auto;
           width: 100%; }
@@ -623,80 +639,87 @@ h4 {
               width: 50%; } }
           @media (min-width: 720px) and (max-width: 1023px) {
             .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-blocks .block-6 {
-              width: 33.33333%; } }
+              width: 33%; } }
           @media (min-width: 1024px) {
-            .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-blocks .block-6 {
-              width: 33.33333%; } }
-          @media (min-width: 1024px) and (max-width: 1279px) {
-            .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-blocks .block-6 {
-              width: 33.33333%; } }
-          @media (min-width: 1280px) and (max-width: 1439px) {
-            .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-blocks .block-6 {
-              width: 33.33333%; } }
-          @media (min-width: 1440px) {
             .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-blocks .block-6 {
               width: 100%; } }
     .content-section .content-row .content {
       float: left;
       margin: 0;
       width: 100%; }
+      @media (min-width: 1024px) and (max-width: 1279px) {
+        .content-section .content-row .content {
+          width: 740px; } }
+      @media (min-width: 1280px) and (max-width: 1439px) {
+        .content-section .content-row .content {
+          width: 780px; } }
       @media (min-width: 1440px) {
         .content-section .content-row .content {
-          width: 880px; } }
+          width: 780px; } }
 
 .sidebar-right {
   width: 100%;
-  float: left; }
+  float: left;
+  margin: 0; }
   @media (min-width: 1024px) and (max-width: 1279px) {
     .sidebar-right {
-      width: 224px; } }
+      width: 740px;
+      margin-left: 244px; } }
   @media (min-width: 1280px) and (max-width: 1439px) {
     .sidebar-right {
-      width: 240px; } }
+      width: 780px;
+      margin: 0 80px 0 380px; } }
   @media (min-width: 1440px) {
     .sidebar-right {
-      width: 280px; } }
+      width: 260px;
+      margin-left: 20px; } }
   .sidebar-right .sidebar-blocks {
-    width: 100%;
-    display: flex;
-    flex-flow: row wrap; }
+    margin: auto;
+    max-width: 100%; }
     .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-2, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-3, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-4, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-6, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-6, .sidebar-right .sidebar-blocks .block, .sidebar-right .sidebar-blocks .block-2, .sidebar-right .sidebar-blocks .block-3, .sidebar-right .sidebar-blocks .block-4, .sidebar-right .sidebar-blocks .block-6 {
-      flex: 1 1 auto;
-      width: 100%;
-      min-width: 100%; }
+      margin: auto;
+      width: 100%; }
       @media (min-width: 480px) and (max-width: 719px) {
         .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-2, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-3, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-4, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-6, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-6, .sidebar-right .sidebar-blocks .block, .sidebar-right .sidebar-blocks .block-2, .sidebar-right .sidebar-blocks .block-3, .sidebar-right .sidebar-blocks .block-4, .sidebar-right .sidebar-blocks .block-6 {
-          width: 50%;
-          min-width: 50%; } }
+          width: 50%; } }
       @media (min-width: 720px) and (max-width: 1023px) {
         .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-2, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-3, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-4, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-6, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-6, .sidebar-right .sidebar-blocks .block, .sidebar-right .sidebar-blocks .block-2, .sidebar-right .sidebar-blocks .block-3, .sidebar-right .sidebar-blocks .block-4, .sidebar-right .sidebar-blocks .block-6 {
-          width: 33%;
-          min-width: 33%; } }
+          width: 33.33333%; } }
       @media (min-width: 1024px) {
         .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-2, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-3, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-4, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-6, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-6, .sidebar-right .sidebar-blocks .block, .sidebar-right .sidebar-blocks .block-2, .sidebar-right .sidebar-blocks .block-3, .sidebar-right .sidebar-blocks .block-4, .sidebar-right .sidebar-blocks .block-6 {
-          width: 100%;
-          min-width: 100%; } }
+          width: 33.33333%; } }
+      @media (min-width: 1024px) and (max-width: 1279px) {
+        .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-2, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-3, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-4, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-6, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-6, .sidebar-right .sidebar-blocks .block, .sidebar-right .sidebar-blocks .block-2, .sidebar-right .sidebar-blocks .block-3, .sidebar-right .sidebar-blocks .block-4, .sidebar-right .sidebar-blocks .block-6 {
+          width: 33.33333%; } }
+      @media (min-width: 1280px) and (max-width: 1439px) {
+        .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-2, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-3, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-4, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-6, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-6, .sidebar-right .sidebar-blocks .block, .sidebar-right .sidebar-blocks .block-2, .sidebar-right .sidebar-blocks .block-3, .sidebar-right .sidebar-blocks .block-4, .sidebar-right .sidebar-blocks .block-6 {
+          width: 33.33333%; } }
+      @media (min-width: 1440px) {
+        .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-2, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-2, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-3, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-3, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-4, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-4, .sidebar-right .content-section .content-row .sidebar-left .sidebar-blocks .block-6, .content-section .content-row .sidebar-left .sidebar-right .sidebar-blocks .block-6, .sidebar-right .sidebar-blocks .block, .sidebar-right .sidebar-blocks .block-2, .sidebar-right .sidebar-blocks .block-3, .sidebar-right .sidebar-blocks .block-4, .sidebar-right .sidebar-blocks .block-6 {
+          width: 100%; } }
   .sidebar-right .page-nav {
-    width: 100%;
+    margin: 0;
+    width: 0;
     display: none; }
-    @media (min-width: 1024px) {
+    @media (min-width: 1440px) {
       .sidebar-right .page-nav {
-        display: block; } }
+        display: block;
+        width: 100%; } }
 
 p, h2, h3, h4 {
-  margin: 0 5px 16px 10px; }
+  margin: 0 10px 18px 10px; }
   @media (min-width: 720px) and (max-width: 1023px) {
     p, h2, h3, h4 {
-      margin: 0 10px 20px 20px; } }
+      margin: 0 20px 24px 20px; } }
   @media (min-width: 1024px) and (max-width: 1279px) {
     p, h2, h3, h4 {
-      margin: 0 20px 24px 40px; } }
+      margin: 0 20px 24px 20px; } }
   @media (min-width: 1280px) and (max-width: 1439px) {
     p, h2, h3, h4 {
-      margin: 0 40px 24px 40px; } }
+      margin: 0 30px 24px 30px; } }
   @media (min-width: 1440px) {
     p, h2, h3, h4 {
-      margin: 0 60px 24px 40px; } }
+      margin: 0 40px 24px 40px; } }
 
 h2 {
   margin-top: 36px; }
@@ -730,6 +753,12 @@ h4 {
 #body .title {
   margin: 0;
   padding: 20px 0 40px 0; }
+  @media (min-width: 1280px) and (max-width: 1439px) {
+    #body .title {
+      padding-left: 10%; } }
+  @media (min-width: 1440px) {
+    #body .title {
+      padding-left: 20%; } }
 
 #selection-bar h1, #selection-bar .sub-title {
   color: #ffd180; }
