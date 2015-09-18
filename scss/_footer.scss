@@ -6,7 +6,7 @@ $footer-height : 250px;
   height:$footer-height;
   z-index:1;
   width:100%;
-
+  @include outline-shadow;
 }
 #footer-filler {
   height:$footer-height;
