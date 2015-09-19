@@ -6,7 +6,7 @@ p {
     font-size: 17px;
   }
   @include medium-desktop {
-    font-size: 18px;
+    font-size: 19px;
   }
   @include large-desktop {
     font-size: 19px;
@@ -16,10 +16,15 @@ p {
 
 a {
   text-decoration: none;
+  color: $cyan-accent-3;
   &:hover {
     text-decoration: underline;
   }
 }
+
+
+
+
 
 #header {
   font-family: zekton, sans-serif;
@@ -59,16 +64,22 @@ h3 {
   }
 }
 
+#body h3 {
+  color: $teal-accent-2;
+}
+
 
 h4 {
   @extend .heading;
 
-  font-size: 24px;
+  font-size: 20px;
   @include tablet {
-    font-size: 30px;
+    font-size: 24px;
   }
   @include desktop {
-    font-size:30px;
+    font-size:24px;
   }
 }
-
+#body h4 {
+  color: $teal-accent-1;
+}

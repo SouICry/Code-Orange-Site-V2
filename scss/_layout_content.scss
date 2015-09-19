@@ -3,25 +3,54 @@
 
 
 p {
-  margin: 0 10px 18px 10px;
+  margin: 0 20px 18px 20px;
   @include tablet {
     margin: 0 20px 24px 20px;
   }
   @include small-desktop {
-    margin: 0 20px 24px 20px;
-  }
-  @include medium-desktop {
     margin: 0 30px 24px 30px;
   }
-  @include large-desktop {
+  @include medium-desktop {
     margin: 0 40px 24px 40px;
+  }
+  @include large-desktop {
+    margin: 0 50px 24px 50px;
+  }
+}
+
+.heading {
+  margin: 0 10px 18px 10px;
+  @include tablet {
+    margin: 0 10px 24px 10px;
+  }
+  @include small-desktop {
+    margin: 0 10px 24px 10px;
+  }
+  @include medium-desktop {
+    margin: 0 20px 24px 20px;
+  }
+  @include large-desktop {
+    margin: 0 30px 24px 30px;
   }
 }
 
 
+li {
+  @extend p;
+  margin-bottom: 8px;
+  padding-left: 10px;
+  @include tablet {
+    padding-left: 10px;
+    margin-bottom: 10px;
+  }
+  @include desktop {
+    padding-left: 10px;
+    margin-bottom: 12px;
+  }
+}
 
 h2 {
-  @extend p;
+  @extend .heading;
 
   margin-top: 36px;
   @include tablet {
@@ -33,7 +62,7 @@ h2 {
 }
 
 h3 {
-  @extend p;
+  @extend .heading;
 
   margin-top: 10px;
   @include tablet {
@@ -45,14 +74,16 @@ h3 {
 }
 
 h4 {
-  @extend p;
-
+  @extend .heading;
+  padding-left: 10px;
   margin-top: 4px;
   @include tablet {
     margin-top: 6px;
+    padding-left: 10px;
   }
   @include desktop {
     margin-top: 8px;
+    padding-left: 15px;
   }
 }
 

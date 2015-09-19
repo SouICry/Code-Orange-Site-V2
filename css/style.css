@@ -42,21 +42,25 @@ img, button:focus {
 img, iframe {
   width: 100%; }
 
-p, h2, h3, h4 {
+#body {
+  color: white; }
+
+p, li {
   font-size: 17px;
   text-decoration: none; }
   @media (min-width: 1024px) and (max-width: 1279px) {
-    p, h2, h3, h4 {
+    p, li {
       font-size: 17px; } }
   @media (min-width: 1280px) and (max-width: 1439px) {
-    p, h2, h3, h4 {
-      font-size: 18px; } }
+    p, li {
+      font-size: 19px; } }
   @media (min-width: 1440px) {
-    p, h2, h3, h4 {
+    p, li {
       font-size: 19px; } }
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #00e5ff; }
   a:hover {
     text-decoration: underline; }
 
@@ -85,14 +89,20 @@ h3 {
     h3 {
       font-size: 34px; } }
 
+#body h3 {
+  color: #64ffda; }
+
 h4 {
-  font-size: 24px; }
+  font-size: 20px; }
   @media (min-width: 720px) and (max-width: 1023px) {
     h4 {
-      font-size: 28px; } }
+      font-size: 24px; } }
   @media (min-width: 1024px) {
     h4 {
-      font-size: 30px; } }
+      font-size: 24px; } }
+
+#body h4 {
+  color: #a7ffeb; }
 
 #header {
   background-color: #ef6c00;
@@ -281,7 +291,7 @@ h4 {
 #footer {
   position: relative;
   float: left;
-  background-color: #00897b;
+  background-color: #00796b;
   height: 250px;
   z-index: 1;
   width: 100%;
@@ -605,8 +615,11 @@ h4 {
   .content-section .content-row {
     float: left;
     width: 100%;
-    margin: 0;
+    margin-bottom: 40px;
     /* Sticky scroll until end of content row*/ }
+    @media (min-width: 1024px) {
+      .content-section .content-row {
+        margin-bottom: 80px; } }
     .content-section .content-row .sidebar-left {
       width: 100%;
       float: left;
@@ -706,20 +719,47 @@ h4 {
         display: block;
         width: 100%; } }
 
-p, h2, h3, h4 {
-  margin: 0 10px 18px 10px; }
+p, li {
+  margin: 0 20px 18px 20px; }
   @media (min-width: 720px) and (max-width: 1023px) {
-    p, h2, h3, h4 {
+    p, li {
       margin: 0 20px 24px 20px; } }
   @media (min-width: 1024px) and (max-width: 1279px) {
-    p, h2, h3, h4 {
-      margin: 0 20px 24px 20px; } }
-  @media (min-width: 1280px) and (max-width: 1439px) {
-    p, h2, h3, h4 {
+    p, li {
       margin: 0 30px 24px 30px; } }
-  @media (min-width: 1440px) {
-    p, h2, h3, h4 {
+  @media (min-width: 1280px) and (max-width: 1439px) {
+    p, li {
       margin: 0 40px 24px 40px; } }
+  @media (min-width: 1440px) {
+    p, li {
+      margin: 0 50px 24px 50px; } }
+
+.heading, h2, h3, h4, .title .sub-title, h1 {
+  margin: 0 10px 18px 10px; }
+  @media (min-width: 720px) and (max-width: 1023px) {
+    .heading, h2, h3, h4, .title .sub-title, h1 {
+      margin: 0 10px 24px 10px; } }
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    .heading, h2, h3, h4, .title .sub-title, h1 {
+      margin: 0 10px 24px 10px; } }
+  @media (min-width: 1280px) and (max-width: 1439px) {
+    .heading, h2, h3, h4, .title .sub-title, h1 {
+      margin: 0 20px 24px 20px; } }
+  @media (min-width: 1440px) {
+    .heading, h2, h3, h4, .title .sub-title, h1 {
+      margin: 0 30px 24px 30px; } }
+
+li {
+  margin-bottom: 8px;
+  padding-left: 10px; }
+  @media (min-width: 720px) and (max-width: 1023px) {
+    li {
+      padding-left: 10px;
+      margin-bottom: 10px; } }
+  @media (min-width: 1024px) {
+    li {
+      padding-left: 10px;
+      margin-bottom: 12px; } }
 
 h2 {
   margin-top: 36px; }
@@ -740,16 +780,19 @@ h3 {
       margin-top: 20px; } }
 
 h4 {
+  padding-left: 10px;
   margin-top: 4px; }
   @media (min-width: 720px) and (max-width: 1023px) {
     h4 {
-      margin-top: 6px; } }
+      margin-top: 6px;
+      padding-left: 10px; } }
   @media (min-width: 1024px) {
     h4 {
-      margin-top: 8px; } }
+      margin-top: 8px;
+      padding-left: 15px; } }
 
 #body h1, #body .sub-title {
-  color: #a7ffeb; }
+  color: #1de9b6; }
 #body .title {
   margin: 0;
   padding: 20px 0 40px 0; }
@@ -814,12 +857,9 @@ html {
   min-height: 100%; }
 
 body {
-  background-color: #009688;
+  background-color: #00897b;
   min-height: 100%;
   margin: 0;
   padding: 0; }
-
-#body {
-  color: #a7ffeb; }
 
 /*# sourceMappingURL=style.css.map */
