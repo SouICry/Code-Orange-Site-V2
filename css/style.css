@@ -911,6 +911,13 @@ h4 {
         display: block;
         width: 100%; } }
 
+iframe {
+  width: 100%; }
+  iframe:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%; }
+
 p, li {
   margin: 0 20px 18px 20px; }
   @media (min-width: 720px) and (max-width: 1023px) {
