@@ -1,0 +1,24 @@
+{
+  "sections": [
+    {
+      "name":"About",
+      "sections": ["About"]
+    },
+    {
+      "name":"Robotts",
+      "sections": ["Robots"]
+    },
+    {
+      "name":"<I>FIRST</I>",
+      "sections": ["FIRST", "Games"]
+    },
+    {
+      "name":"Tutorials",
+      "sections": ["Tutorials"]
+    },
+    {
+      "name":"Media",
+      "sections": ["Media"]
+    }
+  ]
+}
