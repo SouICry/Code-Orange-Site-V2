@@ -3,16 +3,17 @@
 
 
 
-
-
 //TODO: popState - just load as new url
 
 
-
-
-
-
-
+function filterLinks(){
+    var elements = document.getElementsByTagName("a");
+    for(var i=0; i<elements.length; i++){
+        if (elements[i].href.indexOf("teamcodeorange.com") >= 0) {
+            elements[i].onclick = loadURL(elements[i].getAttribute("href"));
+        }
+    }
+}
 
 var currURL = trimForwardSlash(window.location.pathname);
 
@@ -24,6 +25,9 @@ var currPageInfo = {
 };
 
 updatePageInfo();
+
+filterLinks();
+
 
 function updatePageInfo(){
     var bar = document.getElementById("selection-bar");
@@ -70,12 +74,16 @@ function getNavTopLevel(topLevel){
     }
     return null;
 }
+/*
+ * Returns a second level section with given name, or null if it does not exist
+ * Does not include default pages
+ */
 function getNavSecondLevel(topLevel, secondLevel){
     for (var i = 0; i < nav['items'].length; i++){
         if ( nav['items'][i].name === topLevel) {
             for (var j = 0; j < nav['items'][i]['sections'].length; j++){
                 if (nav['items'][i]['sections'][j].name === secondLevel){
-                    return nav['items'][i]['sections'][j
+                    return nav['items'][i]['sections'][j];
                 }
             }
             return null;
@@ -104,13 +112,15 @@ function loadAjaxContent(path) {
 function goToPage(path){
     history.pushState({"url":currURL}, "", path);
     currURL = path;
+    updatePageInfo();
+    filterLinks();
 }
 
 function error(){
     closeBody();
     closeNav();
-    gotoPage(path);
     openBody(loadAjaxContent("Error"));
+    gotoPage("Error");
 }
 
 /*
@@ -118,7 +128,7 @@ function error(){
  * [index]
  * [error]
  * top-level-menu
- * top-level-menu/content (same content as top-level-menu)
+ * top-level-menu/content (defatult second level section)
  * top-level-menu/2nd-level-section
  * top-level-menu/2nd-level-section/content
  * orphans (listed or unlisted))
@@ -130,8 +140,6 @@ function loadURL(newURL) {
     if (currURL !== newURL) {
         var c = currURL.split("/");
         var n = newURL.split("/");
-
-        //TODO: make sure to complete all checks for c to determine shrink/close
 
         //Body cleared no matter what
         closeBody();
@@ -161,37 +169,80 @@ function loadURL(newURL) {
             }
         }
 
-        //TODO: check current page and orphan/sectionless pages casework
         else if (n.length === 2){
-            if (getNavTopLevel(n[0])){
-                if (getNavSecondLevel(n[0], n[1])){
-                    openNavAsContent(loadAjaxContent(n[0]));
+
+            var mItem1 = getNavTopLevel(n[0]);
+
+            if (mItem1 == null) {
+                error();
+            }
+
+            //Same top level
+            if (c.length > 0 && c[0] === n[0]) {
+                var nItem = getNavTopLevel(n[0], n[1]);
+                //New page is default page content
+                if (nItem == null) {
+                    if (currPageInfo["selection-type"] === "none"){
+                        openNavAsNav(loadAjaxContent(n[0]));
+                    }
+                    else if (currPageInfo["selection-type"] === "content"){
+                        shrinkNav();
+                    }
+                    openBody(loadAjaxContent(newURL));
                 }
+                //New page is selection (redundant second part)
                 else {
-                    openNavAsNav(loadAjaxContent(n[0]));
-                    openBody(loadAjaxContent(newURL))
+                    if (currPageInfo["selection-type"] === "nav"){
+                        expandNav();
+                    }
+                    else if (currPageInfo["selection-type"] === "none"){
+                        openNavAsContent(n[0]);
+                    }
                 }
             }
             else {
-                error();
+                closeNav();
+                var nItem1 = getNavTopLevel(n[0], n[1]);
+                //New page is default page content
+                if (nItem1 == null) {
+                    openNavAsNav(loadAjaxContent(n[0]));
+                    openBody(loadAjaxContent(newURL));
+                }
+                //New page is selection (redundant second part)
+                else {
+                    openNavAsContent(n[0]);
+                }
             }
         }
         else if (n.length === 3) {
-            if (getNavSecondLevel(n[0], n[1])) {
-                openNavAsNav(loadAjaxContent(n[0]));
-                openBody(loadAjaxContent(newURL));
+            //Same top level
+            if (c.length > 0 && c[0] === n[0]) {
+                //Same second level nav
+                if (c.length > 1 && c[1] === n[1]){
+                    if (currPageInfo["selection-type"] === "content"){
+                        shrinkNav();
+                    }
+                }
+                //Currently on selection page
+                else if (currPageInfo["selection-type"] === "content"){
+                    shrinkNav();
+                }
             }
             else {
-                error();
+                closeNav();
+                openNavAsNav(loadAjaxContent(n[0]));
+
             }
+            openBody(loadAjaxContent(newURL));
         }
         else {
             error();
         }
 
-        updatePageInfo();
+        goToPage(newURL);
     }
 }
+
 function trimForwardSlash(stringToTrim){
     if (stringToTrim.charAt(0) === "/"){
         stringToTrim = stringToTrim.substr(1);
@@ -216,15 +267,14 @@ function expandNav() {
     document.getElementById("selection-bar").className = "selection-content";
 }
 function openNavAsContent(innerHTML) {
-    document.getElementById("selection-bar").innerHTML = innerHTML;
     document.getElementById("selection-bar").className = "selection-content";
+    document.getElementById("selection-bar").innerHTML = innerHTML;
 }
 function openNavAsNav(innerHTML) {
-    document.getElementById("selection-bar").innerHTML = innerHTML;
     document.getElementById("selection-bar").className = "selection-nav";
+    document.getElementById("selection-bar").innerHTML = innerHTML;
 }
 function openBody(innerHTML) {
     document.getElementById("selection-bar").innerHTML = innerHTML;
 }
 
-window.onhashchange() =
