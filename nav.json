@@ -2,27 +2,79 @@
   "items": [
     {
       "name":"About",
-      "sections": ["Sponsors"]
+      "sections": [
+        {
+          "name":"default",
+          "pages":[
+
+          ]
+        },
+        {
+          "name":"Sponsors",
+          "pages":[
+
+          ]
+        }
+      ]
     },
     {
       "name":"Robots",
-      "sections": ["Robots"]
+      "sections": [
+        {
+          "name":"default",
+          "pages":[
+
+          ]
+        }
+      ]
     },
     {
       "name":"<I>FIRST</I>",
-      "sections": ["Games"]
+      "sections": [
+        {
+          "name":"default",
+          "pages":[
+
+          ]
+        },
+        {
+          "name":"Games",
+          "pages":[
+
+          ]
+        }
+      ]
     },
     {
       "name":"Tutorials",
-      "sections": []
+      "sections": [
+        {
+          "name":"default",
+          "pages":[
+
+          ]
+        }
+      ]
     },
     {
       "name":"Media",
-      "sections": []
+      "sections": [
+        {
+          "name":"default",
+          "pages":[
+
+          ]
+        }
+      ]
     },
     {
       "name":"Error",
       "sections": []
+    }
+  ],
+  "orphans": [
+    {
+      "name":"Error"
     }
   ]
 }

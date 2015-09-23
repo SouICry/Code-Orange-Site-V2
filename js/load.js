@@ -16,30 +16,72 @@
 
 var currURL = trimForwardSlash(window.location.pathname);
 
-//nav contains an object tree of top-level menu items and their (possible) additional sections
+var currPageInfo = {
+    "no-selection":true,
+    "selection-bar":false,
+    "body":true,
+    "selection-type":"none"
+};
+
+updatePageInfo();
+
+function updatePageInfo(){
+    var bar = document.getElementById("selection-bar");
+    if (bar.innerHTML.length == 0){
+        currPageInfo["selection-bar"] = false;
+    }
+    else {
+        currPageInfo["selection-bar"] = true;
+    }
+    if (document.getElementById("body").innerHTML.length == 0){
+        currPageInfo["body"] = false;
+    }
+    else {
+        currPageInfo["body"] = true;
+    }
+    if (bar.className.indexOf("selection-content") !== -1){
+        currPageInfo["selection-type"] = "content";
+    }
+    else if (bar.className.indexOf("selection-nav") !== -1){
+        currPageInfo["selection-type"] = "nav";
+    }
+    else {
+        currPageInfo["selection-type"] = "none";
+    }
+}
+
+/*
+ * nav.items contains an array with top level menu items.
+ * Every top level menu item has a 'name' and at least one 'section' with name 'default'.
+ * Sections list the pages contained.
+ * Top level links to direct pages do not have any sections but are items.
+ *
+ * nav.orphans contains pages that are not in the top level menu or a section
+ */
 var nav = JSON.parse(loadAjax("nav.json"));
 
 
-function navContainsTopLevel(topLevel){
-    for (var i = 0; i < nav.items.length; i++){
-        if (nav.items[i].name === topLevel) {
-            return true;
+
+function getNavTopLevel(topLevel){
+    for (var i = 0; i < nav['items'].length; i++){
+        if ( nav['items'][i].name === topLevel) {
+            return nav['items'][i];
         }
     }
-    return false;
+    return null;
 }
-function navContainsSecondLevel(topLevel, secondLevel){
-    for (var i = 0; i < nav.items.length; i++){
-        if (nav.items[i].name === topLevel) {
-            for (var j = 0; j < nav.items[i].sections.length; j++){
-                if (nav.items[i].sections[j] === secondLevel){
-                    return true;
+function getNavSecondLevel(topLevel, secondLevel){
+    for (var i = 0; i < nav['items'].length; i++){
+        if ( nav['items'][i].name === topLevel) {
+            for (var j = 0; j < nav['items'][i]['sections'].length; j++){
+                if (nav['items'][i]['sections'][j].name === secondLevel){
+                    return nav['items'][i]['sections'][j
                 }
             }
-            return false;
+            return null;
         }
     }
-    return false;
+    return null;
 }
 
 function loadAjaxContent(path) {
@@ -76,7 +118,7 @@ function error(){
  * [index]
  * [error]
  * top-level-menu
- * top-level-menu/content (default section same name as top-level)
+ * top-level-menu/content (same content as top-level-menu)
  * top-level-menu/2nd-level-section
  * top-level-menu/2nd-level-section/content
  * orphans (listed or unlisted))
@@ -84,25 +126,45 @@ function error(){
 function loadURL(newURL) {
     newURL = trimForwardSlash(newURL);
 
+    //Does not reload same page
     if (currURL !== newURL) {
         var c = currURL.split("/");
         var n = newURL.split("/");
 
         //TODO: make sure to complete all checks for c to determine shrink/close
-        if (c.length === 0) {
-            closeBody();
-        }
+
+        //Body cleared no matter what
+        closeBody();
+
         if (n.length === 1){
-            if (navContainsTopLevel(n[0])){
-                openNavAsContent(loadAjaxContent(n[0]));
+            //Same top level
+            if (c.length > 0 && c[0] === n[0]){
+                //Has content
+                if (currPageInfo["selection-type"] === "nav"){
+                    expandNav();
+                }
+                //else top-level-menu/2nd-level-section, redundant odes nothing
             }
+            //Different top level
             else {
-                error();
+                closeNav();
+
+                //Load nav if new is second level menu selection page
+                var mItem = getNavTopLevel(n[0]);
+                if (mItem != null && mItem["sections"].length > 0) {
+                    openNavAsContent(loadAjaxContent(n[0]));
+                }
+                //otherwise load page
+                else {
+                    openBody(loadAjaxContent(newURL));
+                }
             }
         }
+
+        //TODO: check current page and orphan/sectionless pages casework
         else if (n.length === 2){
-            if (navContainsTopLevel(n[0])){
-                if (navContainsSecondLevel(n[0], n[1])){
+            if (getNavTopLevel(n[0])){
+                if (getNavSecondLevel(n[0], n[1])){
                     openNavAsContent(loadAjaxContent(n[0]));
                 }
                 else {
@@ -115,7 +177,7 @@ function loadURL(newURL) {
             }
         }
         else if (n.length === 3) {
-            if (navContainsSecondLevel(n[0], n[1])) {
+            if (getNavSecondLevel(n[0], n[1])) {
                 openNavAsNav(loadAjaxContent(n[0]));
                 openBody(loadAjaxContent(newURL));
             }
@@ -126,6 +188,8 @@ function loadURL(newURL) {
         else {
             error();
         }
+
+        updatePageInfo();
     }
 }
 function trimForwardSlash(stringToTrim){
