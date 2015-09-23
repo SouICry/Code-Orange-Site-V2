@@ -1,24 +1,28 @@
 {
-  "sections": [
+  "items": [
     {
       "name":"About",
-      "sections": ["About"]
+      "sections": ["Sponsors"]
     },
     {
-      "name":"Robotts",
+      "name":"Robots",
       "sections": ["Robots"]
     },
     {
       "name":"<I>FIRST</I>",
-      "sections": ["FIRST", "Games"]
+      "sections": ["Games"]
     },
     {
       "name":"Tutorials",
-      "sections": ["Tutorials"]
+      "sections": []
     },
     {
       "name":"Media",
-      "sections": ["Media"]
+      "sections": []
+    },
+    {
+      "name":"Error",
+      "sections": []
     }
   ]
 }
