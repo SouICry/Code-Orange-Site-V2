@@ -1,3 +1,15 @@
+Php loaded menu (initially)
+
+Identify pages by top-level name and type (selection-nav, selection-content, content).
+Animate on type unless same name.
+Pass in json, in variables/nav-content/body-content together format.
+
+Or maybe callback is enough
+
+
+
+
+
 2 layered nav -
 selection page shrinks into nav with blocks for that given section
 
