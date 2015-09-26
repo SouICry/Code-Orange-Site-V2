@@ -1,11 +1,7 @@
-/*
-Auto-generated content. Changes made may be lost at any time.
-Modify using GUI or modify content.php and run build.
-*/
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include $_SERVER['DOCUMENT_ROOT'].'/head-include.php'; ?>
+	<?php include $_SERVER['DOCUMENT_ROOT'].'/head-include.php'; ?>
 </head>
 <body>
 
@@ -21,18 +17,23 @@ Modify using GUI or modify content.php and run build.
             <div id="nav">
                 <div class="scroll-hide">
                     <div class="scroll-fix">
-                        <?php include $_SERVER['DOCUMENT_ROOT'].'/menu.php'; ?>
+                        <a href="#">About</a>
+                        <a href="#">Robots</a>
+                        <a href="#"><i>FIRST</i></a>
+                        <a href="#">Tutorials</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div id="selection-bar" class="selection-nav">
-    <?php include '../content.php'; ?>
-</div>
-<div id="body">
+
+<div id="selection-bar" class="selection-content">
     <?php include 'content.php'; ?>
+</div>
+
+<div id="body">
+
 </div>
 <div id="footer"></div>
 

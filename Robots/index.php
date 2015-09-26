@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="initial-scale=1.0">
-
-    <link rel="stylesheet" type="text/css" href="css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="css/materialize.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <?php include $_SERVER['DOCUMENT_ROOT'].'/head-include.php'; ?>
 </head>
 <body>
 
@@ -36,6 +31,9 @@
             <div class="title">
                 <h1>Robots</h1>
                 <div class="sub-title"></div>
+                <p>Team Code Orange #3476 is a high-school robotics team from Irvine, California.
+                    We compete in a robotics league under an organization called FIRST.</p>
+                <div class=""></div>
             </div>
         </div>
     </div>
@@ -96,14 +94,7 @@
 </div>
 <div id="footer"></div>
 
+<?php include $_SERVER['DOCUMENT_ROOT'].'/js-include.php'; ?>
 
-<script src="js/jquery-2.1.4.js"></script>
-<script src="js/slick-modified.js"></script>
-<script>
-    $(document).ready(function () {
-
-    });
-</script>
-<script src="js/load.js"></script>
 </body>
 </html>

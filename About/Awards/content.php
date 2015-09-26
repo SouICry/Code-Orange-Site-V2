@@ -19,7 +19,7 @@
 									<h2>Aerial Assist</h2>
 								</div-->
 								<div class="content">
-									<img src="/pages/FIRST/Games/img/14-logo.png">
+									<img src="/About/Awards/img/14-logo.png">
 								</div>
 								<div class="view">View</div>
 							</a>
@@ -29,7 +29,7 @@
 				</div>
 				<div class="content">
 
-					<img src="/pages/awards/img/14.jpg"/>
+					<img src="/About/Awards/img/14.jpg"/>
 					<h3>2014</h3>
 
 					<h4>Championship</h4>
@@ -56,7 +56,7 @@
 							<a href="#" class="block-content">
 								<div class="type">2013 Game</div>
 								<div class="content">
-									<img src="/pages/games/img/13-logo.png">
+									<img src="/About/Awards/img/13-logo.png">
 								</div>
 								<div class="view">View</div>
 							</a>
@@ -66,7 +66,7 @@
 				</div>
 				<div class="content">
 
-					<img src="/pages/awards/img/13.jpg"/>
+					<img src="/About/Awards/img/13.jpg"/>
 					<h3>2013</h3>
 
 					<h4>Championship</h4>

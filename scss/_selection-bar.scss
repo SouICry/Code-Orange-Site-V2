@@ -12,6 +12,103 @@
   @include outline-shadow;
 }
 
+#selection-bar .content-section {
+  float: left;
+  width: 100%;
+  margin: 0;
+  @include small-desktop {
+    margin: 0;
+  }
+  @include medium-desktop {
+    width: 1200px;
+    margin: 0 40px;
+  }
+  @include large-desktop {
+    width: 1200px;
+    margin: 0 120px;
+  }
+
+  .content-row {
+    float: left;
+    width: 100%;
+    @include desktop {
+      margin-bottom: 30px;
+    }
+
+    .sidebar {
+      width: 100%;
+      margin: 0;
+      @include large-phone {
+        width: 50%;
+      }
+      @include tablet {
+        width: 33.33333%;
+      }
+      @include small-desktop {
+        width: 256px;
+      }
+      @include medium-desktop {
+        width: 360px;
+      }
+      @include large-desktop {
+        width: 360px;
+      }
+    }
+
+    .sidebar-left {
+      @extend .sidebar;
+      float: left;
+      @include large-phone {
+        margin: auto;
+        float: none;
+      }
+      @include tablet {
+        margin-left: 10px;
+      }
+      @include desktop {
+        margin-left: 20px;
+      }
+    }
+
+    .sidebar-right {
+      @extend .sidebar;
+      float: right;
+      @include large-phone {
+        margin: auto;
+        float: none;
+      }
+      @include tablet {
+        margin-right: 10px;
+      }
+      @include desktop {
+        margin-right: 20px;
+      }
+    }
+
+    .content {
+      float: left;
+      width: 100%;
+      margin: 10px;
+      @include tablet {
+        width: calc(66.66666% - 30px);
+        margin: 10px;
+      }
+      @include small-desktop {
+        width: 688px;
+        margin: 10px;
+      }
+      @include medium-desktop {
+        width: 780px;
+        margin: 20px;
+      }
+      @include large-desktop {
+        width: 780px;
+        margin: 20px;
+      }
+    }
+  }
+}
+
 $slider-item-height: 200px;
 $slider-item-width: 200px;
 $slider-item-padding: 0;
