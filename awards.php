@@ -21,14 +21,8 @@
             </div>
             <div id="nav">
                 <div class="scroll-hide">
-                    <div id="menu" class="scroll-fix">
-                        <a href="#">About</a>
-                        <a href="robots.html">Robots</a>
-                        <a href="#"><i>FIRST</i></a>
-                        <a href="index.html">Index</a>
-                        <a href="selection.html">Selection</a>
-                        <a href="content.html">Content</a>
-                        <a href="awards.html">Awards</a>
+                    <div class="scroll-fix">
+                        <?php include $_SERVER['DOCUMENT_ROOT'].'/menu.php'; ?>
                     </div>
                 </div>
             </div>
@@ -39,9 +33,9 @@
     <div class="row">
         <div class="column">
             <div class="title">
-                <h1>Robots</h1>
+                <h1>About</h1>
 
-                <div class="sub-title">aaaa</div>
+                <div class="sub-title"></div>
             </div>
         </div>
     </div>
@@ -77,9 +71,8 @@
     <div class="row">
         <div class="column">
             <div class="title">
-                <h1>Hanalei</h1>
-
-                <div class="sub-title"> - 2014: Aerial Assist</div>
+                <h1>Awards</h1>
+                <div class="sub-title"></div>
             </div>
         </div>
     </div>
@@ -89,62 +82,77 @@
                 <div class="content-row">
                     <div class="sidebar-left">
                         <div class="sidebar-blocks">
-
+                            <div class="block">
+                                <a href="#" class="block-content">
+                                    <div class="type">2014 Game</div>
+                                    <!--div class="content">
+                                        <h2>Aerial Assist</h2>
+                                    </div-->
+                                    <div class="content">
+                                        <img src="FIRST/Games/img/14-logo.png">
+                                    </div>
+                                    <div class="view">View</div>
+                                </a>
+                            </div>
                         </div>
-                        <img src="pages/content/img/hanalei.png"/>
+
                     </div>
                     <div class="content">
-                        <iframe style="background-color: #000" height="500" frameborder="0" allowfullscreen></iframe>
 
+                        <img src="pages/awards/img/14.jpg"/>
+                        <h3>2014</h3>
 
-                        <h3>Dimensions</h3>
+                        <h4>Championship</h4>
                         <ul>
-                            <li>- 119lbs</li>
+                            <li>- Curie: Excellence in Engineering</li>
                         </ul>
 
-                        <h3>Base</h3>
+                        <h4>San Diego Regional</h4>
                         <ul>
-                            <li>- 6WD West Coast Drive</li>
-                            <li>- 4" Performance Wheels</li>
-                            <li>- 2 VEX Pro Ball Shifters for 6 and 22 feet/sec</li>
-                            <li>- Fast Ground Intake</li>
+                            <li>- Chairman's Award</li>
+                            <li>- Imagery Award</li>
+                        </ul>
+                        <h4>Las Vegas Regional</h4>
+                        <ul>
+                            <li>- Regional Finalists</li>
                         </ul>
 
-                        <h3>Catapult</h3>
+                    </div>
+                </div>
+                <div class="content-row">
+                    <div class="sidebar-left">
+                        <div class="sidebar-blocks">
+                            <div class="block">
+                                <a href="#" class="block-content">
+                                    <div class="type">2013 Game</div>
+                                    <div class="content">
+                                        <img src="pages/games/img/13-logo.png">
+                                    </div>
+                                    <div class="view">View</div>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="content">
+
+                        <img src="pages/awards/img/13.jpg"/>
+                        <h3>2013</h3>
+
+                        <h4>Championship</h4>
                         <ul>
-                            <li>- Score Anywhere 4' to 18' Away from Goal</li>
-                            <li>- Fast Automatic Catapult Reset ~1 sec</li>
-                            <li>- 2 Positioner Arms for Ball Passing and Shot Angling</li>
-                            <li>- Vision Tracking for 2 Hot Goal Autonomous</li>
+                            <li>- Newton Division Champions</li>
                         </ul>
 
-                        <h3> Results </h3>
-                        <h4> Curie Division </h4>
+                        <h4>San Diego Regional</h4>
                         <ul>
-                            <li>
-                                - Excellence in Engineering
-                            </li>
+                            <li>- Industrial Design Award</li>
+                            <li>- Semi-finalists</li>
                         </ul>
-                        <h4> San Diego Regional </h4>
+                        <h4>Inland Empire Regional</h4>
                         <ul>
-                            <li>
-                                - Chairman's Award
-                            </li>
-                            <li>
-                                - Semi-finalist
-                            </li>
-                            <li>
-                                - 11-0 #2 Seed
-                            </li>
-                        </ul>
-                        <h4> Las Vegas Regional </h4>
-                        <ul>
-                            <li>
-                                - Regional Finalist
-                            </li>
-                            <li>
-                                - 7-4 #10 Seed
-                            </li>
+                            <li>- Innovation in Control Award</li>
+                            <li>- Regional Finalists</li>
                         </ul>
                     </div>
                 </div>

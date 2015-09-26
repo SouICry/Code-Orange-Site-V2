@@ -1,12 +1,7 @@
-//TODO: Rewrite with ajax callbacks (or just avoid synchronous events) so it actually works
-
-
 //TODO: popState - just load as new url
 
 
 
-//Nah,
-//TODO: default routes (so awards goes to awards.html)
 
 
 function filterLinks() {
@@ -14,16 +9,28 @@ function filterLinks() {
     for (var i = 0; i < elements.length; i++) {
         if ((elements[i].href.indexOf("teamcodeorange.com") >= 0
                 || elements[i].href.indexOf("localhost") >= 0)
-            && elements[i].href.indexOf("#") != elements[i].href.length - 1) {
+            && elements[i].href.indexOf("#") != elements[i].href.length - 1
+            && elements[i].href.indexOf("php") < 0) {
 
-            elements[i].onclick = (
-                function(x){
-                    return function(){loadURL(x);}
-                }(elements[i].getAttribute("href"))
-            );
+            elements[i].addEventListener('click', function(event){
+                if ( event.preventDefault ) {
+                    event.preventDefault();
+                }
+                event.returnValue = false;
+                loadURL(this.getAttribute("href"));
+            }, false);
         }
     }
 }
+
+var nav;
+
+ajaxLoad("nav.json", function(text){
+
+    nav = JSON.parse(text);
+    var ccc = JSON.parse(text);
+});
+
 
 var currURL = trimForwardSlash(window.location.pathname);
 
@@ -73,10 +80,6 @@ function updatePageInfo() {
  * nav.orphans contains pages that are not in the top level menu or a section
  */
 
-var nav = ajaxLoad("nav.json", function(text){
-    var ccc = JSON.parse(text);
-    return JSON.parse(text);
-});
 
 
 
@@ -108,6 +111,27 @@ function getNavSecondLevel(topLevel, secondLevel) {
 }
 
 function ajaxLoad(path, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                callback(xhr.responseText);
+            }
+            else {
+                return null; //Error code
+            }
+        }
+    };
+    if (path.indexOf(".")) {
+        xhr.open("GET", path, true);
+    }
+    else {
+        xhr.open("GET", path + "/content.php", true);
+    }
+    xhr.send();
+}
+
+function ajaxLoadContent(path, callback) {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
@@ -292,6 +316,7 @@ function loadURL(newURL) {
 
         goToPage(newURL);
     }
+    return false;
 }
 
 function trimForwardSlash(stringToTrim) {

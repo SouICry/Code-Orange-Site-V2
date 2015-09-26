@@ -1,80 +1,79 @@
 {
   "items": [
     {
-      "name":"About",
+      "name": "About",
       "sections": [
         {
-          "name":"default",
-          "pages":[
+          "name": "default",
+          "pages": [
+            "Awards"
+          ]
+        },
+        {
+          "name": "Sponsors",
+          "pages": [
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Robots",
+      "sections": [
+        {
+          "name": "default",
+          "pages": [
+            "Cloud_9",
+            "Hanalei",
+            "Mavericks"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<I>FIRST</I>",
+      "sections": [
+        {
+          "name": "default",
+          "pages": [
 
           ]
         },
         {
-          "name":"Sponsors",
-          "pages":[
-
+          "name": "Games",
+          "pages": [
+            "Recycle_Rush", "Aerial_Assist", "Ultimate_Ascent"
           ]
         }
       ]
     },
     {
-      "name":"Robots",
+      "name": "Tutorials",
       "sections": [
         {
-          "name":"default",
-          "pages":[
-
+          "name": "default",
+          "pages": [
           ]
         }
       ]
     },
     {
-      "name":"<I>FIRST</I>",
+      "name": "Media",
       "sections": [
         {
-          "name":"default",
-          "pages":[
-
-          ]
-        },
-        {
-          "name":"Games",
-          "pages":[
-
+          "name": "default",
+          "pages": [
           ]
         }
       ]
     },
     {
-      "name":"Tutorials",
-      "sections": [
-        {
-          "name":"default",
-          "pages":[
-
-          ]
-        }
-      ]
-    },
-    {
-      "name":"Media",
-      "sections": [
-        {
-          "name":"default",
-          "pages":[
-
-          ]
-        }
-      ]
-    },
-    {
-      "name":"Error",
+      "name": "Error",
       "sections": []
     }
   ],
   "orphans": [
     {
-      "name":"Error"
+      "name": "Error"
     }
   ]
 }
