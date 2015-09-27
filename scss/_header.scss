@@ -86,9 +86,9 @@
     float: left;
     color: $orange-accent-1;
     font-size: 20px;
-    height: 100%;
     padding: 0 20px;
     line-height: $header-height - 3px;
+    height: $header-height;
     text-align: center;
     &:hover {
       border-bottom: 3px solid $orange-accent-1;

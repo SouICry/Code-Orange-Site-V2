@@ -1,9 +1,12 @@
-//TODO: popState - just load as new url
-
-//TODO: make content
 
 
+//TODO: fix popstate
 
+window.onpopstate = pop;
+
+function pop(event){
+    loadURL(event.state['url']);
+}
 
 function filterLinks() {
     var elements = document.getElementsByTagName("a");

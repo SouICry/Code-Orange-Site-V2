@@ -23,7 +23,39 @@ a {
 }
 
 
-
+table {
+  color: white;
+  width: auto;
+  float: left;
+  margin: 10px;
+  @include tablet {
+    margin: 10px;
+  }
+  @include desktop {
+    margin: 20px;
+  }
+}
+thead td {
+  @extend h4;
+}
+tbody th {
+  padding-left: 15px;
+  @include tablet {
+    padding-left: 15px;
+  }
+  @include desktop {
+    padding-left: 20px;
+  }
+}
+tbody td{
+  padding-left: 20px;
+  @include tablet {
+    padding-left: 20px;
+  }
+  @include desktop {
+    padding-left: 25px;
+  }
+}
 
 
 #header {

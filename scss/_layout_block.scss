@@ -4,7 +4,7 @@
   background-color: $teal-lighten-1;
 }
 
-.block {
+.block, .block-half {
   float: left;
   position: relative;
   width: 100%;
@@ -20,103 +20,125 @@
     background-color: rgba(200, 200, 200, 0.2);
     z-index: 10;
   }
+
+}
+
+.block {
   &:after {
     content: "";
     display: block;
     padding-bottom: 100%;
   }
+}
 
+.block-half {
+  &:after {
+    content: "";
+    display: block;
+    padding-bottom: 50%;
+  }
+}
 
-  .block-content {
-    width: 100%;
-    height: 100%;
+.block-content {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  font-family: zekton, sans-serif;
+
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+  }
+}
+
+.block-content, .slider-content {
+  .type {
+    position: absolute;
     top: 0;
     left: 0;
+  }
+  h2 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    max-width: 100%;
+    max-height: 100%;
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-family: zekton, sans-serif;
+    font-weight: bold;
 
-    .type {
-      position: absolute;
-      top: 0;
-      left: 0;
+
+    font-size: 42px;
+    @include large-phone {
+      font-size: 36px;
     }
-    h2 {
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      max-width: 100%;
-      max-height: 100%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-family: zekton, sans-serif;
-      font-weight: bold;
-
-
-      font-size: 42px;
-      @include large-phone {
-        font-size: 36px;
-      }
-      @include tablet {
-        font-size: 36px;
-      }
-      @include small-desktop {
-        font-size:36px;
-      }
-      @include medium-desktop {
-        font-size:42px;
-      }
-      @include large-desktop {
-        font-size:42px;
-      }
+    @include tablet {
+      font-size: 36px;
     }
-
-    img {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      max-height: 100%;
-      max-width: 100%;
-      width: auto;
-      height: auto;
+    @include small-desktop {
+      font-size:36px;
     }
-    .view {
-      position: absolute;
-      bottom: 0;
-      right: 0;
+    @include medium-desktop {
+      font-size:42px;
     }
+    @include large-desktop {
+      font-size:42px;
+    }
+  }
 
-    .type, .view {
+
+  .view {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  .type, .view {
+    margin: 14px;
+    font-size: 21px;
+    @include large-phone {
+      font-size: 18px;
+      margin: 12px;
+    }
+    @include tablet {
+      font-size: 18px;
+      margin: 12px;
+    }
+    @include small-desktop {
+      font-size:18px;
+      margin: 12px;
+    }
+    @include medium-desktop {
+      font-size:21px;
       margin: 14px;
-      font-size: 21px;
-      @include large-phone {
-        font-size: 18px;
-        margin: 12px;
-      }
-      @include tablet {
-        font-size: 18px;
-        margin: 12px;
-      }
-      @include small-desktop {
-        font-size:18px;
-        margin: 12px;
-      }
-      @include medium-desktop {
-        font-size:21px;
-        margin: 14px;
-      }
-      @include large-desktop {
-        font-size:21px;
-        margin: 14px;
-      }
+    }
+    @include large-desktop {
+      font-size:21px;
+      margin: 14px;
     }
   }
 }
 
-.block-2 {
+
+.block-2, .block-3, .block-4, .block-6 {
   @extend .block;
+}
+.block-2-half, .block-3-half, .block-4-half, .block-6-half {
+  @extend .block-half;
+}
+
+.block-2, .block-2-half {
   width: 100%;
   @include tablet {
     width: 50%;
@@ -126,34 +148,33 @@
   }
 }
 
-.block-3 {
-  @extend .block;
-  width: 100%;
-  @include tablet {
-    width: 33.3333%;
-  }
-  @include desktop {
-    width: 33.3333%;
-  }
-}
-
-.block-4 {
-  background-color: $orange-lighten-2;
-  @extend .block;
+.block-3, .block-3-half {
   width: 100%;
   @include large-phone {
     width: 50%;
   }
   @include tablet {
-    width: 50%;
+    width: 33.3333%;
+  }
+  @include desktop {
+    width: 33.3333%;
+  }
+}
+
+.block-4, .block-4-half {
+  width: 100%;
+  @include large-phone {
+    width: 33.33333%;
+  }
+  @include tablet {
+    width: 33.33333%;
   }
   @include desktop {
     width: 25%;
   }
 }
 
-.block-6 {
-  @extend .block;
+.block-6, .block-6-half {
   width: 100%;
   @include large-phone {
     width: 50%;

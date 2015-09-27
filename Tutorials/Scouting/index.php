@@ -27,11 +27,11 @@ Modify using GUI or modify content.php and run build.
         </div>
     </div>
 </div>
-<div id="selection-bar" class="selection-content">
-    <?php include 'content.htm'; ?>
+<div id="selection-bar" class="selection-nav">
+    <?php include '../content.htm'; ?>
 </div>
 <div id="body">
-
+    <?php include 'content.htm'; ?>
 </div>
 <div id="footer"></div>
 <?php include $_SERVER['DOCUMENT_ROOT'].'/js-include.php'; ?>
