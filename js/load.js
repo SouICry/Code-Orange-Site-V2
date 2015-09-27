@@ -24,8 +24,43 @@ function filterLinks() {
     }
 }
 
-var nav;
+function ajaxLoad(path, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                callback(xhr.responseText);
+            }
+            else {
+                return null; //Error code
+            }
+        }
+    };
 
+    xhr.open("GET", "/load.php?url=" + encodeURIComponent(path), true);
+    xhr.send();
+}
+
+
+function ajaxLoadContent(path, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                callback(xhr.responseText);
+            }
+            else {
+                return null; //Error code
+            }
+        }
+    };
+    xhr.open("GET", "/load.php?url=" + encodeURIComponent(path + "/content.htm"), true);
+
+    xhr.send();
+}
+
+
+var nav;
 ajaxLoad("nav.json", function(text){
 
     nav = JSON.parse(text);
@@ -111,47 +146,8 @@ function getNavSecondLevel(topLevel, secondLevel) {
     return null;
 }
 
-function ajaxLoad(path, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4) {
-            if (xhr.status == 200) {
-                callback(xhr.responseText);
-            }
-            else {
-                return null; //Error code
-            }
-        }
-    };
-    if (path.indexOf(".")) {
-        xhr.open("GET", path, true);
-    }
-    else {
-        xhr.open("GET", path + "/content.php", true);
-    }
-    xhr.send();
-}
 
-function ajaxLoadContent(path, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4) {
-            if (xhr.status == 200) {
-                callback(xhr.responseText);
-            }
-            else {
-                return null; //Error code
-            }
-        }
-    };
-    if (path.indexOf(".")) {
-        xhr.open("GET", path, true);
-    }
-    else {
-        xhr.open("GET", path + "/content.php", true);
-    }
-    xhr.send();
-}
+
 
 function loadAjaxContent(path) {
     var xhr = new XMLHttpRequest();
@@ -165,7 +161,7 @@ function loadAjaxContent(path) {
             }
         }
     };
-    xhr.open("GET", path + "/content.php", true);
+    xhr.open("GET", path + "/content.htm", true);
     xhr.send();
 }
 
@@ -186,7 +182,7 @@ function loadAjaxFile(path) {
 }
 
 function goToPage(path) {
-    history.pushState({"url": currURL}, "", path);
+    history.pushState({"url": currURL}, "", "/" + path);
     currURL = path;
     updatePageInfo();
     filterLinks();
@@ -195,7 +191,7 @@ function goToPage(path) {
 function error() {
     closeBody();
     closeNav();
-    openBody(loadAjaxContent("Error"));
+    ajaxLoadContent("Error", openBody);
     gotoPage("Error");
 }
 
@@ -236,11 +232,11 @@ function loadURL(newURL) {
                 //Load nav if new is second level menu selection page
                 var mItem = getNavTopLevel(n[0]);
                 if (mItem != null && mItem["sections"].length > 0) {
-                    openNavAsContent(loadAjaxContent(n[0]));
+                    ajaxLoadContent(n[0], openNavAsContent);
                 }
                 //otherwise load page
                 else {
-                    openBody(loadAjaxContent(newURL));
+                    ajaxLoadContent(newURL, openBody);
                 }
             }
         }
@@ -255,16 +251,16 @@ function loadURL(newURL) {
 
             //Same top level
             if (c.length > 0 && c[0] === n[0]) {
-                var nItem = getNavTopLevel(n[0], n[1]);
+                var nItem = getNavSecondLevel(n[0], n[1]);
                 //New page is default page content
                 if (nItem == null) {
                     if (currPageInfo["selection-type"] === "none") {
-                        openNavAsNav(loadAjaxContent(n[0]));
+                        ajaxLoadContent(n[0], openNavAsNav);
                     }
                     else if (currPageInfo["selection-type"] === "content") {
                         shrinkNav();
                     }
-                    openBody(loadAjaxContent(newURL));
+                    ajaxLoadContent(newURL, openBody);
                 }
                 //New page is selection (redundant second part)
                 else {
@@ -278,11 +274,11 @@ function loadURL(newURL) {
             }
             else {
                 closeNav();
-                var nItem1 = getNavTopLevel(n[0], n[1]);
+                var nItem1 = getNavSecondLevel(n[0], n[1]);
                 //New page is default page content
                 if (nItem1 == null) {
-                    openNavAsNav(loadAjaxContent(n[0]));
-                    openBody(loadAjaxContent(newURL));
+                    ajaxLoadContent(n[0], openNavAsNav);
+                    ajaxLoadContent(newURL, openBody);
                 }
                 //New page is selection (redundant second part)
                 else {
@@ -306,10 +302,10 @@ function loadURL(newURL) {
             }
             else {
                 closeNav();
-                openNavAsNav(loadAjaxContent(n[0]));
+                ajaxLoadContent(n[0], openNavAsNav);
 
             }
-            openBody(loadAjaxContent(newURL));
+            ajaxLoadContent(newURL, openBody);
         }
         else {
             error();
@@ -334,6 +330,9 @@ function trimForwardSlash(stringToTrim) {
 function closeBody() {
     document.getElementById("body").innerHTML = "";
 }
+function openBody(innerHTML) {
+    document.getElementById("body").innerHTML = innerHTML;
+}
 function closeNav() {
     document.getElementById("selection-bar").innerHTML = "";
 }
@@ -351,7 +350,5 @@ function openNavAsNav(innerHTML) {
     document.getElementById("selection-bar").className = "selection-nav";
     document.getElementById("selection-bar").innerHTML = innerHTML;
 }
-function openBody(innerHTML) {
-    document.getElementById("selection-bar").innerHTML = innerHTML;
-}
+
 

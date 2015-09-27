@@ -6,7 +6,8 @@
         {
           "name": "default",
           "pages": [
-            "Awards"
+            "Awards",
+            "Contact_Us"
           ]
         },
         {
@@ -24,13 +25,15 @@
           "pages": [
             "Cloud_9",
             "Hanalei",
-            "Mavericks"
+            "Mavericks",
+            "Pipeline",
+            "Tic-Tac"
           ]
         }
       ]
     },
     {
-      "name": "<I>FIRST</I>",
+      "name": "FIRST",
       "sections": [
         {
           "name": "default",

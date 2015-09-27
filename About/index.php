@@ -17,10 +17,7 @@
             <div id="nav">
                 <div class="scroll-hide">
                     <div class="scroll-fix">
-                        <a href="#">About</a>
-                        <a href="#">Robots</a>
-                        <a href="#"><i>FIRST</i></a>
-                        <a href="#">Tutorials</a>
+                        <?php include $_SERVER['DOCUMENT_ROOT'].'/menu.php'; ?>
                     </div>
                 </div>
             </div>
@@ -29,7 +26,7 @@
 </div>
 
 <div id="selection-bar" class="selection-content">
-    <?php include 'content.php'; ?>
+    <?php include 'content.htm'; ?>
 </div>
 
 <div id="body">
