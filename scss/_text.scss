@@ -72,14 +72,21 @@ tbody td{
 h2 {
   @extend .heading;
 
-
-
   font-size: 28px;
-  @include tablet {
-    font-size: 42px;
+  @include large-phone {
+    font-size: 28px;
   }
-  @include desktop {
-    font-size:42px;
+  @include tablet {
+    font-size: 32px;
+  }
+  @include small-desktop {
+    font-size:32px;
+  }
+  @include medium-desktop {
+    font-size:36px;
+  }
+  @include large-desktop {
+    font-size:36px;
   }
 }
 #body h2 {

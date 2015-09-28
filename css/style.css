@@ -106,12 +106,21 @@ tbody td {
 
 h2 {
   font-size: 28px; }
+  @media (min-width: 480px) and (max-width: 719px) {
+    h2 {
+      font-size: 28px; } }
   @media (min-width: 720px) and (max-width: 1023px) {
     h2 {
-      font-size: 42px; } }
-  @media (min-width: 1024px) {
+      font-size: 32px; } }
+  @media (min-width: 1024px) and (max-width: 1279px) {
     h2 {
-      font-size: 42px; } }
+      font-size: 32px; } }
+  @media (min-width: 1280px) and (max-width: 1439px) {
+    h2 {
+      font-size: 36px; } }
+  @media (min-width: 1440px) {
+    h2 {
+      font-size: 36px; } }
 
 #body h2 {
   color: #64ffda; }
@@ -241,6 +250,7 @@ h4, thead td {
   width: 100%;
   background-color: #fb8c00;
   margin: 0;
+  padding: 0;
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5); }
   @media (min-width: 720px) and (max-width: 1023px) {
     #selection-bar {
@@ -478,116 +488,6 @@ h4, thead td {
 #footer-filler {
   height: 250px; }
 
-/* Carousel buttons*/
-.slick-arrow, .slick-prev, .slick-next {
-  width: 5%;
-  min-width: 50px;
-  height: 100%;
-  background-color: transparent;
-  position: absolute;
-  z-index: 150;
-  top: 0;
-  font-size: 100%;
-  border: none; }
-  .slick-arrow img, .slick-prev img, .slick-next img {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%); }
-
-.slick-prev {
-  left: 0; }
-
-.slick-next {
-  right: 0; }
-
-/* Slider - https://kenwheeler.github.io/slick/ */
-.slick-slider {
-  position: relative;
-  display: block;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-touch-callout: none;
-  -khtml-user-select: none;
-  -ms-touch-action: pan-y;
-  touch-action: pan-y;
-  -webkit-tap-highlight-color: transparent;
-  z-index: 100; }
-
-.slick-list {
-  position: relative;
-  display: block;
-  overflow: visible;
-  margin: 0;
-  padding: 0; }
-
-.slick-list:focus {
-  outline: none; }
-
-.slick-list.dragging {
-  cursor: pointer;
-  cursor: hand; }
-
-.slick-slider .slick-track,
-.slick-slider .slick-list {
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0); }
-
-.slick-track {
-  position: relative;
-  top: 0;
-  left: 0;
-  display: block; }
-
-.slick-track:before,
-.slick-track:after {
-  display: table;
-  content: ''; }
-
-.slick-track:after {
-  clear: both; }
-
-.slick-loading .slick-track {
-  visibility: hidden; }
-
-.slick-slide {
-  display: none;
-  float: left;
-  height: 100%;
-  min-height: 1px; }
-
-[dir='rtl'] .slick-slide {
-  float: right; }
-
-.slick-slide img {
-  display: block; }
-
-.slick-slide.slick-loading img {
-  display: none; }
-
-.slick-slide.dragging img {
-  pointer-events: none; }
-
-.slick-initialized .slick-slide {
-  display: block; }
-
-.slick-loading .slick-slide {
-  visibility: hidden; }
-
-.slick-vertical .slick-slide {
-  display: block;
-  height: auto;
-  border: 1px solid transparent; }
-
-.slick-arrow.slick-hidden, .slick-hidden.slick-prev, .slick-hidden.slick-next {
-  display: none; }
-
 #body .block-content {
   color: white;
   background-color: #26a69a; }
@@ -636,6 +536,15 @@ h4, thead td {
   left: 0;
   position: absolute;
   font-family: zekton, sans-serif; }
+  .block-content img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto; }
   .block-content .content {
     position: absolute;
     top: 50%;
@@ -661,23 +570,7 @@ h4, thead td {
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: zekton, sans-serif;
-  font-weight: bold;
-  font-size: 42px; }
-  @media (min-width: 480px) and (max-width: 719px) {
-    .block-content h2, .slider-content h2 {
-      font-size: 36px; } }
-  @media (min-width: 720px) and (max-width: 1023px) {
-    .block-content h2, .slider-content h2 {
-      font-size: 36px; } }
-  @media (min-width: 1024px) and (max-width: 1279px) {
-    .block-content h2, .slider-content h2 {
-      font-size: 36px; } }
-  @media (min-width: 1280px) and (max-width: 1439px) {
-    .block-content h2, .slider-content h2 {
-      font-size: 42px; } }
-  @media (min-width: 1440px) {
-    .block-content h2, .slider-content h2 {
-      font-size: 42px; } }
+  font-weight: bold; }
 .block-content .view, .slider-content .view {
   position: absolute;
   bottom: 0;
@@ -799,6 +692,15 @@ h4, thead td {
   left: 0;
   position: absolute;
   font-family: zekton, sans-serif; }
+  .block-content img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto; }
   .block-content .content {
     position: absolute;
     top: 50%;
@@ -824,23 +726,7 @@ h4, thead td {
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: zekton, sans-serif;
-  font-weight: bold;
-  font-size: 42px; }
-  @media (min-width: 480px) and (max-width: 719px) {
-    .block-content h2, .slider-content h2 {
-      font-size: 36px; } }
-  @media (min-width: 720px) and (max-width: 1023px) {
-    .block-content h2, .slider-content h2 {
-      font-size: 36px; } }
-  @media (min-width: 1024px) and (max-width: 1279px) {
-    .block-content h2, .slider-content h2 {
-      font-size: 36px; } }
-  @media (min-width: 1280px) and (max-width: 1439px) {
-    .block-content h2, .slider-content h2 {
-      font-size: 42px; } }
-  @media (min-width: 1440px) {
-    .block-content h2, .slider-content h2 {
-      font-size: 42px; } }
+  font-weight: bold; }
 .block-content .view, .slider-content .view {
   position: absolute;
   bottom: 0;
@@ -961,14 +847,15 @@ h4, thead td {
     #body .content-section .content-row .sidebar-left {
       width: 100%;
       float: left;
-      margin: 0;
+      margin: 0 auto;
       min-height: 50px; }
       @media (min-width: 480px) and (max-width: 719px) {
         #body .content-section .content-row .sidebar-left img {
           width: 50%; } }
       @media (min-width: 720px) and (max-width: 1023px) {
         #body .content-section .content-row .sidebar-left img {
-          width: 50%; } }
+          width: 33.33333%;
+          margin: auto; } }
       @media (min-width: 1024px) and (max-width: 1279px) {
         #body .content-section .content-row .sidebar-left {
           width: 234px;

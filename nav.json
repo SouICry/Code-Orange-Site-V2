@@ -6,13 +6,11 @@
         {
           "name": "default",
           "pages": [
+            "About_Us",
             "Awards",
+            "Sponsors",
             "Contact_Us"
-          ]
-        },
-        {
-          "name": "Sponsors",
-          "pages": [
+
           ]
         }
       ]

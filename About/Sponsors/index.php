@@ -1,7 +1,8 @@
-<?php/*
+<?php /*
 Auto-generated content. Changes made may be lost at any time.
 Modify using GUI or modify content.php and run build.
 */?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +29,7 @@ Modify using GUI or modify content.php and run build.
     </div>
 </div>
 <div id="selection-bar" class="selection-nav">
-    <?php include '../../content.htm'; ?>
+    <?php include '../content.htm'; ?>
 </div>
 <div id="body">
     <?php include 'content.htm'; ?>

@@ -54,14 +54,16 @@
     .sidebar-left {
       width: 100%;
       float: left;
-      margin: 0;
+      margin: 0 auto;
       min-height: 50px;
       img {
         @include large-phone {
           width: 50%;
+
         }
         @include tablet {
-          width: 50%;
+          width: 33.33333%;
+          margin: auto;
         }
       }
       @include small-desktop {
