@@ -2,72 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c6d85cd-f7c8-4f3c-a2fc-a00c4fde1311" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/carousel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/About/About_Us/content.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FIRST/About_FIRST/content.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tutorials/All_Tutorials/content.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/About/About_Us/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FIRST/About_FIRST/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tutorials/All_Tutorials/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js-include.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\About\Sponsors\All_Sponsors\img\applied-medical.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\About\Sponsors\All_Sponsors\img\lasergraphics.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\scss\_carousel1.scss" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\About\Sponsors\All_Sponsors\content.htm" afterPath="$PROJECT_DIR$/About/Sponsors/content.htm" />
-      <change type="MOVED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\About\Sponsors\All_Sponsors\img\SLAS.png" afterPath="$PROJECT_DIR$/About/Sponsors/img/SLAS.png" />
-      <change type="MOVED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\About\Sponsors\All_Sponsors\img\UST-global.png" afterPath="$PROJECT_DIR$/About/Sponsors/img/UST-global.png" />
-      <change type="MOVED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\About\Sponsors\All_Sponsors\img\boeing.png" afterPath="$PROJECT_DIR$/About/Sponsors/img/boeing.png" />
-      <change type="MOVED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\About\Sponsors\All_Sponsors\img\coast-aluminum.png" afterPath="$PROJECT_DIR$/About/Sponsors/img/coast-aluminum.png" />
-      <change type="MOVED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\About\Sponsors\All_Sponsors\img\dobrusin.png" afterPath="$PROJECT_DIR$/About/Sponsors/img/dobrusin.png" />
-      <change type="MOVED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\About\Sponsors\All_Sponsors\img\dolphin-force.png" afterPath="$PROJECT_DIR$/About/Sponsors/img/dolphin-force.png" />
-      <change type="MOVED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\About\Sponsors\All_Sponsors\img\fastenal.png" afterPath="$PROJECT_DIR$/About/Sponsors/img/fastenal.png" />
-      <change type="MOVED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\About\Sponsors\All_Sponsors\img\innovo-commerce.png" afterPath="$PROJECT_DIR$/About/Sponsors/img/innovo-commerce.png" />
-      <change type="MOVED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\About\Sponsors\All_Sponsors\img\ni.png" afterPath="$PROJECT_DIR$/About/Sponsors/img/ni.png" />
-      <change type="MOVED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\About\Sponsors\All_Sponsors\img\opus.png" afterPath="$PROJECT_DIR$/About/Sponsors/img/opus.png" />
-      <change type="MOVED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\About\Sponsors\All_Sponsors\img\prime-fabrication.png" afterPath="$PROJECT_DIR$/About/Sponsors/img/prime-fabrication.png" />
-      <change type="MOVED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\About\Sponsors\All_Sponsors\img\solid-professor.png" afterPath="$PROJECT_DIR$/About/Sponsors/img/solid-professor.png" />
-      <change type="MOVED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\About\Sponsors\All_Sponsors\img\solidworks.png" afterPath="$PROJECT_DIR$/About/Sponsors/img/solidworks.png" />
-      <change type="MOVED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\About\Sponsors\All_Sponsors\img\vxb.png" afterPath="$PROJECT_DIR$/About/Sponsors/img/vxb.png" />
-      <change type="MOVED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\About\Sponsors\All_Sponsors\img\western-digital.png" afterPath="$PROJECT_DIR$/About/Sponsors/img/western-digital.png" />
-      <change type="MOVED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\About\Sponsors\All_Sponsors\index.php" afterPath="$PROJECT_DIR$/About/Sponsors/index.php" />
-      <change type="MOVED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\About\img\team.jpg" afterPath="$PROJECT_DIR$/About/About_Us/img/team.jpg" />
-      <change type="MOVED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\FIRST\img\frc.png" afterPath="$PROJECT_DIR$/FIRST/About_FIRST/img/frc.png" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\js\jquery-2.1.4.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\js\slick-modified.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/_carousel.scss" afterPath="$PROJECT_DIR$/scss/_carousel.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/components/_form.scss" afterPath="$PROJECT_DIR$/scss/components/_form.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/_layout_block.scss" afterPath="$PROJECT_DIR$/scss/_layout_block.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/_layout_structure.scss" afterPath="$PROJECT_DIR$/scss/_layout_structure.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/_selection-bar.scss" afterPath="$PROJECT_DIR$/scss/_selection-bar.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/_text.scss" afterPath="$PROJECT_DIR$/scss/_text.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/About/content.htm" afterPath="$PROJECT_DIR$/About/content.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FIRST/content.htm" afterPath="$PROJECT_DIR$/FIRST/content.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robots/content.htm" afterPath="$PROJECT_DIR$/Robots/content.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robots/Cloud_9/content.htm" afterPath="$PROJECT_DIR$/Robots/Cloud_9/content.htm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/_layout_content.scss" afterPath="$PROJECT_DIR$/scss/_layout_content.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/carousel.js" afterPath="$PROJECT_DIR$/js/carousel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/About/Contact_Us/content.htm" afterPath="$PROJECT_DIR$/About/Contact_Us/content.htm" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robots/Hanalei/content.htm" afterPath="$PROJECT_DIR$/Robots/Hanalei/content.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tutorials/content.htm" afterPath="$PROJECT_DIR$/Tutorials/content.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/About/index.php" afterPath="$PROJECT_DIR$/About/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/About/Awards/index.php" afterPath="$PROJECT_DIR$/About/Awards/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/About/Contact_Us/index.php" afterPath="$PROJECT_DIR$/About/Contact_Us/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Error/index.php" afterPath="$PROJECT_DIR$/Error/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FIRST/index.php" afterPath="$PROJECT_DIR$/FIRST/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FIRST/Games/Aerial_Assist/index.php" afterPath="$PROJECT_DIR$/FIRST/Games/Aerial_Assist/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FIRST/Games/Ultimate_Ascent/index.php" afterPath="$PROJECT_DIR$/FIRST/Games/Ultimate_Ascent/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FIRST/OC_FRC_Teams/index.php" afterPath="$PROJECT_DIR$/FIRST/OC_FRC_Teams/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robots/index.php" afterPath="$PROJECT_DIR$/Robots/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robots/Cloud_9/index.php" afterPath="$PROJECT_DIR$/Robots/Cloud_9/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robots/Hanalei/index.php" afterPath="$PROJECT_DIR$/Robots/Hanalei/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robots/Mavericks/index.php" afterPath="$PROJECT_DIR$/Robots/Mavericks/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robots/Pipeline/index.php" afterPath="$PROJECT_DIR$/Robots/Pipeline/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robots/Tic-Tac/index.php" afterPath="$PROJECT_DIR$/Robots/Tic-Tac/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tutorials/index.php" afterPath="$PROJECT_DIR$/Tutorials/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tutorials/Electronics/index.php" afterPath="$PROJECT_DIR$/Tutorials/Electronics/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tutorials/Scouting/index.php" afterPath="$PROJECT_DIR$/Tutorials/Scouting/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-include.php" afterPath="$PROJECT_DIR$/js-include.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/load.php" afterPath="$PROJECT_DIR$/load.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/materialize.css" afterPath="$PROJECT_DIR$/css/materialize.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/menu.php" afterPath="$PROJECT_DIR$/menu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nav.json" afterPath="$PROJECT_DIR$/nav.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/selection.html" afterPath="$PROJECT_DIR$/selection.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css.map" afterPath="$PROJECT_DIR$/css/style.css.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -143,21 +84,31 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="js-include.htm" pinned="false" current-in-tab="true">
+          <file leaf-file-name="js-include.htm" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js-include.htm">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.018952062">
-                  <caret line="1" column="39" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="content.htm" pinned="false" current-in-tab="false">
+          <file leaf-file-name="content.htm" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Robots/Hanalei/content.htm">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-5.8846154">
-                  <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+                <state vertical-scroll-proportion="0.33254156">
+                  <caret line="17" column="62" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="carousel.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/js/carousel.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
                   <folding />
                 </state>
               </provider>
@@ -166,8 +117,8 @@
           <file leaf-file-name="cssslider2.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/../New folder (5)/cssslider2.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-6.5384617">
-                  <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
                   <folding />
                 </state>
               </provider>
@@ -176,7 +127,7 @@
           <file leaf-file-name="content.htm" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/About/About_Us/content.htm">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-0.0">
+                <state vertical-scroll-proportion="0.0">
                   <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
                   <folding />
                 </state>
@@ -191,7 +142,7 @@
             <entry file="file://$PROJECT_DIR$/scss/style.scss">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+                  <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -211,7 +162,7 @@
             <entry file="file://$PROJECT_DIR$/scss/_selection-bar.scss">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+                  <caret line="16" column="10" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="10" />
                   <folding />
                 </state>
               </provider>
@@ -241,7 +192,7 @@
             <entry file="file://$PROJECT_DIR$/scss/_layout_content.scss">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+                  <caret line="36" column="3" selection-start-line="36" selection-start-column="3" selection-end-line="36" selection-end-column="3" />
                   <folding />
                 </state>
               </provider>
@@ -270,8 +221,8 @@
           <file leaf-file-name="_carousel.scss" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/scss/_carousel.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.039035592">
-                  <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+                <state vertical-scroll-proportion="3.1365795">
+                  <caret line="248" column="0" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -307,7 +258,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Tutorials/Electronics/content.htm" />
         <option value="$PROJECT_DIR$/Tutorials/Scouting/content.htm" />
         <option value="$PROJECT_DIR$/scss/_header.scss" />
         <option value="$PROJECT_DIR$/js/load.js" />
@@ -353,11 +303,12 @@
         <option value="$PROJECT_DIR$/js/zSlider.js" />
         <option value="$PROJECT_DIR$/../New folder (5)/cssslider2.html" />
         <option value="$PROJECT_DIR$/Robots/Cloud_9/content.htm" />
-        <option value="$PROJECT_DIR$/Robots/Hanalei/content.htm" />
-        <option value="$PROJECT_DIR$/scss/_carousel.scss" />
-        <option value="$PROJECT_DIR$/js/carousel.js" />
         <option value="$PROJECT_DIR$/js-include.js" />
         <option value="$PROJECT_DIR$/js-include.php" />
+        <option value="$PROJECT_DIR$/scss/_layout_content.scss" />
+        <option value="$PROJECT_DIR$/js/carousel.js" />
+        <option value="$PROJECT_DIR$/Robots/Hanalei/content.htm" />
+        <option value="$PROJECT_DIR$/scss/_carousel.scss" />
       </list>
     </option>
   </component>
@@ -406,7 +357,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -768,6 +718,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -955,7 +906,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -963,7 +913,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -971,7 +920,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.11371238">
           <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -979,7 +927,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.05685619">
           <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -987,7 +934,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.05685619">
           <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -995,7 +941,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.05685619">
           <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1003,7 +948,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.05685619">
           <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1032,23 +976,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.05685619">
           <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scss/_footer.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scss/_defaults.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1078,7 +1005,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.05685619">
           <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1086,7 +1012,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.05685619">
           <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1094,7 +1019,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.18952063">
           <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1102,7 +1026,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.05685619">
           <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1110,15 +1033,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26532888">
           <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scss/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1149,7 +1063,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1183,26 +1096,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scss/_selection-bar.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scss/_layout_structure.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scss/_layout_content.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1227,9 +1124,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="57" column="44" selection-start-line="57" selection-start-column="44" selection-end-line="57" selection-end-column="44" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1253,39 +1147,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19517796">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Robots/Hanalei/content.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8846154">
-          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scss/_carousel.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.039035592">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/carousel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.018952062">
-          <caret line="1" column="89" selection-start-line="1" selection-start-column="89" selection-end-line="1" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../New folder (5)/cssslider2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5384617">
-          <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1293,14 +1154,85 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07580825">
           <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js-include.htm">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.018952062">
-          <caret line="1" column="39" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../New folder (5)/cssslider2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/_footer.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/style.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/_defaults.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/_selection-bar.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="10" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/_layout_content.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="3" selection-start-line="36" selection-start-column="3" selection-end-line="36" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/carousel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Robots/Hanalei/content.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33254156">
+          <caret line="17" column="62" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/_carousel.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.1365795">
+          <caret line="248" column="0" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
           <folding />
         </state>
       </provider>
