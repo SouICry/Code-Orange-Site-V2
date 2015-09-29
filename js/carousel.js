@@ -1,4 +1,7 @@
-// Carousel drag-touch script from cssSlider - http://cssSlider.com/
+//Carousel mouse/touch drag script based on slider gesture script from cssSlider - http://cssSlider.com/
+//Removed the extra drag layer (which enabled infinite loop, but was unnecessarily laggy and jumpy at times).
+
+
 !function (e) {
     function s(e, s) {
         if (!e)return [];
@@ -33,17 +36,13 @@
         };
         n.DEFAULT = {speed: 300, minDistance: 15}, n.prototype = {
             init: function () {
-                t(this.$slider, "cs_handle"), this.prepareGesturesConainer(), this.startSwipes();
+                t(this.$slider, "cs_handle"), this.startSwipes();
                 var e = this;
                 for (var s in e.$allRadios)(function (s) {
                     r(e.$allRadios[s], "change", function () {
                         s != e.checked && i(e.$gesturesWrap, "cs_show")
                     })
                 })(s)
-            }, prepareGesturesConainer: function () {
-                t(this.$gesturesWrap, "cs_gestures"), this.$gesturesWrap.appendChild(this.$gesturesCont), this.$slider.appendChild(this.$gesturesWrap), this.$gesturesCont.appendChild(t(this.$images[this.$images.length - 1].getElementsByTagName("img")[0].cloneNode(), "cs_first_img"));
-                for (var e in this.$images)this.$gesturesCont.appendChild(this.$images[e].getElementsByTagName("img")[0].cloneNode());
-                this.$gesturesCont.appendChild(t(this.$images[0].getElementsByTagName("img")[0].cloneNode(), "cs_last_img"))
             }, startSwipes: function () {
                 var s = this, n = 0, o = 0, c = s.$slider.clientWidth;
                 r(s.$slider, "mousedown touchstart", function (e) {
