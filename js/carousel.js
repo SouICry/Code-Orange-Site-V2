@@ -1,5 +1,6 @@
-//Carousel mouse/touch drag script based on slider gesture script from cssSlider - http://cssSlider.com/
-//Removed the extra drag layer (which enabled infinite loop, but was unnecessarily laggy and jumpy at times).
+//Carousel mouse/touch drag script based on cssSlider gesture.js from cssSlider - http://cssSlider.com/
+//Removed all code related to the extra drag layer (which enabled infinite loop, but was unnecessarily laggy and jumps).
+//Default autoplay is disabled and rewritten to be js instead of css to fix jumping problem.
 
 
 !function (e) {
@@ -14,15 +15,6 @@
         return t.test(e.className) || (e.className = (e.className + " " + s).replace(/\s+/g, " ").replace(/(^ | $)/g, "")), e
     }
 
-    function i(e, s) {
-        var t = new RegExp("(^|\\s)" + s + "(\\s|$)", "g");
-        return e.className = e.className.replace(t, "$1").replace(/\s+/g, " ").replace(/(^ | $)/g, ""), e
-    }
-
-    function a(e, s) {
-        for (var t in s)e.style[t] = s[t]
-    }
-
     function r(e, s, t) {
         if (e) {
             s = s.split(" ");
@@ -32,17 +24,12 @@
 
     if (!window.cssSliderGestures && (window.cssSliderGestures = 1, !e.all || window.atob)) {
         var n = function (t, i) {
-            this.$slider = t, this.options = i, this.$images = s(this.$slider.getElementsByTagName("ul")[0], "img"), this.$gesturesCont = e.createElement("div"), this.$gesturesWrap = e.createElement("div"), this.$radios = s(this.$slider, "cs_anchor slide"), this.$allRadios = s(this.$slider, "cs_anchor"), this.checked = 0, this.init()
+            this.$slider = t, this.options = i, this.$radios = s(this.$slider, "cs_anchor slide"), this.checked = 0, this.init()
         };
         n.DEFAULT = {speed: 300, minDistance: 15}, n.prototype = {
             init: function () {
                 t(this.$slider, "cs_handle"), this.startSwipes();
-                var e = this;
-                for (var s in e.$allRadios)(function (s) {
-                    r(e.$allRadios[s], "change", function () {
-                        s != e.checked && i(e.$gesturesWrap, "cs_show")
-                    })
-                })(s)
+
             }, startSwipes: function () {
                 var s = this, n = 0, o = 0, c = s.$slider.clientWidth;
                 r(s.$slider, "mousedown touchstart", function (e) {
@@ -52,24 +39,16 @@
                             s.checked = i;
                             break
                         }
-                        t(s.$slider, "cs_grab"), s.$radios[s.checked].checked = !0, a(s.$gesturesCont, {
-                            WebkitTransition: "",
-                            transition: "",
-                            WebkitTransform: "translate3d(" + -c * s.checked + "px,0px,0px)",
-                            transform: "translate3d(" + -c * s.checked + "px,0px,0px)"
-                        })
+                         s.$radios[s.checked].checked = !0
                     }
                 }), r(e, "mousemove touchmove", function (e) {
                     if (n) {
                         var i = (e.touches ? e.touches[0] : e).pageX;
-                        e.stopPropagation(), o = i - n >= c ? c + n : -c >= i - n ? -c + n : i, t(s.$gesturesWrap, "cs_show"), a(s.$gesturesCont, {
-                            WebkitTransform: "translate3d(" + (-c * s.checked + o - n) + "px,0px,0px)",
-                            transform: "translate3d(" + (-c * s.checked + o - n) + "px,0px,0px)"
-                        })
+                        e.stopPropagation(), o = i - n >= c ? c + n : -c >= i - n ? -c + n : i
                     }
                 }), r(e, "mouseup touchend", function (e) {
                     if (n) {
-                        o && (e.preventDefault(), e.stopPropagation()), i(s.$slider, "cs_grab");
+                        o && (e.preventDefault(), e.stopPropagation());
                         var t = n - o, r = 0;
                         if (o && Math.max(t, -1 * t) > s.options.minDistance) {
                             for (var d in s.$radios)if (s.$radios[d].checked) {
@@ -78,13 +57,7 @@
                             }
                             s.$radios[s.checked].checked = !0
                         }
-                        var h = Math.max((c + (t > 0 ? -1 : 1) * t) / c, .3);
-                        a(s.$gesturesCont, {
-                            WebkitTransition: "-webkit-transform " + s.options.speed * h + "ms linear",
-                            transition: "transform " + s.options.speed * h + "ms linear",
-                            WebkitTransform: "translate3d(" + -c * (r || s.checked) + "px,0px,0px)",
-                            transform: "translate3d(" + -c * (r || s.checked) + "px,0px,0px)"
-                        }), o = 0, n = 0
+                        o = 0, n = 0
                     }
                 })
             }
