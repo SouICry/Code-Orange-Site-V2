@@ -6,6 +6,8 @@
   .title {
     margin: 0;
     padding: 20px 0 40px 0;
+    max-width:100%;
+    overflow: auto;
     @include medium-desktop {
       padding-left: 10%;
     }
@@ -19,12 +21,44 @@
   h1, .sub-title {
     color: $orange-accent-1;
   }
+  .title {
+    max-width:100%;
+    overflow: auto;
+  }
 }
 
 #body .row .title, #selection-bar .title {
   float: left;
   width: 100%;
   margin: 0;
+  h1 {
+    display: block;
+    float: left;
+    @extend .heading;
+
+    font-size: 46px;
+    margin: 42px -20px -50px 20px;
+    @include large-phone {
+      font-size: 50px;
+      margin: 42px -20px -75px 20px;
+    }
+    @include tablet {
+      font-size: 54px;
+      margin: 63px -50px -110px 20px;
+    }
+    @include small-desktop {
+      font-size: 58px;
+      margin: 84px -80px -145px 20px;
+    }
+    @include medium-desktop {
+      font-size: 62px;
+      margin: 105px -105px -165px 20px;
+    }
+    @include large-desktop {
+      font-size: 66px;
+      margin: 115px -130px -165px 20px;
+    }
+  }
   .sub-title {
     @extend .heading;
     display: block;
@@ -32,45 +66,35 @@
 
     font-size: 24px;
     line-height: 46px;
-    margin: 52px 0 16px 8px;
-    @include tablet {
-      font-size: 26px;
-      line-height: 50px;
-      margin: 75px 0 20px 8px;
-    }
-    @include desktop {
+    margin: 52px 0 16px 33px;
+    @include large-phone {
       font-size: 28px;
+      line-height: 50px;
+      margin: 90px 0 16px 33px;
+    }
+    @include tablet {
+      font-size: 32px;
       line-height: 54px;
-      margin: 130px 0 24px 8px;
+      margin: 120px 0 20px 63px;
+    }
+    @include small-desktop {
+      font-size: 36px;
+      line-height: 58px;
+      margin: 150px 0 24px 93px;
+    }
+    @include medium-desktop {
+      font-size: 40px;
+      line-height: 62px;
+      margin: 180px 0 24px 123px;
+    }
+    @include large-desktop {
+      font-size: 44px;
+      line-height: 66px;
+      margin: 180px 0 24px 148px;
     }
   }
 
 }
 
-h1 {
-  float: left;
-  @extend .heading;
 
-  font-size: 46px;
-  @include tablet {
-    font-size: 50px;
-  }
-  @include desktop {
-    font-size: 54px;
-  }
-
-  margin: 42px 5px 16px 20px;
-  @include tablet {
-    margin: 63px 10px 20px 30px;
-  }
-  @include small-desktop {
-    margin: 84px 20px 24px 40px;
-  }
-  @include medium-desktop {
-    margin: 84px 40px 24px 40px;
-  }
-  @include large-desktop {
-    margin: 84px 60px 24px 40px;
-  }
-}
 
