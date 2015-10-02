@@ -1,5 +1,5 @@
 
-#body {
+#body .row{
   h1, .sub-title {
     color: $teal-accent-3;
   }
@@ -19,11 +19,9 @@
   h1, .sub-title {
     color: $orange-accent-1;
   }
-  .title {
-  }
 }
 
-.title {
+#body .row .title, #selection-bar .title {
   float: left;
   width: 100%;
   margin: 0;
