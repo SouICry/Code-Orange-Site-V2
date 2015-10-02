@@ -1,6 +1,6 @@
 //Carousel mouse/touch drag script based on cssSlider gesture.js from cssSlider - http://cssSlider.com/
 //Removed all code related to the extra drag layer (which enabled infinite loop, but was unnecessarily laggy and jumps).
-//Default autoplay is disabled and rewritten to be js instead of css to fix jumping problem.
+//Default autoplay is disabled and rewritten to be js instead of css to fix jumping problem (js is php generated).
 
 
 !function (e) {

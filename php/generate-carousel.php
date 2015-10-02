@@ -14,22 +14,10 @@ $total = ($duration+$animation) * $count;
 
 echo "<style>";
 
-for ($num = 0; $num < $count; $num++){
-    if ($num == $count - 1){
-        echo ("#cs_play:checked ~ .cs_prev .num".($num - 1).",#cs_play:checked ~ .cs_next .num0 {-webkit-animation: arrow1 ".($total)."ms infinite ".($timePerSlide*$num-$animation)."ms;animation: arrow1 ".($total)."ms infinite ".($timePerSlide*$num-$animation)."ms;}");
-    }
-    else if ($num == 0) {
-        echo ("#cs_play:checked ~ .cs_prev .num".($count-1).",#cs_play:checked ~ .cs_next .num".($num + 1)." {-webkit-animation: arrow1 ".($total)."ms infinite ".($timePerSlide*$num-$animation)."ms;animation: arrow1 ".($total)."ms infinite ".($timePerSlide*$num-$animation)."ms;}");
-    }
-    else {
-        echo ("#cs_play:checked ~ .cs_prev .num".($num - 1).",#cs_play:checked ~ .cs_next .num".($num + 1)." {-webkit-animation: arrow1 ".($total)."ms infinite ".($timePerSlide*$num-$animation)."ms;animation: arrow1 ".($total)."ms infinite ".($timePerSlide*$num-$animation)."ms;}");
-    }
-}
-
 
 for ($num = 0; $num < $count; $num++){
     if ($num == $count - 1){
-        echo ("#cs_slide_".$num.":checked ~ .cs_prev .num".($num-1).",#cs_pause_".$num.":checked ~ .cs_prev .num".($num-1).",#cs_slide_".$num.":checked ~ .cs_next .num0,#cs_pause_".$num.":checked ~ .cs_next .num0 {opacity: 1;z-index: 5;}");
+        echo ("#cs_slide_".$num.":checked ~ .cs_prev .num".($num-1).",#cs_pause_".$num.":checked ~ .cs_prev .num".($num-1).",#cs_slide_".$num.":checked ~ .cs_next .num0,#cs_pause_".$num.":checked ~ .cs_next .num0 {opacity: 0.5;z-index: 5;}");
     }
     else if ($num == 0) {
         echo ("#cs_slide_".$num.":checked ~ .cs_prev .num".($count-1).",#cs_pause_".$num.":checked ~ .cs_prev .num".($count-1).",#cs_slide_".$num.":checked ~ .cs_next .num".($num+1).",#cs_pause_".$num.":checked ~ .cs_next .num".($num+1).",");
@@ -41,7 +29,7 @@ for ($num = 0; $num < $count; $num++){
 
 for ($num = 0; $num < $count; $num++){
     if ($num == $count - 1){
-        echo ("#cs_slide_".$num.":checked ~ .cs_bullets .num".$num." .cs_point,#cs_pause_".$num.":checked ~ .cs_bullets .num".$num." .cs_point {background: #3A4A5A;}");
+        echo ("#cs_slide_".$num.":checked ~ .cs_bullets .num".$num." .cs_point,#cs_pause_".$num.":checked ~ .cs_bullets .num".$num." .cs_point {opacity: 1;}");
     }
     else {
         echo ("#cs_slide_".$num.":checked ~ .cs_bullets .num".$num." .cs_point,#cs_pause_".$num.":checked ~ .cs_bullets .num".$num." .cs_point,");
@@ -55,7 +43,7 @@ for ($num = 0; $num < $count; $num++){
 echo "</style>";
 
 echo ("<input name='cs_anchor' id='cs_play' type='radio' class='cs_anchor' checked>");
-echo ("<input name='cs_anchor' id='cs_slide_0' type='radio' class='cs_anchor slide'><input name='cs_anchor' id='cs_pause_0' type='radio' class='cs_anchor pause'>");
+echo ("<input name='cs_anchor' id='cs_slide_0' type='radio' class='cs_anchor slide' checked><input name='cs_anchor' id='cs_pause_0' type='radio' class='cs_anchor pause'>");
 for ($num = 1; $num < $count; $num++){
     echo ("<input name='cs_anchor' id='cs_slide_".$num."' type='radio' class='cs_anchor slide'><input name='cs_anchor' id='cs_pause_".$num."' type='radio' class='cs_anchor pause'>");
 }
@@ -69,13 +57,13 @@ echo "</ul>";
 
 echo "<div class='cs_prev'>";
 for ($num = 0; $num < $count; $num++){
-    echo ("<label class='num".$num."' for='cs_slide_".$num."'><span></span></label>");
+    echo ("<span></span><label class='num".$num."' for='cs_slide_".$num."'></label>");
 }
 echo "</div>";
 
 echo "<div class='cs_next'>";
 for ($num = 0; $num < $count; $num++){
-    echo ("<label class='num".$num."' for='cs_slide_".$num."'><span></span></label>");
+    echo ("<span></span><label class='num".$num."' for='cs_slide_".$num."'></label>");
 }
 echo "</div>";
 
