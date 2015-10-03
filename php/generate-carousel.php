@@ -1,6 +1,5 @@
 <?php
-$pathname = "/Robots/Hanalei/img/carousel/";
-
+//$pathname is defined in content page
 $dir = $_SERVER['DOCUMENT_ROOT'].$pathname;
 $duration = 4000;
 $animation = 1000;
@@ -113,3 +112,4 @@ if (el1 !== null){
     }, false);
 }
 */
+?>

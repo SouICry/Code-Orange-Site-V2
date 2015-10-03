@@ -3,9 +3,14 @@
 .carousel {
   display: block;
   position: relative;
+  margin-bottom: 20px;
+
+  .title, .sub-title {
+    color: $teal-accent-2;
+  }
 
   .title {
-    color: $teal-accent-2;
+    white-space: nowrap;
     width: 100%;
     overflow: auto;
     height: calc(100% - 6px);
@@ -13,7 +18,7 @@
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 41;
+    z-index: 40;
     padding: 0;
     @include tablet {
       padding-left: 20%;
@@ -25,7 +30,7 @@
       float: left;
       @extend .heading;
 
-      font-size: 52px;
+      font-size: 42px;
       @include large-phone {
         font-size: 56px;
       }
@@ -42,9 +47,9 @@
         font-size: 104px;
       }
 
-      margin: 62px -20px -110px 20px;
+      margin: 32px -20px -110px 20px;
       @include large-phone {
-        margin: 113px -70px -160px 30px;
+        margin: 103px -70px -160px 30px;
       }
       @include tablet {
         margin: 163px -110px -220px 30px;
@@ -60,23 +65,22 @@
       }
     }
     .sub-title {
-      color: $teal-accent-2;
       @extend .heading;
       display: block;
       float: left;
 
-      font-size: 22px;
+      font-size: 20px;
       line-height: 46px;
-      margin: 112px 10px 16px 33px;
+      margin: 82px 10px 0px 33px;
       @include large-phone {
         font-size: 26px;
         line-height: 50px;
-        margin: 165px 10px 20px 88px;
+        margin: 155px 10px 5px 88px;
       }
       @include tablet {
         font-size: 30px;
         line-height: 50px;
-        margin: 225px 20px 20px 128px;
+        margin: 225px 20px 10px 128px;
       }
       @include small-desktop {
         font-size: 34px;
@@ -92,6 +96,29 @@
         font-size: 42px;
         line-height: 84px;
         margin: 464px 80px 24px 248px;
+      }
+    }
+    .caption {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      float: left;
+      margin: 0;
+      font-size: 12px;
+      @include large-phone {
+        font-size: 15px;
+      }
+      @include tablet {
+        margin-left: -12.5%;
+        font-size: 17px;
+      }
+      @include desktop {
+        margin-left: -12.5%;
+        font-size: 17px;
+      }
+
+      .btn {
+        margin: 0 auto;
       }
     }
   }
