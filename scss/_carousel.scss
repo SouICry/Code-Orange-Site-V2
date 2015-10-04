@@ -2,22 +2,24 @@
 
 .carousel {
   display: block;
+  width: 100%;
+  float: left;
   position: relative;
   margin-bottom: 20px;
 
   .title, .sub-title {
-    color: $teal-accent-2;
+    color: $teal-accent-1;
   }
 
   .title {
     white-space: nowrap;
     width: 100%;
     overflow: auto;
-    height: calc(100% - 6px);
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     z-index: 40;
     padding: 0;
     @include tablet {
@@ -71,7 +73,7 @@
 
       font-size: 20px;
       line-height: 46px;
-      margin: 82px 10px 0px 33px;
+      margin: 82px 10px 0 33px;
       @include large-phone {
         font-size: 26px;
         line-height: 50px;
@@ -147,9 +149,9 @@
 #carousel {
   position: relative;
   width: 100%;
-  margin-bottom: -6px;
   padding: 0;
   overflow: hidden;
+  line-height: 0;
 }
 
 #carousel,

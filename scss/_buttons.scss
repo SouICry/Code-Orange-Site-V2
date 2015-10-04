@@ -14,11 +14,12 @@ $button-line-height: 36px !default;
 
 // shared styles
 .btn, .btn-flat {
+  font-family: zekton, sans-serif;
   border: none;
-  border-radius: 2px;
+  border-radius: 1px;
   display: inline-block;
-
-
+  line-height: 2;
+  text-transform: uppercase;
   // margin-bottom: 15px;
   outline: 0;
   padding: 0 2rem;
