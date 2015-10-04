@@ -71,7 +71,10 @@ table {
   color: white;
   width: auto;
   float: left;
-  margin: 10px; }
+  margin: 10px;
+  border: none;
+  border-collapse: collapse;
+  text-align: center; }
   @media (min-width: 720px) and (max-width: 1023px) {
     table {
       margin: 10px; } }
@@ -79,23 +82,15 @@ table {
     table {
       margin: 20px; } }
 
-tbody th {
-  padding-left: 15px; }
+td, th {
+  border: none;
+  padding: 10px; }
   @media (min-width: 720px) and (max-width: 1023px) {
-    tbody th {
-      padding-left: 15px; } }
+    td, th {
+      padding: 10px; } }
   @media (min-width: 1024px) {
-    tbody th {
-      padding-left: 20px; } }
-
-tbody td {
-  padding-left: 20px; }
-  @media (min-width: 720px) and (max-width: 1023px) {
-    tbody td {
-      padding-left: 20px; } }
-  @media (min-width: 1024px) {
-    tbody td {
-      padding-left: 25px; } }
+    td, th {
+      padding: 20px; } }
 
 #header {
   font-family: zekton, sans-serif; }
@@ -105,16 +100,16 @@ tbody td {
   font-weight: bold; }
 
 h2 {
-  font-size: 28px; }
+  font-size: 24px; }
   @media (min-width: 480px) and (max-width: 719px) {
     h2 {
-      font-size: 28px; } }
+      font-size: 24px; } }
   @media (min-width: 720px) and (max-width: 1023px) {
     h2 {
-      font-size: 32px; } }
+      font-size: 24px; } }
   @media (min-width: 1024px) and (max-width: 1279px) {
     h2 {
-      font-size: 32px; } }
+      font-size: 36px; } }
   @media (min-width: 1280px) and (max-width: 1439px) {
     h2 {
       font-size: 36px; } }
@@ -364,7 +359,7 @@ button.btn-floating {
     #selection-bar {
       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5); } }
 
-/* Arbitrarily large enough */
+/* Arbitrarily large enough (40px) to hide, 0 to show */
 /* Arbitrarily large enough to fit all items horizontally in nav mode. Or cutoff beyond this point*/
 /* Only if using outline-shadow*/
 .selection-content .slider {
@@ -417,28 +412,55 @@ button.btn-floating {
       .selection-content .slider a:active {
         box-shadow: 0 0 25px 0px rgba(0, 0, 0, 0.8); } }
 .selection-content .slider-content .content {
-  height: calc(100% - 36px); }
+  height: calc(100% - 24px); }
+  @media (min-width: 1024px) {
+    .selection-content .slider-content .content {
+      height: calc(100% - 32px); } }
 .selection-content .slider-content .name {
-  height: 36px;
-  font-size: 24px; }
+  height: 24px;
+  font-size: 22px; }
+  @media (min-width: 1024px) {
+    .selection-content .slider-content .name {
+      height: 36px;
+      font-size: 24px; } }
 
 .selection-nav .slider {
-  height: 200px; }
+  height: 144px; }
+  @media (min-width: 1024px) {
+    .selection-nav .slider {
+      height: 200px; } }
+  .selection-nav .slider .scroll-hide {
+    height: 144px; }
+    @media (min-width: 1024px) {
+      .selection-nav .slider .scroll-hide {
+        height: 240px; } }
+  .selection-nav .slider a {
+    width: 120px;
+    height: 144px;
+    border-bottom: 2.88px solid transparent; }
+    .selection-nav .slider a:hover {
+      border-bottom: 2.88px solid #ffd180; }
+    .selection-nav .slider a:active {
+      border-bottom: 2.88px solid #ffd180; }
+    @media (min-width: 1024px) {
+      .selection-nav .slider a {
+        height: 200px;
+        width: 200px;
+        border-bottom: 4px solid transparent; }
+        .selection-nav .slider a:hover {
+          border-bottom: 4px solid #ffd180; }
+        .selection-nav .slider a:active {
+          border-bottom: 4px solid #ffd180; } }
+
 .selection-nav .slider .scroll-hide {
-  overflow-y: hidden;
-  height: 240px; }
+  overflow-y: hidden; }
 .selection-nav .slider .scroll-fix {
   width: 9001px; }
 .selection-nav .slider a {
-  margin: 0;
-  width: 200px;
-  height: 200px;
-  border-bottom: 4px solid transparent; }
+  margin: 0; }
   .selection-nav .slider a:hover {
-    border-bottom: 4px solid #ffd180;
     text-decoration: none; }
   .selection-nav .slider a:active {
-    border-bottom: 4px solid #ffd180;
     text-decoration: none; }
 .selection-nav .slider-content .content {
   height: calc(100% - 30px); }
@@ -480,8 +502,8 @@ button.btn-floating {
     align-items: center;
     font-family: zekton, sans-serif; }
     .slider-content .content img {
-      max-height: 100%;
-      max-width: 100%;
+      max-height: 95%;
+      max-width: 95%;
       width: auto;
       height: auto; }
   .slider-content .name {
@@ -985,6 +1007,7 @@ p, .content-section li {
       margin: 0 30px 24px 30px; } }
 
 .content-section li {
+  list-style-type: circle;
   margin-bottom: 8px;
   padding-left: 10px; }
   @media (min-width: 720px) and (max-width: 1023px) {

@@ -16,10 +16,14 @@
 
 $slider-item-height: 200px;
 $slider-item-width: 200px;
+$slider-item-phone-height: 144px;
+$slider-item-phone-width: 120px;
+
 $slider-item-padding: 0;
 
 $hide-scrollbar: 40px;
-/* Arbitrarily large enough */
+$hide-scrollbar-phone: 0;
+/* Arbitrarily large enough (40px) to hide, 0 to show */
 $max-slider-width: 9001px;
 /* Arbitrarily large enough to fit all items horizontally in nav mode. Or cutoff beyond this point*/
 
@@ -76,43 +80,82 @@ $slider-item-outline-shadow-size: 10px;
 
   .slider-content {
     .content {
-      height: calc(100% - #{36px});
+      height: calc(100% - 24px);
+      @include desktop {
+        height: calc(100% - 32px);
+      }
     }
     .name {
-      height: 36px;
-      font-size: 24px;
+      height: 24px;
+      font-size: 22px;
+      @include desktop {
+        height: 36px;
+        font-size: 24px;
+      }
     }
   }
 }
 
 .selection-nav {
   .slider {
-    height: $slider-item-height;
+    height: $slider-item-phone-height;
+    @include desktop {
+      height: $slider-item-height;
+    }
+    .scroll-hide {
+      height: $slider-item-phone-height + $hide-scrollbar-phone;
+      @include desktop {
+        height: $slider-item-height + $hide-scrollbar;
+      }
+    }
+    a {
+      width: $slider-item-phone-width;
+      height: $slider-item-phone-height;
+      border-bottom: $slider-item-phone-height * 0.02 solid transparent;
+      &:hover {
+        border-bottom: $slider-item-phone-height * 0.02 solid $orange-accent-1;
+      }
+      &:active {
+        border-bottom: $slider-item-phone-height * 0.02 solid $orange-accent-1;
+      }
+      @include desktop {
+        height: $slider-item-height;
+        width: $slider-item-width;
+        border-bottom: $slider-item-height * 0.02 solid transparent;
+        &:hover {
+          border-bottom: $slider-item-height * 0.02 solid $orange-accent-1;
+        }
+        &:active {
+          border-bottom: $slider-item-height * 0.02 solid $orange-accent-1;
+        }
+      }
+    }
   }
+}
+
+.selection-nav {
+
   .slider .scroll-hide {
     overflow-y: hidden;
-    height: $slider-item-height + $hide-scrollbar;
+
   }
   .slider .scroll-fix {
     width: $max-slider-width;
   }
   .slider a {
     margin: 0;
-    width: $slider-item-width;
-    height: $slider-item-height;
-    border-bottom: $slider-item-height * 0.02 solid transparent;
+
     &:hover {
-      border-bottom: $slider-item-height * 0.02 solid $orange-accent-1;
+
       text-decoration: none;
     }
     &:active {
-      border-bottom: $slider-item-height * 0.02 solid $orange-accent-1;
       text-decoration: none;
     }
   }
   .slider-content {
     .content {
-      height: calc(100% - #{30px});
+      height: calc(100% - 30px);
     }
     .name {
       height: 30px;
@@ -159,9 +202,8 @@ $slider-item-outline-shadow-size: 10px;
     align-items: center;
     font-family: zekton, sans-serif;
     img {
-
-      max-height: 100%;
-      max-width: 100%;
+      max-height: 95%;
+      max-width: 95%;
       width: auto;
       height: auto;
     }

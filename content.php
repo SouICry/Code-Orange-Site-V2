@@ -93,23 +93,23 @@
 
                         <h3>Dimensions</h3>
                         <ul>
-                            <li>- 119lbs</li>
+                            <li> 119lbs</li>
                         </ul>
 
                         <h3>Base</h3>
                         <ul>
-                            <li>- 6WD West Coast Drive</li>
-                            <li>- 4" Performance Wheels</li>
-                            <li>- 2 VEX Pro Ball Shifters for 6 and 22 feet/sec</li>
-                            <li>- Fast Ground Intake</li>
+                            <li> 6WD West Coast Drive</li>
+                            <li> 4" Performance Wheels</li>
+                            <li> 2 VEX Pro Ball Shifters for 6 and 22 feet/sec</li>
+                            <li> Fast Ground Intake</li>
                         </ul>
 
                         <h3>Catapult</h3>
                         <ul>
-                            <li>- Score Anywhere 4' to 18' Away from Goal</li>
-                            <li>- Fast Automatic Catapult Reset ~1 sec</li>
-                            <li>- 2 Positioner Arms for Ball Passing and Shot Angling</li>
-                            <li>- Vision Tracking for 2 Hot Goal Autonomous</li>
+                            <li> Score Anywhere 4' to 18' Away from Goal</li>
+                            <li> Fast Automatic Catapult Reset ~1 sec</li>
+                            <li> 2 Positioner Arms for Ball Passing and Shot Angling</li>
+                            <li> Vision Tracking for 2 Hot Goal Autonomous</li>
                         </ul>
 
                         <h3> Results </h3>

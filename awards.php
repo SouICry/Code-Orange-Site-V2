@@ -104,17 +104,17 @@
 
                         <h4>Championship</h4>
                         <ul>
-                            <li>- Curie: Excellence in Engineering</li>
+                            <li> Curie: Excellence in Engineering</li>
                         </ul>
 
                         <h4>San Diego Regional</h4>
                         <ul>
-                            <li>- Chairman's Award</li>
-                            <li>- Imagery Award</li>
+                            <li> Chairman's Award</li>
+                            <li> Imagery Award</li>
                         </ul>
                         <h4>Las Vegas Regional</h4>
                         <ul>
-                            <li>- Regional Finalists</li>
+                            <li> Regional Finalists</li>
                         </ul>
 
                     </div>
@@ -141,18 +141,18 @@
 
                         <h4>Championship</h4>
                         <ul>
-                            <li>- Newton Division Champions</li>
+                            <li> Newton Division Champions</li>
                         </ul>
 
                         <h4>San Diego Regional</h4>
                         <ul>
-                            <li>- Industrial Design Award</li>
-                            <li>- Semi-finalists</li>
+                            <li> Industrial Design Award</li>
+                            <li> Semi-finalists</li>
                         </ul>
                         <h4>Inland Empire Regional</h4>
                         <ul>
-                            <li>- Innovation in Control Award</li>
-                            <li>- Regional Finalists</li>
+                            <li> Innovation in Control Award</li>
+                            <li> Regional Finalists</li>
                         </ul>
                     </div>
                 </div>
