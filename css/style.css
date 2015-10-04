@@ -428,7 +428,7 @@ button.btn-floating {
       .selection-nav .slider .scroll-hide {
         height: 240px; } }
   .selection-nav .slider a {
-    width: 120px;
+    width: 130px;
     height: 144px;
     border-bottom: 2.88px solid transparent; }
     .selection-nav .slider a:hover {
@@ -497,13 +497,15 @@ button.btn-floating {
   text-align: center;
   font-family: zekton, sans-serif; }
   .slider-content .content {
+    max-width: 90%;
+    max-height: 95%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: zekton, sans-serif; }
     .slider-content .content img {
-      max-height: 95%;
-      max-width: 95%;
+      max-height: 100%;
+      max-width: 100%;
       width: auto;
       height: auto; }
   .slider-content .name {

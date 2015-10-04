@@ -1,78 +1,54 @@
 {
-  "items": [
+  "menu-pages": [
     {
       "name": "About",
-      "sections": [
-        {
-          "name": "default",
-          "pages": [
-            "About_Us",
-            "Awards",
-            "Sponsors",
-            "Contact_Us"
-
-          ]
-        }
+      "pages": [
+        "About_Us",
+        "Awards",
+        "Contact_Us",
+        "Sponsors"
       ]
     },
     {
       "name": "Robots",
-      "sections": [
-        {
-          "name": "default",
-          "pages": [
-            "Cloud_9",
-            "Hanalei",
-            "Mavericks",
-            "Pipeline",
-            "Tic-Tac"
-          ]
-        }
+      "pages": [
+        "All_Robots",
+        "Cloud_9",
+        "Hanalei",
+        "Mavericks",
+        "Pipeline",
+        "Tic-Tac"
       ]
     },
     {
       "name": "FIRST",
-      "sections": [
-        {
-          "name": "default",
-          "pages": [
-            "OC_FRC_Teams"
-          ]
-        },
-        {
-          "name": "Games",
-          "pages": [
-            "Recycle_Rush", "Aerial_Assist", "Ultimate_Ascent"
-          ]
-        }
+      "pages": [
+        "About_FIRST",
+        "OC_FRC_Teams",
+        "Recycle_Rush",
+        "Aerial_Assist",
+        "Ultimate_Ascent"
       ]
     },
     {
       "name": "Tutorials",
-      "sections": [
-        {
-          "name": "default",
-          "pages": [
-          ]
-        }
+      "pages": [
+        "All_Tutorials",
+        "Electronics",
+        "Scouting"
       ]
     },
     {
       "name": "Media",
-      "sections": [
-        {
-          "name": "default",
-          "pages": [
-          ]
-        }
+      "pages": [
       ]
     },
     {
       "name": "Error",
-      "sections": []
+      "pages": []
     }
   ],
-  "orphans": [
+  "unlisted-pages": [
     {
       "name": "Error"
     }

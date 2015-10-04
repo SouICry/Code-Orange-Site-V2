@@ -5,4 +5,5 @@
 <a href="/Robots/All_Robots">Robots</a>
 <a href="/FIRST/About_FIRST"><i>FIRST</i></a>
 <a href="/Tutorials/All_Tutorials">Tutorials</a>
+<a href="/Media">Media</a>
 <a href="/Error">Error</a>

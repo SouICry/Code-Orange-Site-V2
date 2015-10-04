@@ -1,6 +1,4 @@
 
-
-
 #selection-bar {
   float: left;
   z-index: 40;
@@ -17,7 +15,7 @@
 $slider-item-height: 200px;
 $slider-item-width: 200px;
 $slider-item-phone-height: 144px;
-$slider-item-phone-width: 120px;
+$slider-item-phone-width: 130px;
 
 $slider-item-padding: 0;
 
@@ -198,13 +196,15 @@ $slider-item-outline-shadow-size: 10px;
   text-align: center;
   font-family: zekton, sans-serif;
   .content {
+    max-width: 90%;
+    max-height: 95%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: zekton, sans-serif;
     img {
-      max-height: 95%;
-      max-width: 95%;
+      max-height: 100%;
+      max-width: 100%;
       width: auto;
       height: auto;
     }
