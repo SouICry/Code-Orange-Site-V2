@@ -1,7 +1,4 @@
-<?php/*
-Auto-generated content. Changes made may be lost at any time.
-Modify using GUI or modify content.php and run build.
-*/?>
+<?php //Auto-generated content. Changes made may be lost at any time. //Modify using GUI or modify content.php and run build. ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

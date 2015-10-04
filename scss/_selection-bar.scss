@@ -22,7 +22,7 @@ $slider-item-phone-width: 120px;
 $slider-item-padding: 0;
 
 $hide-scrollbar: 40px;
-$hide-scrollbar-phone: 0;
+$hide-scrollbar-phone: 0px;
 /* Arbitrarily large enough (40px) to hide, 0 to show */
 $max-slider-width: 9001px;
 /* Arbitrarily large enough to fit all items horizontally in nav mode. Or cutoff beyond this point*/
@@ -80,19 +80,13 @@ $slider-item-outline-shadow-size: 10px;
 
   .slider-content {
     .content {
-      height: calc(100% - 24px);
-      @include desktop {
-        height: calc(100% - 32px);
-      }
+      height: calc(100% - 30px);
     }
     .name {
-      height: 24px;
-      font-size: 22px;
-      @include desktop {
-        height: 36px;
-        font-size: 24px;
-      }
+      height: 30px;
+      font-size: 20px;
     }
+
   }
 }
 
@@ -155,11 +149,18 @@ $slider-item-outline-shadow-size: 10px;
   }
   .slider-content {
     .content {
-      height: calc(100% - 30px);
+      height: calc(100% - 24px);
+      @include desktop {
+        height: calc(100% - 36px);
+      }
     }
     .name {
-      height: 30px;
-      font-size: 20px;
+      height: 24px;
+      font-size: 16px;
+      @include desktop {
+        height: 36px;
+        font-size: 24px;
+      }
     }
   }
 }

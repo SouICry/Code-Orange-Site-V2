@@ -17,7 +17,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-
 # Custom
-/materialize.css
-/materialize.css.map
+css/materialize.css
+css/materialize.css.map

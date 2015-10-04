@@ -412,17 +412,10 @@ button.btn-floating {
       .selection-content .slider a:active {
         box-shadow: 0 0 25px 0px rgba(0, 0, 0, 0.8); } }
 .selection-content .slider-content .content {
-  height: calc(100% - 24px); }
-  @media (min-width: 1024px) {
-    .selection-content .slider-content .content {
-      height: calc(100% - 32px); } }
+  height: calc(100% - 30px); }
 .selection-content .slider-content .name {
-  height: 24px;
-  font-size: 22px; }
-  @media (min-width: 1024px) {
-    .selection-content .slider-content .name {
-      height: 36px;
-      font-size: 24px; } }
+  height: 30px;
+  font-size: 20px; }
 
 .selection-nav .slider {
   height: 144px; }
@@ -463,10 +456,17 @@ button.btn-floating {
   .selection-nav .slider a:active {
     text-decoration: none; }
 .selection-nav .slider-content .content {
-  height: calc(100% - 30px); }
+  height: calc(100% - 24px); }
+  @media (min-width: 1024px) {
+    .selection-nav .slider-content .content {
+      height: calc(100% - 36px); } }
 .selection-nav .slider-content .name {
-  height: 30px;
-  font-size: 20px; }
+  height: 24px;
+  font-size: 16px; }
+  @media (min-width: 1024px) {
+    .selection-nav .slider-content .name {
+      height: 36px;
+      font-size: 24px; } }
 
 .slider {
   overflow-y: hidden;
@@ -1535,6 +1535,7 @@ ul .slide {
 /* ------------- Template /Bullets ------------- */
 .youtube {
   position: relative;
+  float: left;
   width: 100%;
   height: 0;
   padding-bottom: 56.25%;
