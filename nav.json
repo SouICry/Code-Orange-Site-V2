@@ -1,5 +1,5 @@
 {
-  "menu-pages": [
+  "menu-items": [
     {
       "name": "About",
       "pages": [
@@ -44,7 +44,7 @@
       ]
     }
   ],
-  "unlisted-pages": [
+  "unlisted-items": [
     {
       "name": "Error"
     }

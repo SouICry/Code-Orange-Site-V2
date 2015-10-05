@@ -73,7 +73,7 @@ for ($num = 0; $num < $count; $num++){
 echo "</div>";
 
 
-echo ("<script>function moveRight(){for(var e=document.querySelectorAll('cs_anchor:checked'),t=0;t<e.length;t++)e[t].checked=!1;slideCount>=maxSlideCount&&(slideCount=0),document.getElementById('cs_slide_'+slideCount++).checked=!0}function stopAutoplay(){window.clearInterval(timer)}var slideCount=1,maxSlideCount=".$count.",timer=setInterval(moveRight,".($animation+$duration)."),el=document.getElementById('carousel');el.addEventListener('mousedown',stopAutoplay,!1),el.addEventListener('touchstart',stopAutoplay,!1);var el1 = document.querySelector('.carousel .title');if (el1 !== null){el1.addEventListener('mousedown', function(){el1.style.display = 'none';}, false);el1.addEventListener('touchstart', function(){el1.style.display = 'none';}, false);}</script>");
+echo ("<script>function moveRight(){for(var e=document.querySelectorAll('cs_anchor:checked'),t=0;t<e.length;t++)e[t].checked=!1;slideCount>=maxSlideCount&&(slideCount=0),document.getElementById('cs_slide_'+slideCount++).checked=!0}function stopAutoplay(){window.clearInterval(timer)}var slideCount=1,maxSlideCount=".$count.",timer=setInterval(moveRight,".($animation+$duration)."),el=document.getElementById('carousel');el.addEventListener('mousedown',stopAutoplay,!1),el.addEventListener('touchstart',stopAutoplay,!1);var el1 = document.querySelector('.carousel .btn');var el2 = document.querySelector('.carousel .title');if (el1 !== null){el1.addEventListener('mousedown', function(){el2.style.display = 'none';}, false);el1.addEventListener('touchstart', function(){el2.style.display = 'none';}, false);}</script>");
 
 /* Autoplay
 
@@ -102,13 +102,14 @@ el.addEventListener('touchstart', stopAutoplay, false);
 
 /* Touch or mousedown to access carousel
 
-var el1 = document.querySelector('.carousel .title');
+var el1 = document.querySelector('.carousel .btn');
+var el2 = document.querySelector('.carousel .title');
 if (el1 !== null){
     el1.addEventListener("mousedown", function(){
-        el1.style.display = "none";
+        el2.style.display = "none";
     }, false);
     el1.addEventListener("touchstart", function(){
-        el1.style.display = "none";
+        el2.style.display = "none";
     }, false);
 }
 */

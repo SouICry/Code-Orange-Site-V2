@@ -1,4 +1,13 @@
 /*!
+ * Modified based on headroom.js to hide header on scroll.
+ * Now resets state at very top of page.
+ * Added to 'update':
+ *  if (currentScrollY === 0){
+        var classList = this.elem.classList,
+        classes = this.classes;
+        classList.remove(classes.pinned);
+    }
+ *
  * headroom.js v0.7.0 - Give your page some headroom. Hide your header until you need it
  * Copyright (c) 2014 Nick Williams - http://wicky.nillia.ms/headroom.js
  * License: MIT
@@ -348,6 +357,14 @@
                 return;
             }
 
+            /* Modified to reset state at top. */
+            if (currentScrollY === 0){
+                var classList = this.elem.classList,
+                    classes = this.classes;
+                classList.remove(classes.pinned);
+            }
+            /**/
+
             if (currentScrollY <= this.offset ) {
                 this.top();
             } else {
@@ -387,6 +404,4 @@
 
     window.Headroom = Headroom;
 
-}(window, document));/**
- * Created by SouICry on 10/4/2015.
- */
+}(window, document));

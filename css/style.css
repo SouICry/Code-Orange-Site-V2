@@ -263,17 +263,12 @@ button.btn-floating {
 .btn-block {
   display: block; }
 
-/**
- * Note: I have omitted any vendor-prefixes for clarity.
- * Adding them is left as an exercise for the reader.
- */
 #header {
   position: fixed;
   display: block;
-  top: -250px;
-  height: 250px;
   z-index: 900;
-  width: 100%; }
+  width: 100%;
+  height: auto; }
 
 .headroom--not-top {
   transition: transform 210ms linear; }
@@ -293,8 +288,7 @@ button.btn-floating {
 #header-filler {
   width: 100%;
   position: relative;
-  z-index: 700;
-  height: 250px; }
+  z-index: 700; }
 
 #nav {
   background-color: #ef6c00;

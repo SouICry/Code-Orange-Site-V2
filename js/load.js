@@ -8,77 +8,80 @@
 //
 
 
+//TODO: variable header height
+var header_height = 250;
+
+//TODO: open/close animations (requires default css changes as well)
+
+
 //window.onpopstate = pop;
 //
 //function pop(event){
 //    loadURL(event.state['url']);
 //}
-//
-//function filterLinks() {
-//    var elements = document.getElementsByTagName("a");
-//    for (var i = 0; i < elements.length; i++) {
-//        if ((elements[i].href.indexOf("teamcodeorange.com") >= 0
-//                || elements[i].href.indexOf("localhost") >= 0)
-//            && elements[i].href.indexOf("#") != elements[i].href.length - 1
-//            && elements[i].href.indexOf("php") < 0) {
-//
-//            elements[i].addEventListener('click', function(event){
-//                if ( event.preventDefault ) {
-//                    event.preventDefault();
-//                }
-//                event.returnValue = false;
-//                loadURL(this.getAttribute("href"));
-//            }, false);
-//        }
-//    }
-//}
-//
-//function ajaxLoad(path, callback) {
-//    var xhr = new XMLHttpRequest();
-//    xhr.onreadystatechange = function () {
-//        if (xhr.readyState == 4) {
-//            if (xhr.status == 200) {
-//                callback(xhr.responseText);
-//            }
-//            else {
-//                return null; //Error code
-//            }
-//        }
-//    };
-//
-//    xhr.open("GET", "/load.php?url=" + encodeURIComponent(path), true);
-//    xhr.send();
-//}
-//
-//
-//function ajaxLoadContent(path, callback) {
-//    var xhr = new XMLHttpRequest();
-//    xhr.onreadystatechange = function () {
-//        if (xhr.readyState == 4) {
-//            if (xhr.status == 200) {
-//                callback(xhr.responseText);
-//            }
-//            else {
-//                return null; //Error code
-//            }
-//        }
-//    };
-//    xhr.open("GET", "/load.php?url=" + encodeURIComponent(path + "/content.htm"), true);
-//
-//    xhr.send();
-//}
-//
-//
-//var nav;
-//ajaxLoad("nav.json", function(text){
-//
-//    nav = JSON.parse(text);
-//    var ccc = JSON.parse(text);
-//});
-//
-//
-//var currURL = trimForwardSlash(window.location.pathname);
-//
+
+function filterLinks() {
+    var elements = document.getElementsByTagName("a");
+    for (var i = 0; i < elements.length; i++) {
+        if ((elements[i].href.indexOf("teamcodeorange.com") >= 0
+                || elements[i].href.indexOf("localhost") >= 0)
+            && elements[i].href.indexOf("#") != elements[i].href.length - 1
+            && elements[i].href.indexOf("php") < 0) {
+
+            elements[i].addEventListener('click', function(event){
+                if ( event.preventDefault ) {
+                    event.preventDefault();
+                }
+                event.returnValue = false;
+                loadURL(this.getAttribute("href"));
+            }, false);
+        }
+    }
+}
+
+function ajaxLoad(path, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                callback(xhr.responseText);
+            }
+            else {
+                return null; //Error code
+            }
+        }
+    };
+
+    xhr.open("GET", "/load.php?url=" + encodeURIComponent(path), true);
+    xhr.send();
+}
+
+
+function ajaxLoadContent(path, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                callback(xhr.responseText);
+            }
+            else {
+                return null; //Error code
+            }
+        }
+    };
+    xhr.open("GET", "/load.php?url=" + encodeURIComponent(path + "/content.htm"), true);
+
+    xhr.send();
+}
+
+var nav;
+ajaxLoad("nav.json", function(text){
+    nav = JSON.parse(text);
+});
+
+
+var currURL = trimForwardSlash(window.location.pathname);
+
 //var currPageInfo = {
 //    "no-selection": true,
 //    "selection-bar": false,
@@ -87,9 +90,9 @@
 //};
 //
 //updatePageInfo();
-//
-//filterLinks();
-//
+
+filterLinks();
+
 //
 //function updatePageInfo() {
 //    var bar = document.getElementById("selection-bar");
@@ -156,208 +159,153 @@
 //}
 //
 //
-//
-//
-//function loadAjaxContent(path) {
-//    var xhr = new XMLHttpRequest();
-//    xhr.onreadystatechange = function () {
-//        if (xhr.readyState == 4) {
-//            if (xhr.status == 200) {
-//                return xhr.responseText;
-//            }
-//            else {
-//                return "<div class='failed'>Loading failed :(<div class='button'>Retry</div></div>";
-//            }
-//        }
-//    };
-//    xhr.open("GET", path + "/content.htm", true);
-//    xhr.send();
-//}
-//
-//function loadAjaxFile(path) {
-//    var xhr = new XMLHttpRequest();
-//    xhr.onreadystatechange = function () {
-//        if (xhr.readyState == 4) {
-//            if (xhr.status == 200) {
-//                return xhr.responseText;
-//            }
-//            else {
-//                return "<div class='failed'>Loading failed :(<div class='button'>Retry</div></div>";
-//            }
-//        }
-//    };
-//    xhr.open("GET", "load.php?url=" + encodeURIComponent(path), true);
-//    xhr.send();
-//}
-//
-//function goToPage(path) {
-//    history.pushState({"url": currURL}, "", "/" + path);
-//    currURL = path;
-//    updatePageInfo();
-//    filterLinks();
-//}
-//
-//function error() {
-//    closeBody();
-//    closeNav();
-//    ajaxLoadContent("Error", openBody);
-//    gotoPage("Error");
-//}
-//
-///*
-// * Routes:
-// * [index]
-// * [error]
-// * top-level-menu
-// * top-level-menu/content (defatult second level section)
-// * top-level-menu/2nd-level-section
-// * top-level-menu/2nd-level-section/content
-// * orphans (listed or unlisted))
-// */
-//function loadURL(newURL) {
-//    newURL = trimForwardSlash(newURL);
-//
-//    //Does not reload same page
-//    if (currURL !== newURL) {
-//        var c = currURL.split("/");
-//        var n = newURL.split("/");
-//
-//        //Body cleared no matter what
-//        closeBody();
-//
-//        if (n.length === 1) {
-//            //Same top level
-//            if (c.length > 0 && c[0] === n[0]) {
-//                //Has content
-//                if (currPageInfo["selection-type"] === "nav") {
-//                    expandNav();
-//                }
-//                //else top-level-menu/2nd-level-section, redundant odes nothing
-//            }
-//            //Different top level
-//            else {
-//                closeNav();
-//
-//                //Load nav if new is second level menu selection page
-//                var mItem = getNavTopLevel(n[0]);
-//                if (mItem != null && mItem["sections"].length > 0) {
-//                    ajaxLoadContent(n[0], openNavAsContent);
-//                }
-//                //otherwise load page
-//                else {
-//                    ajaxLoadContent(newURL, openBody);
-//                }
-//            }
-//        }
-//
-//        else if (n.length === 2) {
-//
-//            var mItem1 = getNavTopLevel(n[0]);
-//
-//            if (mItem1 == null) {
-//                error();
-//            }
-//
-//            //Same top level
-//            if (c.length > 0 && c[0] === n[0]) {
-//                var nItem = getNavSecondLevel(n[0], n[1]);
-//                //New page is default page content
-//                if (nItem == null) {
-//                    if (currPageInfo["selection-type"] === "none") {
-//                        ajaxLoadContent(n[0], openNavAsNav);
-//                    }
-//                    else if (currPageInfo["selection-type"] === "content") {
-//                        shrinkNav();
-//                    }
-//                    ajaxLoadContent(newURL, openBody);
-//                }
-//                //New page is selection (redundant second part)
-//                else {
-//                    if (currPageInfo["selection-type"] === "nav") {
-//                        expandNav();
-//                    }
-//                    else if (currPageInfo["selection-type"] === "none") {
-//                        openNavAsContent(n[0]);
-//                    }
-//                }
-//            }
-//            else {
-//                closeNav();
-//                var nItem1 = getNavSecondLevel(n[0], n[1]);
-//                //New page is default page content
-//                if (nItem1 == null) {
-//                    ajaxLoadContent(n[0], openNavAsNav);
-//                    ajaxLoadContent(newURL, openBody);
-//                }
-//                //New page is selection (redundant second part)
-//                else {
-//                    openNavAsContent(n[0]);
-//                }
-//            }
-//        }
-//        else if (n.length === 3) {
-//            //Same top level
-//            if (c.length > 0 && c[0] === n[0]) {
-//                //Same second level nav
-//                if (c.length > 1 && c[1] === n[1]) {
-//                    if (currPageInfo["selection-type"] === "content") {
-//                        shrinkNav();
-//                    }
-//                }
-//                //Currently on selection page
-//                else if (currPageInfo["selection-type"] === "content") {
-//                    shrinkNav();
-//                }
-//            }
-//            else {
-//                closeNav();
-//                ajaxLoadContent(n[0], openNavAsNav);
-//
-//            }
-//            ajaxLoadContent(newURL, openBody);
-//        }
-//        else {
-//            error();
-//        }
-//
-//        goToPage(newURL);
-//    }
-//    return false;
-//}
-//
-//function trimForwardSlash(stringToTrim) {
-//    if (stringToTrim.charAt(0) === "/") {
-//        stringToTrim = stringToTrim.substr(1);
-//    }
-//    if (stringToTrim.charAt(stringToTrim.length - 1) === "/") {
-//        stringToTrim = stringToTrim.substr(0, stringToTrim.length - 1);
-//    }
-//    return stringToTrim;
-//}
-//
-//
-//function closeBody() {
-//    document.getElementById("body").innerHTML = "";
-//}
-//function openBody(innerHTML) {
-//    document.getElementById("body").innerHTML = innerHTML;
-//}
-//function closeNav() {
-//    document.getElementById("selection-bar").innerHTML = "";
-//}
-//function shrinkNav() {
-//    document.getElementById("selection-bar").className = "selection-nav";
-//}
-//function expandNav() {
-//    document.getElementById("selection-bar").className = "selection-content";
-//}
-//function openNavAsContent(innerHTML) {
-//    document.getElementById("selection-bar").className = "selection-content";
-//    document.getElementById("selection-bar").innerHTML = innerHTML;
-//}
-//function openNavAsNav(innerHTML) {
-//    document.getElementById("selection-bar").className = "selection-nav";
-//    document.getElementById("selection-bar").innerHTML = innerHTML;
-//}
-//
-//
+
+function goToPage(path) {
+    history.pushState({"url": currURL}, "", "/" + path);
+    currURL = path;
+    //updatePageInfo();
+    filterLinks();
+}
+
+function error() {
+    closeBody();
+    closeSelectionBar();
+    ajaxLoadContent("Error", openBody);
+    goToPage("Error");
+}
+
+
+function menuItemExists(name){
+    for (var i = 0; i < nav['menu-items'].length; i++){
+        if (nav['menu-items'][i].name === name){
+            return true;
+        }
+    }
+    return false;
+}
+function menuPageExists(menuName, pageName){
+    for (var i = 0; i < nav['menu-items'].length; i++){
+        if (nav['menu-items'][i].name === menuName){
+            var pages = nav['menu-items'][i]['pages'];
+            for (var j = 0; j < pages.length; j++){
+                if (pages[j] === pageName){
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+    return false;
+}
+function unlistedItemExists(name){
+    for (var i = 0; i < nav['unlisted-items'].length; i++){
+        if (nav['unlisted-items'][i].name === name){
+            return true;
+        }
+    }
+    return false;
+}
+
+/*
+ * Routes:
+ * [empty] - loads index
+ * top-level-menu/content //default
+ * top-level-menu - Redirect to default page (first page in the section)
+ * orphans (listed or unlisted, include error, index)
+ * does-not-exist (check nav.json) - error (or DNE)
+ */
+function loadURL(newURL){
+    try {
+        newURL = trimForwardSlash(newURL);
+
+        //Does not reload same page
+        if (currURL !== newURL) {
+            //Body cleared no matter what
+            closeBody();
+            //Index
+            if (newURL.length == 0) {
+                closeSelectionBar();
+                ajaxLoadContent(newURL, openBody);
+            }
+            else {
+                var n = newURL.split("/");
+
+                //Page without selection-bar
+                if (n.length == 1) {
+                    closeSelectionBar();
+                    //Redirects to first page if top level menu
+                    if (menuItemExists(n[0])) {
+                        newURL = n[0] + "/" + nav['menu-items'][0]['pages'][0];
+                        ajaxLoadContent(newURL, openBody);
+                    }
+                    //Loads body if unlisted
+                    else if (unlistedItemExists(n[0])) {
+                        ajaxLoadContent(n[0], openBody);
+                    }
+                    else {
+                        error();
+                        return false;
+                    }
+                }
+                //Page with selection bar
+                else if (n.length == 2) {
+                    if (menuPageExists(n[0], n[1])) {
+                        var c = currURL.split("/");
+                        //Same menu item
+                        if (c.length == 2 && c[0] === n[0]) {
+                            ajaxLoadContent(newURL, openBody);
+                        }
+                        //Different menu item
+                        else {
+                            closeSelectionBar();
+                            ajaxLoadContent(n[0], openSelectionBar);
+                            ajaxLoadContent(newURL, openBody);
+                        }
+                    }
+                    else {
+                        error();
+                        return false;
+                    }
+                }
+                else {
+                    error();
+                    return false;
+                }
+            }
+            goToPage(newURL);
+        }
+    }
+    catch (err){
+        //TODO: remove this in production
+        throw err;
+        //error();
+    }
+    return false;
+}
+
+
+function trimForwardSlash(stringToTrim) {
+    if (stringToTrim.charAt(0) === "/") {
+        stringToTrim = stringToTrim.substr(1);
+    }
+    if (stringToTrim.charAt(stringToTrim.length - 1) === "/") {
+        stringToTrim = stringToTrim.substr(0, stringToTrim.length - 1);
+    }
+    return stringToTrim;
+}
+
+
+function closeBody() {
+    document.getElementById("body").innerHTML = "";
+}
+function openBody(innerHTML) {
+    document.getElementById("body").innerHTML = innerHTML;
+}
+function closeSelectionBar() {
+    document.getElementById("selection-bar").innerHTML = "";
+}
+function openSelectionBar(innerHTML) {
+    document.getElementById("selection-bar").innerHTML = innerHTML;
+}
+
+

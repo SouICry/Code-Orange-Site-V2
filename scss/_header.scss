@@ -2,18 +2,12 @@
 
 
 
-/**
- * Note: I have omitted any vendor-prefixes for clarity.
- * Adding them is left as an exercise for the reader.
- */
-
 #header {
   position: fixed;
   display: block;
-  top: -250px;
-  height: 250px;
   z-index: 900;
   width: 100%;
+  height: auto;
 }
 .headroom--top {
 
@@ -48,7 +42,6 @@
   width: 100%;
   position: relative;
   z-index: 700;
-  height: 250px;
 }
 
 #nav {

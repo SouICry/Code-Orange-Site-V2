@@ -2,12 +2,14 @@
 <script src='/js/carousel.js'></script>
 <script src='/js/headroom.js'></script>
 <script>
+
+    document.getElementById("header").style.top = "-" + header_height + "px";
     // grab an element
     var elem = document.querySelector("#header");
     // construct an instance of Headroom, passing the element
-    var c = elem;
+
     var headroom = new Headroom(elem, {
-        "offset": 250,
+        "offset": header_height,
         "tolerance": 0,
         "classes": {
             "initial": "headroom",
