@@ -1,10 +1,60 @@
 @import 'variables_mixins';
 
+
+
+/**
+ * Note: I have omitted any vendor-prefixes for clarity.
+ * Adding them is left as an exercise for the reader.
+ */
+
 #header {
-  background-color: $orange-darken-3;
   position: fixed;
-  top: 0;
-  left: 0;
+  display: block;
+  top: -250px;
+  height: 250px;
+  z-index: 900;
+  width: 100%;
+}
+.headroom--top {
+
+}
+.headroom--not-top {
+  transition: transform 210ms linear;
+}
+
+.headroom {
+
+}
+.headroom--pinned {
+  transform: translateY(100%);
+}
+.headroom--unpinned {
+  transform: translateY(0%);
+}
+.headroom1 {
+
+}
+.headroom--pinned1 {
+  visibility: hidden;
+}
+.headroom--unpinned1 {
+  visibility: visible;
+}
+
+
+
+
+#header-filler {
+  width: 100%;
+  position: relative;
+  z-index: 700;
+  height: 250px;
+}
+
+#nav {
+  background-color: $orange-darken-3;
+  float: left;
+  position: relative;
   width: 100%;
   z-index: 50;
   @include outline-shadow;
@@ -12,35 +62,26 @@
   font-family: zekton, sans-serif;
 
   overflow: hidden;
-  height: $header-height * 2;
-  @include medium-desktop {
-    height: $header-height;
-  }
-  @include large-desktop {
-    height: $header-height;
+  height: $nav-height * 2;
+  @include desktop {
+    height: $nav-height;
   }
 }
 
 #body {
   width: 100%;
   padding: 0;
-  margin-top: $header-height * 2;
-  @include medium-desktop {
-    margin-top: $header-height;
-  }
-  @include large-desktop {
-    margin-top: $header-height;
-  }
+  margin: 0;
 }
 
 
 #logo {
-  height: $header-height;
+  height: $nav-height;
   float: left;
 }
 
 #user {
-  height: $header-height;
+  height: $nav-height;
   float: right;
   a {
     float: left;
@@ -49,7 +90,7 @@
     font-size: 20px;
     height: 100%;
     padding: 0 20px;
-    line-height: $header-height - 3px;
+    line-height: $nav-height - 3px;
     text-align: center;
     border: none;
     list-style: none;
@@ -66,29 +107,32 @@
   float: left;
 }
 
-#nav {
-  height: $header-height;
+#nav-menu {
+  height: $nav-height;
   overflow: hidden;
   float: left;
   max-width:100%;
 }
 
-#nav .scroll-hide  {
-  max-width:100%;
+#nav-menu .scroll-hide  {
+  max-width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-  height: $header-height + 40px;
+  height: $nav-height + 40px;
 
   .scroll-fix {
-    width: 780px;
+    width: 1000px;
+    @include desktop {
+      width: 650px;
+    }
   }
   a {
     float: left;
     color: $orange-accent-1;
     font-size: 20px;
     padding: 0 20px;
-    line-height: $header-height - 3px;
-    height: $header-height;
+    line-height: $nav-height - 3px;
+    height: $nav-height;
     text-align: center;
     &:hover {
       border-bottom: 3px solid $orange-accent-1;

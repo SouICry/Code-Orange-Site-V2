@@ -37,8 +37,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-height: 95%;
-    max-width: 95%;
   }
 
   .content {
@@ -46,8 +44,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-height: 95%;
-    max-width: 95%;
+    max-height: calc(100% - 80px);
+    max-width: 100%;
   }
 
   .type {
@@ -76,7 +74,7 @@
   }
   .type, .view {
     margin: 14px;
-    font-size: 21px;
+    font-size: 18px;
     @include large-phone {
       font-size: 18px;
       margin: 12px;
@@ -105,6 +103,12 @@
     content:'';
     float:left;
     padding-top: 100%;
+  }
+  img {
+    height: auto;
+    width: auto;
+    max-width: 95%;
+    max-height: calc(100% - 80px);
   }
 }
 

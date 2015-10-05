@@ -1,3 +1,42 @@
 <script src='/js/load.js'></script>
 <script src='/js/carousel.js'></script>
+<script src='/js/headroom.js'></script>
+<script>
+    // grab an element
+    var elem = document.querySelector("#header");
+    // construct an instance of Headroom, passing the element
+    var c = elem;
+    var headroom = new Headroom(elem, {
+        "offset": 250,
+        "tolerance": 0,
+        "classes": {
+            "initial": "headroom",
+            "pinned": "headroom--pinned",
+            "unpinned": "headroom--unpinned",
+            "top" : "headroom--top",
+            "notTop" : "headroom--not-top"
+        }
+    });
+    // initialise
+    headroom.init();
+</script>
+<!--script>
+    // grab an element
+    var elem = document.querySelector("#header-filler");
+    // construct an instance of Headroom, passing the element
+    var c = elem;
+    var headroom = new Headroom(elem, {
+        "offset": 0,
+        "tolerance": 5,
+        "classes": {
+            "initial": "headroom1",
+            "pinned": "headroom--pinned1",
+            "unpinned": "headroom--unpinned1"
+            top : "headroom--top1",
+            notTop : "headroom--not-top1"
+        }
+    });
+    // initialise
+    headroom.init();
+</script-->
 
