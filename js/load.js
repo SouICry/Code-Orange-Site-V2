@@ -240,6 +240,7 @@ function closeBody() {
 }
 function openBody(innerHTML) {
     document.getElementById("body").innerHTML = innerHTML;
+    checkLoadCarousel();
 }
 function closeSelectionBar() {
     document.getElementById("selection-bar").innerHTML = "";

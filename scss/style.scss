@@ -36,16 +36,16 @@
 }
 
 html {
-  min-height: 100%;
+  overflow-y: scroll;
 }
 
 body {
   background-color: $teal-darken-1;
   min-height: 100%;
-
   margin: 0;
-  padding: 0 0 $footer-height 0;
+  padding: 0;
 }
+
 
 
 

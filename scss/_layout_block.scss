@@ -16,7 +16,7 @@
   width: 100%;
   box-shadow: none;
   z-index: 0;
-  margin: auto;
+
   &:hover {
     @include outline-shadow;
     background-color: rgba(200, 200, 200, 0.1);

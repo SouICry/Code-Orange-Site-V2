@@ -24,12 +24,16 @@
   }
 }
 
-
+#body {
+  float: left;
+}
 
 #body .content-section {
   float: left;
   width: 100%;
   margin: 0;
+  padding: 0;
+  position: relative;
   @include small-desktop {
     margin: 0;
   }
