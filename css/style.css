@@ -290,7 +290,7 @@ button.btn-floating {
   position: relative;
   z-index: 700; }
 
-#nav {
+#nav, #nav-filler {
   background-color: #ef6c00;
   float: left;
   position: relative;
@@ -301,13 +301,13 @@ button.btn-floating {
   overflow: hidden;
   height: 100px; }
   @media (min-width: 720px) and (max-width: 1023px) {
-    #nav {
+    #nav, #nav-filler {
       box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5); } }
   @media (min-width: 1024px) {
-    #nav {
+    #nav, #nav-filler {
       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5); } }
   @media (min-width: 1024px) {
-    #nav {
+    #nav, #nav-filler {
       height: 50px; } }
 
 #body {
@@ -315,14 +315,14 @@ button.btn-floating {
   padding: 0;
   margin: 0; }
 
-#logo {
+#logo, #logo-filler {
   height: 50px;
   float: left; }
 
-#user, #logo {
+#user, #logo, #logo-filler, #user-filler {
   height: 50px;
   float: right; }
-  #user a, #logo a {
+  #user a, #logo a, #logo-filler a, #user-filler a {
     float: left;
     white-space: nowrap;
     color: #ffd180;
@@ -333,42 +333,41 @@ button.btn-floating {
     text-align: center;
     border: none;
     list-style: none; }
-    #user a:hover, #logo a:hover {
+    #user a:hover, #logo a:hover, #logo-filler a:hover, #user-filler a:hover {
       border-bottom: 3px solid #ffd180;
       text-decoration: none; }
 
-#logo {
+#logo, #logo-filler {
   float: left; }
 
-#nav-menu {
+#nav-menu, #nav-menu-filler {
   height: 50px;
   overflow: hidden;
   float: left;
   max-width: 100%; }
+  #nav-menu .scroll-hide, #nav-menu-filler .scroll-hide {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 90px; }
+    #nav-menu .scroll-hide .scroll-fix, #nav-menu-filler .scroll-hide .scroll-fix {
+      width: 1000px; }
+      @media (min-width: 1024px) {
+        #nav-menu .scroll-hide .scroll-fix, #nav-menu-filler .scroll-hide .scroll-fix {
+          width: 650px; } }
+    #nav-menu .scroll-hide a, #nav-menu-filler .scroll-hide a {
+      float: left;
+      color: #ffd180;
+      font-size: 20px;
+      padding: 0 20px;
+      line-height: 47px;
+      height: 50px;
+      text-align: center; }
+      #nav-menu .scroll-hide a:hover, #nav-menu-filler .scroll-hide a:hover {
+        border-bottom: 3px solid #ffd180;
+        text-decoration: none; }
 
-#nav-menu .scroll-hide {
-  max-width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  height: 90px; }
-  #nav-menu .scroll-hide .scroll-fix {
-    width: 1000px; }
-    @media (min-width: 1024px) {
-      #nav-menu .scroll-hide .scroll-fix {
-        width: 650px; } }
-  #nav-menu .scroll-hide a {
-    float: left;
-    color: #ffd180;
-    font-size: 20px;
-    padding: 0 20px;
-    line-height: 47px;
-    height: 50px;
-    text-align: center; }
-    #nav-menu .scroll-hide a:hover {
-      border-bottom: 3px solid #ffd180;
-      text-decoration: none; }
-
-#selection-bar {
+#selection-bar, #selection-bar-filler {
   float: left;
   z-index: 40;
   position: relative;
@@ -378,10 +377,10 @@ button.btn-floating {
   padding: 0;
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5); }
   @media (min-width: 720px) and (max-width: 1023px) {
-    #selection-bar {
+    #selection-bar, #selection-bar-filler {
       box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5); } }
   @media (min-width: 1024px) {
-    #selection-bar {
+    #selection-bar, #selection-bar-filler {
       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5); } }
 
 /* Arbitrarily large enough (40px) to hide, 0 to show */

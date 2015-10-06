@@ -33,16 +33,16 @@
     </div>
 </div>
 <div id="header-filler">
-    <div id="nav">
+    <div id="nav-filler">
         <div class="row">
             <div class="column">
-                <div id="logo">
+                <div id="logo-filler">
                     <a href="#">Code Orange</a>
                 </div>
-                <div id="user">
+                <div id="user-filler">
                     <a href="#">Login</a>
                 </div>
-                <div id="nav-menu">
+                <div id="nav-menu-filler">
                     <div class="scroll-hide">
                         <div class="scroll-fix">
                             <?php include $_SERVER['DOCUMENT_ROOT'].'/menu.php'; ?>
@@ -52,7 +52,7 @@
             </div>
         </div>
     </div>
-    <div id="selection-bar" class="selection-nav">
+    <div id="selection-bar-filler" class="selection-nav">
         <?php include '../content.htm'; ?>
     </div>
 </div>

@@ -14,11 +14,17 @@ var header_height = 250;
 //TODO: open/close animations (requires default css changes as well)
 
 
-//window.onpopstate = pop;
-//
-//function pop(event){
-//    loadURL(event.state['url']);
-//}
+//TODO: Fix Top level typed pages not loading into other pages
+
+//TODO: onpopstate
+
+//TODO: shake when loading
+
+window.onpopstate = pop;
+
+function pop(event){
+    loadURL(event.state['url'], true);
+}
 
 function filterLinks() {
     var elements = document.getElementsByTagName("a");
@@ -33,7 +39,7 @@ function filterLinks() {
                     event.preventDefault();
                 }
                 event.returnValue = false;
-                loadURL(this.getAttribute("href"));
+                loadURL(this.getAttribute("href"), false);
             }, false);
         }
     }
@@ -81,89 +87,17 @@ ajaxLoad("nav.json", function(text){
 
 
 var currURL = trimForwardSlash(window.location.pathname);
-
-//var currPageInfo = {
-//    "no-selection": true,
-//    "selection-bar": false,
-//    "body": true,
-//    "selection-type": "none"
-//};
-//
-//updatePageInfo();
-
+history.replaceState({"url": currURL}, "", "/" + currURL);
 filterLinks();
 
-//
-//function updatePageInfo() {
-//    var bar = document.getElementById("selection-bar");
-//    if (bar.innerHTML.length == 0) {
-//        currPageInfo["selection-bar"] = false;
-//    }
-//    else {
-//        currPageInfo["selection-bar"] = true;
-//    }
-//    if (document.getElementById("body").innerHTML.length == 0) {
-//        currPageInfo["body"] = false;
-//    }
-//    else {
-//        currPageInfo["body"] = true;
-//    }
-//    if (bar.className.indexOf("selection-content") !== -1) {
-//        currPageInfo["selection-type"] = "content";
-//    }
-//    else if (bar.className.indexOf("selection-nav") !== -1) {
-//        currPageInfo["selection-type"] = "nav";
-//    }
-//    else {
-//        currPageInfo["selection-type"] = "none";
-//    }
-//}
-//
-///*
-// * nav.items contains an array with top level menu items.
-// * Every top level menu item has a 'name' and at least one 'section' with name 'default'.
-// * Sections list the pages contained.
-// * Top level links to direct pages do not have any sections but are items.
-// *
-// * nav.orphans contains pages that are not in the top level menu or a section
-// */
-//
-//
-//
-//
-//function getNavTopLevel(topLevel) {
-//    for (var i = 0; i < nav['items'].length; i++) {
-//        if (nav['items'][i].name === topLevel) {
-//            return nav['items'][i];
-//        }
-//     }
-//    return null;
-//}
-///*
-// * Returns a second level section with given name, or null if it does not exist
-// * Does not include default pages
-// */
-//function getNavSecondLevel(topLevel, secondLevel) {
-//
-//    for (var i = 0; i < nav['items'].length; i++) {
-//        if (nav['items'][i].name === topLevel) {
-//            for (var j = 0; j < nav['items'][i]['sections'].length; j++) {
-//                if (nav['items'][i]['sections'][j].name === secondLevel) {
-//                    return nav['items'][i]['sections'][j];
-//                }
-//            }
-//            return null;
-//        }
-//    }
-//    return null;
-//}
-//
-//
 
 function goToPage(path) {
-    history.pushState({"url": currURL}, "", "/" + path);
     currURL = path;
-    //updatePageInfo();
+    history.pushState({"url": path}, "", "/" + path);
+    filterLinks();
+}
+function goBackPage(path){
+    currURL = path;
     filterLinks();
 }
 
@@ -214,12 +148,17 @@ function unlistedItemExists(name){
  * orphans (listed or unlisted, include error, index)
  * does-not-exist (check nav.json) - error (or DNE)
  */
-function loadURL(newURL){
+function loadURL(newURL, statePopped){
     try {
         newURL = trimForwardSlash(newURL);
 
         //Does not reload same page
         if (currURL !== newURL) {
+            var c = currURL.split("/");
+            //Manually typed in top level menu selection page, just loads new page
+            if (c.length === 1 && menuItemExists(c[0])){
+                window.location.href = "/" + newURL;
+            }
             //Body cleared no matter what
             closeBody();
             //Index
@@ -244,7 +183,6 @@ function loadURL(newURL){
                     }
                     else {
                         error();
-                        return false;
                     }
                 }
                 //Page with selection bar
@@ -264,15 +202,18 @@ function loadURL(newURL){
                     }
                     else {
                         error();
-                        return false;
                     }
                 }
                 else {
                     error();
-                    return false;
                 }
             }
-            goToPage(newURL);
+            if (!statePopped) {
+                goToPage(newURL);
+            }
+            else {
+                goBackPage(newURL);
+            }
         }
     }
     catch (err){
@@ -280,7 +221,6 @@ function loadURL(newURL){
         throw err;
         //error();
     }
-    return false;
 }
 
 
@@ -303,9 +243,11 @@ function openBody(innerHTML) {
 }
 function closeSelectionBar() {
     document.getElementById("selection-bar").innerHTML = "";
+    document.getElementById("selection-bar-filler").innerHTML = "";
 }
 function openSelectionBar(innerHTML) {
     document.getElementById("selection-bar").innerHTML = innerHTML;
+    document.getElementById("selection-bar-filler").innerHTML = innerHTML;
 }
 
 

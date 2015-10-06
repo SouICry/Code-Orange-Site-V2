@@ -44,7 +44,7 @@
   z-index: 700;
 }
 
-#nav {
+#nav, #nav-filler {
   background-color: $orange-darken-3;
   float: left;
   position: relative;
@@ -68,12 +68,12 @@
 }
 
 
-#logo {
+#logo, #logo-filler {
   height: $nav-height;
   float: left;
 }
 
-#user {
+#user, #user-filler {
   height: $nav-height;
   float: right;
   a {
@@ -95,44 +95,46 @@
   }
 }
 
-#logo {
+#logo, #logo-filler {
   @extend #user;
   float: left;
 }
 
-#nav-menu {
+#nav-menu, #nav-menu-filler {
   height: $nav-height;
   overflow: hidden;
   float: left;
   max-width:100%;
-}
 
-#nav-menu .scroll-hide  {
-  max-width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  height: $nav-height + 40px;
+  .scroll-hide  {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: $nav-height + 40px;
 
-  .scroll-fix {
-    width: 1000px;
-    @include desktop {
-      width: 650px;
+    .scroll-fix {
+      width: 1000px;
+      @include desktop {
+        width: 650px;
+      }
+    }
+    a {
+      float: left;
+      color: $orange-accent-1;
+      font-size: 20px;
+      padding: 0 20px;
+      line-height: $nav-height - 3px;
+      height: $nav-height;
+      text-align: center;
+      &:hover {
+        border-bottom: 3px solid $orange-accent-1;
+        text-decoration: none;
+      }
     }
   }
-  a {
-    float: left;
-    color: $orange-accent-1;
-    font-size: 20px;
-    padding: 0 20px;
-    line-height: $nav-height - 3px;
-    height: $nav-height;
-    text-align: center;
-    &:hover {
-      border-bottom: 3px solid $orange-accent-1;
-      text-decoration: none;
-    }
-  }
+
 }
+
 
 
 

@@ -12,7 +12,7 @@
     {
       "name": "Robots",
       "pages": [
-        "All_Robots",
+        "About_Our_Robots",
         "Cloud_9",
         "Hanalei",
         "Mavericks",
@@ -25,6 +25,7 @@
       "pages": [
         "About_FIRST",
         "OC_FRC_Teams",
+        "Competition_Games",
         "Recycle_Rush",
         "Aerial_Assist",
         "Ultimate_Ascent"
