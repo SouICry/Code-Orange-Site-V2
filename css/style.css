@@ -368,6 +368,8 @@ button.btn-floating {
       #nav-menu .scroll-hide a:hover, #nav-menu-filler .scroll-hide a:hover {
         border-bottom: 3px solid #ffd180;
         text-decoration: none; }
+    #nav-menu .scroll-hide a.selected, #nav-menu-filler .scroll-hide a.selected {
+      border-bottom: 3px solid #ffd180; }
 
 #selection-bar, #selection-bar-filler {
   float: left;
@@ -469,6 +471,8 @@ button.btn-floating {
           border-bottom: 4px solid #ffd180; }
         .selection-nav .slider a:active {
           border-bottom: 4px solid #ffd180; } }
+  .selection-nav .slider a.selected {
+    border-bottom: 4px solid #ffd180; }
 
 .selection-nav .slider .scroll-hide {
   overflow-y: hidden; }

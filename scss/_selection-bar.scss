@@ -121,6 +121,9 @@ $slider-item-outline-shadow-size: 10px;
         }
       }
     }
+    a.selected{
+      border-bottom: $slider-item-height * 0.02 solid $orange-accent-1;
+    }
   }
 }
 

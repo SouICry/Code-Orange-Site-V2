@@ -133,6 +133,9 @@
         text-decoration: none;
       }
     }
+    a.selected {
+      border-bottom: 3px solid $orange-accent-1;
+    }
   }
 
 }

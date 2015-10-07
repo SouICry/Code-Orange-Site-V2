@@ -26,6 +26,10 @@ function pop(event){
     loadURL(event.state['url'], true);
 }
 
+
+
+
+
 function filterLinks() {
     var elements = document.getElementsByTagName("a");
     for (var i = 0; i < elements.length; i++) {
@@ -89,6 +93,41 @@ ajaxLoad("nav.json", function(text){
 var currURL = trimForwardSlash(window.location.pathname);
 history.replaceState({"url": currURL}, "", "/" + currURL);
 filterLinks();
+
+var navItems1 = null;
+var navItems2 = null;
+function highlightActiveNav(){
+    var c = currURL.split("/");
+
+    if (c.length > 0){
+        navItems1 = document.querySelectorAll("[data-nav='"+c[0]+"']");
+        for (var i1 = 0; i1 < navItems1.length; i1 ++){
+            navItems1[i1].className = "selected";
+        }
+    }
+    if (c.length > 1){
+        navItems2 = document.querySelectorAll("[data-nav='"+c[1]+"']");
+        for (var i2 = 0; i2 < navItems2.length; i2 ++){
+            navItems2[i2].className = "selected";
+        }
+    }
+}
+function clearActiveSelection(){
+    if (navItems2 !== null){
+        for (var i = 0; i < navItems2.length; i ++){
+            navItems2[i].className = "";
+        }
+    }
+}
+function clearActiveNav(){
+    if (navItems1 !== null){
+        for (var i = 0; i < navItems1.length; i ++){
+            navItems1[i].className = "";
+        }
+    }
+}
+
+highlightActiveNav();
 
 
 function goToPage(path) {
@@ -237,10 +276,13 @@ function trimForwardSlash(stringToTrim) {
 
 function closeBody() {
     document.getElementById("body").innerHTML = "";
+    clearActiveSelection();
+    clearActiveNav();
 }
 function openBody(innerHTML) {
     document.getElementById("body").innerHTML = innerHTML;
     checkLoadCarousel();
+    highlightActiveNav();
 }
 function closeSelectionBar() {
     document.getElementById("selection-bar").innerHTML = "";
@@ -250,5 +292,7 @@ function openSelectionBar(innerHTML) {
     document.getElementById("selection-bar").innerHTML = innerHTML;
     document.getElementById("selection-bar-filler").innerHTML = innerHTML;
 }
+
+
 
 
