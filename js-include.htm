@@ -1,19 +1,27 @@
+<script>
+
+    var header_height = 250;
+    var headScroll = null;
+</script>
 <script src='/js/carousel.js'></script>
 <script src='/js/load.js'></script>
 <script src='/js/headroom.js'></script>
 <script>
-    document.getElementById("header").style.top = "-" + header_height + "px";
-    var elem = document.querySelector("#header");
-    var headroom = new Headroom(elem, {
-        "offset": header_height,
-        "tolerance": 0,
-        "classes": {
-            "initial": "headroom",
-            "pinned": "headroom--pinned",
-            "unpinned": "headroom--unpinned",
-            "top" : "headroom--top",
-            "notTop" : "headroom--not-top"
-        }
-    });
-    headroom.init();
+    function setHeaderScroll() {
+        var elem = document.querySelector("#header");
+        elem.style.top = "-" + header_height + "px";
+        headScroll = new Headroom(elem, {
+            "offset": header_height,
+            "tolerance": 0,
+            "classes": {
+                "initial": "headroom",
+                "pinned": "headroom--pinned",
+                "unpinned": "headroom--unpinned",
+                "top": "headroom--top",
+                "notTop": "headroom--not-top"
+            }
+        });
+        headScroll.init();
+    }
+    setHeaderScroll();
 </script>

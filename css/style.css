@@ -48,6 +48,12 @@ img, iframe {
 #selection-bar {
   color: white; }
 
+#body {
+  transition: all 0.3s; }
+
+#selection-bar, #selection-bar-filler {
+  transition: all 0.3s; }
+
 blockquote {
   font-style: italic; }
   blockquote cite {
@@ -895,7 +901,8 @@ button.btn-floating {
       width: 1400px; } }
 
 #body {
-  float: left; }
+  float: left;
+  overflow: hidden; }
 
 #body .content-section {
   float: left;

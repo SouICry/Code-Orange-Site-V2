@@ -9,7 +9,7 @@
 
 
 //TODO: variable header height
-var header_height = 250;
+
 
 //TODO: open/close animations (requires default css changes as well)
 
@@ -22,24 +22,21 @@ var header_height = 250;
 
 window.onpopstate = pop;
 
-function pop(event){
+function pop(event) {
     loadURL(event.state['url'], true);
 }
-
-
-
 
 
 function filterLinks() {
     var elements = document.getElementsByTagName("a");
     for (var i = 0; i < elements.length; i++) {
         if ((elements[i].href.indexOf("teamcodeorange.com") >= 0
-                || elements[i].href.indexOf("localhost") >= 0)
+            || elements[i].href.indexOf("localhost") >= 0)
             && elements[i].href.indexOf("#") != elements[i].href.length - 1
             && elements[i].href.indexOf("php") < 0) {
 
-            elements[i].addEventListener('click', function(event){
-                if ( event.preventDefault ) {
+            elements[i].addEventListener('click', function (event) {
+                if (event.preventDefault) {
                     event.preventDefault();
                 }
                 event.returnValue = false;
@@ -85,7 +82,7 @@ function ajaxLoadContent(path, callback) {
 }
 
 var nav;
-ajaxLoad("nav.json", function(text){
+ajaxLoad("nav.json", function (text) {
     nav = JSON.parse(text);
 });
 
@@ -94,34 +91,46 @@ var currURL = trimForwardSlash(window.location.pathname);
 history.replaceState({"url": currURL}, "", "/" + currURL);
 filterLinks();
 
+function setHeaderHeight() {
+    var c = currURL.split("/");
+    if (c.length < 2) {
+        header_height = 50;
+    }
+    else {
+        header_height = 250;
+    }
+}
+
+setHeaderHeight();
+
 var navItems1 = null;
 var navItems2 = null;
-function highlightActiveNav(){
+function highlightActiveNav() {
     var c = currURL.split("/");
 
-    if (c.length > 0){
-        navItems1 = document.querySelectorAll("[data-nav='"+c[0]+"']");
-        for (var i1 = 0; i1 < navItems1.length; i1 ++){
+    if (c.length > 0) {
+        navItems1 = document.querySelectorAll("[data-nav='" + c[0] + "']");
+        for (var i1 = 0; i1 < navItems1.length; i1++) {
             navItems1[i1].className = "selected";
         }
     }
-    if (c.length > 1){
-        navItems2 = document.querySelectorAll("[data-nav='"+c[1]+"']");
-        for (var i2 = 0; i2 < navItems2.length; i2 ++){
+    if (c.length > 1) {
+        navItems2 = document.querySelectorAll("[data-nav='" + c[1] + "']");
+        for (var i2 = 0; i2 < navItems2.length; i2++) {
             navItems2[i2].className = "selected";
         }
     }
 }
-function clearActiveSelection(){
-    if (navItems2 !== null){
-        for (var i = 0; i < navItems2.length; i ++){
+function clearActiveSelection() {
+    if (navItems2 !== null) {
+        for (var i = 0; i < navItems2.length; i++) {
             navItems2[i].className = "";
         }
     }
 }
-function clearActiveNav(){
-    if (navItems1 !== null){
-        for (var i = 0; i < navItems1.length; i ++){
+function clearActiveNav() {
+    if (navItems1 !== null) {
+        for (var i = 0; i < navItems1.length; i++) {
             navItems1[i].className = "";
         }
     }
@@ -133,35 +142,39 @@ highlightActiveNav();
 function goToPage(path) {
     currURL = path;
     history.pushState({"url": path}, "", "/" + path);
+    setHeaderHeight();
+    setHeaderScroll();
     filterLinks();
 }
-function goBackPage(path){
+function goBackPage(path) {
     currURL = path;
     filterLinks();
 }
 
 function error() {
-    closeBody();
-    closeSelectionBar();
-    ajaxLoadContent("Error", openBody);
-    goToPage("Error");
+    closeBody(function () {
+        closeSelectionBar(function (){
+            ajaxLoadContent("Error", openBody);
+            goToPage("Error");
+        });
+    });
 }
 
 
-function menuItemExists(name){
-    for (var i = 0; i < nav['menu-items'].length; i++){
-        if (nav['menu-items'][i].name === name){
+function menuItemExists(name) {
+    for (var i = 0; i < nav['menu-items'].length; i++) {
+        if (nav['menu-items'][i].name === name) {
             return true;
         }
     }
     return false;
 }
-function menuPageExists(menuName, pageName){
-    for (var i = 0; i < nav['menu-items'].length; i++){
-        if (nav['menu-items'][i].name === menuName){
+function menuPageExists(menuName, pageName) {
+    for (var i = 0; i < nav['menu-items'].length; i++) {
+        if (nav['menu-items'][i].name === menuName) {
             var pages = nav['menu-items'][i]['pages'];
-            for (var j = 0; j < pages.length; j++){
-                if (pages[j] === pageName){
+            for (var j = 0; j < pages.length; j++) {
+                if (pages[j] === pageName) {
                     return true;
                 }
             }
@@ -170,9 +183,9 @@ function menuPageExists(menuName, pageName){
     }
     return false;
 }
-function unlistedItemExists(name){
-    for (var i = 0; i < nav['unlisted-items'].length; i++){
-        if (nav['unlisted-items'][i].name === name){
+function unlistedItemExists(name) {
+    for (var i = 0; i < nav['unlisted-items'].length; i++) {
+        if (nav['unlisted-items'][i].name === name) {
             return true;
         }
     }
@@ -187,7 +200,7 @@ function unlistedItemExists(name){
  * orphans (listed or unlisted, include error, index)
  * does-not-exist (check nav.json) - error (or DNE)
  */
-function loadURL(newURL, statePopped){
+function loadURL(newURL, statePopped) {
     try {
         newURL = trimForwardSlash(newURL);
 
@@ -195,67 +208,73 @@ function loadURL(newURL, statePopped){
         if (currURL !== newURL) {
             var c = currURL.split("/");
             //Manually typed in top level menu selection page, just loads new page
-            if (c.length === 1 && menuItemExists(c[0])){
+            if (c.length === 1 && menuItemExists(c[0])) {
                 window.location.href = "/" + newURL;
             }
             //Body cleared no matter what
-            closeBody();
-            //Index
-            if (newURL.length == 0) {
-                closeSelectionBar();
-                ajaxLoadContent(newURL, openBody);
-            }
-            else {
-                var n = newURL.split("/");
-
-                //Page without selection-bar
-                if (n.length == 1) {
-                    closeSelectionBar();
-                    //Redirects to first page if top level menu
-                    if (menuItemExists(n[0])) {
-                        newURL = n[0] + "/" + nav['menu-items'][0]['pages'][0];
+            closeBody(function () {
+                //Index
+                if (newURL.length == 0) {
+                    closeSelectionBar(function () {
                         ajaxLoadContent(newURL, openBody);
-                    }
-                    //Loads body if unlisted
-                    else if (unlistedItemExists(n[0])) {
-                        ajaxLoadContent(n[0], openBody);
-                    }
-                    else {
-                        error();
-                    }
-                }
-                //Page with selection bar
-                else if (n.length == 2) {
-                    if (menuPageExists(n[0], n[1])) {
-                        var c = currURL.split("/");
-                        //Same menu item
-                        if (c.length == 2 && c[0] === n[0]) {
-                            ajaxLoadContent(newURL, openBody);
-                        }
-                        //Different menu item
-                        else {
-                            closeSelectionBar();
-                            ajaxLoadContent(n[0], openSelectionBar);
-                            ajaxLoadContent(newURL, openBody);
-                        }
-                    }
-                    else {
-                        error();
-                    }
+                    });
                 }
                 else {
-                    error();
+                    var n = newURL.split("/");
+
+                    //Page without selection-bar
+                    if (n.length == 1) {
+                        closeSelectionBar(function () {
+                            //Redirects to first page if top level menu
+                            if (menuItemExists(n[0])) {
+                                newURL = n[0] + "/" + nav['menu-items'][0]['pages'][0];
+                                ajaxLoadContent(newURL, openBody);
+                            }
+                            //Loads body if unlisted
+                            else if (unlistedItemExists(n[0])) {
+                                ajaxLoadContent(n[0], openBody);
+                            }
+                            else {
+                                error();
+                            }
+                        });
+                    }
+                    //Page with selection bar
+                    else if (n.length == 2) {
+                        if (menuPageExists(n[0], n[1])) {
+                            var c = currURL.split("/");
+                            //Same menu item
+                            if (c.length == 2 && c[0] === n[0]) {
+                                ajaxLoadContent(newURL, openBody);
+                            }
+                            //Different menu item
+                            else {
+                                closeSelectionBar(function () {
+                                    ajaxLoadContent(n[0], openSelectionBar);
+                                    setTimeout(function() {
+                                        ajaxLoadContent(newURL, openBody);
+                                    }, 1000);
+                                });
+                            }
+                        }
+                        else {
+                            error();
+                        }
+                    }
+                    else {
+                        error();
+                    }
                 }
-            }
-            if (!statePopped) {
-                goToPage(newURL);
-            }
-            else {
-                goBackPage(newURL);
-            }
+                if (!statePopped) {
+                    goToPage(newURL);
+                }
+                else {
+                    goBackPage(newURL);
+                }
+            });
         }
     }
-    catch (err){
+    catch (err) {
         //TODO: remove this in production
         throw err;
         //error();
@@ -274,23 +293,52 @@ function trimForwardSlash(stringToTrim) {
 }
 
 
-function closeBody() {
-    document.getElementById("body").innerHTML = "";
-    clearActiveSelection();
-    clearActiveNav();
+function closeBody(callback) {
+    var body = document.getElementById("body");
+    body.style.opacity = 0;
+    body.style.transform = "translateY(200px)";
+    body.style.height = '1000px';
+    setTimeout(function () {
+        clearActiveSelection();
+        clearActiveNav();
+        callback();
+    }, 500);
 }
 function openBody(innerHTML) {
-    document.getElementById("body").innerHTML = innerHTML;
+    var body = document.getElementById("body");
+    body.innerHTML = innerHTML;
+    body.style.opacity = 1;
+    body.style.transform = "translateY(0px)";
+    body.style.height = 'auto';
     checkLoadCarousel();
     highlightActiveNav();
 }
-function closeSelectionBar() {
-    document.getElementById("selection-bar").innerHTML = "";
-    document.getElementById("selection-bar-filler").innerHTML = "";
+function closeSelectionBar(callback) {
+    var s = document.getElementById("selection-bar");
+    var s1 = document.getElementById("selection-bar-filler");
+
+    s.style.opacity = 0;
+    s.style.transform = "translateY(-" + header_height + ")";
+    s.style.height = 0;
+    s1.style.opacity = 0;
+    s1.style.transform = "translateY(-" + header_height + ")";
+    s1.style.height = 0;
+    setTimeout(function () {
+        callback();
+    }, 500);
 }
 function openSelectionBar(innerHTML) {
-    document.getElementById("selection-bar").innerHTML = innerHTML;
-    document.getElementById("selection-bar-filler").innerHTML = innerHTML;
+    var s = document.getElementById("selection-bar");
+    var s1 = document.getElementById("selection-bar-filler");
+    s.innerHTML = innerHTML;
+    s1.innerHTML = innerHTML;
+
+    s.style.opacity = 1;
+    s.style.transform = "translateY(0)";
+    s.style.height = 'auto';
+    s1.style.opacity = 1;
+    s1.style.transform = "translateY(0)";
+    s1.style.height = 'auto';
 }
 
 
