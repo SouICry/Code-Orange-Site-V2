@@ -374,7 +374,7 @@ button.btn-floating {
     #nav-menu .scroll-hide a.selected, #nav-menu-filler .scroll-hide a.selected {
       border-bottom: 3px solid #ffd180; }
 
-#selection-bar, #selection-bar-filler {
+#selection-bar, #selection-bar-filler, #selection-bar-outside {
   float: left;
   position: relative;
   width: 100%;
@@ -384,10 +384,10 @@ button.btn-floating {
   transition: all 0.3s;
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5); }
   @media (min-width: 720px) and (max-width: 1023px) {
-    #selection-bar, #selection-bar-filler {
+    #selection-bar, #selection-bar-filler, #selection-bar-outside {
       box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5); } }
   @media (min-width: 1024px) {
-    #selection-bar, #selection-bar-filler {
+    #selection-bar, #selection-bar-filler, #selection-bar-outside {
       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5); } }
 
 /* Arbitrarily large enough (40px) to hide, 0 to show */

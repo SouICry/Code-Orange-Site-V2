@@ -25,6 +25,9 @@
             </div>
         </div>
     </div>
+    <div id="selection-bar" class="selection-nav">
+
+    </div>
 </div>
 <div id="header-filler">
     <div id="nav-filler">
@@ -46,8 +49,11 @@
             </div>
         </div>
     </div>
+    <div id="selection-bar-filler" class="selection-nav">
+
+    </div>
 </div>
-<div id="selection-bar" class="selection-content">
+<div id="selection-bar-outside" class="selection-content">
     <?php include 'content.htm'; ?>
 </div>
 <div id="body">

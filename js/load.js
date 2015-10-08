@@ -150,6 +150,14 @@ function error() {
     });
 }
 
+function getMenuItem(name){
+    for (var i = 0; i < nav['menu-items'].length; i++) {
+        if (nav['menu-items'][i].name === name) {
+            return nav['menu-items'][i];
+        }
+    }
+    return null;
+}
 
 function menuItemExists(name) {
     for (var i = 0; i < nav['menu-items'].length; i++) {
@@ -216,18 +224,15 @@ function loadURL(newURL, statePopped) {
                     //Page without selection-bar
                     if (n.length == 1) {
                         clearActiveNav();
+                        //Redirects to first page if top level menu
+                        if (menuItemExists(n[0])) {
+                            newURL = n[0] + "/" + getMenuItem(n[0])['pages'][0];
+                            window.location.href = "/" + newURL;
+                            return false;
+                        }
                         closeSelectionBar(function () {
-                            //Redirects to first page if top level menu
-                            if (menuItemExists(n[0])) {
-                                newURL = n[0] + "/" + nav['menu-items'][0]['pages'][0];
-                                ajaxLoadContent(n[0], openSelectionBar());
 
-                                setTimeout(function() {
-                                    ajaxLoadContent(newURL, openBody);
-                                }, 300);
-                            }
-                            //Loads body if unlisted
-                            else if (unlistedItemExists(n[0])) {
+                            if (unlistedItemExists(n[0])) {
                                 ajaxLoadContent(n[0], openBody);
                             }
                             else {
