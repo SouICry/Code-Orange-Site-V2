@@ -51,9 +51,6 @@ img, iframe {
 #body {
   transition: all 0.3s; }
 
-#selection-bar, #selection-bar-filler {
-  transition: all 0.3s; }
-
 blockquote {
   font-style: italic; }
   blockquote cite {
@@ -384,6 +381,7 @@ button.btn-floating {
   background-color: #fb8c00;
   margin: 0;
   padding: 0;
+  transition: all 0.3s;
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5); }
   @media (min-width: 720px) and (max-width: 1023px) {
     #selection-bar, #selection-bar-filler {

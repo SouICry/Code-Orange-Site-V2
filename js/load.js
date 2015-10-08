@@ -1,24 +1,13 @@
-//
-//
-// TODO: rewrite with new format, simplified routes and fixes.
-// And add animation of course, especially since its simpler
-//
+
+
+
+
+
 // TODO: Scroll buttons for slider for desktop
-//
-//
 
 
-//TODO: variable header height
-
-
-//TODO: open/close animations (requires default css changes as well)
-
-
-//TODO: Fix Top level typed pages not loading into other pages
-
-//TODO: onpopstate
-
-//TODO: shake when loading
+//TODO: ! Fatal: bug with reloading now after animation. the body keeps switching between two different pages (ajax call on each, as can be seen on sever).
+//Cause of the cpu usage problem
 
 window.onpopstate = pop;
 
@@ -26,6 +15,13 @@ function pop(event) {
     loadURL(event.state['url'], true);
 }
 
+function load(event) {
+    if (event.preventDefault) {
+        event.preventDefault();
+    }
+    event.returnValue = false;
+    loadURL(this.getAttribute("href"), false);
+}
 
 function filterLinks() {
     var elements = document.getElementsByTagName("a");
@@ -35,13 +31,9 @@ function filterLinks() {
             && elements[i].href.indexOf("#") != elements[i].href.length - 1
             && elements[i].href.indexOf("php") < 0) {
 
-            elements[i].addEventListener('click', function (event) {
-                if (event.preventDefault) {
-                    event.preventDefault();
-                }
-                event.returnValue = false;
-                loadURL(this.getAttribute("href"), false);
-            }, false);
+
+            elements[i].removeEventListener('click', load , false);
+            elements[i].addEventListener('click', load , false);
         }
     }
 }
@@ -144,11 +136,9 @@ function goToPage(path) {
     history.pushState({"url": path}, "", "/" + path);
     setHeaderHeight();
     setHeaderScroll();
-    filterLinks();
 }
 function goBackPage(path) {
     currURL = path;
-    filterLinks();
 }
 
 function error() {
@@ -215,6 +205,7 @@ function loadURL(newURL, statePopped) {
             closeBody(function () {
                 //Index
                 if (newURL.length == 0) {
+                    clearActiveNav();
                     closeSelectionBar(function () {
                         ajaxLoadContent(newURL, openBody);
                     });
@@ -224,11 +215,16 @@ function loadURL(newURL, statePopped) {
 
                     //Page without selection-bar
                     if (n.length == 1) {
+                        clearActiveNav();
                         closeSelectionBar(function () {
                             //Redirects to first page if top level menu
                             if (menuItemExists(n[0])) {
                                 newURL = n[0] + "/" + nav['menu-items'][0]['pages'][0];
-                                ajaxLoadContent(newURL, openBody);
+                                ajaxLoadContent(n[0], openSelectionBar());
+
+                                setTimeout(function() {
+                                    ajaxLoadContent(newURL, openBody);
+                                }, 300);
                             }
                             //Loads body if unlisted
                             else if (unlistedItemExists(n[0])) {
@@ -245,15 +241,17 @@ function loadURL(newURL, statePopped) {
                             var c = currURL.split("/");
                             //Same menu item
                             if (c.length == 2 && c[0] === n[0]) {
+                                clearActiveSelection();
                                 ajaxLoadContent(newURL, openBody);
                             }
                             //Different menu item
                             else {
+                                clearActiveNav();
                                 closeSelectionBar(function () {
                                     ajaxLoadContent(n[0], openSelectionBar);
                                     setTimeout(function() {
                                         ajaxLoadContent(newURL, openBody);
-                                    }, 1000);
+                                    }, 300);
                                 });
                             }
                         }
@@ -299,10 +297,8 @@ function closeBody(callback) {
     body.style.transform = "translateY(200px)";
     body.style.height = '1000px';
     setTimeout(function () {
-        clearActiveSelection();
-        clearActiveNav();
         callback();
-    }, 500);
+    }, 300);
 }
 function openBody(innerHTML) {
     var body = document.getElementById("body");
@@ -310,6 +306,8 @@ function openBody(innerHTML) {
     body.style.opacity = 1;
     body.style.transform = "translateY(0px)";
     body.style.height = 'auto';
+    //highlightActiveNav();
+    filterLinks();
     checkLoadCarousel();
     highlightActiveNav();
 }
@@ -318,16 +316,15 @@ function closeSelectionBar(callback) {
     var s1 = document.getElementById("selection-bar-filler");
 
     s.style.opacity = 0;
-    s.style.transform = "translateY(-" + header_height + ")";
-    s.style.height = 0;
+    s.style.transform = "translateY(-100%)";
     s1.style.opacity = 0;
-    s1.style.transform = "translateY(-" + header_height + ")";
-    s1.style.height = 0;
+    s1.style.transform = "translateY(-100%)";
     setTimeout(function () {
         callback();
-    }, 500);
+    }, 300);
 }
 function openSelectionBar(innerHTML) {
+
     var s = document.getElementById("selection-bar");
     var s1 = document.getElementById("selection-bar-filler");
     s.innerHTML = innerHTML;
@@ -335,10 +332,9 @@ function openSelectionBar(innerHTML) {
 
     s.style.opacity = 1;
     s.style.transform = "translateY(0)";
-    s.style.height = 'auto';
     s1.style.opacity = 1;
     s1.style.transform = "translateY(0)";
-    s1.style.height = 'auto';
+    highlightActiveNav();
 }
 
 
