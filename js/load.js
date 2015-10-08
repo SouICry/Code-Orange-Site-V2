@@ -1,13 +1,5 @@
-
-
-
-
-
 // TODO: Scroll buttons for slider for desktop
 
-
-//TODO: ! Fatal: bug with reloading now after animation. the body keeps switching between two different pages (ajax call on each, as can be seen on sever).
-//Cause of the cpu usage problem
 
 window.onpopstate = pop;
 
@@ -32,8 +24,8 @@ function filterLinks() {
             && elements[i].href.indexOf("php") < 0) {
 
 
-            elements[i].removeEventListener('click', load , false);
-            elements[i].addEventListener('click', load , false);
+            elements[i].removeEventListener('click', load, false);
+            elements[i].addEventListener('click', load, false);
         }
     }
 }
@@ -143,14 +135,14 @@ function goBackPage(path) {
 
 function error() {
     closeBody(function () {
-        closeSelectionBar(function (){
+        closeSelectionBar(function () {
             ajaxLoadContent("Error", openBody);
             goToPage("Error");
         });
     });
 }
 
-function getMenuItem(name){
+function getMenuItem(name) {
     for (var i = 0; i < nav['menu-items'].length; i++) {
         if (nav['menu-items'][i].name === name) {
             return nav['menu-items'][i];
@@ -254,7 +246,7 @@ function loadURL(newURL, statePopped) {
                                 clearActiveNav();
                                 closeSelectionBar(function () {
                                     ajaxLoadContent(n[0], openSelectionBar);
-                                    setTimeout(function() {
+                                    setTimeout(function () {
                                         ajaxLoadContent(newURL, openBody);
                                     }, 300);
                                 });
@@ -301,6 +293,7 @@ function closeBody(callback) {
     body.style.opacity = 0;
     body.style.transform = "translateY(200px)";
     body.style.height = '1000px';
+    window.scrollTo(0, 0);
     setTimeout(function () {
         callback();
     }, 300);
@@ -321,10 +314,12 @@ function closeSelectionBar(callback) {
     var s1 = document.getElementById("selection-bar-filler");
 
     s.style.opacity = 0;
-    s.style.transform = "translateY(-100%)";
+    s.style.transform = "translateY(-200px)";
     s1.style.opacity = 0;
-    s1.style.transform = "translateY(-100%)";
+    s1.style.transform = "translateY(-200px)";
     setTimeout(function () {
+        s.innerHTML = "";
+        s1.innerHTML = "";
         callback();
     }, 300);
 }

@@ -3,7 +3,6 @@
 //Default autoplay is disabled and rewritten to be js instead of css to fix jumping problem (js is php generated).
 
 
-
 function s(e, s) {
     if (!e)return [];
     for (var t = [], i = new RegExp("(^| )" + s + "( |\\d|$)"), a = e.getElementsByTagName("*"), r = 0, n = a.length; n > r; r++)i.test(a[r].className) && t.push(a[r]);
@@ -63,7 +62,8 @@ n.DEFAULT = {speed: 300, minDistance: 15}, n.prototype = {
 };
 
 var carousel = null;
-function checkLoadCarousel(){
+var timer = null;
+function checkLoadCarousel() {
     var c = document.getElementById("carousel");
     if (c !== null) {
         carousel = new n(c, n.DEFAULT)
@@ -71,8 +71,56 @@ function checkLoadCarousel(){
     else {
         carousel = null;
     }
+
+    //Touch or mousedown to access carousel
+    var el1 = document.querySelector('.carousel .btn');
+    var el2 = document.querySelector('.carousel .title');
+    function hide() {
+        el2.style.display = "none";
+    }
+    if (el1 !== null) {
+        el1.removeEventListener("mousedown", hide, false);
+        el1.removeEventListener("touchstart", hide, false);
+        el1.addEventListener("mousedown", hide, false);
+        el1.addEventListener("touchstart", hide, false);
+    }
+
+    //Autoplay
+    if (timer !== null){
+        clearInterval(timer);
+    }
+    var slideCount = 1;
+
+    function moveRight() {
+        var list = document.querySelectorAll('cs_anchor:checked');
+        for (var i = 0; i < list.length; i++){
+            list[i].checked = false;
+        }
+        if (slideCount >= maxSlideCount){
+            slideCount = 0;
+        }
+        document.getElementById('cs_slide_' + slideCount++).checked = true;
+    }
+
+    timer = setInterval(moveRight, 5000);
+    function stopAutoplay(){
+        window.clearInterval(timer);
+    }
+    var el = document.getElementById('carousel');
+    el.removeEventListener('mousedown', stopAutoplay, false);
+    el.removeEventListener('touchstart', stopAutoplay, false);
+    el.addEventListener('mousedown', stopAutoplay, false);
+    el.addEventListener('touchstart', stopAutoplay, false);
+
+
+
+
 }
 r(window, "load", checkLoadCarousel);
+
+
+
+
 
 
 

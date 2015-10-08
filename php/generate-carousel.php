@@ -1,15 +1,11 @@
 <?php
 //$pathname is defined in content page
 $dir = $_SERVER['DOCUMENT_ROOT'].$pathname;
-$duration = 4000;
-$animation = 1000;
 
 $imgs = glob($dir.'*.{jpg,jpeg,gif,png}', GLOB_BRACE);
 $count = count($imgs);
 
-$timePerSlide = ($duration+$animation);
-$total = ($duration+$animation) * $count;
-
+echo ("<script>var maxSlideCount = ".$count.";</script>");
 
 echo "<style>";
 
@@ -73,44 +69,3 @@ for ($num = 0; $num < $count; $num++){
 echo "</div>";
 
 
-echo ("<script>function moveRight(){for(var e=document.querySelectorAll('cs_anchor:checked'),t=0;t<e.length;t++)e[t].checked=!1;slideCount>=maxSlideCount&&(slideCount=0),document.getElementById('cs_slide_'+slideCount++).checked=!0}function stopAutoplay(){window.clearInterval(timer)}var slideCount=1,maxSlideCount=".$count.",timer=setInterval(moveRight,".($animation+$duration)."),el=document.getElementById('carousel');el.addEventListener('mousedown',stopAutoplay,!1),el.addEventListener('touchstart',stopAutoplay,!1);var el1 = document.querySelector('.carousel .btn');var el2 = document.querySelector('.carousel .title');if (el1 !== null){el1.addEventListener('mousedown', function(){el2.style.display = 'none';}, false);el1.addEventListener('touchstart', function(){el2.style.display = 'none';}, false);}</script>");
-
-/* Autoplay
-
-var slideCount = 1;
-var maxSlideCount = ".$count.";
-function moveRight() {
-    var list = document.querySelectorAll('cs_anchor:checked');
-    for (var i = 0; i < list.length; i++){
-        list[i].checked = false;
-    }
-    if (slideCount >= maxSlideCount){
-        slideCount = 0;
-    }
-    document.getElementById('cs_slide_' + slideCount++).checked = true;
-}
-
-var timer = setInterval(moveRight, ".($animation+$duration).");
-function stopAutoplay(){
-    window.clearInterval(timer);
-}
-var el = document.getElementById('carousel');
-el.addEventListener('mousedown', stopAutoplay, false);
-el.addEventListener('touchstart', stopAutoplay, false);
-
-*/
-
-/* Touch or mousedown to access carousel
-
-var el1 = document.querySelector('.carousel .btn');
-var el2 = document.querySelector('.carousel .title');
-if (el1 !== null){
-    el1.addEventListener("mousedown", function(){
-        el2.style.display = "none";
-    }, false);
-    el1.addEventListener("touchstart", function(){
-        el2.style.display = "none";
-    }, false);
-}
-*/
-?>

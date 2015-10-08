@@ -271,8 +271,7 @@ button.btn-floating {
   display: block;
   z-index: 900;
   width: 100%;
-  height: auto;
-  background-color: #ef6c00; }
+  height: auto; }
 
 .headroom--not-top {
   transition: transform 210ms linear; }
