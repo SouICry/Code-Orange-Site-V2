@@ -1,51 +1,49 @@
-<div class="row">
-    <div class="column">
-        <div class="title">
-            <h1>About Us</h1>
+<div class="carousel">
+    <div class="title">
+        <h1><img src="/img/code-orange.png"/></h1>
 
-            <div class="sub-title"></div>
+        <div class="sub-title"> - <i>FIRST</i> Robotics Team 3476</div>
+        <div class="caption">
+            <div class="btn">View Gallery</div>
         </div>
+    </div>
+    <div id="carousel">
+        <?php
+            $pathname = "/img/carousel/";
+            include $_SERVER['DOCUMENT_ROOT'].'/php/generate-carousel.php'
+        ?>
     </div>
 </div>
 <div class="row">
     <div class="column">
         <div class="content-section">
             <div class="content-row">
-                <div class="sidebar-left">
-                    <div class="img">
-                        <img src="/About/About_Us/img/team.jpg"/>
-                    </div>
+                <div id="index-about">
+                    <img id="index-surfer" src="/img/surfer.png"/>
+
+                    <p> We are a high-school level robotics team located in Irvine, California. We participate in a
+                        robotics league under an organization called FIRST (For Inspiration and Recognition of Science
+                        and Technology). Since our inception in early 2010, we have participated in the annual robotics
+                        challenge designed by FIRST. We have engaged in many community outreach activities, inspiring
+                        thousands of kids towards interest in science, technology, and engineering. We are proud to be
+                        engaged in a growing field that will surely affect the future of the world and eager to
+                        encourage others towards the same ends.</p>
                 </div>
-                <div class="content">
+            </div>
+            <div class="content-row">
+                <div class="blocks">
+                    <a class="block-3">
+                        <div class="type">Title</div>
+                        <h2>Link 1</h2>
 
-                    <h3>Who are we? </h3>
+                        <div class="view">View</div>
+                    </a>
+                    <a class="block-3">
+                        <div class="type">Title</div>
+                        <h2>Link 2</h2>
 
-                    <p>
-                        Team Code Orange #3476 is a high-school robotics team from Irvine, California. We compete in
-                        a robotics league under an organization called <i>FIRST</i>.
-                    </p>
-
-                    <h3>What is Code Orange's History? </h3>
-
-                    <p>
-                        Our team was founded in April 2010 by an interested parent. The team gathered several
-                        mentors and a small band of students from a diverse range of backgrounds. At our first
-                        competition in 2011, the judges recognized Code Orange's unique dynamics and presented us
-                        with a commemorative award. The addition of a new engineering mentor, coupled with lessons
-                        learned from the previous year, resulted in a robust, effective robot for the 2012 game
-                        challenge that won not only a prestigious engineering award, but also the regional
-                        competition itself.
-                    </p>
-
-                    <h3>What else do we do? </h3>
-
-                    <p>
-                        Code Orange is dedicated to inspiring others. To do this, we participate in many outreach
-                        events, in which we often demonstrate our robots. This is an effective way to engage both
-                        children and adults, allowing us to share with them the story of FIRST and what we have
-                        learned about science and technology through it. In less than 4 years, we have reached out
-                        to over 7,000 kids.
-                    </p>
+                        <div class="view">View</div>
+                    </a>
                 </div>
             </div>
         </div>

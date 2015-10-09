@@ -1,0 +1,50 @@
+#index-about{
+  float: left;
+  display: flex;
+  flex: 0 1 auto;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  p {
+    font-size: 17px;
+    @include small-desktop {
+      font-size: 19px;
+    }
+    @include medium-desktop {
+      font-size: 21px;
+    }
+    @include large-desktop {
+      font-size: 21px;
+    }
+    text-decoration: none;
+
+
+    width: 100%;
+    @include large-phone{
+      width: 100%;
+    }
+    @include tablet {
+      width: 68%;
+    }
+    @include desktop {
+      width: 68%;
+    }
+  }
+
+}
+
+
+#index-surfer {
+
+  margin: auto;
+  width: 100%;
+  @include large-phone{
+    width: 50%;
+  }
+  @include tablet {
+    width: 25%;
+  }
+  @include desktop {
+    width: 22%;
+  }
+}
