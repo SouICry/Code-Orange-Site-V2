@@ -1,5 +1,6 @@
 @import 'variables_mixins';
 
+
 .carousel {
   display: block;
   width: 100%;
@@ -7,9 +8,6 @@
   position: relative;
   margin-bottom: 20px;
 
-  .title, .sub-title {
-    color: $teal-accent-1;
-  }
 
   .title {
     white-space: nowrap;
@@ -31,6 +29,8 @@
 
     h1 {
       float: left;
+
+
 
       @extend .heading;
       max-width: 90%;

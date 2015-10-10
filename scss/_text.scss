@@ -116,10 +116,20 @@ h3 {
 }
 
 #body h3 {
-  color: $teal-accent-2;
+  //color: $teal-accent-2;
+  color: $orange-darken-1;
+
+  text-shadow: 0.03em 0.03em 0.012em $orange-lighten-5, -0.03em -0.03em 0.012em $orange-lighten-5,
+  -0.03em 0.03em 0.012em $orange-lighten-5, 0.03em -0.03em 0.012em $orange-lighten-5,
+
+  0.03em 0.015em 0.012em $orange-lighten-5, -0.03em -0.015em 0.012em $orange-lighten-5,
+  -0.03em 0.015em 0.012em $orange-lighten-5, 0.03em -0.015em 0.012em $orange-lighten-5,
+
+  0.015em 0.03em 0.012em $orange-lighten-5, -0.015em -0.03em 0.012em $orange-lighten-5,
+  -0.015em 0.03em 0.012em $orange-lighten-5, 0.015em -0.03em 0.012em $orange-lighten-5;
 }
 #selection-bar h3 {
-  color: $orange-lighten-3;
+  color: $orange-lighten-1;
 }
 
 h4 {
@@ -134,7 +144,8 @@ h4 {
   }
 }
 #body h4 {
-  color: $teal-accent-1;
+  //color: $teal-accent-1;
+  color: $orange-lighten-3;
 }
 #selection-bar h4 {
   color: $orange-lighten-4;

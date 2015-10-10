@@ -48,3 +48,16 @@
     width: 22%;
   }
 }
+
+.index-row {
+  background-color: $orange-darken-1;
+  @include outline-shadow;
+}
+
+#index-content {
+  display: flex;
+  height: inherit;
+  align-items: center;
+
+}
+
