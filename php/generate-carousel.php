@@ -5,8 +5,6 @@ $dir = $_SERVER['DOCUMENT_ROOT'].$pathname;
 $imgs = glob($dir.'*.{jpg,jpeg,gif,png}', GLOB_BRACE);
 $count = count($imgs);
 
-echo ("<script>var maxSlideCount = ".$count.";</script>");
-
 echo "<style>";
 
 

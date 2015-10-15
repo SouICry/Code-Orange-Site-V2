@@ -111,22 +111,22 @@ td, th {
   font-weight: bold; }
 
 h2 {
-  font-size: 24px; }
+  font-size: 20px; }
   @media (min-width: 480px) and (max-width: 719px) {
     h2 {
-      font-size: 24px; } }
+      font-size: 20px; } }
   @media (min-width: 720px) and (max-width: 1023px) {
     h2 {
-      font-size: 24px; } }
+      font-size: 20px; } }
   @media (min-width: 1024px) and (max-width: 1279px) {
     h2 {
-      font-size: 36px; } }
+      font-size: 32px; } }
   @media (min-width: 1280px) and (max-width: 1439px) {
     h2 {
-      font-size: 36px; } }
+      font-size: 32px; } }
   @media (min-width: 1440px) {
     h2 {
-      font-size: 36px; } }
+      font-size: 32px; } }
 
 #body h2 {
   color: #64ffda; }
@@ -452,34 +452,34 @@ button.btn-floating {
   font-size: 20px; }
 
 .selection-nav .slider {
-  height: 150px; }
+  height: 110px; }
   @media (min-width: 1024px) {
     .selection-nav .slider {
-      height: 200px; } }
+      height: 160px; } }
   .selection-nav .slider .scroll-hide {
-    height: 150px; }
+    height: 110px; }
     @media (min-width: 1024px) {
       .selection-nav .slider .scroll-hide {
-        height: 240px; } }
+        height: 200px; } }
   .selection-nav .slider a {
-    width: 130px;
-    height: 150px;
-    border-bottom: 3px solid transparent; }
+    width: 110px;
+    height: 110px;
+    border-bottom: 2.2px solid transparent; }
     .selection-nav .slider a:hover {
-      border-bottom: 3px solid #ffd180; }
+      border-bottom: 2.2px solid #ffd180; }
     .selection-nav .slider a:active {
-      border-bottom: 3px solid #ffd180; }
+      border-bottom: 2.2px solid #ffd180; }
     @media (min-width: 1024px) {
       .selection-nav .slider a {
-        height: 200px;
-        width: 200px;
-        border-bottom: 4px solid transparent; }
+        height: 160px;
+        width: 160px;
+        border-bottom: 3.2px solid transparent; }
         .selection-nav .slider a:hover {
-          border-bottom: 4px solid #ffd180; }
+          border-bottom: 3.2px solid #ffd180; }
         .selection-nav .slider a:active {
-          border-bottom: 4px solid #ffd180; } }
+          border-bottom: 3.2px solid #ffd180; } }
   .selection-nav .slider a.selected {
-    border-bottom: 4px solid #ffd180; }
+    border-bottom: 3.2px solid #ffd180; }
 
 .selection-nav .slider .scroll-hide {
   overflow-y: hidden; }
@@ -492,17 +492,17 @@ button.btn-floating {
   .selection-nav .slider a:active {
     text-decoration: none; }
 .selection-nav .slider-content .content {
-  height: calc(100% - 24px); }
+  height: calc(100% - 20px); }
   @media (min-width: 1024px) {
     .selection-nav .slider-content .content {
-      height: calc(100% - 36px); } }
+      height: calc(100% - 30px); } }
 .selection-nav .slider-content .name {
-  height: 24px;
+  height: 20px;
   font-size: 16px; }
   @media (min-width: 1024px) {
     .selection-nav .slider-content .name {
-      height: 36px;
-      font-size: 24px; } }
+      height: 30px;
+      font-size: 20px; } }
 
 .slider {
   overflow-y: hidden;

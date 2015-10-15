@@ -81,7 +81,7 @@ function setHeaderHeight() {
         header_height = 50;
     }
     else {
-        header_height = 250;
+        header_height = 210;
     }
 }
 
@@ -295,18 +295,23 @@ function closeBody(callback) {
     body.style.height = '1000px';
     window.scrollTo(0, 0);
     setTimeout(function () {
+        if (document.getElementById("fullpage") !== null) {
+            $.fn.fullpage.destroy('all');
+        }
         callback();
     }, 300);
 }
 function openBody(innerHTML) {
     var body = document.getElementById("body");
     body.innerHTML = innerHTML;
+    checkLoadCarousel();
+    fullpageInit();
     body.style.opacity = 1;
     body.style.transform = "translateY(0px)";
     body.style.height = 'auto';
     //highlightActiveNav();
     filterLinks();
-    checkLoadCarousel();
+
     highlightActiveNav();
 }
 function closeSelectionBar(callback) {

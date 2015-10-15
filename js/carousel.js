@@ -65,56 +65,57 @@ var carousel = null;
 var timer = null;
 function checkLoadCarousel() {
     var c = document.getElementById("carousel");
-    if (c !== null) {
-        carousel = new n(c, n.DEFAULT)
-    }
-    else {
+    if (c == null) {
         carousel = null;
-    }
-
-    //Touch or mousedown to access carousel
-    var el1 = document.querySelector('.carousel .btn');
-    var el2 = document.querySelector('.carousel .title');
-    function hide() {
-        el2.style.display = "none";
-    }
-    if (el1 !== null) {
-        el1.removeEventListener("mousedown", hide, false);
-        el1.removeEventListener("touchstart", hide, false);
-        el1.addEventListener("mousedown", hide, false);
-        el1.addEventListener("touchstart", hide, false);
-    }
-
-    //Autoplay
-    if (timer !== null){
-        clearInterval(timer);
-    }
-    var slideCount = 1;
-
-    function moveRight() {
-        var list = document.querySelectorAll('cs_anchor:checked');
-        for (var i = 0; i < list.length; i++){
-            list[i].checked = false;
-        }
-        if (slideCount >= maxSlideCount){
-            slideCount = 0;
-        }
-        document.getElementById('cs_slide_' + slideCount++).checked = true;
-    }
-
-    timer = setInterval(moveRight, 5000);
-    function stopAutoplay(){
         window.clearInterval(timer);
     }
-    var el = document.getElementById('carousel');
-    el.removeEventListener('mousedown', stopAutoplay, false);
-    el.removeEventListener('touchstart', stopAutoplay, false);
-    el.addEventListener('mousedown', stopAutoplay, false);
-    el.addEventListener('touchstart', stopAutoplay, false);
+    else {
+        carousel = new n(c, n.DEFAULT)
 
 
+        //Touch or mousedown to access carousel
+        var el1 = document.querySelector('.carousel .btn');
+        var el2 = document.querySelector('.carousel .title');
 
+        function hide() {
+            el2.style.display = "none";
+        }
 
+        if (el1 !== null) {
+            el1.removeEventListener("mousedown", hide, false);
+            el1.removeEventListener("touchstart", hide, false);
+            el1.addEventListener("mousedown", hide, false);
+            el1.addEventListener("touchstart", hide, false);
+        }
+
+        //Autoplay
+        if (timer !== null) {
+            clearInterval(timer);
+        }
+        var slideCount = 1;
+        var maxSlideCount = document.querySelectorAll('.carousel li .img').length;
+        function moveRight() {
+            var list = document.querySelectorAll('cs_anchor:checked');
+            for (var i = 0; i < list.length; i++) {
+                list[i].checked = false;
+            }
+            if (slideCount >= maxSlideCount) {
+                slideCount = 0;
+            }
+            document.getElementById('cs_slide_' + slideCount++).checked = true;
+        }
+
+        timer = setInterval(moveRight, 5000);
+        function stopAutoplay() {
+            window.clearInterval(timer);
+        }
+
+        var el = document.getElementById('carousel');
+        el.removeEventListener('mousedown', stopAutoplay, false);
+        el.removeEventListener('touchstart', stopAutoplay, false);
+        el.addEventListener('mousedown', stopAutoplay, false);
+        el.addEventListener('touchstart', stopAutoplay, false);
+    }
 }
 r(window, "load", checkLoadCarousel);
 

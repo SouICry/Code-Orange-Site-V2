@@ -1,69 +1,73 @@
-<div class="carousel">
-    <div class="title">
-        <h1><img src="/img/code-orange.png"/></h1>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#fullpage').fullpage({
+			sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
+			navigation: true,
+			fitToSection: false,
+			scrollBar: true,
+			scrollingSpeed: 1000
+		});
+	});
+</script>
 
-        <div class="sub-title"> - <i>FIRST</i> Robotics Team 3476</div>
-        <div class="caption">
-            <div class="btn">View Gallery</div>
-        </div>
-    </div>
-    <div id="carousel">
-        <?php
-            $pathname = "/img/carousel/";
-            include $_SERVER['DOCUMENT_ROOT'].'/php/generate-carousel.php'
-        ?>
-    </div>
+<style>
+	#header-filler {
+		position: absolute;
+	}
+</style>
+<div id="fullpage">
+	<div class="section ">
+		<h1>fullPage.js</h1>
+		<p>Create Beautiful Fullscreen Scrolling Websites</p>
+		<img src="fullPagejs/examples/imgs/fullPage.png" alt="fullPage" />
+	</div>
+	<div class="section" >
+	    <div class="slide">
+			<div class="intro">
+				<h1>Create Sliders</h1>
+				<p>Not only vertical scrolling but also horizontal scrolling. With fullPage.js you will be able to add horizontal sliders in the most simple way ever.</p>
+				<img src="fullPagejs/examples/imgs/slider.png" alt="slider" />
+			</div>
+
+		</div>
+	    <div class="slide">
+			<div class="intro">
+				<img src="fullPagejs/examples/imgs/1.png" alt="simple" />
+				<h1>Simple</h1>
+				<p>Easy to use. Configurable and customizable.</p>
+			</div>
+		</div>
+	    <div class="slide">
+			<div class="intro">
+				<img src="fullPagejs/examples/imgs/2.png" alt="Cool" />
+				<h1>Cool</h1>
+				<p>It just looks cool. Impress everybody with a simple and modern web design!</p>
+			</div>
+		</div>
+	    <div class="slide">
+			<div class="intro">
+				<img src="fullPagejs/examples/imgs/3.png" alt="Compatible" />
+				<h1>Compatible</h1>
+				<p>Working in modern and old browsers too! IE 8 users don't have the fault of using that horrible browser! Lets give them a chance to see your site in a proper way!</p>
+			</div>
+		</div>
+	</div>
+	<div class="section">
+		<div class="intro">
+			<h1>Example</h1>
+			<p>HTML markup example to define 4 sections.</p>
+			<img src="fullPagejs/examples/imgs/example2.png" alt="example" />
+		</div>
+	</div>
+	<div class="section">
+		<div class="intro">
+			<h1>Working On Tablets</h1>
+			<p>
+				Designed to fit to different screen sizes as well as tablet and mobile devices.
+				<br /><br /><br /><br /><br /><br />
+			</p>
+		</div>
+		<img src="fullPagejs/examples/imgs/tablets.png" alt="tablets" />
+	</div>
 </div>
-<div class="row " >
-    <div class="column">
-        <div class="content-section">
-            <div class="content-row">
-                <div id="index-about">
-                    <img id="index-surfer" src="/img/surfer.png"/>
 
-                    <p> We are a high-school level robotics team located in Irvine, California. We participate in a
-                        robotics league under an organization called FIRST (For Inspiration and Recognition of Science
-                        and Technology). Since our inception in early 2010, we have participated in the annual robotics
-                        challenge designed by FIRST. We have engaged in many community outreach activities, inspiring
-                        thousands of kids towards interest in science, technology, and engineering. We are proud to be
-                        engaged in a growing field that will surely affect the future of the world and eager to
-                        encourage others towards the same ends.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="column">
-        <div class="content-section">
-            <div class="content-row">
-                <div class="blocks">
-                    <a href="/About/About_Us" class="block-4">
-                        <div class="name">About Our Team</div>
-                        <img src="/img/avatar.png"/>
-
-                        <div class="view"></div>
-                    </a>
-                    <a href="/FIRST/About_FIRST" class="block-4">
-                        <div class="name">About <i>FIRST</i></div>
-                        <img src="/img/frc.png"/>
-
-                        <div class="view"></div>
-                    </a>
-                    <a href="#" class="block-4">
-                        <div class="name">2015 Competition Game</div>
-                        <img src="/img/RecycleRush.png"/>
-
-                        <div class="view"></div>
-                    </a>
-                    <a href="/About/Sponsors" class="block-4">
-                        <div class="name">Thank You Sponsors!</div>
-                        <img src="/img/sponsors.png"/>
-
-                        <div class="view"></div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>

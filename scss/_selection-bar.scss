@@ -12,10 +12,10 @@
 }
 
 
-$slider-item-height: 200px;
-$slider-item-width: 200px;
-$slider-item-phone-height: 200px - $nav-height;
-$slider-item-phone-width: 130px;
+$slider-item-height: 160px;
+$slider-item-width: 160px;
+$slider-item-phone-height: 160px - $nav-height;
+$slider-item-phone-width: 110px;
 
 $slider-item-padding: 0;
 
@@ -150,17 +150,17 @@ $slider-item-outline-shadow-size: 10px;
   }
   .slider-content {
     .content {
-      height: calc(100% - 24px);
+      height: calc(100% - 20px);
       @include desktop {
-        height: calc(100% - 36px);
+        height: calc(100% - 30px);
       }
     }
     .name {
-      height: 24px;
+      height: 20px;
       font-size: 16px;
       @include desktop {
-        height: 36px;
-        font-size: 24px;
+        height: 30px;
+        font-size: 20px;
       }
     }
   }

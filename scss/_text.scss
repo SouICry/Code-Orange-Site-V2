@@ -78,21 +78,21 @@ thead td {
 h2 {
   @extend .heading;
 
-  font-size: 24px;
+  font-size: 20px;
   @include large-phone {
-    font-size: 24px;
+    font-size: 20px;
   }
   @include tablet {
-    font-size: 24px;
+    font-size: 20px;
   }
   @include small-desktop {
-    font-size:36px;
+    font-size:32px;
   }
   @include medium-desktop {
-    font-size:36px;
+    font-size:32px;
   }
   @include large-desktop {
-    font-size:36px;
+    font-size:32px;
   }
 }
 #body h2 {
