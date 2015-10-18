@@ -52,6 +52,10 @@ function ajaxLoad(path, callback) {
 
 
 function ajaxLoadContent(path, callback) {
+    if (path.length > 0){
+        path += "/";
+    }
+
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
@@ -63,7 +67,7 @@ function ajaxLoadContent(path, callback) {
             }
         }
     };
-    xhr.open("GET", "/load.php?url=" + encodeURIComponent(path + "/content.htm"), true);
+    xhr.open("GET", "/load.php?url=" + encodeURIComponent(path + "content.htm"), true);
 
     xhr.send();
 }
