@@ -1,6 +1,5 @@
 // TODO: Scroll buttons for slider for desktop
 
-
 window.onpopstate = pop;
 
 function pop(event) {
@@ -75,17 +74,50 @@ var currURL = trimForwardSlash(window.location.pathname);
 history.replaceState({"url": currURL}, "", "/" + currURL);
 filterLinks();
 
+function setHeaderScroll() {
+
+    if (document.getElementById("fullpage") !== null) {
+
+    }
+    else {
+        var elem = document.querySelector("#header");
+        elem.style.top = "-" + header_height + "px";
+        headScroll = new Headroom(elem, {
+            "offset": header_height,
+            "tolerance": 0,
+            "classes": {
+                "initial": "headroom",
+                "pinned": "headroom--pinned",
+                "unpinned": "headroom--unpinned",
+                "top": "headroom--top",
+                "notTop": "headroom--not-top"
+            }
+        });
+        headScroll.init();
+
+    }
+}
+
 function setHeaderHeight() {
     var c = currURL.split("/");
+
+
     if (c.length < 2) {
-        header_height = 50;
+        if (window.outerWidth > 1024)
+            header_height = 50;
+        else
+            header_height = 100;
     }
     else {
         header_height = 210;
     }
+    setHeaderScroll();
+
 }
 
+
 setHeaderHeight();
+window.addEventListener("resize", setHeaderHeight, false);
 
 var navItems1 = null;
 var navItems2 = null;
@@ -127,7 +159,7 @@ function goToPage(path) {
     currURL = path;
     history.pushState({"url": path}, "", "/" + path);
     setHeaderHeight();
-    setHeaderScroll();
+
 }
 function goBackPage(path) {
     currURL = path;
@@ -311,7 +343,7 @@ function openBody(innerHTML) {
     body.style.height = 'auto';
     //highlightActiveNav();
     filterLinks();
-
+    setHeaderScroll();
     highlightActiveNav();
 }
 function closeSelectionBar(callback) {

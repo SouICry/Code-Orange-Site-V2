@@ -1,73 +1,98 @@
 <script type="text/javascript">
-	$(document).ready(function() {
-		$('#fullpage').fullpage({
-			sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
-			navigation: true,
-			fitToSection: false,
-			scrollBar: true,
-			scrollingSpeed: 1000
-		});
-	});
+    $(document).ready(function () {
+        $('#fullpage').fullpage({
+            sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
+            navigation: true,
+            fitToSection: false,
+            verticalCentered: false,
+            scrollBar: true,
+            scrollingSpeed: 1000
+        });
+    });
 </script>
 
 <style>
-	#header-filler {
-		position: absolute;
-	}
+    #header-filler {
+        position: absolute;
+    }
+
+    #footer {
+        display: none;
+    }
 </style>
 <div id="fullpage">
-	<div class="section ">
-		<h1>fullPage.js</h1>
-		<p>Create Beautiful Fullscreen Scrolling Websites</p>
-		<img src="fullPagejs/examples/imgs/fullPage.png" alt="fullPage" />
-	</div>
-	<div class="section" >
-	    <div class="slide">
-			<div class="intro">
-				<h1>Create Sliders</h1>
-				<p>Not only vertical scrolling but also horizontal scrolling. With fullPage.js you will be able to add horizontal sliders in the most simple way ever.</p>
-				<img src="fullPagejs/examples/imgs/slider.png" alt="slider" />
-			</div>
+    <div class="section"
+         style="background-image: url('http://www.team696.org/staging/img/background-images/background4.JPG');">
+        <div class="section-inner">
+            <div class="title">
+                <h1>Code Orange</h1>
 
-		</div>
-	    <div class="slide">
-			<div class="intro">
-				<img src="fullPagejs/examples/imgs/1.png" alt="simple" />
-				<h1>Simple</h1>
-				<p>Easy to use. Configurable and customizable.</p>
-			</div>
-		</div>
-	    <div class="slide">
-			<div class="intro">
-				<img src="fullPagejs/examples/imgs/2.png" alt="Cool" />
-				<h1>Cool</h1>
-				<p>It just looks cool. Impress everybody with a simple and modern web design!</p>
-			</div>
-		</div>
-	    <div class="slide">
-			<div class="intro">
-				<img src="fullPagejs/examples/imgs/3.png" alt="Compatible" />
-				<h1>Compatible</h1>
-				<p>Working in modern and old browsers too! IE 8 users don't have the fault of using that horrible browser! Lets give them a chance to see your site in a proper way!</p>
-			</div>
-		</div>
-	</div>
-	<div class="section">
-		<div class="intro">
-			<h1>Example</h1>
-			<p>HTML markup example to define 4 sections.</p>
-			<img src="fullPagejs/examples/imgs/example2.png" alt="example" />
-		</div>
-	</div>
-	<div class="section">
-		<div class="intro">
-			<h1>Working On Tablets</h1>
-			<p>
-				Designed to fit to different screen sizes as well as tablet and mobile devices.
-				<br /><br /><br /><br /><br /><br />
-			</p>
-		</div>
-		<img src="fullPagejs/examples/imgs/tablets.png" alt="tablets" />
-	</div>
+                <p>- <i>FIRST</i> Robotics Team 3476</p>
+            </div>
+        </div>
+    </div>
+    <div class="section" style="background-image: url('http://www.team696.org/staging/images/wiring--resized.jpg')">
+        <div class="section-inner">
+            <div class="content">
+                <h1>Innovating Since 2001</h1>
+
+                <h2>And We're Still Going Strong</h2>
+
+                <p>Team 696, the Circuit Breakers, is a FIRST Robotics team based at Clark Magnet High School in La
+                    Crescenta, California. As part of the FIRST organization (For Inspiration and Recognition of Science
+                    and
+                    Technology), Team 696 provides students with a wealth of knowledge about engineering, design,
+                    programming, and teamwork. By working with our school, our sponsors, and our community, Team 696
+                    aims to
+                    create the next generation of leaders in science and technology.</p>
+            </div>
+        </div>
+    </div>
+    <div class="section" style="background-image: url('http://www.team696.org/staging/images/workench--resized.jpg');">
+        <div class="section-inner">
+            <div class="content right">
+                <h1>Our Process</h1>
+
+                <p>Since its founding in 2001, Clark Magnet High School’s FIRST Robotics Team 696 has strived to create
+                    the
+
+                    next generation of leaders in science, technology, engineering, and mathematics (STEM) fields
+                    through
+
+                    local community outreach and participation in the international FIRST Robotics Competition (FRC).
+                    <br><br>
+
+                    Each year, our team has only six weeks to design, manufacture, and program a fully-functional robot
+                    for
+
+                    that year’s FRC game. Our rationale is that through a method of guided discovery, each student can
+
+                    refine his or her skills in a specific sub-group of the team, developing practical applications of
+                    STEM
+
+                    concepts outside the ordinary classroom environment.</p>
+            </div>
+        </div>
+    </div>
+    <div class="section"
+         style="background-image: url('http://www.team696.org/staging/images/competition--resized.jpg');">
+        <div class="section-inner">
+            <div class="content">
+                <h1>There Is No "I" In Team</h1>
+
+                <p>
+                    Team 696 also takes pride in giving back to the community. Throughout the year, our students become
+                    mentors themselves, coaching several Lego robotics teams throughout our district.
+                    <br><br>
+                    Ultimately, the knowledge and experience gained through the team is more important than any
+                    competition.
+                    Any student who joins FIRST Robotics Team 696, regardless of his or her skill sets, will leave with
+                    an
+                    enlightened perspective on teamwork, engineering, and countless other disciplines. Throughout their
+                    FIRST Robotics experience, members of Team 696 become scientists, engineers, managers, and friends.
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
 
