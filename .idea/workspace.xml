@@ -2,29 +2,87 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c6d85cd-f7c8-4f3c-a2fc-a00c4fde1311" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/_header.scss" afterPath="$PROJECT_DIR$/scss/_header.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/About/About_Us/index.php" afterPath="$PROJECT_DIR$/About/About_Us/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/About/Awards/index.php" afterPath="$PROJECT_DIR$/About/Awards/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/About/Contact_Us/index.php" afterPath="$PROJECT_DIR$/About/Contact_Us/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/About/Sponsors/index.php" afterPath="$PROJECT_DIR$/About/Sponsors/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FIRST/About_FIRST/index.php" afterPath="$PROJECT_DIR$/FIRST/About_FIRST/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FIRST/Aerial_Assist/index.php" afterPath="$PROJECT_DIR$/FIRST/Aerial_Assist/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FIRST/Competition_Games/index.php" afterPath="$PROJECT_DIR$/FIRST/Competition_Games/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FIRST/OC_FRC_Teams/index.php" afterPath="$PROJECT_DIR$/FIRST/OC_FRC_Teams/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FIRST/Ultimate_Ascent/index.php" afterPath="$PROJECT_DIR$/FIRST/Ultimate_Ascent/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robots/About_Our_Robots/index.php" afterPath="$PROJECT_DIR$/Robots/About_Our_Robots/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robots/Cloud_9/index.php" afterPath="$PROJECT_DIR$/Robots/Cloud_9/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robots/Hanalei/index.php" afterPath="$PROJECT_DIR$/Robots/Hanalei/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robots/Mavericks/index.php" afterPath="$PROJECT_DIR$/Robots/Mavericks/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robots/Pipeline/index.php" afterPath="$PROJECT_DIR$/Robots/Pipeline/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robots/Tic-Tac/index.php" afterPath="$PROJECT_DIR$/Robots/Tic-Tac/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tutorials/All_Tutorials/index.php" afterPath="$PROJECT_DIR$/Tutorials/All_Tutorials/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tutorials/Electronics/index.php" afterPath="$PROJECT_DIR$/Tutorials/Electronics/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tutorials/Scouting/index.php" afterPath="$PROJECT_DIR$/Tutorials/Scouting/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-include.htm" afterPath="$PROJECT_DIR$/js-include.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/load.js" afterPath="$PROJECT_DIR$/js/load.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css.map" afterPath="$PROJECT_DIR$/css/style.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\.gitattributes" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\README.md" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\bower.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\dist\jquery.fullpage.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\dist\jquery.fullpage.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\dist\jquery.fullpage.min.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\dist\jquery.fullpage.min.css.map" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\dist\jquery.fullpage.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\dist\jquery.fullpage.min.js.map" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\apple.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\backgroundVideo.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\backgrounds.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\backgroundsFixed.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\callbacks.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\continuous.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\css3.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\demoPage.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\easing.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\examples.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\examples.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\fixedHeaders.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\gradientBackgrounds.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\1.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\2.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\3.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\bg1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\bg2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\bg3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\bg4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\bg5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\compatible.gif" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\copyright.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\example.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\example2.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\flowers.mp4" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\flowers.webm" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\fullPage.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\intro.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\iphone-blue.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\iphone-green.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\iphone-red.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\iphone-two.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\iphone-yellow.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\iphone1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\iphone2.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\iphone3.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\iphone4.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\slider.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\tablets.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\imgs\used-by-fullpage.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\looping.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\methods.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\navigationH.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\navigationV.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\noAnchor.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\normalScroll.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\oneSection.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\responsiveHeight.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\responsiveWidth.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\scrollBar.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\scrolling.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\scrollingSpeed.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\examples\simple.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\gulpfile.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\jquery.fullPage.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\jquery.fullPage.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\jquery.fullPage.scss" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\package.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\pure javascript (Alpha)\README.md" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\pure javascript (Alpha)\demo.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\pure javascript (Alpha)\javascript.fullPage.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\pure javascript (Alpha)\javascript.fullPage.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\pure javascript (Alpha)\javascript.fullPage.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\tests\functions.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\tests\functions.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\vendors\jquery.easings.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\vendors\jquery.slimscroll.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\vendors\jquery.slimscroll.min.js" afterPath="" />
+      <change type="MOVED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\fullPagejs\jquery.fullPage.min.js" afterPath="$PROJECT_DIR$/js/jquery.fullPage.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/head-include.php" afterPath="$PROJECT_DIR$/head-include.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Code-Orange-Site-V2.iws" />
@@ -49,21 +107,6 @@
     <splitter split-orientation="horizontal" split-proportion="0.47531992">
       <split-first>
         <leaf>
-          <file leaf-file-name="content.htm" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/content.htm">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-0.0">
-                  <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
-                  <folding>
-                    <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="load.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/load.js">
               <provider selected="true" editor-type-id="text-editor">
@@ -74,21 +117,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="jquery.fullpage.css" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/fullPagejs/dist/jquery.fullpage.css">
+          <file leaf-file-name="js-include.htm" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/js-include.htm">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+                <state vertical-scroll-proportion="-9.807693">
+                  <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="js-include.htm" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/js-include.htm">
+          <file leaf-file-name="head-include.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/head-include.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.27324915">
-                  <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.09476031">
+                  <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
                   <folding />
                 </state>
               </provider>
@@ -314,7 +357,6 @@
         <option value="$PROJECT_DIR$/scss/fullpage.scss" />
         <option value="$PROJECT_DIR$/scss/_footer.scss" />
         <option value="$PROJECT_DIR$/fullPagejs/dist/jquery.fullpage.css" />
-        <option value="$PROJECT_DIR$/head-include.php" />
         <option value="$PROJECT_DIR$/FIRST/Ultimate_Ascent/content.htm" />
         <option value="$PROJECT_DIR$/scss/style.scss" />
         <option value="$PROJECT_DIR$/scss/_icons.scss" />
@@ -330,6 +372,7 @@
         <option value="$PROJECT_DIR$/js-include.htm" />
         <option value="$PROJECT_DIR$/scss/_header.scss" />
         <option value="$PROJECT_DIR$/scss/_fullpage.scss" />
+        <option value="$PROJECT_DIR$/head-include.php" />
       </list>
     </option>
   </component>
@@ -513,11 +556,11 @@
       <recent name="C:\Users\SouICry\Desktop\Code-Orange-Site-V2" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\js" />
       <recent name="C:\Users\SouICry\Desktop\Code-Orange-Site-V2" />
       <recent name="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\FIRST" />
       <recent name="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\Robots\Hanalei\img\carousel" />
       <recent name="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\FIRST\About_FIRST\img" />
-      <recent name="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\About\Sponsors" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.index.html">
@@ -721,17 +764,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fullPagejs/jquery.fullPage.min.js">
+    <entry file="file://$PROJECT_DIR$/js/jquery.fullPage.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fullPagejs/examples/demoPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="29" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -739,20 +775,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fullPagejs/examples/examples.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.037904125">
-          <caret line="2" column="82" selection-start-line="2" selection-start-column="82" selection-end-line="2" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fullPagejs/jquery.fullPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="428" column="35" selection-start-line="428" selection-start-column="35" selection-end-line="428" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -797,22 +819,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fullPagejs/examples/examples.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.018952062">
-          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/head-include.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="77" selection-start-line="6" selection-start-column="77" selection-end-line="6" selection-end-column="77" />
           <folding />
         </state>
       </provider>
@@ -990,14 +996,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fullPagejs/dist/jquery.fullpage.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Robots/About_Our_Robots/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1022,14 +1020,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js-include.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27324915">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scss/_header.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.8461537">
@@ -1042,6 +1032,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3708381">
           <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-include.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.807693">
+          <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/head-include.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09476031">
+          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
           <folding />
         </state>
       </provider>
