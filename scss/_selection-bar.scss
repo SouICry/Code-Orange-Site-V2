@@ -149,12 +149,22 @@ $slider-item-outline-shadow-size: 10px;
     }
   }
   .slider-content {
+    h2, img {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
     .content {
+      position: relative;
       height: calc(100% - 20px);
       @include desktop {
         height: calc(100% - 30px);
       }
     }
+
+
     .name {
       height: 20px;
       font-size: 16px;

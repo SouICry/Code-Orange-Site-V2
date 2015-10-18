@@ -491,7 +491,14 @@ button.btn-floating {
     text-decoration: none; }
   .selection-nav .slider a:active {
     text-decoration: none; }
+.selection-nav .slider-content h2, .selection-nav .slider-content img {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
 .selection-nav .slider-content .content {
+  position: relative;
   height: calc(100% - 20px); }
   @media (min-width: 1024px) {
     .selection-nav .slider-content .content {
@@ -1768,6 +1775,18 @@ ul .slide {
   height: 100%;
   width: 100%;
   position: relative; }
+  .section-inner .scroll-for-more {
+    position: absolute;
+    width: 40px;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 0.5s; }
+    @media (min-width: 1024px) {
+      .section-inner .scroll-for-more {
+        width: 50px; } }
+    .section-inner .scroll-for-more:hover {
+      opacity: 0.8; }
   .section-inner h1, .section-inner p, .section-inner .content-section li, .content-section .section-inner li {
     position: static;
     display: block;

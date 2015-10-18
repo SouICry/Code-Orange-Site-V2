@@ -21,6 +21,22 @@
   width: 100%;
   position: relative;
 
+  .scroll-for-more {
+    position: absolute;
+    width: 40px;
+    @include desktop {
+      width: 50px;
+    }
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    transition: opacity 0.5s;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
   h1, p {
     position: static;
     display: block;

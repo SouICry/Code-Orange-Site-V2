@@ -2,8 +2,6 @@
 
 //TODO: gallery maximize on click, close and reset title on it.
 
-//TODO: fix slider for mobile (infinite slide)
-
 //TODO: header shrink  z-index toggle to hide other one
 
 window.onpopstate = pop;
@@ -326,6 +324,16 @@ function trimForwardSlash(stringToTrim) {
 }
 
 
+fixSelectionBarWidth();
+
+function fixSelectionBarWidth(){
+    var slide = $('.slider .scroll-fix');
+    if (slide.length) {
+        var children = slide.first().children();
+        slide.width(children.first().width() * children.length);
+    }
+}
+
 function closeBody(callback) {
     var body = document.getElementById("body");
     body.style.opacity = 0;
@@ -368,7 +376,6 @@ function closeSelectionBar(callback) {
     }, 300);
 }
 function openSelectionBar(innerHTML) {
-
     var s = document.getElementById("selection-bar");
     var s1 = document.getElementById("selection-bar-filler");
     s.innerHTML = innerHTML;
@@ -379,6 +386,7 @@ function openSelectionBar(innerHTML) {
     s1.style.opacity = 1;
     s1.style.transform = "translateY(0)";
     highlightActiveNav();
+    fixSelectionBarWidth();
 }
 
 
