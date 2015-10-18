@@ -1,9 +1,8 @@
-
 <script>
     var header_height = 210;
     var headScroll = null;
     function fullpageInit(){
-        if (window.jQuery) {
+        if (document.getElementById("fullpage") !== null) {
             $('#fullpage').fullpage({
                 sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
                 navigation: true,
@@ -14,12 +13,10 @@
             });
         }
     }
+    $(document).ready(function () {
+        fullpageInit();
+    });
 </script>
 <script src='/js/carousel.js'></script>
 <script src='/js/headroom.js'></script>
 <script src='/js/load.js'></script>
-<script>
-
-
-
-</script>

@@ -1,5 +1,11 @@
 // TODO: Scroll buttons for slider for desktop
 
+//TODO: gallery maximize on click, close and reset title on it.
+
+//TODO: fix slider for mobile (infinite slide)
+
+//TODO: header shrink  z-index toggle to hide other one
+
 window.onpopstate = pop;
 
 function pop(event) {
@@ -337,7 +343,7 @@ function openBody(innerHTML) {
     var body = document.getElementById("body");
     body.innerHTML = innerHTML;
     checkLoadCarousel();
-    fullpageInit();
+
     body.style.opacity = 1;
     body.style.transform = "translateY(0px)";
     body.style.height = 'auto';
@@ -345,6 +351,7 @@ function openBody(innerHTML) {
     filterLinks();
     setHeaderScroll();
     highlightActiveNav();
+    fullpageInit();
 }
 function closeSelectionBar(callback) {
     var s = document.getElementById("selection-bar");
