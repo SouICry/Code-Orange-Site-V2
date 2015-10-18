@@ -52,9 +52,7 @@
             </div>
         </div>
     </div>
-    <div id="selection-bar-filler" class="selection-nav">
-        <?php include '../content.htm'; ?>
-    </div>
+    <div id="selection-bar-filler" class="selection-nav">         <?php include '../content.htm'; ?>     </div>
 </div>
 <div id="body">
     <?php include 'content.htm'; ?>

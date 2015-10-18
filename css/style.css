@@ -277,26 +277,25 @@ button.btn-floating {
   width: 100%;
   height: auto; }
 
-.headroom--not-top {
-  transition: transform 210ms linear; }
-
-.headroom--pinned {
+.headroom--top {
   transform: translateY(100%); }
 
+.headroom--pinned {
+  transform: translateY(100%);
+  transition: transform 210ms linear; }
+
 .headroom--unpinned {
+  transition: transform 210ms linear;
   transform: translateY(0%); }
-
-.headroom--pinned1 {
-  visibility: hidden; }
-
-.headroom--unpinned1 {
-  visibility: visible; }
 
 #header-filler {
   float: left;
   width: 100%;
   position: relative;
   z-index: 700; }
+
+#selection-bar-filler {
+  visibility: hidden; }
 
 #nav, #nav-filler {
   background-color: #ef6c00;
@@ -317,6 +316,9 @@ button.btn-floating {
   @media (min-width: 1024px) {
     #nav, #nav-filler {
       height: 50px; } }
+
+#nav-filler {
+  box-shadow: none; }
 
 #body {
   width: 100%;
@@ -1786,7 +1788,7 @@ ul .slide {
       .section-inner .scroll-for-more {
         width: 50px; } }
     .section-inner .scroll-for-more:hover {
-      opacity: 0.8; }
+      opacity: 0.5; }
   .section-inner h1, .section-inner p, .section-inner .content-section li, .content-section .section-inner li {
     position: static;
     display: block;

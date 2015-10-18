@@ -79,27 +79,21 @@ history.replaceState({"url": currURL}, "", "/" + currURL);
 filterLinks();
 
 function setHeaderScroll() {
-
-    if (document.getElementById("fullpage") !== null) {
-
-    }
-    else {
-        var elem = document.querySelector("#header");
-        elem.style.top = "-" + header_height + "px";
-        headScroll = new Headroom(elem, {
-            "offset": header_height,
-            "tolerance": 0,
-            "classes": {
-                "initial": "headroom",
-                "pinned": "headroom--pinned",
-                "unpinned": "headroom--unpinned",
-                "top": "headroom--top",
-                "notTop": "headroom--not-top"
-            }
-        });
-        headScroll.init();
-
-    }
+    setHeaderHeight();
+    var elem = document.querySelector("#header");
+    elem.style.top = "-" + header_height + "px";
+    headScroll = new Headroom(elem, {
+        "offset": header_height,
+        "tolerance": 0,
+        "classes": {
+            "initial": "headroom",
+            "pinned": "headroom--pinned",
+            "unpinned": "headroom--unpinned",
+            "top": "headroom--top",
+            "notTop": "headroom--not-top"
+        }
+    });
+    headScroll.init();
 }
 
 function setHeaderHeight() {
@@ -115,13 +109,13 @@ function setHeaderHeight() {
     else {
         header_height = 210;
     }
-    setHeaderScroll();
+
 
 }
 
 
-setHeaderHeight();
-window.addEventListener("resize", setHeaderHeight, false);
+setHeaderScroll();
+window.addEventListener("resize", function(){setHeaderScroll()}, false);
 
 var navItems1 = null;
 var navItems2 = null;
@@ -162,7 +156,6 @@ highlightActiveNav();
 function goToPage(path) {
     currURL = path;
     history.pushState({"url": path}, "", "/" + path);
-    setHeaderHeight();
 
 }
 function goBackPage(path) {
@@ -243,7 +236,7 @@ function loadURL(newURL, statePopped) {
                 if (newURL.length == 0) {
                     clearActiveNav();
                     closeSelectionBar(function () {
-                        ajaxLoadContent(newURL, openBody);
+                        ajaxLoadContent(newURL, function(a){openBody(a);setHeaderScroll();});
                     });
                 }
                 else {
@@ -261,7 +254,7 @@ function loadURL(newURL, statePopped) {
                         closeSelectionBar(function () {
 
                             if (unlistedItemExists(n[0])) {
-                                ajaxLoadContent(n[0], openBody);
+                                ajaxLoadContent(n[0], function(a){openBody(a);setHeaderScroll();});
                             }
                             else {
                                 error();
@@ -275,15 +268,15 @@ function loadURL(newURL, statePopped) {
                             //Same menu item
                             if (c.length == 2 && c[0] === n[0]) {
                                 clearActiveSelection();
-                                ajaxLoadContent(newURL, openBody);
+                                ajaxLoadContent(newURL, function(a){openBody(a);setHeaderScroll();});
                             }
                             //Different menu item
                             else {
                                 clearActiveNav();
                                 closeSelectionBar(function () {
-                                    ajaxLoadContent(n[0], openSelectionBar);
+                                    ajaxLoadContent(n[0], function(a){openSelectionBar(a);setHeaderScroll();});
                                     setTimeout(function () {
-                                        ajaxLoadContent(newURL, openBody);
+                                        ajaxLoadContent(newURL, function(a){openBody(a);});
                                     }, 300);
                                 });
                             }
@@ -326,7 +319,7 @@ function trimForwardSlash(stringToTrim) {
 
 fixSelectionBarWidth();
 
-function fixSelectionBarWidth(){
+function fixSelectionBarWidth() {
     var slide = $('.slider .scroll-fix');
     if (slide.length) {
         var children = slide.first().children();
@@ -357,7 +350,7 @@ function openBody(innerHTML) {
     body.style.height = 'auto';
     //highlightActiveNav();
     filterLinks();
-    setHeaderScroll();
+
     highlightActiveNav();
     fullpageInit();
 }
@@ -372,6 +365,7 @@ function closeSelectionBar(callback) {
     setTimeout(function () {
         s.innerHTML = "";
         s1.innerHTML = "";
+        s1.style.height = '0';
         callback();
     }, 300);
 }
@@ -379,7 +373,14 @@ function openSelectionBar(innerHTML) {
     var s = document.getElementById("selection-bar");
     var s1 = document.getElementById("selection-bar-filler");
     s.innerHTML = innerHTML;
-    s1.innerHTML = innerHTML;
+    //s1.innerHTML = innerHTML;
+    if (window.outerWidth > 1024){
+        s1.style.height = '160px';
+    }
+    else {
+        s1.style.height = '110px';
+    }
+
 
     s.style.opacity = 1;
     s.style.transform = "translateY(0)";
