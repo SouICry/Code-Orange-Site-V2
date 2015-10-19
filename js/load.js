@@ -1,8 +1,8 @@
-// TODO: Scroll buttons for slider for desktop
+//TODO: Scroll buttons for selection bar slider by device width. Re-hide scrollbar.
+
+//TODO: Sync scrolling and highlighting across two nav menus (under one is only for show.)
 
 //TODO: gallery maximize on click, close and reset title on it.
-
-//TODO: header shrink  z-index toggle to hide other one
 
 window.onpopstate = pop;
 
@@ -88,7 +88,7 @@ function setHeaderScroll() {
     elem.style.top = "-" + header_height + "px";
     headScroll = new Headroom(elem, {
         "offset": header_height,
-        "tolerance": 0,
+        "tolerance": 10,
         "classes": {
             "initial": "headroom",
             "pinned": "headroom--pinned",
@@ -321,15 +321,21 @@ function trimForwardSlash(stringToTrim) {
 }
 
 
-fixSelectionBarWidth();
-
-function fixSelectionBarWidth() {
-    var slide = $('.slider .scroll-fix');
+function fixHeaderWidth() {
+    var slide = $('.scroll-fix');
     if (slide.length) {
-        var children = slide.first().children();
-        slide.width(children.first().width() * children.length);
+        slide.each(function() {
+            var width = 20;
+            $(this).children().each(function(){
+               width += $(this).outerWidth(true);
+            });
+            $(this).width(width);
+        });
     }
 }
+
+fixHeaderWidth();
+
 
 function closeBody(callback) {
     var body = document.getElementById("body");
@@ -391,7 +397,7 @@ function openSelectionBar(innerHTML) {
     s1.style.opacity = 1;
     s1.style.transform = "translateY(0)";
     highlightActiveNav();
-    fixSelectionBarWidth();
+    fixHeaderWidth();
 }
 
 
