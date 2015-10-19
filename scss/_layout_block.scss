@@ -139,6 +139,12 @@ a.block, a.block-half{
     float:left;
     padding-top: 50%;
   }
+  img {
+    height: auto;
+    width: auto;
+    max-width: 95%;
+    max-height: 95%;
+  }
 }
 
 

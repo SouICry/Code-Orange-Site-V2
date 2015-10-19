@@ -74,6 +74,8 @@
     }
     .sub-title {
       @extend .heading;
+
+      min-width: 0;
       display: block;
       float: left;
 

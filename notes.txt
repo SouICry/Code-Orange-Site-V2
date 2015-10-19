@@ -1,3 +1,113 @@
+Notes for editor:
+
+content.htm page layout structure:
+
+Selection-bar:
+
+<div class="scroll-fix">
+	<a data-nav="">
+		<div class="slider-content">
+			<h2></h2>
+			<div class="content">
+				<img/>
+			</div>
+			<div class="name"></div>
+		</div>
+	</a>
+</div>
+
+
+Content page:
+
+<div class="title">
+	<h1></h1>
+	<div class="sub-title"</div>
+</div>
+
+or
+
+<div class="carousel">
+    <div class="title"></div>
+    <div id="carousel"></div>
+</div>
+
+<div class="content-section">
+	<div class="content-row">
+		<div class="sidebar-left">
+			<div class="img"></div>
+			<a class="block"></a>
+		</div>
+		<div class="content">
+			<h3></h3>
+			<h4></h4>
+			<p></p>
+			<img/>
+			<div class="youtube"></div>
+			<ul></ul>
+			<table></table>
+			<iframe></iframe>
+			<div class="blocks"></div>
+		</div>
+	</div>
+	<div class="content-row">
+		//Same as content
+	</div>
+</div>
+
+
+Full page:
+
+<div id="fullpage">
+    <div class="section" style="background-image: url();"><div class="section-inner">
+    	<div class="title"></div>
+    </div></div>
+    <div class="section" style="background-image: url();"><div class="section-inner">
+		<div class="content">
+ 			//Same thing i guess. Maybe limited though.
+ 		</div>
+	</div></div>
+</div>
+
+
+Title: standard.
+Content: standard.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Php loaded menu (initially)
 
 Identify pages by top-level name and type (selection-nav, selection-content, content).

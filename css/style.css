@@ -59,17 +59,17 @@ blockquote {
   blockquote cite {
     float: right; }
 
-p, .content-section li {
+p, .content-section li, .section-inner .title .sub-title {
   font-size: 17px;
   text-decoration: none; }
   @media (min-width: 1024px) and (max-width: 1279px) {
-    p, .content-section li {
+    p, .content-section li, .section-inner .title .sub-title {
       font-size: 17px; } }
   @media (min-width: 1280px) and (max-width: 1439px) {
-    p, .content-section li {
+    p, .content-section li, .section-inner .title .sub-title {
       font-size: 19px; } }
   @media (min-width: 1440px) {
-    p, .content-section li {
+    p, .content-section li, .section-inner .title .sub-title {
       font-size: 19px; } }
 
 a {
@@ -354,16 +354,22 @@ button.btn-floating {
   height: 50px;
   overflow: hidden;
   float: left;
-  max-width: 100%; }
+  max-width: 100%;
+  min-width: 100%; }
+  @media (min-width: 1024px) {
+    #nav-menu, #nav-menu-filler {
+      min-width: 0; } }
   #nav-menu .scroll-hide, #nav-menu-filler .scroll-hide {
     max-width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
     height: 90px; }
     #nav-menu .scroll-hide .scroll-fix, #nav-menu-filler .scroll-hide .scroll-fix {
-      width: 1000px; }
+      width: 1000px;
+      min-width: 100%; }
       @media (min-width: 1024px) {
         #nav-menu .scroll-hide .scroll-fix, #nav-menu-filler .scroll-hide .scroll-fix {
+          min-width: 0;
           width: 650px; } }
     #nav-menu .scroll-hide a, #nav-menu-filler .scroll-hide a {
       float: left;
@@ -699,6 +705,11 @@ a.block:active, a.block-2:active, a.block-3:active, a.block-4:active, a.block-6:
   content: '';
   float: left;
   padding-top: 50%; }
+.block-half img, .block-2-half img, .block-3-half img, .block-4-half img, .block-6-half img {
+  height: auto;
+  width: auto;
+  max-width: 95%;
+  max-height: 95%; }
 
 a.block-2:hover, a.block-3:hover, a.block-4:hover, a.block-6:hover {
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5);
@@ -903,6 +914,11 @@ a.block:active, a.block-2:active, a.block-3:active, a.block-4:active, a.block-6:
   content: '';
   float: left;
   padding-top: 50%; }
+.block-half img, .block-2-half img, .block-3-half img, .block-4-half img, .block-6-half img {
+  height: auto;
+  width: auto;
+  max-width: 95%;
+  max-height: 95%; }
 
 a.block-2:hover, a.block-3:hover, a.block-4:hover, a.block-6:hover {
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5);
@@ -1134,19 +1150,19 @@ iframe {
     iframe {
       margin: 0 0 24px 0; } }
 
-p, .content-section li {
+p, .content-section li, .section-inner .title .sub-title {
   margin: 0 20px 18px 20px; }
   @media (min-width: 720px) and (max-width: 1023px) {
-    p, .content-section li {
+    p, .content-section li, .section-inner .title .sub-title {
       margin: 0 20px 24px 20px; } }
   @media (min-width: 1024px) and (max-width: 1279px) {
-    p, .content-section li {
+    p, .content-section li, .section-inner .title .sub-title {
       margin: 0 30px 24px 30px; } }
   @media (min-width: 1280px) and (max-width: 1439px) {
-    p, .content-section li {
+    p, .content-section li, .section-inner .title .sub-title {
       margin: 0 40px 24px 40px; } }
   @media (min-width: 1440px) {
-    p, .content-section li {
+    p, .content-section li, .section-inner .title .sub-title {
       margin: 0 50px 24px 50px; } }
 
 .heading, h2, h3, h4, thead td, #body .row .title h1, #selection-bar .title h1, #body .row .title .sub-title, #selection-bar .title .sub-title, .carousel .title h1, .carousel .title .sub-title {
@@ -1209,9 +1225,15 @@ h4, thead td {
 
 #body .row .title {
   margin: 0;
-  padding: 20px 0 40px 0;
+  padding: 20px 0 0 0;
   max-width: 100%;
   overflow: auto; }
+  @media (min-width: 720px) and (max-width: 1023px) {
+    #body .row .title {
+      padding: 20px 0 40px 0; } }
+  @media (min-width: 1024px) {
+    #body .row .title {
+      padding: 20px 0 40px 0; } }
   @media (min-width: 1280px) and (max-width: 1439px) {
     #body .row .title {
       padding-left: 10%; } }
@@ -1230,8 +1252,15 @@ h1 {
   text-shadow: 0.03em 0.03em 0.012em #ffe0b2, -0.03em -0.03em 0.012em #ffe0b2, -0.03em 0.03em 0.012em #ffe0b2, 0.03em -0.03em 0.012em #ffe0b2, 0.03em 0.015em 0.012em #ffe0b2, -0.03em -0.015em 0.012em #ffe0b2, -0.03em 0.015em 0.012em #ffe0b2, 0.03em -0.015em 0.012em #ffe0b2, 0.015em 0.03em 0.012em #ffe0b2, -0.015em -0.03em 0.012em #ffe0b2, -0.015em 0.03em 0.012em #ffe0b2, 0.015em -0.03em 0.012em #ffe0b2; }
 
 .sub-title {
+  min-width: 90%;
   color: #ff6d00;
   text-shadow: 0.03em 0.03em 0.012em #ffe0b2, -0.03em -0.03em 0.012em #ffe0b2, -0.03em 0.03em 0.012em #ffe0b2, 0.03em -0.03em 0.012em #ffe0b2, 0.03em 0.015em 0.012em #ffe0b2, -0.03em -0.015em 0.012em #ffe0b2, -0.03em 0.015em 0.012em #ffe0b2, 0.03em -0.015em 0.012em #ffe0b2, 0.015em 0.03em 0.012em #ffe0b2, -0.015em -0.03em 0.012em #ffe0b2, -0.015em 0.03em 0.012em #ffe0b2, 0.015em -0.03em 0.012em #ffe0b2; }
+  @media (min-width: 720px) and (max-width: 1023px) {
+    .sub-title {
+      min-width: 0; } }
+  @media (min-width: 1024px) {
+    .sub-title {
+      min-width: 0; } }
 
 #body .row .title, #selection-bar .title {
   float: left;
@@ -1362,6 +1391,7 @@ h1 {
         .carousel .title h1 {
           margin: 364px -230px -460px 40px; } }
     .carousel .title .sub-title {
+      min-width: 0;
       display: block;
       float: left;
       font-size: 20px;
@@ -1711,27 +1741,27 @@ ul .slide {
   flex-flow: row wrap;
   justify-content: center;
   align-items: center; }
-  #index-about p, #index-about .content-section li, .content-section #index-about li {
+  #index-about p, #index-about .content-section li, .content-section #index-about li, #index-about .section-inner .title .sub-title, .section-inner .title #index-about .sub-title {
     font-size: 17px;
     text-decoration: none;
     width: 100%; }
     @media (min-width: 1024px) and (max-width: 1279px) {
-      #index-about p, #index-about .content-section li, .content-section #index-about li {
+      #index-about p, #index-about .content-section li, .content-section #index-about li, #index-about .section-inner .title .sub-title, .section-inner .title #index-about .sub-title {
         font-size: 19px; } }
     @media (min-width: 1280px) and (max-width: 1439px) {
-      #index-about p, #index-about .content-section li, .content-section #index-about li {
+      #index-about p, #index-about .content-section li, .content-section #index-about li, #index-about .section-inner .title .sub-title, .section-inner .title #index-about .sub-title {
         font-size: 21px; } }
     @media (min-width: 1440px) {
-      #index-about p, #index-about .content-section li, .content-section #index-about li {
+      #index-about p, #index-about .content-section li, .content-section #index-about li, #index-about .section-inner .title .sub-title, .section-inner .title #index-about .sub-title {
         font-size: 21px; } }
     @media (min-width: 480px) and (max-width: 719px) {
-      #index-about p, #index-about .content-section li, .content-section #index-about li {
+      #index-about p, #index-about .content-section li, .content-section #index-about li, #index-about .section-inner .title .sub-title, .section-inner .title #index-about .sub-title {
         width: 100%; } }
     @media (min-width: 720px) and (max-width: 1023px) {
-      #index-about p, #index-about .content-section li, .content-section #index-about li {
+      #index-about p, #index-about .content-section li, .content-section #index-about li, #index-about .section-inner .title .sub-title, .section-inner .title #index-about .sub-title {
         width: 68%; } }
     @media (min-width: 1024px) {
-      #index-about p, #index-about .content-section li, .content-section #index-about li {
+      #index-about p, #index-about .content-section li, .content-section #index-about li, #index-about .section-inner .title .sub-title, .section-inner .title #index-about .sub-title {
         width: 68%; } }
 
 #index-surfer {
@@ -1789,7 +1819,7 @@ ul .slide {
         width: 50px; } }
     .section-inner .scroll-for-more:hover {
       opacity: 0.5; }
-  .section-inner h1, .section-inner p, .section-inner .content-section li, .content-section .section-inner li {
+  .section-inner h1, .section-inner p, .section-inner .content-section li, .content-section .section-inner li, .section-inner .title .sub-title {
     position: static;
     display: block;
     margin: 0;
@@ -1804,7 +1834,8 @@ ul .slide {
     @media (min-width: 1024px) {
       .section-inner .title {
         top: 50%; } }
-    .section-inner .title p, .section-inner .title .content-section li, .content-section .section-inner .title li {
+    .section-inner .title .sub-title {
+      text-shadow: none;
       padding-left: 10%;
       white-space: nowrap;
       color: #64ffda;
@@ -1813,19 +1844,19 @@ ul .slide {
       float: right;
       font-size: 20px; }
       @media (min-width: 480px) and (max-width: 719px) {
-        .section-inner .title p, .section-inner .title .content-section li, .content-section .section-inner .title li {
+        .section-inner .title .sub-title {
           font-size: 26px; } }
       @media (min-width: 720px) and (max-width: 1023px) {
-        .section-inner .title p, .section-inner .title .content-section li, .content-section .section-inner .title li {
+        .section-inner .title .sub-title {
           font-size: 30px; } }
       @media (min-width: 1024px) and (max-width: 1279px) {
-        .section-inner .title p, .section-inner .title .content-section li, .content-section .section-inner .title li {
+        .section-inner .title .sub-title {
           font-size: 34px; } }
       @media (min-width: 1280px) and (max-width: 1439px) {
-        .section-inner .title p, .section-inner .title .content-section li, .content-section .section-inner .title li {
+        .section-inner .title .sub-title {
           font-size: 38px; } }
       @media (min-width: 1440px) {
-        .section-inner .title p, .section-inner .title .content-section li, .content-section .section-inner .title li {
+        .section-inner .title .sub-title {
           font-size: 42px; } }
     .section-inner .title h1 {
       padding-right: 10%;
@@ -1870,27 +1901,27 @@ ul .slide {
     @media (min-width: 1440px) {
       .section-inner .content {
         margin: 150px; } }
-    .section-inner .content p, .section-inner .content .content-section li, .content-section .section-inner .content li {
+    .section-inner .content p, .section-inner .content .content-section li, .content-section .section-inner .content li, .section-inner .content .title .sub-title, .section-inner .title .content .sub-title {
       margin-top: 10px;
       font-size: 17px; }
       @media (min-width: 480px) and (max-width: 719px) {
-        .section-inner .content p, .section-inner .content .content-section li, .content-section .section-inner .content li {
+        .section-inner .content p, .section-inner .content .content-section li, .content-section .section-inner .content li, .section-inner .content .title .sub-title, .section-inner .title .content .sub-title {
           margin-top: 15px;
           font-size: 17px; } }
       @media (min-width: 720px) and (max-width: 1023px) {
-        .section-inner .content p, .section-inner .content .content-section li, .content-section .section-inner .content li {
+        .section-inner .content p, .section-inner .content .content-section li, .content-section .section-inner .content li, .section-inner .content .title .sub-title, .section-inner .title .content .sub-title {
           margin-top: 20px;
           font-size: 18px; } }
       @media (min-width: 1024px) and (max-width: 1279px) {
-        .section-inner .content p, .section-inner .content .content-section li, .content-section .section-inner .content li {
+        .section-inner .content p, .section-inner .content .content-section li, .content-section .section-inner .content li, .section-inner .content .title .sub-title, .section-inner .title .content .sub-title {
           margin-top: 30px;
           font-size: 20px; } }
       @media (min-width: 1280px) and (max-width: 1439px) {
-        .section-inner .content p, .section-inner .content .content-section li, .content-section .section-inner .content li {
+        .section-inner .content p, .section-inner .content .content-section li, .content-section .section-inner .content li, .section-inner .content .title .sub-title, .section-inner .title .content .sub-title {
           margin-top: 30px;
           font-size: 22px; } }
       @media (min-width: 1440px) {
-        .section-inner .content p, .section-inner .content .content-section li, .content-section .section-inner .content li {
+        .section-inner .content p, .section-inner .content .content-section li, .content-section .section-inner .content li, .section-inner .content .title .sub-title, .section-inner .title .content .sub-title {
           margin-top: 30px;
           font-size: 24px; } }
     .section-inner .content h1 {
@@ -1931,7 +1962,7 @@ ul .slide {
       @media (min-width: 1440px) {
         .section-inner .content h2 {
           font-size: 42px; } }
-  .section-inner .content.right h1, .section-inner .content.right p, .section-inner .content.right .content-section li, .content-section .section-inner .content.right li {
+  .section-inner .content.right h1, .section-inner .content.right p, .section-inner .content.right .content-section li, .content-section .section-inner .content.right li, .section-inner .content.right .title .sub-title, .section-inner .title .content.right .sub-title {
     float: right;
     text-align: right; }
   .section-inner .content.right h2 {

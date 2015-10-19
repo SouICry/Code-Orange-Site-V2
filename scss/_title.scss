@@ -2,7 +2,13 @@
 #body .row {
   .title {
     margin: 0;
-    padding: 20px 0 40px 0;
+    padding: 20px 0 0 0;
+    @include tablet {
+      padding: 20px 0 40px 0;
+    }
+    @include desktop {
+      padding: 20px 0 40px 0;
+    }
     max-width: 100%;
     overflow: auto;
     @include medium-desktop {
@@ -39,7 +45,13 @@ h1 {
 }
 
 .sub-title {
-
+  min-width: 90%;
+  @include tablet {
+    min-width: 0;
+  }
+  @include desktop {
+    min-width: 0;
+  }
   color: $orange-accent-4;
   text-shadow: 0.03em 0.03em 0.012em $orange-lighten-4, -0.03em -0.03em 0.012em $orange-lighten-4,
   -0.03em 0.03em 0.012em $orange-lighten-4, 0.03em -0.03em 0.012em $orange-lighten-4,
