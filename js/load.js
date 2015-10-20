@@ -1,8 +1,10 @@
 //TODO: Scroll buttons for selection bar slider by device width. Re-hide scrollbar.
 
-//TODO: Sync scrolling and highlighting across two nav menus (under one is only for show.)
+//TODO: Sync scrolling and highlighting across two nav menus (both ways)
 
 //TODO: gallery maximize on click, close and reset title on it.
+
+//TODO: add fittext support for carousel titles/titles on phones. Center instead on larger devices
 
 window.onpopstate = pop;
 
@@ -88,7 +90,7 @@ function setHeaderScroll() {
     elem.style.top = "-" + header_height + "px";
     headScroll = new Headroom(elem, {
         "offset": header_height,
-        "tolerance": 10,
+        "tolerance": 0,
         "classes": {
             "initial": "headroom",
             "pinned": "headroom--pinned",
@@ -375,7 +377,7 @@ function closeSelectionBar(callback) {
     setTimeout(function () {
         s.innerHTML = "";
         s1.innerHTML = "";
-        s1.style.height = '0';
+        //s1.style.height = '0';
         callback();
     }, 300);
 }
@@ -383,13 +385,13 @@ function openSelectionBar(innerHTML) {
     var s = document.getElementById("selection-bar");
     var s1 = document.getElementById("selection-bar-filler");
     s.innerHTML = innerHTML;
-    //s1.innerHTML = innerHTML;
-    if (window.outerWidth > 1024){
-        s1.style.height = '160px';
-    }
-    else {
-        s1.style.height = '110px';
-    }
+    s1.innerHTML = innerHTML;
+    //if (window.outerWidth > 1024){
+    //    s1.style.height = '160px';
+    //}
+    //else {
+    //    s1.style.height = '110px';
+    //}
 
 
     s.style.opacity = 1;

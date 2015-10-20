@@ -1,8 +1,10 @@
+@import 'normalize';
 @import 'variables_mixins';
 @import 'color';
 @import 'font';
 @import 'defaults';
 
+@import 'context_menu';
 @import 'icons';
 @import 'animation';
 @import 'text';
@@ -19,7 +21,17 @@
 @import 'fullpage';
 
 
+.manage-button {
+  cursor: pointer;
+  display: none;
+  border-color: yellow;
+  border-width: 3px;
+  border-style: dashed;
+}
 
+.blocks.manage-button .manage, .blocks.manage .manage-button {
+  background-color: $orange;
+}
 
 .youtube {
   position: relative;
@@ -28,15 +40,28 @@
   height: 0;
   padding-bottom: 56.25%;
   margin-bottom: 10px;
+  text-align: center;
   @include desktop {
     margin-bottom: 20px;
   }
+  img {
+    display: none;
+  }
+  .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+  }
 }
 .youtube iframe {
+  z-index: 10;
   position: absolute;
   width: 100%;
   height: 100%;
   left: 0; top: 0;
+
 }
 
 html {

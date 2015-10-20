@@ -21,7 +21,7 @@ Content page:
 
 <div class="title">
 	<h1></h1>
-	<div class="sub-title"</div>
+	<div class="sub-title"></div>
 </div>
 
 or

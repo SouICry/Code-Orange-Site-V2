@@ -1,6 +1,9 @@
+<script src="//cdn.ckeditor.com/4.5.4/full/ckeditor.js"></script>
+
+
 <div class="row">
     <div class="column">
-        <div class="title">
+        <div class="title editable" id="editor-title" contenteditable="true">
             <h1>About <i>FIRST</I></h1>
 
             <div class="sub-title">
@@ -15,14 +18,14 @@
 </div>
 <div class="row">
     <div class="column">
-        <div class="content-section">
+        <div class="content-section" >
             <div class="content-row">
-                <div class="sidebar-left">
+                <div class="sidebar-left editable" id="editor-sidebar1" contenteditable="true">
                     <div class="img">
                         <img src="/FIRST/About_FIRST/img/frc.png"/>
                     </div>
                 </div>
-                <div class="content">
+                <div class="content editable" id="editor-content1" contenteditable="true">
                     <h3>What is <i>FIRST?</i>
                     </h3>
 
@@ -112,3 +115,16 @@
         </div>
     </div>
 </div>
+</div>
+<script>
+    // Turn off automatic editor creation first.
+    CKEDITOR.disableAutoInline = true;
+    CKEDITOR.config.contentsCss = '/css/style.css' ;
+    CKEDITOR.inline( 'editor-title' );
+    CKEDITOR.inline( 'editor-content1' );
+    CKEDITOR.inline( 'editor-sidebar1' );
+    $('.editable').css({
+        "border-color": "yellow",
+        "border-width":"3px",
+        "border-style":"dashed"})
+</script>

@@ -6,3 +6,4 @@
 <a data-nav="FIRST" href="/FIRST/About_FIRST"><i>FIRST</i></a>
 <a data-nav="Tutorials" href="/Tutorials/All_Tutorials">Tutorials</a>
 <a data-nav="" href="/">Home</a>
+<a class="manage-button">Manage Sections</a>

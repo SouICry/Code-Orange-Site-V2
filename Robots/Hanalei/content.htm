@@ -1,10 +1,13 @@
 <div class="carousel">
     <div class="title">
-        <h1>Hanalei</h1>
+        <h1 class="editable">Hanalei</h1>
 
-        <div class="sub-title"> - 2014: Aerial Assist</div>
+        <div class="sub-title editable">
+            <div> - 2014: Aerial Assist</div>
+        </div>
         <div class="caption">
             <div class="btn">View Gallery</div>
+            <div class="btn manage-button">Manage Gallery</div>
         </div>
     </div>
     <div id="carousel">
@@ -17,16 +20,23 @@
 <div class="row">
     <div class="column">
         <div class="content-section">
-            <div class="content-row">
-                <div class="sidebar-left">
+            <div class="content-row manage">
+                <div class="sidebar-left manage">
                     <div class="img">
                         <img src="/Robots/Hanalei/img/hanalei.png"/>
                     </div>
+                    <div class="btn manage-button">Add image</div>
+                    <div class="btn manage-button">Add block</div>
+                    <div>If you want to align an image or block with another section, add another content row or split
+                        the current row at some place (indicated by red border)
+                    </div>
+                    <div class="btn manage-button">Split this row</div>
                 </div>
-                <div class="content">
-                    <div class="youtube">
+                <div class="content editable">
+                    <div class="youtube manage">
                         <iframe src="https://www.youtube.com/embed/yy46UnLO20U" frameborder="0"
                                 allowfullscreen></iframe>
+                        <div class="btn manage-button">Manage Youtube Video</div>
                     </div>
                     <h3>Dimensions</h3>
                     <ul>
@@ -78,23 +88,126 @@
                         </li>
                     </ul>
                 </div>
-            </div>
-            <div class="content-row">
-                <div class="blocks">
-                    <a class="block-3">
-                        <div class="type">Title</div>
-                        <h2>Link 1</h2>
 
-                        <div class="view">View</div>
+                <div class="blocks manage-button">
+                    <div class="manage" style="width: 100%">
+                        <h2>Split content row - Manage</h2>
+                    </div>
+                    <a class="block-6 manage">
+                        <h2>Add Image</h2>
                     </a>
-                    <a class="block-3">
-                        <div class="type">Title</div>
-                        <h2>Link 2</h2>
+                    <a class="block-6 manage">
+                        <h2>Add Youtube Video</h2>
+                    </a>
+                    <a class="block-6 manage">
+                        <h2>Add Google Form</h2>
+                    </a>
+                    <a class="block-6 manage">
+                        <h2>Add Google Docs</h2>
+                    </a>
+                    <a class="block-6 manage">
+                        <h2>Add Google Maps</h2>
+                    </a>
+                    <a class="block-6 manage">
+                        <h2>Add other iframes</h2>
+                    </a>
+                    <a class="block-6 manage">
+                        <h2>Delete this content row</h2>
+                    </a>
+                    <a class="block-6 manage">
+                        <h2>Add new content row</h2>
+                    </a>
+                </div>
+            </div>
+            <div class="content-row manage">
 
-                        <div class="view">View</div>
+                <div class="blocks manage">
+                    <a href="#" class="block-3 manage">
+                        <div class="type editable">Title</div>
+                        <h2 class="editable">Link 1</h2>
+
+                        <div class="view editable">View</div>
+                    </a>
+                    <a class="block-3 manage">
+                        <div class="type editable">Title</div>
+                        <h2 class="editable">Link 2</h2>
+
+                        <div class="view editable">View</div>
+                    </a>
+                    <a class="block-6 manage-button">
+                        <h2>Add block</h2>
+                    </a>
+                    <a class="block-6 manage-button">
+                        <h2>Delete blocks section</h2>
+                    </a>
+                </div>
+
+                <div class="blocks manage-button">
+                    <div class="manage" style="width: 100%">
+                        <h2>Whole content row - Manage</h2>
+                    </div>
+                    <a class="block-6 manage">
+                        <h2>Add header (h3)</h2>
+                    </a>
+                    <a class="block-6 manage">
+                        <h2>Add Youtube Video</h2>
+                    </a>
+                    <a class="block-6 manage">
+                        <h2>Add Image</h2>
+                    </a>
+                    <a class="block-6 manage">
+                        <h2>Add Blocks Section</h2>
+                    </a>
+                    <a class="block-6 manage">
+                        <h2>Add Google Form</h2>
+                    </a>
+                    <a class="block-6 manage">
+                        <h2>Add Google Docs</h2>
+                    </a>
+                    <a class="block-6 manage">
+                        <h2>Add Google Maps</h2>
+                    </a>
+                    <a class="block-6 manage">
+                        <h2>Add other iframes</h2>
+                    </a>
+                    <a class="block-6 manage">
+                        <h2>Delete this content row</h2>
+                    </a>
+                    <a class="block-6 manage">
+                        <h2>Add new content row</h2>
                     </a>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+    <script src="//cdn.ckeditor.com/4.5.4/full/ckeditor.js"></script>
+    <script src="/js/contextMenu.js"></script>
+    <script src="/js/edit.js"></script>
+    <script>
+        $('.editable').attr('contenteditable', 'true').css({
+            "border-color": "yellow",
+            "border-width": "3px",
+            "border-style": "dashed"
+        });
+        $('.manage-button').css('display', 'initial');
+        $('.blocks.manage-button').css('display', 'flex');
+        $('.manage').css('cursor', 'pointer').css({
+            "border-color": "yellow",
+            "border-width": "3px",
+            "border-style": "dashed"
+        });
+        $('.content-row.manage').css('margin-bottom', '80px').css('cursor', 'pointer').css({
+            "border-color": "red",
+            "border-width": "3px",
+            "border-style": "dashed"
+        });
+
+        CKEDITOR.config.contentsCss = '/css/style.css';
+
+
+        $('.sidebar-left .img img').contextMenu(delete_sidebar_img);
+        $('.blocks.manage a.manage').contextMenu(edit_block);
+        $('.blocks.manage a.manage img').contextMenu(delete_block_img);
+
+    </script>

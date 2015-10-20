@@ -10,7 +10,7 @@
   height: auto;
 }
 .headroom--top {
-  transform: translateY(100%);
+  transform: translateY(0%);
 
 }
 .headroom--not-top {
@@ -41,7 +41,7 @@
 }
 
 #selection-bar-filler {
-  visibility: hidden;
+  //visibility: hidden;
 }
 #nav, #nav-filler {
   background-color: $orange-darken-3;
@@ -60,7 +60,7 @@
   }
 }
 #nav-filler{
-  box-shadow: none;
+  //box-shadow: none;
 }
 #body {
   width: 100%;

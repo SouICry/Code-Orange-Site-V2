@@ -35,8 +35,10 @@
 
   float: left;
   width: 100%;
-  margin: 0;
-  padding: 0;
+  padding-bottom: 40px;
+  @include desktop {
+    padding-bottom: 80px;
+  }
   position: relative;
   @include small-desktop {
     margin: 0;
@@ -53,9 +55,9 @@
   .content-row {
     float: left;
     width: 100%;
-    margin-bottom: 40px;
+    margin: 0;
     @include desktop {
-      margin-bottom: 80px;
+      min-height: 200px;
     }
 
     /* Sticky scroll until end of content row*/
@@ -65,11 +67,12 @@
       height: auto;
       float: left;
       margin: 0 auto;
-      min-height: 1px;
+      min-height: 0;
       width: 100%;
       flex-flow: row wrap;
       @include desktop {
         flex-flow: column wrap;
+        min-height: 100px;
       }
       @include small-desktop {
         width: 234px;
@@ -114,13 +117,13 @@
       margin: 0;
       width: 100%;
       @include small-desktop {
-        width: 740px;
+        width: 734px;
       }
       @include medium-desktop {
-        width: 780px;
+        width: 774px;
       }
       @include large-desktop {
-        width: 850px;
+        width: 844px;
       }
 
     }
