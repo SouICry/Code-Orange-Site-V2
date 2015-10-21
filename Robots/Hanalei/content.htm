@@ -1,4 +1,4 @@
-<div class="carousel">
+<div class="carousel" data-pathname="/Robots/Hanalei/img/carousel/">
     <div class="title">
         <h1 class="editable">Hanalei</h1>
 
@@ -91,7 +91,7 @@
 
                 <div class="blocks manage-button">
                     <div class="manage" style="width: 100%">
-                        <h2>Split content row - Manage</h2>
+                        <h2>2 column content row - Manage</h2>
                     </div>
                     <a class="block-6 manage">
                         <h2>Add Image</h2>
@@ -144,7 +144,7 @@
 
                 <div class="blocks manage-button">
                     <div class="manage" style="width: 100%">
-                        <h2>Whole content row - Manage</h2>
+                        <h2>1 column content row - Manage</h2>
                     </div>
                     <a class="block-6 manage">
                         <h2>Add header (h3)</h2>
@@ -180,34 +180,4 @@
             </div>
         </div>
     </div>
-
-    <script src="//cdn.ckeditor.com/4.5.4/full/ckeditor.js"></script>
-    <script src="/js/contextMenu.js"></script>
-    <script src="/js/edit.js"></script>
-    <script>
-        $('.editable').attr('contenteditable', 'true').css({
-            "border-color": "yellow",
-            "border-width": "3px",
-            "border-style": "dashed"
-        });
-        $('.manage-button').css('display', 'initial');
-        $('.blocks.manage-button').css('display', 'flex');
-        $('.manage').css('cursor', 'pointer').css({
-            "border-color": "yellow",
-            "border-width": "3px",
-            "border-style": "dashed"
-        });
-        $('.content-row.manage').css('margin-bottom', '80px').css('cursor', 'pointer').css({
-            "border-color": "red",
-            "border-width": "3px",
-            "border-style": "dashed"
-        });
-
-        CKEDITOR.config.contentsCss = '/css/style.css';
-
-
-        $('.sidebar-left .img img').contextMenu(delete_sidebar_img);
-        $('.blocks.manage a.manage').contextMenu(edit_block);
-        $('.blocks.manage a.manage img').contextMenu(delete_block_img);
-
-    </script>
+</div>

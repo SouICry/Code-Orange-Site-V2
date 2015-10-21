@@ -13,7 +13,6 @@
             });
         }
     }
-
     function moveSectionDown(){
         $.fn.fullpage.moveSectionDown();
     }
