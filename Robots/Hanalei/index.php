@@ -1,7 +1,8 @@
 <?php
 //Auto-generated content. Changes made may be lost at any time.
-//Modify using GUI or modify content.php and run build.
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,12 +53,14 @@
             </div>
         </div>
     </div>
-    <div id="selection-bar-filler" class="selection-nav">         <?php include '../content.htm'; ?>     </div>
+    <div id="selection-bar-filler" class="selection-nav">
+        <?php include '../content.htm'; ?>
+    </div>
 </div>
 <div id="body">
     <?php include 'content.htm'; ?>
 </div>
-<div id="footer"></div>
+<div id="footer">     <?php include $_SERVER['DOCUMENT_ROOT'].'/php/footer.php'; ?> </div>
 <?php include $_SERVER['DOCUMENT_ROOT'].'/php/js-include.php'; ?>
 </body>
 </html>

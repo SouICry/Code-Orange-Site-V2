@@ -1501,6 +1501,7 @@ a.block-2-half:active, a.block-3-half:active, a.block-4-half:active, a.block-6-h
           width: 330px;
           margin-right: 20px; } }
       #body .content-section .content-row .sidebar-left .img {
+        display: block;
         height: auto;
         width: 100%; }
         @media (min-width: 480px) and (max-width: 719px) {

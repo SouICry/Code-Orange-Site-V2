@@ -418,10 +418,10 @@ function enableEditMode() {
     fileref.setAttribute("type", "text/javascript");
     fileref.setAttribute("src", "//cdn.ckeditor.com/4.5.4/full/ckeditor.js");
     document.getElementById("footer").appendChild(fileref);
-    fileref = document.createElement('script');
-    fileref.setAttribute("type", "text/javascript");
-    fileref.setAttribute("src", "//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js");
-    document.getElementById("footer").appendChild(fileref);
+    //fileref = document.createElement('script');
+    //fileref.setAttribute("type", "text/javascript");
+    //fileref.setAttribute("src", "//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js");
+    //document.getElementById("footer").appendChild(fileref);
     fileref = document.createElement('script');
     fileref.setAttribute("type", "text/javascript");
     fileref.setAttribute("src", "/js/contextMenu.js");
