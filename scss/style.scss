@@ -3,7 +3,6 @@
 @import 'color';
 @import 'font';
 @import 'defaults';
-
 @import 'context_menu';
 @import 'icons';
 @import 'animation';
@@ -20,7 +19,6 @@
 @import 'index-page';
 @import 'fullpage';
 
-
 .manage-button {
   cursor: pointer;
   display: none;
@@ -31,6 +29,44 @@
 
 .blocks.manage-button .manage, .blocks.manage .manage-button {
   background-color: $orange;
+}
+
+.sorting-content{
+  border-color:white;
+  border-width:2px;
+  border-style:dashed;
+  cursor:pointer;
+}
+
+.editable {
+  border-color: yellow;
+  border-width: 3px;
+  border-style: dashed
+}
+
+.manage {
+  cursor: pointer;
+  border-color: yellow;
+  border-width: 3px;
+  border-style: dashed
+}
+
+.content-row.manage {
+  margin-bottom: 80px;
+  cursor: pointer;
+  border-color: red;
+  border-width: 3px;
+  border-style: dashed;
+}
+
+.manage.sidebar {
+  padding-bottom: 100px;
+  background-color: $teal-lighten-1;
+  border-color: yellow;
+}
+
+.sidebar > .manage, .blocks.manage > *{
+  border-color: blue;
 }
 
 .youtube {
@@ -55,12 +91,14 @@
     z-index: 0;
   }
 }
+
 .youtube iframe {
   z-index: 10;
   position: absolute;
   width: 100%;
   height: 100%;
-  left: 0; top: 0;
+  left: 0;
+  top: 0;
 
 }
 

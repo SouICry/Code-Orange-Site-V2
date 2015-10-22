@@ -1,4 +1,10 @@
 
+//TODO: Sorting/editing mode global toggle.
+
+
+
+
+
 
 function disableLink(event) {
     if (event.preventDefault) {
@@ -18,19 +24,20 @@ function disableLinks() {
 disableLinks();
 
 
-
-$('.content-row, .sidebar-left, .youtube, .blocks, .blocks > a, .sidebar-left > *').addClass('manage');
+//Highlights objects or makes enables contenteditable
+$('.content-row, .sidebar, .youtube, .blocks, .blocks > a, .sidebar > *').addClass('manage');
 $('.section-inner').addClass('manage');
 
-
-
-$('.title h1, .title .sub-title, .content-row .content').addClass('editable').attr('contenteditable', 'true');
+$('.title h1, .title .sub-title, .content-row .content, .content-row > h3').addClass('editable').attr('contenteditable', 'true');
 $('.blocks > a > .type, .blocks > a > .view, .blocks > a > h2').addClass('editable').attr('contenteditable', 'true');
-$('.sidebar-left .block .type, .sidebar-left .block .view, .sidebar-left .block  h2').addClass('editable').attr('contenteditable', 'true');
+$('.sidebar .block .type, .sidebar .block .view, .sidebar .block  h2').addClass('editable').attr('contenteditable', 'true');
 
-//Fullpage
 $('.section-inner .content').addClass('editable').attr('contenteditable', 'true');
 
+
+//Left click menus
+
+//Fullpage sections
 var edit_section = [
     {
         name: 'Change section background image',
@@ -66,12 +73,11 @@ var edit_section = [
         name: 'Exit rearrange mode',
         disable: true,
         fun: function (data) {
-            $('.section-inner').contextMenu('update', edit_section_stop_rearranging);
+            $('.section-inner').contextMenu('update', edit_section_stop_rearrange);
             $('#fullpage').sortable("disable");
         }
     }
 ];
-
 var edit_section_rearrange = [
     {
         name: 'Change section background image',
@@ -94,8 +100,7 @@ var edit_section_rearrange = [
         disable: false
     }
 ];
-
-var edit_section_stop_rearranging = [
+var edit_section_stop_rearrange = [
     {
         name: 'Change section background image',
         disable: false
@@ -119,29 +124,62 @@ var edit_section_stop_rearranging = [
 ];
 
 $('.section-inner').contextMenu(edit_section);
-$('.section-inner > *').click(function(event){
+$('.section-inner > *').click(function (event) {
     event.preventDefault();
     event.stopPropagation();
 });
 
 
+//Sidebar (left)
 
+function enable_rearrange_sidebar() {
+    $('.sidebar .block').contextMenu('update', edit_sidebar_block_rearrange);
 
+    $('.sidebar .block img').contextMenu('update', edit_sidebar_block_img_rearrange);
+    $('.sidebar .img img').contextMenu('update', edit_sidebar_img_rearrange);
+    $('.sidebar').contextMenu('update', edit_sidebar_rearrange);
 
+    if ($('.sidebar').sortable("instance") == undefined) {
+        $('.sidebar').sortable({
+            connectWith: ".sidebar"
+        });
+    }
+    else {
+        $('.sidebar').sortable("enable");
+    }
+}
+function disable_rearrange_sidebar() {
+    $('.sidebar .block').contextMenu('update', edit_sidebar_block_stop_rearrange);
+
+    $('.sidebar .block img').contextMenu('update', edit_sidebar_block_img_stop_rearrange);
+    $('.sidebar .img img').contextMenu('update', edit_sidebar_img_stop_rearrange);
+    $('.sidebar').contextMenu('update', edit_sidebar_stop_rearrange);
+
+    $('.sidebar').sortable("disable");
+}
 
 var edit_sidebar = [{
-        name: 'Add image to sidebar',
-        fun: function (data) {
+    name: 'Add image to sidebar',
+    fun: function (data) {
 
-        }
-    },
+    }
+},
     {
         name: 'Add block to sidebar',
         fun: function (data) {
 
         }
     },
-    { name: '', disable: true },
+    {
+        name: 'Rearrange sidebars (works across different sidebars)',
+        fun: enable_rearrange_sidebar
+    },
+    {
+        name: 'Exit rearrange mode',
+        disable: true,
+        fun: disable_rearrange_sidebar
+    },
+    {name: '', disable: true},
     {
         name: 'Add a sidebar somewhere else',
         fun: function (data) {
@@ -149,181 +187,304 @@ var edit_sidebar = [{
         }
     }
 ];
+var edit_sidebar_rearrange = [
+    {
+        name: 'Add image to sidebar',
+        disable: true
+    },
+    {
+        name: 'Add block to sidebar',
+        disable: true
+    },
+    {
+        name: 'Rearrange sidebars (works across different sidebars)',
+        disable: true
+    },
+    {
+        name: 'Exit rearrange mode',
+        disable: false
+    },
+    {name: '', disable: true},
+    {
+        name: 'Add a sidebar somewhere else',
+        disable: true
+    }
+];
+var edit_sidebar_stop_rearrange = [
+    {
+        name: 'Add image to sidebar',
+        disable: false
+    },
+    {
+        name: 'Add block to sidebar',
+        disable: false
+    },
+    {
+        name: 'Rearrange sidebars (works across different sidebars)',
+        disable: false
+    },
+    {
+        name: 'Exit rearrange mode',
+        disable: true
+    },
+    {name: '', disable: true},
+    {
+        name: 'Add a sidebar somewhere else',
+        disable: false
+    }
+];
+
 var edit_sidebar_img = [{
-        name: 'Delete image',
-        fun: function (data) {
+    name: 'Delete this image',
+    fun: function (data) {
 
-        }
-    },
-    { name: '', disable: true },
-    {
-        name: 'Add image to sidebar',
-        fun: function (data) {
+    }
+},
+    {name: '', disable: true}
+].concat(edit_sidebar);
+var edit_sidebar_img_rearrange = [{
+    name: 'Delete this image',
+    disable: true
+},
+    {name: '', disable: true}
+].concat(edit_sidebar_rearrange);
+var edit_sidebar_img_stop_rearrange = [{
+    name: 'Delete this image',
+    disable: false
+},
+    {name: '', disable: true}
+].concat(edit_sidebar_stop_rearrange);
 
-        }
-    },
-    {
-        name: 'Add block to sidebar',
-        fun: function (data) {
-
-        }
-    },
-    { name: '', disable: true },
-    {
-        name: 'Add a sidebar somewhere else',
-        fun: function (data) {
-
-        }
-    }];
 var edit_sidebar_block = [{
-        name: 'Delete this block',
-        fun: function (data) {
+    name: 'Delete this block',
+    fun: function (data) {
 
-        }
-    },
-    { name: '', disable: true },
-    {
-        name: 'Add image to sidebar',
-        fun: function (data) {
+    }
+},
+    {name: '', disable: true}
+].concat(edit_sidebar);
+var edit_sidebar_block_rearrange = [{
+    name: 'Delete this block',
+    disable: true
+},
+    {name: '', disable: true}
+].concat(edit_sidebar_rearrange);
+var edit_sidebar_block_stop_rearrange = [{
+    name: 'Delete this block',
+    disable: false
+},
+    {name: '', disable: true}
+].concat(edit_sidebar_stop_rearrange);
 
-        }
-    },
-    {
-        name: 'Add block to sidebar',
-        fun: function (data) {
-
-        }
-    },
-    { name: '', disable: true },
-    {
-        name: 'Add a sidebar somewhere else',
-        fun: function (data) {
-
-        }
-    }];
 var edit_sidebar_block_img = [{
-        name: 'Delete image',
+    name: 'Add image instead of text',
+    fun: function (data) {
+        data.trigger.remove();
+    }
+}
+].concat(edit_sidebar_block);
+var edit_sidebar_block_img_rearrange = [{
+    name: 'Add image instead of text',
+    disable: true
+}
+].concat(edit_sidebar_block_rearrange);
+var edit_sidebar_block_img_stop_rearrange = [{
+    name: 'Add image instead of text',
+    disable: false
+}
+].concat(edit_sidebar_block_stop_rearrange);
+
+$('.sidebar .block').contextMenu(edit_sidebar_block);
+$('.sidebar .block > *').click(function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+});
+$('.sidebar .block img').contextMenu(edit_sidebar_block_img);
+$('.sidebar .img img').contextMenu(edit_sidebar_img);
+$('.sidebar').contextMenu(edit_sidebar);
+
+
+//Blocks section
+
+function enable_rearrange_blocks_section() {
+    if ($('.blocks').sortable("instance") == undefined) {
+        $('.blocks').sortable({
+            connectWith: ".sidebar"
+        });
+    }
+    else {
+        $('.blocks').sortable("enable");
+    }
+    $('.blocks.manage').contextMenu('update', edit_blocks_section_rearrange);
+    $('.blocks.manage a.manage').contextMenu('update', edit_blocks_section_block_rearrange);
+
+    $('.blocks.manage a.manage img').contextMenu('update', edit_blocks_section_block_img_rearrange);
+
+
+
+
+}
+function disable_rearrange_blocks_section() {
+    $('.blocks').sortable("disable");
+    $('.blocks.manage').contextMenu('update', edit_blocks_section_stop_rearrange);
+    $('.blocks.manage a.manage').contextMenu('update', edit_blocks_section_block_stop_rearrange);
+
+
+    $('.blocks.manage a.manage img').contextMenu('update', edit_blocks_section_block_img_stop_rearrange);
+
+
+}
+
+var edit_blocks_section = [{
+    name: 'Add block to this section',
+    fun: function (data) {
+
+    }
+},
+    {
+        name: 'Rearrange blocks (works across different block sections)',
+        fun: enable_rearrange_blocks_section
+    },
+    {
+        name: 'Exit rearrange mode',
+        disable: true,
+        fun: disable_rearrange_blocks_section
+    },
+    {
+        name: 'Delete entire blocks section',
+        fun: function (data) {
+
+        }
+    }];
+var edit_blocks_section_rearrange = [{
+    name: 'Add block to this section',
+    disable: true
+},
+    {
+        name: 'Rearrange blocks (works across different block sections)',
+        disable: true
+    },
+    {
+        name: 'Exit rearrange mode',
+        disable: false
+    },
+    {
+        name: 'Delete entire blocks section',
+        disable: true
+    }];
+var edit_blocks_section_stop_rearrange = [{
+    name: 'Add block to this section',
+    disable: false
+},
+    {
+        name: 'Rearrange blocks (works across different block sections)',
+        disable: false
+    },
+    {
+        name: 'Exit rearrange mode',
+        disable: true
+    },
+    {
+        name: 'Delete entire blocks section',
+        disable: false
+    }];
+
+var edit_blocks_section_block = [{
+    name: 'Add image instead of text',
+    fun: function (data) {
+        alert('i am delete button')
+    }
+},
+    {
+        name: 'Delete this block',
         fun: function (data) {
             data.trigger.remove();
         }
     },
+    {name: '', disable: true}
+].concat(edit_blocks_section);
+var edit_blocks_section_block_rearrange = [{
+    name: 'Add image instead of text',
+    disable: true
+},
+    {
+        name: 'Delete this block',
+        disable: true
+    },
+    {name: '', disable: true}
+].concat(edit_blocks_section_rearrange);
+var edit_blocks_section_block_stop_rearrange = [{
+    name: 'Add image instead of text',
+    disable: false
+},
+    {
+        name: 'Delete this block',
+        disable: false
+    },
+    {name: '', disable: true}
+].concat(edit_blocks_section_stop_rearrange);
+
+var edit_blocks_section_block_img = [{
+    name: 'Add text instead of image',
+    fun: function (data) {
+        data.trigger.remove();
+    }
+},
     {
         name: 'Delete this block',
         fun: function (data) {
             data.trigger.parent().remove();
         }
     },
-    { name: '', disable: true },
+    {name: '', disable: true}
+].concat(edit_blocks_section);
+var edit_blocks_section_block_img_rearrange = [{
+    name: 'Add text instead of image',
+    disable: true
+},
     {
-        name: 'Add image to sidebar',
-        fun: function (data) {
-
-        }
+        name: 'Delete this block',
+        disable: true
     },
+    {name: '', disable: true}
+].concat(edit_blocks_section_rearrange);
+var edit_blocks_section_block_img_stop_rearrange = [{
+    name: 'Add text instead of image',
+    disable: false
+},
     {
-        name: 'Add block to sidebar',
-        fun: function (data) {
-
-        }
+        name: 'Delete this block',
+        disable: false
     },
-    { name: '', disable: true },
-    {
-        name: 'Add a sidebar somewhere else',
-        fun: function (data) {
+    {name: '', disable: true}
+].concat(edit_blocks_section_stop_rearrange);
 
-        }
-    }];
 
-$('.sidebar-left .block').contextMenu(edit_sidebar_block);
-$('.sidebar-left .block > *').click(function(event){
+$('.blocks.manage').contextMenu(edit_blocks_section);
+$('.blocks.manage a.manage').contextMenu(edit_blocks_section_block);
+//$('.blocks.manage a.manage > h2, .blocks.manage a.manage > .view, .blocks.manage a.manage > .type').click(function (event) {
+//    event.preventDefault();
+//    event.stopPropagation();
+//});
+$('.blocks.manage a.manage > *').click(function (event) {
     event.preventDefault();
     event.stopPropagation();
 });
-$('.sidebar-left .block img').contextMenu(edit_sidebar_block_img);
-$('.sidebar-left .img img').contextMenu(edit_sidebar_img);
-$('.sidebar-left').contextMenu(edit_sidebar);
-
-
-var edit_block = [{
-        name: 'Add image instead of text',
-        fun: function (data) {
-            alert('i am delete button')
-        }
-    },
-    {
-        name: 'Delete this block',
-        fun: function (data) {
-            data.trigger.remove();
-        }
-    },
-    {
-        name: '',
-        disable: true
-    },
-    {
-        name: 'Add block to blocks section',
-        fun: function (data) {
-
-        }
-    },
-    {
-        name: 'Delete entire blocks section',
-        fun: function (data) {
-
-        }
-    }];
-var edit_block_section = [{
-        name: 'Add block to this section',
-        fun: function (data) {
-
-        }
-    },
-    {
-        name: 'Delete entire blocks section',
-        fun: function (data) {
-
-        }
-    }];
-var edit_block_img = [{
-        name: 'Add text instead of image',
-        fun: function (data) {
-            data.trigger.remove();
-        }
-    },
-    {
-        name: 'Delete this block',
-        fun: function (data) {
-            data.trigger.parent().remove();
-        }
-    },
-    {
-        name: '',
-        disable: true
-    },
-    {
-        name: 'Add block to blocks section',
-        fun: function (data) {
-
-        }
-    },
-    {
-        name: 'Delete entire blocks section',
-        fun: function (data) {
-
-        }
-    }];
-
-$('.blocks.manage').contextMenu(edit_block_section);
-$('.blocks.manage a.manage').contextMenu(edit_block);
-$('.blocks.manage a.manage > *').click(function(event){
-    event.preventDefault();
-    event.stopPropagation();
-});
-$('.blocks.manage a.manage img').contextMenu(edit_block_img);
+$('.blocks.manage a.manage img').contextMenu(edit_blocks_section_block_img);
 
 
 
 
+
+
+//if ($('.blocks').sortable("instance") == undefined) {
+//    $('.blocks').sortable({
+//        connectWith: ".sidebar"
+//    });
+//}
+//else {
+//    $('.blocks').sortable("enable");
+//}
 
 
 
@@ -334,113 +495,89 @@ $('.blocks.manage a.manage img').contextMenu(edit_block_img);
 
 
 var manage_gallery_button =
-'<div class="btn manage-button">Manage Gallery</div>';
+    '<div class="btn manage-button">Manage Gallery</div>';
 
 $('.carousel .caption').append(manage_gallery_button);
 
-//var manage_sidebar_buttons =
-//'<div class="btn manage-button">Add image</div>' +
-//'<div class="btn manage-button">Add block</div>' +
-//'<div class="manage-button">If you want to align an image or block with another section, add another content row or split the current row at some place (indicated by red border)</div>' +
-//'<div class="btn manage-button">Split this row</div>';
-//
-//$('.content-row .sidebar-left').append(manage_sidebar_buttons);
-
 
 var manage_youtube_button =
-'<div class="btn manage-button">Manage Youtube Video</div>';
+    '<div class="btn manage-button">Manage Youtube Video</div>';
 
 $('.youtube').append(manage_youtube_button);
 
 
-//var manage_blocks_buttons =
-//'<a class="block-6 manage-button"> ' +
-//    '<h2>Add block</h2> ' +
-//'</a> ' +
-//'<a class="block-6 manage-button"> ' +
-//    '<h2>Delete blocks section</h2> ' +
-//'</a>';
-//
-//$('.blocks').not('.manage-button').append(manage_blocks_buttons);
-
-
-var manage_two_column_content_buttons = 
-'<div class="blocks manage-button">' +
+var manage_two_column_content_buttons =
+    '<div class="blocks manage-button">' +
     '<div class="manage" style="width: 100%">' +
-        '<h2>2 column content row - Manage</h2>' +
+    '<h2>2 column content row - Manage</h2>' +
     '</div>' +
     '<a class="block-6 manage">' +
-        '<h2>Add Image</h2> ' +
+    '<h2>Add Image</h2> ' +
     '</a>' +
     '<a class="block-6 manage">' +
-        '<h2>Add Youtube Video</h2>' +
+    '<h2>Add Youtube Video</h2>' +
     '</a>' +
     '<a class="block-6 manage">' +
-        '<h2>Add Google Form</h2>' +
+    '<h2>Add Google Form</h2>' +
     '</a>' +
     '<a class="block-6 manage">' +
-        '<h2>Add Google Docs</h2>' +
+    '<h2>Add Google Docs</h2>' +
     '</a>' +
     '<a class="block-6 manage">' +
-        '<h2>Add Google Maps</h2>' +
+    '<h2>Add Google Maps</h2>' +
     '</a>' +
     '<a class="block-6 manage">' +
-        '<h2>Add other iframes</h2>' +
+    '<h2>Add other iframes</h2>' +
     '</a>' +
     '<a class="block-6 manage">' +
-        '<h2>Delete this content row</h2>' +
+    '<h2>Delete this content row</h2>' +
     '</a>' +
     '<a class="block-6 manage">' +
-        '<h2>Add new content row</h2>' +
+    '<h2>Add new content row</h2>' +
     '</a>' +
-'</div>';
+    '</div>';
 
-$('.content-row:has(.sidebar-left)').append(manage_two_column_content_buttons);
+$('.content-row:has(.sidebar)').append(manage_two_column_content_buttons);
 
 
 var manage_one_column_content_buttons =
-'<div class="blocks manage-button">' +
+    '<div class="blocks manage-button">' +
     '<div class="manage" style="width: 100%">' +
-        '<h2>1 column content row - Manage</h2>' +
+    '<h2>1 column content row - Manage</h2>' +
     '</div>' +
     '<a class="block-6 manage">' +
-        '<h2>Add header (h3)</h2> ' +
+    '<h2>Add header (h3)</h2> ' +
     '</a>' +
     '<a class="block-6 manage">' +
-        '<h2>Add Blocks Section</h2>' +
+    '<h2>Add Blocks Section</h2>' +
     '</a>' +
     '<a class="block-6 manage">' +
-        '<h2>Add Image</h2> ' +
+    '<h2>Add Image</h2> ' +
     '</a>' +
     '<a class="block-6 manage">' +
-        '<h2>Add Youtube Video</h2>' +
+    '<h2>Add Youtube Video</h2>' +
     '</a>' +
     '<a class="block-6 manage">' +
-        '<h2>Add Google Form</h2>' +
+    '<h2>Add Google Form</h2>' +
     '</a>' +
     '<a class="block-6 manage">' +
-        '<h2>Add Google Docs</h2>' +
+    '<h2>Add Google Docs</h2>' +
     '</a>' +
     '<a class="block-6 manage">' +
-        '<h2>Add Google Maps</h2>' +
+    '<h2>Add Google Maps</h2>' +
     '</a>' +
     '<a class="block-6 manage">' +
-        '<h2>Add other iframes</h2>' +
+    '<h2>Add other iframes</h2>' +
     '</a>' +
     '<a class="block-6 manage">' +
-        '<h2>Delete this content row</h2>' +
+    '<h2>Delete this content row</h2>' +
     '</a>' +
     '<a class="block-6 manage">' +
-        '<h2>Add new content row</h2>' +
+    '<h2>Add new content row</h2>' +
     '</a>' +
-'</div>';
+    '</div>';
 
-$('.content-row:not(:has(.sidebar-left))').append(manage_one_column_content_buttons);
-
-
-
-
-
+$('.content-row:not(:has(.sidebar))').append(manage_one_column_content_buttons);
 
 
 //TODO: async loading library.
@@ -449,17 +586,52 @@ var style = document.createElement("style");
 
 document.head.appendChild(style);
 var sheet = style.sheet;
-sheet.insertRule(".editable { border-color: yellow; border-width: 3px; border-style: dashed }", 0);
-sheet.insertRule(".manage { cursor: pointer; border-color: yellow; border-width: 3px; border-style: dashed }", 0);
-sheet.insertRule(".content-row.manage { margin-bottom: 80px; cursor: pointer; border-color: red; border-width: 3px; border-style: dashed;  }", 0);
+
 sheet.insertRule(".manage-button { display: inherit;}", 0);
 sheet.insertRule(".blocks.manage-button { display: flex;}", 0);
 
 
-//$('.blocks.manage').sortable({
-//    connectWith: ".blocks.manage"
-//});
 
+
+
+
+//Testing toggle sorting/editing YES IT WORKS LALALALA
+
+var t = false;
+$('#footer').click(function(){
+    t=!t;
+    if (t){
+        $('.editable').attr('contenteditable',false);
+        $('.content-row > .content > *').addClass('sorting-content');
+
+
+        $('.content-row > .content').sortable({
+            connectWith: '.content-row > .content'
+        });
+        $('.content-row:not(:has(.sidebar))').sortable({
+            connectWith: '.content-row:not(:has(.sidebar))'
+        });
+        $('.content-row:has(.sidebar)').sortable({
+            connectWith: '.content-row:has(.sidebar)'
+        });
+        $('.content-section').sortable({
+            connectWith: '.content-row .content'
+        });
+    }
+    else {
+        $('.editable').attr('contenteditable',true);
+
+        $('.content-row > .content > *').removeClass('sorting-content');
+
+
+        $('.content-row > .content').sortable('disable');
+        $('.content-row:not(:has(.sidebar))').sortable('disable');
+        $('.content-row:has(.sidebar)').sortable('disable');
+        $('.content-section').sortable('disable');
+    }
+
+});
+//end test
 
 
 CKEDITOR.config.contentsCss = '/css/style.css';
