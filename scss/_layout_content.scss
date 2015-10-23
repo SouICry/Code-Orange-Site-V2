@@ -11,7 +11,7 @@ iframe {
 }
 
 
-p {
+.paragraph {
   margin: 0 20px 18px 20px;
   @include tablet {
     margin: 0 20px 24px 20px;
@@ -24,6 +24,18 @@ p {
   }
   @include large-desktop {
     margin: 0 50px 24px 50px;
+  }
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+}
+
+.content {
+  p {
+    @extend .paragraph;
   }
 }
 
@@ -46,7 +58,7 @@ p {
 
 .content-section li {
   list-style-type: circle;
-  @extend p;
+  @extend .paragraph;
   margin-bottom: 8px;
   padding-left: 10px;
   @include tablet {

@@ -51,12 +51,20 @@
   border-style: dashed
 }
 
+h3.manage {
+  cursor: default;
+}
+
 .content-row.manage {
   margin-bottom: 80px;
   cursor: pointer;
   border-color: red;
   border-width: 3px;
   border-style: dashed;
+}
+
+.blocks.manage {
+  border-color: red;
 }
 
 .manage.sidebar {
@@ -67,6 +75,20 @@
 
 .sidebar > .manage, .blocks.manage > *{
   border-color: blue;
+}
+
+.iframe {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: auto;
+  z-index: 10;
+  img {
+
+  }
+  iframe {
+    position: relative;
+  }
 }
 
 .youtube {

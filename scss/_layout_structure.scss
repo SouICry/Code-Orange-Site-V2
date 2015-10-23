@@ -89,8 +89,6 @@
       }
 
       .img {
-        position: relative;
-        display: block;
         height: auto;
         width: 100%;
         @include large-phone {
@@ -98,10 +96,6 @@
         }
         @include tablet {
           width: 33.33333%;
-        }
-        img {
-          height: auto;
-          width: auto;
         }
       }
 

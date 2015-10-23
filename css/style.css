@@ -483,17 +483,17 @@ blockquote {
   blockquote cite {
     float: right; }
 
-p, .content-section li, .section-inner .title .sub-title {
+p {
   font-size: 17px;
   text-decoration: none; }
   @media (min-width: 1024px) and (max-width: 1279px) {
-    p, .content-section li, .section-inner .title .sub-title {
+    p {
       font-size: 17px; } }
   @media (min-width: 1280px) and (max-width: 1439px) {
-    p, .content-section li, .section-inner .title .sub-title {
+    p {
       font-size: 19px; } }
   @media (min-width: 1440px) {
-    p, .content-section li, .section-inner .title .sub-title {
+    p {
       font-size: 19px; } }
 
 a {
@@ -1502,7 +1502,6 @@ a.block-2-half:active, a.block-3-half:active, a.block-4-half:active, a.block-6-h
           width: 320px;
           margin: 0 15px; } }
       #body .content-section .content-row .sidebar .img {
-        position: relative;
         height: auto;
         width: 100%; }
         @media (min-width: 480px) and (max-width: 719px) {
@@ -1573,20 +1572,25 @@ iframe {
     iframe {
       margin: 0 0 24px 0; } }
 
-p, .content-section li, .section-inner .title .sub-title {
+.paragraph, .content p, .content-section li, .section-inner .title .sub-title {
   margin: 0 20px 18px 20px; }
   @media (min-width: 720px) and (max-width: 1023px) {
-    p, .content-section li, .section-inner .title .sub-title {
+    .paragraph, .content p, .content-section li, .section-inner .title .sub-title {
       margin: 0 20px 24px 20px; } }
   @media (min-width: 1024px) and (max-width: 1279px) {
-    p, .content-section li, .section-inner .title .sub-title {
+    .paragraph, .content p, .content-section li, .section-inner .title .sub-title {
       margin: 0 30px 24px 30px; } }
   @media (min-width: 1280px) and (max-width: 1439px) {
-    p, .content-section li, .section-inner .title .sub-title {
+    .paragraph, .content p, .content-section li, .section-inner .title .sub-title {
       margin: 0 40px 24px 40px; } }
   @media (min-width: 1440px) {
-    p, .content-section li, .section-inner .title .sub-title {
+    .paragraph, .content p, .content-section li, .section-inner .title .sub-title {
       margin: 0 50px 24px 50px; } }
+
+p {
+  margin: 0;
+  padding: 0;
+  font-size: inherit; }
 
 .heading, h2, h3, h4, thead td, #body .row .title h1, #selection-bar .title h1, #body .row .title .sub-title, #selection-bar .title .sub-title, .carousel .title h1, .carousel .title .sub-title {
   margin: 0 10px 18px 10px; }
@@ -2164,27 +2168,27 @@ ul .slide {
   flex-flow: row wrap;
   justify-content: center;
   align-items: center; }
-  #index-about p, #index-about .content-section li, .content-section #index-about li, #index-about .section-inner .title .sub-title, .section-inner .title #index-about .sub-title {
+  #index-about p {
     font-size: 17px;
     text-decoration: none;
     width: 100%; }
     @media (min-width: 1024px) and (max-width: 1279px) {
-      #index-about p, #index-about .content-section li, .content-section #index-about li, #index-about .section-inner .title .sub-title, .section-inner .title #index-about .sub-title {
+      #index-about p {
         font-size: 19px; } }
     @media (min-width: 1280px) and (max-width: 1439px) {
-      #index-about p, #index-about .content-section li, .content-section #index-about li, #index-about .section-inner .title .sub-title, .section-inner .title #index-about .sub-title {
+      #index-about p {
         font-size: 21px; } }
     @media (min-width: 1440px) {
-      #index-about p, #index-about .content-section li, .content-section #index-about li, #index-about .section-inner .title .sub-title, .section-inner .title #index-about .sub-title {
+      #index-about p {
         font-size: 21px; } }
     @media (min-width: 480px) and (max-width: 719px) {
-      #index-about p, #index-about .content-section li, .content-section #index-about li, #index-about .section-inner .title .sub-title, .section-inner .title #index-about .sub-title {
+      #index-about p {
         width: 100%; } }
     @media (min-width: 720px) and (max-width: 1023px) {
-      #index-about p, #index-about .content-section li, .content-section #index-about li, #index-about .section-inner .title .sub-title, .section-inner .title #index-about .sub-title {
+      #index-about p {
         width: 68%; } }
     @media (min-width: 1024px) {
-      #index-about p, #index-about .content-section li, .content-section #index-about li, #index-about .section-inner .title .sub-title, .section-inner .title #index-about .sub-title {
+      #index-about p {
         width: 68%; } }
 
 #index-surfer {
@@ -2217,6 +2221,10 @@ ul .slide {
 
 #fullpage {
   margin: 0; }
+  #fullpage #header-filler {
+    position: absolute; }
+  #fullpage #footer {
+    display: none; }
 
 .section {
   position: relative;
@@ -2242,7 +2250,7 @@ ul .slide {
         width: 50px; } }
     .section-inner .scroll-for-more:hover {
       opacity: 0.5; }
-  .section-inner h1, .section-inner p, .section-inner .content-section li, .content-section .section-inner li, .section-inner .title .sub-title {
+  .section-inner h1, .section-inner p {
     position: static;
     display: block;
     margin: 0;
@@ -2324,27 +2332,27 @@ ul .slide {
     @media (min-width: 1440px) {
       .section-inner .content {
         margin: 150px; } }
-    .section-inner .content p, .section-inner .content .content-section li, .content-section .section-inner .content li, .section-inner .content .title .sub-title, .section-inner .title .content .sub-title {
+    .section-inner .content p {
       margin-top: 10px;
       font-size: 17px; }
       @media (min-width: 480px) and (max-width: 719px) {
-        .section-inner .content p, .section-inner .content .content-section li, .content-section .section-inner .content li, .section-inner .content .title .sub-title, .section-inner .title .content .sub-title {
+        .section-inner .content p {
           margin-top: 15px;
           font-size: 17px; } }
       @media (min-width: 720px) and (max-width: 1023px) {
-        .section-inner .content p, .section-inner .content .content-section li, .content-section .section-inner .content li, .section-inner .content .title .sub-title, .section-inner .title .content .sub-title {
+        .section-inner .content p {
           margin-top: 20px;
           font-size: 18px; } }
       @media (min-width: 1024px) and (max-width: 1279px) {
-        .section-inner .content p, .section-inner .content .content-section li, .content-section .section-inner .content li, .section-inner .content .title .sub-title, .section-inner .title .content .sub-title {
+        .section-inner .content p {
           margin-top: 30px;
           font-size: 20px; } }
       @media (min-width: 1280px) and (max-width: 1439px) {
-        .section-inner .content p, .section-inner .content .content-section li, .content-section .section-inner .content li, .section-inner .content .title .sub-title, .section-inner .title .content .sub-title {
+        .section-inner .content p {
           margin-top: 30px;
           font-size: 22px; } }
       @media (min-width: 1440px) {
-        .section-inner .content p, .section-inner .content .content-section li, .content-section .section-inner .content li, .section-inner .content .title .sub-title, .section-inner .title .content .sub-title {
+        .section-inner .content p {
           margin-top: 30px;
           font-size: 24px; } }
     .section-inner .content h1 {
@@ -2385,7 +2393,7 @@ ul .slide {
       @media (min-width: 1440px) {
         .section-inner .content h2 {
           font-size: 42px; } }
-  .section-inner .content.right h1, .section-inner .content.right p, .section-inner .content.right .content-section li, .content-section .section-inner .content.right li, .section-inner .content.right .title .sub-title, .section-inner .title .content.right .sub-title {
+  .section-inner .content.right h1, .section-inner .content.right p {
     float: right;
     text-align: right; }
   .section-inner .content.right h2 {
@@ -2633,12 +2641,18 @@ html.fp-enabled,
   border-width: 3px;
   border-style: dashed; }
 
+h3.manage {
+  cursor: default; }
+
 .content-row.manage {
   margin-bottom: 80px;
   cursor: pointer;
   border-color: red;
   border-width: 3px;
   border-style: dashed; }
+
+.blocks.manage {
+  border-color: red; }
 
 .manage.sidebar {
   padding-bottom: 100px;
@@ -2647,6 +2661,15 @@ html.fp-enabled,
 
 .sidebar > .manage, .blocks.manage > * {
   border-color: blue; }
+
+.iframe {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: auto;
+  z-index: 10; }
+  .iframe iframe {
+    position: relative; }
 
 .youtube {
   position: relative;

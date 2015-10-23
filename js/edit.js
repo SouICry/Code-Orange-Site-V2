@@ -1,5 +1,3 @@
-//TODO: Sorting/editing mode global toggle.
-
 /*
  Format:
  edit.php - preview normally when default loaded.
@@ -46,19 +44,34 @@ function disableLinks() {
 }
 disableLinks();
 
+//function disableIframes(){
+//    $('iframe').each(function(){
+//        $(this).data('src', $(this).attr('src'));
+//        $(this).attr('src', ' ').css('z-index','-20');
+//    });
+//}
+//disableIframes();
+
+
 
 //Highlights objects or makes enables contenteditable
-$('.content-row, .sidebar, .youtube, .blocks, .blocks > a, .sidebar > *').addClass('manage');
+$('.content-row, .sidebar, .youtube, .blocks, .blocks > a, .sidebar > *, .iframe').addClass('manage');
 $('.section-inner').addClass('manage');
 
 $('.title h1, .title .sub-title, .content-row .content, .content-row > h3').addClass('editable').attr('contenteditable', 'true');
 $('.blocks > a > .type, .blocks > a > .view, .blocks > a > h2').addClass('editable').attr('contenteditable', 'true');
 $('.sidebar .block .type, .sidebar .block .view, .sidebar .block  h2').addClass('editable').attr('contenteditable', 'true');
+$('.content-row:not(:has(.sidebar))').addClass('editable').attr('contenteditable', 'true');
+
+
 
 $('.section-inner .content').addClass('editable').attr('contenteditable', 'true');
 
 
-//Left click menus
+
+
+
+//Creates left click menus
 //Fullpage sections
 var edit_section = [
     {
@@ -361,78 +374,78 @@ var manage_youtube_button =
 $('.youtube').append(manage_youtube_button);
 
 
-var manage_two_column_content_buttons =
-    '<div class="blocks manage-button">' +
-    '<div class="manage" style="width: 100%">' +
-    '<h2>2 column content row - Manage</h2>' +
-    '</div>' +
-    '<a class="block-6 manage">' +
-    '<h2>Add Image</h2> ' +
-    '</a>' +
-    '<a class="block-6 manage">' +
-    '<h2>Add Youtube Video</h2>' +
-    '</a>' +
-    '<a class="block-6 manage">' +
-    '<h2>Add Google Form</h2>' +
-    '</a>' +
-    '<a class="block-6 manage">' +
-    '<h2>Add Google Docs</h2>' +
-    '</a>' +
-    '<a class="block-6 manage">' +
-    '<h2>Add Google Maps</h2>' +
-    '</a>' +
-    '<a class="block-6 manage">' +
-    '<h2>Add other iframes</h2>' +
-    '</a>' +
-    '<a class="block-6 manage">' +
-    '<h2>Delete this content row</h2>' +
-    '</a>' +
-    '<a class="block-6 manage">' +
-    '<h2>Add new content row</h2>' +
-    '</a>' +
-    '</div>';
+//var manage_two_column_content_buttons =
+//    '<div class="blocks manage-button">' +
+//    '<div class="manage" style="width: 100%">' +
+//    '<h2>2 column content row - Manage</h2>' +
+//    '</div>' +
+//    '<a class="block-6 manage">' +
+//    '<h2>Add Image</h2> ' +
+//    '</a>' +
+//    '<a class="block-6 manage">' +
+//    '<h2>Add Youtube Video</h2>' +
+//    '</a>' +
+//    '<a class="block-6 manage">' +
+//    '<h2>Add Google Form</h2>' +
+//    '</a>' +
+//    '<a class="block-6 manage">' +
+//    '<h2>Add Google Docs</h2>' +
+//    '</a>' +
+//    '<a class="block-6 manage">' +
+//    '<h2>Add Google Maps</h2>' +
+//    '</a>' +
+//    '<a class="block-6 manage">' +
+//    '<h2>Add other iframes</h2>' +
+//    '</a>' +
+//    '<a class="block-6 manage">' +
+//    '<h2>Delete this content row</h2>' +
+//    '</a>' +
+//    '<a class="block-6 manage">' +
+//    '<h2>Add new content row</h2>' +
+//    '</a>' +
+//    '</div>';
+//
+//$('.content-row:has(.sidebar)').append(manage_two_column_content_buttons);
 
-$('.content-row:has(.sidebar)').append(manage_two_column_content_buttons);
 
-
-var manage_one_column_content_buttons =
-    '<div class="blocks manage-button">' +
-    '<div class="manage" style="width: 100%">' +
-    '<h2>1 column content row - Manage</h2>' +
-    '</div>' +
-    '<a class="block-6 manage">' +
-    '<h2>Add header (h3)</h2> ' +
-    '</a>' +
-    '<a class="block-6 manage">' +
-    '<h2>Add Blocks Section</h2>' +
-    '</a>' +
-    '<a class="block-6 manage">' +
-    '<h2>Add Image</h2> ' +
-    '</a>' +
-    '<a class="block-6 manage">' +
-    '<h2>Add Youtube Video</h2>' +
-    '</a>' +
-    '<a class="block-6 manage">' +
-    '<h2>Add Google Form</h2>' +
-    '</a>' +
-    '<a class="block-6 manage">' +
-    '<h2>Add Google Docs</h2>' +
-    '</a>' +
-    '<a class="block-6 manage">' +
-    '<h2>Add Google Maps</h2>' +
-    '</a>' +
-    '<a class="block-6 manage">' +
-    '<h2>Add other iframes</h2>' +
-    '</a>' +
-    '<a class="block-6 manage">' +
-    '<h2>Delete this content row</h2>' +
-    '</a>' +
-    '<a class="block-6 manage">' +
-    '<h2>Add new content row</h2>' +
-    '</a>' +
-    '</div>';
-
-$('.content-row:not(:has(.sidebar))').append(manage_one_column_content_buttons);
+//var manage_one_column_content_buttons =
+//    '<div class="blocks manage-button">' +
+//    '<div class="manage" style="width: 100%">' +
+//    '<h2>1 column content row - Manage</h2>' +
+//    '</div>' +
+//    '<a class="block-6 manage">' +
+//    '<h2>Add header (h3)</h2> ' +
+//    '</a>' +
+//    '<a class="block-6 manage">' +
+//    '<h2>Add Blocks Section</h2>' +
+//    '</a>' +
+//    '<a class="block-6 manage">' +
+//    '<h2>Add Image</h2> ' +
+//    '</a>' +
+//    '<a class="block-6 manage">' +
+//    '<h2>Add Youtube Video</h2>' +
+//    '</a>' +
+//    '<a class="block-6 manage">' +
+//    '<h2>Add Google Form</h2>' +
+//    '</a>' +
+//    '<a class="block-6 manage">' +
+//    '<h2>Add Google Docs</h2>' +
+//    '</a>' +
+//    '<a class="block-6 manage">' +
+//    '<h2>Add Google Maps</h2>' +
+//    '</a>' +
+//    '<a class="block-6 manage">' +
+//    '<h2>Add other iframes</h2>' +
+//    '</a>' +
+//    '<a class="block-6 manage">' +
+//    '<h2>Delete this content row</h2>' +
+//    '</a>' +
+//    '<a class="block-6 manage">' +
+//    '<h2>Add new content row</h2>' +
+//    '</a>' +
+//    '</div>';
+//
+//$('.content-row:not(:has(.sidebar))').append(manage_one_column_content_buttons);
 
 
 //TODO: async loading library.
