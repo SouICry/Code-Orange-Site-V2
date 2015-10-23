@@ -84,10 +84,17 @@ h3.manage {
   height: auto;
   z-index: 10;
   img {
-
+    visibility: hidden;
   }
   iframe {
     position: relative;
+  }
+  .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
   }
 }
 

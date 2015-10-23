@@ -1,15 +1,6 @@
 #fullpage {
   margin: 0;
-  #header-filler {
-    position: absolute;
-  }
-
-  #footer {
-    display: none;
-  }
 }
-
-
 
 .section {
   position: relative;
@@ -49,10 +40,12 @@
   }
 
   .title {
+    padding: 5px;
     width: auto;
     position: absolute;
+    z-index: 1000;
     max-width: 100%;
-    top: calc(50% + 50px);
+    top: calc(50% + 25px);
     @include desktop {
       top: 50%;
     }
@@ -61,6 +54,7 @@
 
     .sub-title {
       @extend .paragraph;
+      margin: 0;
       text-shadow: none;
       padding-left: 10%;
       white-space: nowrap;

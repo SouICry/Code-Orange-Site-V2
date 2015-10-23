@@ -44,6 +44,16 @@ function disableLinks() {
 }
 disableLinks();
 
+function getBlocksData(){
+    $('.blocks > *').each(function(){
+        $(this).data('class', this.className)
+    });
+}
+getBlocksData();
+
+
+
+
 //function disableIframes(){
 //    $('iframe').each(function(){
 //        $(this).data('src', $(this).attr('src'));
@@ -303,6 +313,7 @@ function disable_rearrange_content_row() {
 function enable_rearrange_content_row_content() {
     $('.content-row > .content > *').addClass('sorting-content');
     $('.content-row > .content').addClass('sorting-content');
+    $('.content-row > h3').addClass('sorting-content');
 
     if ($('.content-row > .content').sortable("instance") == undefined) {
         $('.content-row > .content').sortable({
@@ -316,6 +327,7 @@ function enable_rearrange_content_row_content() {
 function disable_rearrange_content_row_content() {
     $('.content-row > .content > *').removeClass('sorting-content');
     $('.content-row > .content').removeClass('sorting-content');
+    $('.content-row > h3').removeClass('sorting-content');
 
     $('.content-row > .content').sortable('disable');
 }
@@ -364,15 +376,16 @@ $('#footer').click(function () {
 
 var manage_gallery_button =
     '<div class="btn manage-button">Manage Gallery</div>';
-
 $('.carousel .caption').append(manage_gallery_button);
 
 
 var manage_youtube_button =
     '<div class="btn manage-button">Manage Youtube Video</div>';
-
 $('.youtube').append(manage_youtube_button);
 
+var manage_iframe_button =
+    '<div class="btn manage-button">Manage iframe</div>';
+$('.iframe').append(manage_iframe_button);
 
 //var manage_two_column_content_buttons =
 //    '<div class="blocks manage-button">' +

@@ -6,6 +6,8 @@
 
 //TODO: add fittext support for carousel titles/titles on phones. Center instead on larger devices
 
+//TODO: fix nav bar not scrolling when scrolled from top (bugginess)
+
 window.onpopstate = pop;
 
 function pop(event) {
