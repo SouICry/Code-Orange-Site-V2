@@ -1,9 +1,33 @@
-
 //TODO: Sorting/editing mode global toggle.
 
+/*
+ Format:
+ edit.php - preview normally when default loaded.
+ content-edit.htm - exact content of content.php, copied over on publish
+
+ Editor works on both main page and standalone edit.php/content-edit.htm.
+ //NOnono, for security must load edit.php to edit
+ Publish overrides content.htm
+
+ On add new page/section:
+ Add it on selection-bar/nav as display hidden normally, show on edit mode
+ index.php as expected.
+ content.html redirects to edit.php
+ content-edit.htm is generated, work progresses in standalone.
+ Publish unhides the menu items as necessary
+
+ Footer changes published immediately
 
 
 
+
+
+ Instead of left click, do hover buttons instead
+ ...
+ Actually, nvm, too much unnecessary work
+
+
+ */
 
 
 function disableLink(event) {
@@ -38,6 +62,20 @@ $('.section-inner .content').addClass('editable').attr('contenteditable', 'true'
 //Left click menus
 
 //Fullpage sections
+
+function enable_rearrange_sections() {
+    $('.section-inner').contextMenu('update', edit_section_rearrange);
+    if ($('#fullpage').sortable("instance") == undefined) {
+        $('#fullpage').sortable();
+    }
+    else {
+        $('#fullpage').sortable("enable");
+    }
+}
+function disable_rearrange_sections() {
+    $('.section-inner').contextMenu('update', edit_section_stop_rearrange);
+    $('#fullpage').sortable("disable");
+}
 var edit_section = [
     {
         name: 'Change section background image',
@@ -60,21 +98,14 @@ var edit_section = [
     {
         name: 'Rearrange sections',
         fun: function (data) {
-            $('.section-inner').contextMenu('update', edit_section_rearrange);
-            if ($('#fullpage').sortable("instance") == undefined) {
-                $('#fullpage').sortable();
-            }
-            else {
-                $('#fullpage').sortable("enable");
-            }
+            enable_rearrange_sections();
         }
     },
     {
         name: 'Exit rearrange mode',
         disable: true,
         fun: function (data) {
-            $('.section-inner').contextMenu('update', edit_section_stop_rearrange);
-            $('#fullpage').sortable("disable");
+            disable_rearrange_sections();
         }
     }
 ];
@@ -136,7 +167,7 @@ function enable_rearrange_sidebar() {
     $('.sidebar .block').contextMenu('update', edit_sidebar_block_rearrange);
 
     $('.sidebar .block img').contextMenu('update', edit_sidebar_block_img_rearrange);
-    $('.sidebar .img img').contextMenu('update', edit_sidebar_img_rearrange);
+    $('.sidebar .img').contextMenu('update', edit_sidebar_img_rearrange);
     $('.sidebar').contextMenu('update', edit_sidebar_rearrange);
 
     if ($('.sidebar').sortable("instance") == undefined) {
@@ -152,7 +183,7 @@ function disable_rearrange_sidebar() {
     $('.sidebar .block').contextMenu('update', edit_sidebar_block_stop_rearrange);
 
     $('.sidebar .block img').contextMenu('update', edit_sidebar_block_img_stop_rearrange);
-    $('.sidebar .img img').contextMenu('update', edit_sidebar_img_stop_rearrange);
+    $('.sidebar .img').contextMenu('update', edit_sidebar_img_stop_rearrange);
     $('.sidebar').contextMenu('update', edit_sidebar_stop_rearrange);
 
     $('.sidebar').sortable("disable");
@@ -294,13 +325,18 @@ var edit_sidebar_block_img_stop_rearrange = [{
 }
 ].concat(edit_sidebar_block_stop_rearrange);
 
+$('.sidebar .img').contextMenu(edit_sidebar_img);
+$('.sidebar .img').click(function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+});
 $('.sidebar .block').contextMenu(edit_sidebar_block);
 $('.sidebar .block > *').click(function (event) {
     event.preventDefault();
     event.stopPropagation();
 });
 $('.sidebar .block img').contextMenu(edit_sidebar_block_img);
-$('.sidebar .img img').contextMenu(edit_sidebar_img);
+
 $('.sidebar').contextMenu(edit_sidebar);
 
 
@@ -319,8 +355,6 @@ function enable_rearrange_blocks_section() {
     $('.blocks.manage a.manage').contextMenu('update', edit_blocks_section_block_rearrange);
 
     $('.blocks.manage a.manage img').contextMenu('update', edit_blocks_section_block_img_rearrange);
-
-
 
 
 }
@@ -473,10 +507,6 @@ $('.blocks.manage a.manage > *').click(function (event) {
 $('.blocks.manage a.manage img').contextMenu(edit_blocks_section_block_img);
 
 
-
-
-
-
 //if ($('.blocks').sortable("instance") == undefined) {
 //    $('.blocks').sortable({
 //        connectWith: ".sidebar"
@@ -485,13 +515,6 @@ $('.blocks.manage a.manage img').contextMenu(edit_blocks_section_block_img);
 //else {
 //    $('.blocks').sortable("enable");
 //}
-
-
-
-
-
-
-
 
 
 var manage_gallery_button =
@@ -591,19 +614,15 @@ sheet.insertRule(".manage-button { display: inherit;}", 0);
 sheet.insertRule(".blocks.manage-button { display: flex;}", 0);
 
 
-
-
-
-
-//Testing toggle sorting/editing YES IT WORKS LALALALA
+//Testing toggle sorting/editing
 
 var t = false;
-$('#footer').click(function(){
-    t=!t;
-    if (t){
-        $('.editable').attr('contenteditable',false);
+$('#footer').click(function () {
+    t = !t;
+    if (t) {
+        $('.editable').attr('contenteditable', false);
         $('.content-row > .content > *').addClass('sorting-content');
-
+        $('.content-row > .content').addClass('sorting-content');
 
         $('.content-row > .content').sortable({
             connectWith: '.content-row > .content'
@@ -617,17 +636,25 @@ $('#footer').click(function(){
         $('.content-section').sortable({
             connectWith: '.content-row .content'
         });
+
+        enable_rearrange_sections();
+        enable_rearrange_blocks_section();
+        enable_rearrange_sidebar();
     }
     else {
-        $('.editable').attr('contenteditable',true);
+        $('.editable').attr('contenteditable', true);
 
         $('.content-row > .content > *').removeClass('sorting-content');
-
+        $('.content-row > .content').removeClass('sorting-content');
 
         $('.content-row > .content').sortable('disable');
         $('.content-row:not(:has(.sidebar))').sortable('disable');
         $('.content-row:has(.sidebar)').sortable('disable');
         $('.content-section').sortable('disable');
+
+        disable_rearrange_sections();
+        disable_rearrange_blocks_section();
+        disable_rearrange_sidebar();
     }
 
 });
