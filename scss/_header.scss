@@ -77,7 +77,7 @@
 #user, #user-filler {
   height: $nav-height;
   float: right;
-  a {
+  a, div {
     float: left;
     white-space: nowrap;
     color: $orange-accent-1;
@@ -86,12 +86,15 @@
     padding: 0 20px;
     line-height: $nav-height - 3px;
     text-align: center;
-    border: none;
+
     list-style: none;
     &:hover {
       border-bottom: 3px solid $orange-accent-1;
       text-decoration: none;
     }
+  }
+  a {
+    border: none;
   }
 }
 

@@ -90,15 +90,15 @@ h1 {
     }
     @include small-desktop {
       font-size: 58px;
-      margin: 84px -80px -145px 20px;
+      margin: 75px -80px -145px 20px;
     }
     @include medium-desktop {
       font-size: 62px;
-      margin: 105px -105px -165px 20px;
+      margin: 85px -105px -165px 20px;
     }
     @include large-desktop {
       font-size: 66px;
-      margin: 115px -130px -165px 20px;
+      margin: 95px -130px -165px 20px;
     }
 
   }
@@ -123,17 +123,17 @@ h1 {
     @include small-desktop {
       font-size: 36px;
       line-height: 58px;
-      margin: 150px 0 24px 93px;
+      margin: 140px 0 24px 93px;
     }
     @include medium-desktop {
       font-size: 40px;
       line-height: 62px;
-      margin: 180px 0 24px 123px;
+      margin: 150px 0 24px 123px;
     }
     @include large-desktop {
       font-size: 44px;
       line-height: 66px;
-      margin: 180px 0 24px 148px;
+      margin: 160px 0 24px 148px;
     }
 
   }

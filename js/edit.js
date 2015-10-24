@@ -27,6 +27,8 @@
 
  */
 
+
+
 //Disables all a href links
 function disableLink(event) {
     if (event.preventDefault) {
@@ -470,6 +472,20 @@ var sheet = style.sheet;
 
 sheet.insertRule(".manage-button { display: inherit;}", 0);
 sheet.insertRule(".blocks.manage-button { display: flex;}", 0);
+sheet.insertRule(".manage-none { display: none;}", 0);
+
+
+
+
+$('.preview-button').click(function(){
+    window.open('/' + currURL);
+});
+$('.save-button').click(function(){
+    var c = savePage();
+});
+
+
+
 
 
 CKEDITOR.config.contentsCss = '/css/style.css';

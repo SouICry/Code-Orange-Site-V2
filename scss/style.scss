@@ -19,6 +19,11 @@
 @import 'index-page';
 @import 'fullpage';
 
+
+.manage-none {
+
+}
+
 .manage-button {
   cursor: pointer;
   display: none;
@@ -75,6 +80,10 @@ h3.manage {
 
 .sidebar > .manage, .blocks.manage > *{
   border-color: blue;
+}
+
+.data-fix {
+  display: none;
 }
 
 .iframe {

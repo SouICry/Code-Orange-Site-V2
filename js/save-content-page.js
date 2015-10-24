@@ -1,4 +1,3 @@
-
 function save_content_page() {
     var s = "";
     $('#body').children().each(function () {
@@ -7,9 +6,9 @@ function save_content_page() {
         //Carousel
         if (c.hasClass('carousel')) {
             s += '<div class="carousel" data-pathname="' + c.data('pathname') + '"><div class="title"><h1>' +
-                c.find('h1').innerHTML() + '</h1><div class="sub-title">' + c.find('.sub-title').innerHTML() +
+                c.find('h1').html() + '</h1><div class="sub-title">' + c.find('.sub-title').html() +
                 '</div><div class="caption"><div class="btn">View Gallery</div></div></div>' +
-                '<div id="carousel" class="csslider1"><?php $pathname = "' + c.data('pathname') + '";' +
+                '<div id="carousel"><?php $pathname = "' + c.data('pathname') + '";' +
                 'include $_SERVER["DOCUMENT_ROOT"]."/php/generate-carousel.php"?></div></div>';
         }
         else if (c.hasClass('row')) {
@@ -18,29 +17,27 @@ function save_content_page() {
 
             var d = c.find('.title');
             var e = c.find('.content-section');
-            var f = c.find('.blocks');
             if (e.length > 0) {
                 //Content section
                 s += '<div class="content-section">';
                 e.children().each(function () {
-
-                    save_content_row($(this));
-
+                    if ($(this).hasClass('blocks')) {
+                        s += '<div class="blocks">';
+                        $(this).children().each(function () {
+                            s += save_blocks($(this));
+                        });
+                        s += '</div>'
+                    }
+                    else {
+                        s += save_content_row($(this));
+                    }
                 });
                 s += '</div>'
             }
-            else if (f.length > 0) {
-                //Blocks section
-                s += '<div class="blocks">';
-                e.children().each(function () {
-                    save_blocks($(this));
-                });
-                s += '</div>';
-            }
             else if (d.length > 0) {
                 //Title
-                s += '<div class="title"><h1>' + d.find('h1').innerHTML() + '</h1><div class="sub-title">' +
-                    d.find('.sub-title').innerHTML() + '</div></div>';
+                s += '<div class="title"><h1>' + d.find('h1').html() + '</h1><div class="sub-title">' +
+                    d.find('.sub-title').html() + '</div></div>';
             }
 
             s += '</div></div>'
@@ -60,16 +57,22 @@ function save_blocks(block) {
     }
     block.children().each(function () {
         if ($(this).hasClass('type')) {
-            s += '<div class="type>"' + $(this).innerHTML() + '</div>';
+            s += '<div class="type">' + $(this).html() + '</div>';
         }
         else if ($(this).hasClass('view')) {
-            s += '<div class="view>' + $(this).innerHTML() + '</div>';
+            s += '<div class="view">' + $(this).html() + '</div>';
         }
         else if ($(this).is('h2')) {
-            s += '<h2>' + $(this).innerHTML() + '</h2>';
+            s += '<h2>' + $(this).html() + '</h2>';
+        }
+        else if ($(this).is('h3')) {
+            s += '<h3>' + $(this).html() + '</h3>';
+        }
+        else if ($(this).is('h4')) {
+            s += '<h4>' + $(this).html() + '</h4>';
         }
         else if ($(this).is('img')) {
-            s += '<img src="' + $(this).attr('src') + '/>';
+            s += '<img src="' + $(this).attr('src') + '"/>';
         }
     });
     if (block.is('a')) {
@@ -83,13 +86,13 @@ function save_blocks(block) {
 
 function save_content_row(content_row) {
     var s = '<div class="content-row">';
-    if (content_row.find('sidebar').length > 0) {
+    if (content_row.find('.sidebar').length > 0) {
         content_row.children().each(function () {
             if ($(this).hasClass('sidebar')) {
-                save_sidebar($(this));
+                s += save_sidebar($(this));
             }
             else if ($(this).hasClass('content')) {
-                save_content($(this));
+                s += save_content($(this));
             }
         });
 
@@ -97,16 +100,23 @@ function save_content_row(content_row) {
     else {
         content_row.children().each(function () {
             if ($(this).is('h3')) {
-                s += '<h3>' + $(this).innerHTML + '</h3>';
+                s += '<h3>' + $(this).html() + '</h3>';
+            }
+            else if ($(this).is('h4')) {
+                s += '<h4>' + $(this).html() + '</h4>';
             }
             else if ($(this).hasClass('youtube')) {
+                var src1 = $(this).find('.data-fix').html();
                 s += '<div class="youtube">' +
-                    '<iframe src="' + $(this).find('iframe').attr('src') + '" frameborder="0" allowfullscreen></iframe>' +
+                    '<div class="data-fix">' + src1 + '</div>' +
+                    '<iframe src="' + src1 + '" frameborder="0" allowfullscreen></iframe>' +
                     '</div>';
             }
             else if ($(this).hasClass('iframe')) {
+                var src2 = $(this).find('.data-fix').html();
                 s += '<div class="iframe">' +
-                    '<iframe height="' + $(this).find('iframe').css('height') + '" src="' + $(this).find('iframe').attr('src') + '" ></iframe>' +
+                    '<div class="data-fix">' + src2 + '</div>' +
+                    '<iframe height="' + $(this).css('height') + '" src="' + src2 + '" ></iframe>' +
                     '</div>';
             }
         });
@@ -119,28 +129,32 @@ function save_content(content) {
     var s = '<div class="content">';
     content.children().each(function () {
         if ($(this).is('h3')) {
-            s += '<h3>' + $(this).innerHTML + '</h3>';
+            s += '<h3>' + $(this).html() + '</h3>';
         }
         else if ($(this).is('p')) {
-            s += '<p>' + $(this).innerHTML + '</p>';
+            s += '<p>' + $(this).html() + '</p>';
         }
         else if ($(this).is('h4')) {
-            s += '<h4>' + $(this).innerHTML + '</h4>';
+            s += '<h4>' + $(this).html() + '</h4>';
         }
         else if ($(this).is('ul')) {
-            s += '<ul>' + $(this).innerHTML + '</ul>';
+            s += '<ul>' + $(this).html() + '</ul>';
         }
         else if ($(this).is('table')) {
-            s += '<table border="1" cellspacing="0" cellpadding="0">' + $(this).innerHTML + '</table>';
+            s += '<table border="1" cellspacing="0" cellpadding="0">' + $(this).html() + '</table>';
         }
         else if ($(this).hasClass('youtube')) {
+            var src3 = $(this).find('.data-fix').html();
             s += '<div class="youtube">' +
-                '<iframe src="' + $(this).find('iframe').attr('src') + '" frameborder="0" allowfullscreen></iframe>' +
+                '<div class="data-fix">' + src3 + '</div>' +
+                '<iframe src="' + src3 + '" frameborder="0" allowfullscreen></iframe>' +
                 '</div>';
         }
         else if ($(this).hasClass('iframe')) {
+            var src4 = $(this).find('.data-fix').html();
             s += '<div class="iframe">' +
-                '<iframe height="' + $(this).find('iframe').css('height') + '" src="' + $(this).find('iframe').attr('src') + '" frameborder="0" ></iframe>' +
+                '<div class="data-fix">' + src4 + '</div>' +
+                '<iframe height="' + $(this).css('height') + '" src="' + src4 + '" frameborder="0" ></iframe>' +
                 '</div>';
         }
     });
@@ -154,31 +168,31 @@ function save_sidebar(sidebar) {
     sidebar.children().each(function () {
         if ($(this).hasClass('img')) {
             if ($(this).is('a')) {
-                s += '<a class="img" href="' + $(this).attr('href') + '">' + $(this).innerHTML() + '</a>';
+                s += '<a class="img" href="' + $(this).attr('href') + '">' + $(this).html() + '</a>';
             }
             else {
-                s += '<div class="img">' + $(this).innerHTML() + '</div>';
+                s += '<div class="img">' + $(this).html() + '</div>';
             }
         }
         else if ($(this).hasClass('block')) {
             if ($(this).is('a')) {
-                s += '<a class="block" href="' + $(this).atte('href') + '">';
+                s += '<a class="block" href="' + $(this).attr('href') + '">';
             }
             else {
                 s += '<div class="block">';
             }
             $(this).children().each(function () {
                 if ($(this).hasClass('type')) {
-                    s += '<div class="type>"' + $(this).innerHTML() + '</div>';
+                    s += '<div class="type">' + $(this).html() + '</div>';
                 }
                 else if ($(this).hasClass('view')) {
-                    s += '<div class="view>' + $(this).innerHTML() + '</div>';
+                    s += '<div class="view">' + $(this).html() + '</div>';
                 }
                 else if ($(this).is('h2')) {
-                    s += '<h2>' + $(this).innerHTML() + '</h2>';
+                    s += '<h2>' + $(this).html() + '</h2>';
                 }
                 else if ($(this).is('img')) {
-                    s += '<img src="' + $(this).attr('src') + '/>';
+                    s += '<img src="' + $(this).attr('src') + '"/>';
                 }
             });
             if ($(this).is('a')) {

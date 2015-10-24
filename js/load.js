@@ -56,7 +56,7 @@ function ajaxLoad(path, callback) {
 
 
 function ajaxLoadContent(path, callback) {
-    if (path.length > 0){
+    if (path.length > 0) {
         path += "/";
     }
 
@@ -83,7 +83,7 @@ ajaxLoad("nav.json", function (text) {
 
 
 var currURL = trimForwardSlash(window.location.pathname);
-history.replaceState({"url": currURL}, "", "/" + currURL);
+//history.replaceState({"url": currURL}, "", "/" + currURL);
 filterLinks();
 
 function setHeaderScroll() {
@@ -123,7 +123,9 @@ function setHeaderHeight() {
 
 
 setHeaderScroll();
-window.addEventListener("resize", function(){setHeaderScroll()}, false);
+window.addEventListener("resize", function () {
+    setHeaderScroll()
+}, false);
 
 var navItems1 = null;
 var navItems2 = null;
@@ -228,89 +230,98 @@ function unlistedItemExists(name) {
  * does-not-exist (check nav.json) - error (or DNE)
  */
 function loadURL(newURL, statePopped) {
-    try {
-        newURL = trimForwardSlash(newURL);
 
-        //Does not reload same page
-        if (currURL !== newURL) {
-            var c = currURL.split("/");
-            //Manually typed in top level menu selection page, just loads new page
-            if (c.length === 1 && menuItemExists(c[0])) {
-                window.location.href = "/" + newURL;
-            }
-            //Body cleared no matter what
-            closeBody(function () {
-                //Index
-                if (newURL.length == 0) {
-                    clearActiveNav();
-                    closeSelectionBar(function () {
-                        ajaxLoadContent(newURL, function(a){openBody(a);setHeaderScroll();});
+    newURL = trimForwardSlash(newURL);
+
+    //Does not reload same page
+    if (currURL !== newURL) {
+        var c = currURL.split("/");
+        //Manually typed in top level menu selection page, just loads new page
+        if (c.length === 1 && menuItemExists(c[0])) {
+            window.location.href = "/" + newURL;
+        }
+        //Body cleared no matter what
+        closeBody(function () {
+            //Index
+            if (newURL.length == 0) {
+                clearActiveNav();
+                closeSelectionBar(function () {
+                    ajaxLoadContent(newURL, function (a) {
+                        openBody(a);
+                        setHeaderScroll();
                     });
-                }
-                else {
-                    var n = newURL.split("/");
+                });
+            }
+            else {
+                var n = newURL.split("/");
 
-                    //Page without selection-bar
-                    if (n.length == 1) {
-                        clearActiveNav();
-                        //Redirects to first page if top level menu
-                        if (menuItemExists(n[0])) {
-                            newURL = n[0] + "/" + getMenuItem(n[0])['pages'][0];
-                            window.location.href = "/" + newURL;
-                            return false;
-                        }
-                        closeSelectionBar(function () {
-
-                            if (unlistedItemExists(n[0])) {
-                                ajaxLoadContent(n[0], function(a){openBody(a);setHeaderScroll();});
-                            }
-                            else {
-                                error();
-                            }
-                        });
+                //Page without selection-bar
+                if (n.length == 1) {
+                    clearActiveNav();
+                    //Redirects to first page if top level menu
+                    if (menuItemExists(n[0])) {
+                        newURL = n[0] + "/" + getMenuItem(n[0])['pages'][0];
+                        window.location.href = "/" + newURL;
+                        return false;
                     }
-                    //Page with selection bar
-                    else if (n.length == 2) {
-                        if (menuPageExists(n[0], n[1])) {
-                            var c = currURL.split("/");
-                            //Same menu item
-                            if (c.length == 2 && c[0] === n[0]) {
-                                clearActiveSelection();
-                                ajaxLoadContent(newURL, function(a){openBody(a);setHeaderScroll();});
-                            }
-                            //Different menu item
-                            else {
-                                clearActiveNav();
-                                closeSelectionBar(function () {
-                                    ajaxLoadContent(n[0], function(a){openSelectionBar(a);setHeaderScroll();});
-                                    setTimeout(function () {
-                                        ajaxLoadContent(newURL, function(a){openBody(a);});
-                                    }, 300);
-                                });
-                            }
+                    closeSelectionBar(function () {
+
+                        if (unlistedItemExists(n[0])) {
+                            ajaxLoadContent(n[0], function (a) {
+                                openBody(a);
+                                setHeaderScroll();
+                            });
                         }
                         else {
                             error();
+                        }
+                    });
+                }
+                //Page with selection bar
+                else if (n.length == 2) {
+                    if (menuPageExists(n[0], n[1])) {
+                        var c = currURL.split("/");
+                        //Same menu item
+                        if (c.length == 2 && c[0] === n[0]) {
+                            clearActiveSelection();
+                            ajaxLoadContent(newURL, function (a) {
+                                openBody(a);
+                                setHeaderScroll();
+                            });
+                        }
+                        //Different menu item
+                        else {
+                            clearActiveNav();
+                            closeSelectionBar(function () {
+                                ajaxLoadContent(n[0], function (a) {
+                                    openSelectionBar(a);
+                                    setHeaderScroll();
+                                });
+                                setTimeout(function () {
+                                    ajaxLoadContent(newURL, function (a) {
+                                        openBody(a);
+                                    });
+                                }, 300);
+                            });
                         }
                     }
                     else {
                         error();
                     }
                 }
-                if (!statePopped) {
-                    goToPage(newURL);
-                }
                 else {
-                    goBackPage(newURL);
+                    error();
                 }
-            });
-        }
+            }
+            if (!statePopped) {
+                goToPage(newURL);
+            }
+            else {
+                goBackPage(newURL);
+            }
+        });
     }
-    catch (err) {
-        //TODO: remove this in production
-        throw err;
-        //error();
-    }
+
 }
 
 
@@ -328,10 +339,10 @@ function trimForwardSlash(stringToTrim) {
 function fixHeaderWidth() {
     var slide = $('.scroll-fix');
     if (slide.length) {
-        slide.each(function() {
+        slide.each(function () {
             var width = 20;
-            $(this).children().each(function(){
-               width += $(this).outerWidth(true);
+            $(this).children().each(function () {
+                width += $(this).outerWidth(true);
             });
             $(this).width(width);
         });

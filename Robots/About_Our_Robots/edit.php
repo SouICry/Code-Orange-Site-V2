@@ -124,6 +124,11 @@
     <?php include $_SERVER['DOCUMENT_ROOT'].'/php/footer.php'; ?>
 </div>
 <?php include $_SERVER['DOCUMENT_ROOT'].'/php/js-include.php'; ?>
-<?php include $_SERVER['DOCUMENT_ROOT'].'/php/js-edit-include.php'; ?>
+
+<?php
+if(isset($_GET['edit']) && $_GET['edit'] == 'true') {
+    include $_SERVER['DOCUMENT_ROOT'].'/php/js-edit-include.php';
+}
+?>
 </body>
 </html>

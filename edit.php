@@ -55,14 +55,7 @@
         </div>
     </div>
     <div id="selection-bar" class="selection-nav">
-        <?php
-        if (file_exists('../content-edit.htm')){
-            include '../content-edit.htm';
-        }
-        else{
-            include '../content.htm';
-        }
-        ?>
+
     </div>
 </div>
 <div id="header-filler">
@@ -107,14 +100,7 @@
         </div>
     </div>
     <div id="selection-bar-filler" class="selection-nav">
-        <?php
-        if (file_exists('../content-edit.htm')){
-            include '../content-edit.htm';
-        }
-        else{
-            include '../content.htm';
-        }
-        ?>
+
     </div>
 </div>
 <div id="body">

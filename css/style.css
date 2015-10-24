@@ -750,7 +750,7 @@ button.btn-floating {
 #user, #logo, #logo-filler, #user-filler {
   height: 50px;
   float: right; }
-  #user a, #logo a, #logo-filler a, #user-filler a {
+  #user a, #logo a, #logo-filler a, #user div, #logo div, #logo-filler div, #user-filler a, #user-filler div {
     float: left;
     white-space: nowrap;
     color: #ffd180;
@@ -759,11 +759,12 @@ button.btn-floating {
     padding: 0 20px;
     line-height: 47px;
     text-align: center;
-    border: none;
     list-style: none; }
-    #user a:hover, #logo a:hover, #logo-filler a:hover, #user-filler a:hover {
+    #user a:hover, #logo a:hover, #logo-filler a:hover, #user div:hover, #logo div:hover, #logo-filler div:hover, #user-filler a:hover, #user-filler div:hover {
       border-bottom: 3px solid #ffd180;
       text-decoration: none; }
+  #user a, #logo a, #logo-filler a, #user-filler a {
+    border: none; }
 
 #logo, #logo-filler {
   float: left; }
@@ -1069,18 +1070,19 @@ a.block:active, a.block-2:active, a.block-3:active, a.block-4:active, a.block-6:
     position: absolute;
     top: 0;
     left: 0; }
-  .block h2, .block-2 h2, .block-3 h2, .block-4 h2, .block-6 h2, .block-half h2, .block-2-half h2, .block-3-half h2, .block-4-half h2, .block-6-half h2 {
+  .block h2, .block-2 h2, .block-3 h2, .block-4 h2, .block-6 h2, .block h3, .block-2 h3, .block-3 h3, .block-4 h3, .block-6 h3, .block h4, .block-2 h4, .block-3 h4, .block-4 h4, .block-6 h4, .block thead td, thead .block td, .block-2 thead td, thead .block-2 td, .block-3 thead td, thead .block-3 td, .block-4 thead td, thead .block-4 td, .block-6 thead td, thead .block-6 td, .block-half h2, .block-2-half h2, .block-3-half h2, .block-4-half h2, .block-6-half h2, .block-half h3, .block-2-half h3, .block-3-half h3, .block-4-half h3, .block-6-half h3, .block-half h4, .block-2-half h4, .block-3-half h4, .block-4-half h4, .block-6-half h4, .block-half thead td, thead .block-half td, .block-2-half thead td, thead .block-2-half td, .block-3-half thead td, thead .block-3-half td, .block-4-half thead td, thead .block-4-half td, .block-6-half thead td, thead .block-6-half td {
     margin: 0;
     padding: 0;
     text-align: center;
-    max-width: 100%;
-    max-height: calc(100% - 30px);
+    width: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: zekton, sans-serif;
     font-weight: bold; }
+  .block h2, .block-2 h2, .block-3 h2, .block-4 h2, .block-6 h2, .block-half h2, .block-2-half h2, .block-3-half h2, .block-4-half h2, .block-6-half h2 {
+    max-height: calc(100% - 30px); }
   .block .view, .block-2 .view, .block-3 .view, .block-4 .view, .block-6 .view, .block-half .view, .block-2-half .view, .block-3-half .view, .block-4-half .view, .block-6-half .view {
     position: absolute;
     bottom: 0;
@@ -1278,18 +1280,19 @@ a.block:active, a.block-2:active, a.block-3:active, a.block-4:active, a.block-6:
     position: absolute;
     top: 0;
     left: 0; }
-  .block h2, .block-2 h2, .block-3 h2, .block-4 h2, .block-6 h2, .block-half h2, .block-2-half h2, .block-3-half h2, .block-4-half h2, .block-6-half h2 {
+  .block h2, .block-2 h2, .block-3 h2, .block-4 h2, .block-6 h2, .block h3, .block-2 h3, .block-3 h3, .block-4 h3, .block-6 h3, .block h4, .block-2 h4, .block-3 h4, .block-4 h4, .block-6 h4, .block thead td, thead .block td, .block-2 thead td, thead .block-2 td, .block-3 thead td, thead .block-3 td, .block-4 thead td, thead .block-4 td, .block-6 thead td, thead .block-6 td, .block-half h2, .block-2-half h2, .block-3-half h2, .block-4-half h2, .block-6-half h2, .block-half h3, .block-2-half h3, .block-3-half h3, .block-4-half h3, .block-6-half h3, .block-half h4, .block-2-half h4, .block-3-half h4, .block-4-half h4, .block-6-half h4, .block-half thead td, thead .block-half td, .block-2-half thead td, thead .block-2-half td, .block-3-half thead td, thead .block-3-half td, .block-4-half thead td, thead .block-4-half td, .block-6-half thead td, thead .block-6-half td {
     margin: 0;
     padding: 0;
     text-align: center;
-    max-width: 100%;
-    max-height: calc(100% - 30px);
+    width: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: zekton, sans-serif;
     font-weight: bold; }
+  .block h2, .block-2 h2, .block-3 h2, .block-4 h2, .block-6 h2, .block-half h2, .block-2-half h2, .block-3-half h2, .block-4-half h2, .block-6-half h2 {
+    max-height: calc(100% - 30px); }
   .block .view, .block-2 .view, .block-3 .view, .block-4 .view, .block-6 .view, .block-half .view, .block-2-half .view, .block-3-half .view, .block-4-half .view, .block-6-half .view {
     position: absolute;
     bottom: 0;
@@ -1714,15 +1717,15 @@ h1 {
     @media (min-width: 1024px) and (max-width: 1279px) {
       #body .row .title h1, #selection-bar .title h1 {
         font-size: 58px;
-        margin: 84px -80px -145px 20px; } }
+        margin: 75px -80px -145px 20px; } }
     @media (min-width: 1280px) and (max-width: 1439px) {
       #body .row .title h1, #selection-bar .title h1 {
         font-size: 62px;
-        margin: 105px -105px -165px 20px; } }
+        margin: 85px -105px -165px 20px; } }
     @media (min-width: 1440px) {
       #body .row .title h1, #selection-bar .title h1 {
         font-size: 66px;
-        margin: 115px -130px -165px 20px; } }
+        margin: 95px -130px -165px 20px; } }
   #body .row .title .sub-title, #selection-bar .title .sub-title {
     display: block;
     float: left;
@@ -1743,17 +1746,17 @@ h1 {
       #body .row .title .sub-title, #selection-bar .title .sub-title {
         font-size: 36px;
         line-height: 58px;
-        margin: 150px 0 24px 93px; } }
+        margin: 140px 0 24px 93px; } }
     @media (min-width: 1280px) and (max-width: 1439px) {
       #body .row .title .sub-title, #selection-bar .title .sub-title {
         font-size: 40px;
         line-height: 62px;
-        margin: 180px 0 24px 123px; } }
+        margin: 150px 0 24px 123px; } }
     @media (min-width: 1440px) {
       #body .row .title .sub-title, #selection-bar .title .sub-title {
         font-size: 44px;
         line-height: 66px;
-        margin: 180px 0 24px 148px; } }
+        margin: 160px 0 24px 148px; } }
 
 .carousel {
   display: block;
@@ -2660,6 +2663,9 @@ h3.manage {
 
 .sidebar > .manage, .blocks.manage > * {
   border-color: blue; }
+
+.data-fix {
+  display: none; }
 
 .iframe {
   position: relative;
