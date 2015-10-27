@@ -6,3 +6,4 @@
 <script src="/js/save-selection-bar.js"></script>
 <script src="/js/save.js"></script>
 <script src="/js/edit.js"></script>
+<script src="/js/publish.js"></script>

@@ -10,18 +10,23 @@
 @import 'buttons';
 @import 'header';
 @import 'selection-bar';
-@import 'footer';
 @import 'layout_block';
 @import 'layout_structure';
 @import 'layout_content';
+@import 'footer';
 @import 'title';
 @import 'carousel';
-@import 'index-page';
-@import 'fullpage';
 
+@import 'fullpage';
 
 .manage-none {
 
+}
+
+.editable p  {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
 }
 
 .manage-button {

@@ -16,15 +16,6 @@
 
  Footer changes published immediately
 
-
-
-
-
- Instead of left click, do hover buttons instead
- ...
- Actually, nvm, too much unnecessary work
-
-
  */
 
 
@@ -46,14 +37,12 @@ function disableLinks() {
 }
 disableLinks();
 
-function getBlocksData(){
-    $('.blocks > *').each(function(){
+function getBlocksData() {
+    $('.blocks > *').each(function () {
         $(this).data('class', this.className)
     });
 }
 getBlocksData();
-
-
 
 
 //function disableIframes(){
@@ -63,7 +52,6 @@ getBlocksData();
 //    });
 //}
 //disableIframes();
-
 
 
 //Highlights objects or makes enables contenteditable
@@ -76,10 +64,12 @@ $('.sidebar .block .type, .sidebar .block .view, .sidebar .block  h2').addClass(
 $('.content-row:not(:has(.sidebar))').addClass('editable').attr('contenteditable', 'true');
 
 
-
 $('.section-inner .content').addClass('editable').attr('contenteditable', 'true');
 
-
+//Closes active context menu when editable content selected (since this doesnt normally work)
+$('.editable').on('mousedown', function () {
+        $('.iw-curMenu').contextMenu('close');
+});
 
 
 
@@ -231,8 +221,6 @@ $('.blocks.manage a.manage > *').click(function (event) {
 $('.blocks.manage a.manage img').contextMenu(edit_blocks_section_block_img);
 
 
-
-
 //Sortable enable/disable
 
 function enable_rearrange_fullpage_sections() {
@@ -360,7 +348,6 @@ function edit_mode() {
 }
 
 
-
 //Testing toggle sorting/editing
 
 var t = false;
@@ -475,17 +462,9 @@ sheet.insertRule(".blocks.manage-button { display: flex;}", 0);
 sheet.insertRule(".manage-none { display: none;}", 0);
 
 
-
-
-$('.preview-button').click(function(){
+$('.preview-button').click(function () {
     window.open('/' + currURL);
 });
-$('.save-button').click(function(){
-    var c = savePage();
-});
-
-
-
 
 
 CKEDITOR.config.contentsCss = '/css/style.css';

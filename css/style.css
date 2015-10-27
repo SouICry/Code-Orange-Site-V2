@@ -387,7 +387,7 @@ html {
   box-sizing: inherit;
   -webkit-font-smoothing: antialiased; }
 
-i {
+i, em {
   padding-right: 0.2em; }
 
 *:focus {
@@ -483,17 +483,17 @@ blockquote {
   blockquote cite {
     float: right; }
 
-p {
+p, .content-section li, .section-inner .title .sub-title, .section-inner .title .sub-title p {
   font-size: 17px;
   text-decoration: none; }
   @media (min-width: 1024px) and (max-width: 1279px) {
-    p {
+    p, .content-section li, .section-inner .title .sub-title, .section-inner .title .sub-title p {
       font-size: 17px; } }
   @media (min-width: 1280px) and (max-width: 1439px) {
-    p {
+    p, .content-section li, .section-inner .title .sub-title, .section-inner .title .sub-title p {
       font-size: 19px; } }
   @media (min-width: 1440px) {
-    p {
+    p, .content-section li, .section-inner .title .sub-title, .section-inner .title .sub-title p {
       font-size: 19px; } }
 
 a {
@@ -985,24 +985,6 @@ button.btn-floating {
     position: absolute;
     left: 0;
     width: 100%; }
-
-#footer, .footer {
-  position: relative;
-  float: left;
-  background-color: #00796b;
-  height: 250px;
-  z-index: 1;
-  width: 100%;
-  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5); }
-  @media (min-width: 720px) and (max-width: 1023px) {
-    #footer, .footer {
-      box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5); } }
-  @media (min-width: 1024px) {
-    #footer, .footer {
-      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5); } }
-
-#footer-filler {
-  height: 250px; }
 
 .blocks {
   flex-flow: row wrap;
@@ -1575,25 +1557,20 @@ iframe {
     iframe {
       margin: 0 0 24px 0; } }
 
-.paragraph, .content p, .content-section li, .section-inner .title .sub-title {
+p, .content-section li, .section-inner .title .sub-title, .section-inner .title .sub-title p {
   margin: 0 20px 18px 20px; }
   @media (min-width: 720px) and (max-width: 1023px) {
-    .paragraph, .content p, .content-section li, .section-inner .title .sub-title {
+    p, .content-section li, .section-inner .title .sub-title, .section-inner .title .sub-title p {
       margin: 0 20px 24px 20px; } }
   @media (min-width: 1024px) and (max-width: 1279px) {
-    .paragraph, .content p, .content-section li, .section-inner .title .sub-title {
+    p, .content-section li, .section-inner .title .sub-title, .section-inner .title .sub-title p {
       margin: 0 30px 24px 30px; } }
   @media (min-width: 1280px) and (max-width: 1439px) {
-    .paragraph, .content p, .content-section li, .section-inner .title .sub-title {
+    p, .content-section li, .section-inner .title .sub-title, .section-inner .title .sub-title p {
       margin: 0 40px 24px 40px; } }
   @media (min-width: 1440px) {
-    .paragraph, .content p, .content-section li, .section-inner .title .sub-title {
+    p, .content-section li, .section-inner .title .sub-title, .section-inner .title .sub-title p {
       margin: 0 50px 24px 50px; } }
-
-p {
-  margin: 0;
-  padding: 0;
-  font-size: inherit; }
 
 .heading, h2, h3, h4, thead td, #body .row .title h1, #selection-bar .title h1, #body .row .title .sub-title, #selection-bar .title .sub-title, .carousel .title h1, .carousel .title .sub-title {
   margin: 0 10px 18px 10px; }
@@ -1652,6 +1629,24 @@ h4, thead td {
     h4, thead td {
       margin-top: 8px;
       padding-left: 15px; } }
+
+#footer, .footer {
+  position: relative;
+  float: left;
+  background-color: #00796b;
+  height: 250px;
+  z-index: 1;
+  width: 100%;
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5); }
+  @media (min-width: 720px) and (max-width: 1023px) {
+    #footer, .footer {
+      box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5); } }
+  @media (min-width: 1024px) {
+    #footer, .footer {
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5); } }
+
+#footer-filler {
+  height: 250px; }
 
 #body .row .title {
   margin: 0;
@@ -1757,6 +1752,24 @@ h1 {
         font-size: 44px;
         line-height: 66px;
         margin: 160px 0 24px 148px; } }
+    #body .row .title .sub-title p, #body .row .title .sub-title .content-section li, .content-section #body .row .title .sub-title li, #body .row .section-inner .title .sub-title .sub-title, .section-inner #body .row .title .sub-title .sub-title, #selection-bar .title .sub-title p, #selection-bar .title .sub-title .content-section li, .content-section #selection-bar .title .sub-title li, #selection-bar .section-inner .title .sub-title .sub-title, .section-inner #selection-bar .title .sub-title .sub-title {
+      margin: 0;
+      font-size: 24px; }
+      @media (min-width: 480px) and (max-width: 719px) {
+        #body .row .title .sub-title p, #body .row .title .sub-title .content-section li, .content-section #body .row .title .sub-title li, #body .row .section-inner .title .sub-title .sub-title, .section-inner #body .row .title .sub-title .sub-title, #selection-bar .title .sub-title p, #selection-bar .title .sub-title .content-section li, .content-section #selection-bar .title .sub-title li, #selection-bar .section-inner .title .sub-title .sub-title, .section-inner #selection-bar .title .sub-title .sub-title {
+          font-size: 28px; } }
+      @media (min-width: 720px) and (max-width: 1023px) {
+        #body .row .title .sub-title p, #body .row .title .sub-title .content-section li, .content-section #body .row .title .sub-title li, #body .row .section-inner .title .sub-title .sub-title, .section-inner #body .row .title .sub-title .sub-title, #selection-bar .title .sub-title p, #selection-bar .title .sub-title .content-section li, .content-section #selection-bar .title .sub-title li, #selection-bar .section-inner .title .sub-title .sub-title, .section-inner #selection-bar .title .sub-title .sub-title {
+          font-size: 32px; } }
+      @media (min-width: 1024px) and (max-width: 1279px) {
+        #body .row .title .sub-title p, #body .row .title .sub-title .content-section li, .content-section #body .row .title .sub-title li, #body .row .section-inner .title .sub-title .sub-title, .section-inner #body .row .title .sub-title .sub-title, #selection-bar .title .sub-title p, #selection-bar .title .sub-title .content-section li, .content-section #selection-bar .title .sub-title li, #selection-bar .section-inner .title .sub-title .sub-title, .section-inner #selection-bar .title .sub-title .sub-title {
+          font-size: 36px; } }
+      @media (min-width: 1280px) and (max-width: 1439px) {
+        #body .row .title .sub-title p, #body .row .title .sub-title .content-section li, .content-section #body .row .title .sub-title li, #body .row .section-inner .title .sub-title .sub-title, .section-inner #body .row .title .sub-title .sub-title, #selection-bar .title .sub-title p, #selection-bar .title .sub-title .content-section li, .content-section #selection-bar .title .sub-title li, #selection-bar .section-inner .title .sub-title .sub-title, .section-inner #selection-bar .title .sub-title .sub-title {
+          font-size: 40px; } }
+      @media (min-width: 1440px) {
+        #body .row .title .sub-title p, #body .row .title .sub-title .content-section li, .content-section #body .row .title .sub-title li, #body .row .section-inner .title .sub-title .sub-title, .section-inner #body .row .title .sub-title .sub-title, #selection-bar .title .sub-title p, #selection-bar .title .sub-title .content-section li, .content-section #selection-bar .title .sub-title li, #selection-bar .section-inner .title .sub-title .sub-title, .section-inner #selection-bar .title .sub-title .sub-title {
+          font-size: 44px; } }
 
 .carousel {
   display: block;
@@ -2164,64 +2177,6 @@ ul .slide {
   opacity: 1; }
 
 /* ------------- Template /Bullets ------------- */
-#index-about {
-  float: left;
-  display: flex;
-  flex: 0 1 auto;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center; }
-  #index-about p {
-    font-size: 17px;
-    text-decoration: none;
-    width: 100%; }
-    @media (min-width: 1024px) and (max-width: 1279px) {
-      #index-about p {
-        font-size: 19px; } }
-    @media (min-width: 1280px) and (max-width: 1439px) {
-      #index-about p {
-        font-size: 21px; } }
-    @media (min-width: 1440px) {
-      #index-about p {
-        font-size: 21px; } }
-    @media (min-width: 480px) and (max-width: 719px) {
-      #index-about p {
-        width: 100%; } }
-    @media (min-width: 720px) and (max-width: 1023px) {
-      #index-about p {
-        width: 68%; } }
-    @media (min-width: 1024px) {
-      #index-about p {
-        width: 68%; } }
-
-#index-surfer {
-  margin: auto;
-  width: 100%; }
-  @media (min-width: 480px) and (max-width: 719px) {
-    #index-surfer {
-      width: 50%; } }
-  @media (min-width: 720px) and (max-width: 1023px) {
-    #index-surfer {
-      width: 25%; } }
-  @media (min-width: 1024px) {
-    #index-surfer {
-      width: 22%; } }
-
-.index-row {
-  background-color: #fb8c00;
-  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5); }
-  @media (min-width: 720px) and (max-width: 1023px) {
-    .index-row {
-      box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5); } }
-  @media (min-width: 1024px) {
-    .index-row {
-      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5); } }
-
-#index-content {
-  display: flex;
-  height: inherit;
-  align-items: center; }
-
 #fullpage {
   margin: 0; }
 
@@ -2249,7 +2204,7 @@ ul .slide {
         width: 50px; } }
     .section-inner .scroll-for-more:hover {
       opacity: 0.5; }
-  .section-inner h1, .section-inner p {
+  .section-inner h1, .section-inner p, .section-inner .content-section li, .content-section .section-inner li, .section-inner .title .sub-title, .section-inner .title .sub-title p {
     position: static;
     display: block;
     margin: 0;
@@ -2266,7 +2221,7 @@ ul .slide {
     @media (min-width: 1024px) {
       .section-inner .title {
         top: 50%; } }
-    .section-inner .title .sub-title {
+    .section-inner .title .sub-title, .section-inner .title .sub-title .content-section li, .content-section .section-inner .title .sub-title li, .section-inner .title .sub-title .sub-title, .section-inner .title .sub-title p {
       margin: 0;
       text-shadow: none;
       padding-left: 10%;
@@ -2277,19 +2232,19 @@ ul .slide {
       float: right;
       font-size: 20px; }
       @media (min-width: 480px) and (max-width: 719px) {
-        .section-inner .title .sub-title {
+        .section-inner .title .sub-title, .section-inner .title .sub-title .content-section li, .content-section .section-inner .title .sub-title li, .section-inner .title .sub-title .sub-title, .section-inner .title .sub-title p {
           font-size: 26px; } }
       @media (min-width: 720px) and (max-width: 1023px) {
-        .section-inner .title .sub-title {
+        .section-inner .title .sub-title, .section-inner .title .sub-title .content-section li, .content-section .section-inner .title .sub-title li, .section-inner .title .sub-title .sub-title, .section-inner .title .sub-title p {
           font-size: 30px; } }
       @media (min-width: 1024px) and (max-width: 1279px) {
-        .section-inner .title .sub-title {
+        .section-inner .title .sub-title, .section-inner .title .sub-title .content-section li, .content-section .section-inner .title .sub-title li, .section-inner .title .sub-title .sub-title, .section-inner .title .sub-title p {
           font-size: 34px; } }
       @media (min-width: 1280px) and (max-width: 1439px) {
-        .section-inner .title .sub-title {
+        .section-inner .title .sub-title, .section-inner .title .sub-title .content-section li, .content-section .section-inner .title .sub-title li, .section-inner .title .sub-title .sub-title, .section-inner .title .sub-title p {
           font-size: 38px; } }
       @media (min-width: 1440px) {
-        .section-inner .title .sub-title {
+        .section-inner .title .sub-title, .section-inner .title .sub-title .content-section li, .content-section .section-inner .title .sub-title li, .section-inner .title .sub-title .sub-title, .section-inner .title .sub-title p {
           font-size: 42px; } }
     .section-inner .title h1 {
       padding-right: 10%;
@@ -2334,27 +2289,27 @@ ul .slide {
     @media (min-width: 1440px) {
       .section-inner .content {
         margin: 150px; } }
-    .section-inner .content p {
+    .section-inner .content p, .section-inner .content .content-section li, .content-section .section-inner .content li, .section-inner .content .title .sub-title, .section-inner .title .content .sub-title, .section-inner .content .title .sub-title p, .section-inner .title .sub-title .content p {
       margin-top: 10px;
       font-size: 17px; }
       @media (min-width: 480px) and (max-width: 719px) {
-        .section-inner .content p {
+        .section-inner .content p, .section-inner .content .content-section li, .content-section .section-inner .content li, .section-inner .content .title .sub-title, .section-inner .title .content .sub-title, .section-inner .content .title .sub-title p, .section-inner .title .sub-title .content p {
           margin-top: 15px;
           font-size: 17px; } }
       @media (min-width: 720px) and (max-width: 1023px) {
-        .section-inner .content p {
+        .section-inner .content p, .section-inner .content .content-section li, .content-section .section-inner .content li, .section-inner .content .title .sub-title, .section-inner .title .content .sub-title, .section-inner .content .title .sub-title p, .section-inner .title .sub-title .content p {
           margin-top: 20px;
           font-size: 18px; } }
       @media (min-width: 1024px) and (max-width: 1279px) {
-        .section-inner .content p {
+        .section-inner .content p, .section-inner .content .content-section li, .content-section .section-inner .content li, .section-inner .content .title .sub-title, .section-inner .title .content .sub-title, .section-inner .content .title .sub-title p, .section-inner .title .sub-title .content p {
           margin-top: 30px;
           font-size: 20px; } }
       @media (min-width: 1280px) and (max-width: 1439px) {
-        .section-inner .content p {
+        .section-inner .content p, .section-inner .content .content-section li, .content-section .section-inner .content li, .section-inner .content .title .sub-title, .section-inner .title .content .sub-title, .section-inner .content .title .sub-title p, .section-inner .title .sub-title .content p {
           margin-top: 30px;
           font-size: 22px; } }
       @media (min-width: 1440px) {
-        .section-inner .content p {
+        .section-inner .content p, .section-inner .content .content-section li, .content-section .section-inner .content li, .section-inner .content .title .sub-title, .section-inner .title .content .sub-title, .section-inner .content .title .sub-title p, .section-inner .title .sub-title .content p {
           margin-top: 30px;
           font-size: 24px; } }
     .section-inner .content h1 {
@@ -2395,7 +2350,7 @@ ul .slide {
       @media (min-width: 1440px) {
         .section-inner .content h2 {
           font-size: 42px; } }
-  .section-inner .content.right h1, .section-inner .content.right p {
+  .section-inner .content.right h1, .section-inner .content.right p, .section-inner .content.right .content-section li, .content-section .section-inner .content.right li, .section-inner .content.right .title .sub-title, .section-inner .title .content.right .sub-title {
     float: right;
     text-align: right; }
   .section-inner .content.right h2 {
@@ -2615,6 +2570,11 @@ html.fp-enabled,
 .fp-auto-height .fp-slide,
 .fp-auto-height .fp-tableCell {
   height: auto !important; }
+
+.editable p, .editable .content-section li, .content-section .editable li, .editable .section-inner .title .sub-title, .section-inner .title .editable .sub-title, .editable .section-inner .title .sub-title p, .section-inner .title .sub-title .editable p {
+  margin: 0;
+  padding: 0;
+  font-size: inherit; }
 
 .manage-button {
   cursor: pointer;
