@@ -4,7 +4,6 @@
     function fullpageInit(){
         if (document.getElementById("fullpage") !== null) {
             $('#fullpage').fullpage({
-                sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
                 navigation: true,
                 fitToSection: false,
                 scrollBar: true,
@@ -23,4 +22,5 @@
 <script src='/js/carousel.js'></script>
 <script src='/js/headroom.js'></script>
 <script src='/js/load.js'></script>
+<script src='/js/modal.js'></script>
 

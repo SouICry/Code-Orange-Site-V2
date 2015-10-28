@@ -6,12 +6,12 @@
 </head>
 <body>
 <div id="title-overlay" style="position: fixed;width: 100vw; height: 100vh;
-background-color: orange; z-index: 999; transition: all 1s"></div>
+background-color: orange; z-index: 200; transition: all 1s"></div>
 <script>
     $('#title-overlay').click(function(){
         $('#title-overlay').css('opacity', '0');
         setTimeout(function() {
-            $('.title').css('z-index', '100');
+            $('.title').css('z-index', '50');
             $('#title-overlay').css('display', 'none');
         }, 1000);
     })

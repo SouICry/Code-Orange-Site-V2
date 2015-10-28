@@ -1,0 +1,15 @@
+Please DO NOT MOVE file-manager.html RELATIVE TO scan.php. YOU WILL BREAK FILE DOWNLOAD/VIEW LINKS and its a bit tricky to fix.
+
+scan.php: 
+Change $dir to root directory (or all directries to scan)
+Change "name" to $dir //ftfy
+
+file-manager.html: 
+Change 'url' for $().fileupload() to relative root for default, this directory to upload to this directory
+Fix all css and js links
+
+file-manager/js/script.js
+Change ../scan.php to location of it relative to file-manager.html
+
+uploadhandler.php
+Change both '/allsitefiles/' to '/<intendeddirectory>/'

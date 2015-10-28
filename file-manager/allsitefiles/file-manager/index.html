@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<title>File Manager</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale = 1">
+	<!-- Bootstrap styles -->
+	<link href="css/bootstrap.css" rel="stylesheet"/>
+	<link href="css/styles.css" rel="stylesheet"/>
+	<link href="css/jquery.contextMenu.css" rel="stylesheet" type="text/css" />
+	
+</head>
+<body>
+	<div class="image-crop-modal" style="display:-ms-flex;display:-webkit-flex;display:flex;z-index:2000; position:fixed; width:100%; height:100%;background-color:rgba(0, 0, 0, 0.6);transition: background-color: 0.5s; display:none;">
+		<div class="image-cropper" style="display:inherit; align-items: center; justify-content: center; align-content: center; flex-direction: column; width:100%; height:100%; max-width:1024px; max-height: 810px; margin:auto;">
+			<img style="max-width:100%;max-height: 760px;" id="image-crop">
+			<div class="btn btn-default "style="margin-top:10px;">Save</div>
+		</div>
+	</div>
+	<ul class="trash">
+	</ul>
+	<div class="trash-bg">
+		<div class="trash-icon">
+			<div class="lidcap"></div>
+			<div class="lid"></div>
+			<div class="bin"></div>
+		</div>
+	</div>
+	<div class="nav-search-bar">
+	<div class="spacer">
+		<div class="title">
+			File Manager
+		</div>
+		<div class="options">
+			<div class="btn btn-default active replace-files" title = "Toggle on to overwrite uploaded files."style="opacity:0.5">Overwrite Files (Off)</div>
+		</div>
+	</div>
+		<div class="nav-search-bar-inner">
+			<!--
+			<div class="search">	
+				<input id="search-bar" type="search" placeholder="Type anywhere to search.." />
+			</div>
+			-->
+			<div class="breadcrumbs"></div>
+		</div>
+	</div>
+		
+	<div class="filemanager">
+		<ul class="data"></ul>
+		<div class="nothingfound">
+			<div class="nofiles"></div>
+			<span>Empty</span>
+		</div>
+	</div>
+	
+	<!------   jQuery Libraries   ------>
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery-ui.js"></script><!--This is actually a large amount of libraries combined for file-manager and more-->
+	
+	<!------   Right click menu   ------>
+	<script src="js/jquery.contextMenu.js"></script>
+	<!------   End Right click menu   ------>
+	
+	<!--This must come before file manager and uploader.-->
+	<script>var is_valid_drop = false; var curr_url = ''; </script>
+	
+	
+	<!------   File manager      Plusu at very top   ------>
+	<script src="js/script.js"></script>
+	<script> 
+	
+	
+	//Initializes to not overwrite
+	$(document).ready(function (){
+		$.ajax({
+			type: "post",
+			url: "../../session.php",
+			data:  "overwrite_files=" + false,/* no slashes '/' before or after*/ 
+			success : function(msg) { 
+				$('.replace-files').html("Overwrite Files (Off)");
+				$('.replace-files').css ('opacity','0.5');
+				$('.replace-files').addClass('active');
+			}
+		});
+	});
+	
+	
+	/*Hides thumbnail if not present and shows icon and name instead*/
+	function thumbnail_not_found(src){
+		$(src).css('visibility', 'hidden');
+		$(src).parent().children('.invisible').removeClass('invisible').addClass('visible');/* Enables icon and name */
+		$(src).remove(); /* Removes the thumbnail*/
+	}	
+	
+	
+	$('.replace-files').click(function () {
+		if ($('.replace-files').html() === "Overwrite Files (Off)"){
+			$.ajax({//relative to file manager html file
+				type: "post",
+				url: "../../session.php" , 
+				data:  "overwrite_files=" + true,/* no slashes '/' before or after*/ 
+				success : function(msg) { 
+					$('.replace-files').html("Overwrite Files (On)");
+					$('.replace-files').css ('opacity','0.80');
+					$('.replace-files').removeClass('active');
+				}
+			});
+		}
+		else {
+			$.ajax({//relative to file manager html file
+				type: "post",
+				url: "../../session.php" , 
+				data:  "overwrite_files=" + false,/* no slashes '/' before or after*/ 
+				success : function(msg) { 
+					$('.replace-files').html("Overwrite Files (Off)");
+					$('.replace-files').css ('opacity','0.5');
+					$('.replace-files').addClass('active');
+				}
+			});
+		}
+	});
+	/*Initializes replace button, twice to prevent errors as page is loading*/
+	$(document).ready(function() {
+		$.ajax({//relative to file manager html file
+			type: "post",
+			url: "../../session.php" , 
+			data:  "get_val=overwrite_files",
+			success : function(val) {			
+				if (val === 'false'){
+					$('.replace-files').html("Overwrite Files (Off)");
+					$('.replace-files').css ('opacity','0.5');
+					$('.replace-files').addClass('active');
+				}
+				else {
+					$('.replace-files').html("Overwrite Files (On)");
+					$('.replace-files').css ('opacity','0.80');
+					$('.replace-files').removeClass('active');
+				}
+			}
+		});
+	});
+	$(window).load(function() {
+		$.ajax({//relative to file manager html file
+			type: "post",
+			url: "../../session.php" , 
+			data:  "get_val=overwrite_files",
+			success : function(val) { 
+				if (val === 'false'){
+					$('.replace-files').html("Overwrite Files (Off)");
+					$('.replace-files').css ('opacity','0.5');
+					$('.replace-files').addClass('active');
+				}
+				else {
+					$('.replace-files').html("Overwrite Files (On)");
+					$('.replace-files').css ('opacity','0.80');
+					$('.replace-files').removeClass('active');
+				}
+			}
+		});
+	});
+	
+	
+	
+	/* Center the files and nav bar*/
+	$(".filemanager").width( Math.floor($(window).width() * 0.95 / 240) * 240 );
+	if ($(window).width() > 1024){
+		$(".nav-search-bar-inner").width( Math.floor($(window).width() / 240) * 240 * 0.95);
+	}
+	else {
+		$(".nav-search-bar-inner").width( $(window).width() * 0.95);
+	}
+	$(window).on("resize", function(){
+		$(".filemanager").width( Math.floor($(window).width() * 0.95 / 240) * 240 );
+		if ($(window).width() > 1024){
+			$(".nav-search-bar-inner").width( Math.floor($(window).width() / 240) * 240 * 0.95);
+		}
+		else {
+			$(".nav-search-bar-inner").width( $(window).width() * 0.95);
+		}
+	});
+	
+	
+	
+	
+	
+	/*Get the current root directory of the folder containing this file manager file (which should be with the files naturally) (/ if just root)*/
+	var file_root = location.pathname;
+	if (file_root.includes("/")){
+		
+		file_root = file_root.substring(0, file_root.lastIndexOf("/"));
+		file_root = file_root.substring(0, file_root.lastIndexOf("/") + 1);
+	}
+	else {
+		file_root = '/';
+	}
+	
+	
+	$( ".trash" ).droppable({
+		over: function (event, ui){
+			$('.trash-bg').css('opacity', '0.95');
+			$('.trash-icon').css('opacity', '1');
+			$('.trash-icon').css('transform', 'scale(' + 0.65*$('.trash').height()/100+','+ 0.65*$('.trash').height()/100+')');
+			$('.lid').css('transform', 'rotate(10deg)').css('margin-bottom', '8px');
+			$('.lidcap').css('transform', 'rotate(10deg)').css('margin-bottom', '8px');
+		},
+		out: function (event, ui) {
+			$('.trash-bg').css('opacity', '0.8');
+			$('.trash-icon').css('opacity', '1');
+			$('.trash-icon').css('transform', 'scale(' + 0.5*$('.trash').height()/100+','+ 0.5*$('.trash').height()/100+')');
+			$('.lid').css('transform', 'rotate(0deg)').css('margin-bottom', '0px');
+			$('.lidcap').css('transform', 'rotate(0deg)').css('margin-bottom', '0px');
+		},
+	  
+		drop: function(event, ui) {
+			/*JS DOES NOT SUPPORT DOUBLE SLASH COMMENTS!!!*/
+			is_valid_drop = true;
+			var fullPathRelvToThisFile = $(ui.draggable).find('a:first').attr('href');
+			var fileNamef =  fullPathRelvToThisFile.substr(fullPathRelvToThisFile.lastIndexOf('/') + 1);
+			if ($(ui.draggable).hasClass("folders")){
+				$.ajax({
+					type: "post",
+					url: "../../delete-file.php" ,
+					data:  "file=" + curr_url + fileNamef,/* */ 
+					success : function(msg) { 
+						$(ui.draggable).remove();
+						rescan();
+						if (msg === "fail"){
+							var h = window.location.hash;
+							window.location.hash = "Error";
+							window.location.hash = h;
+						}
+					}
+				});
+			}
+			else {
+				$.ajax({
+					type: "post",
+					url: "../../delete-file.php" ,
+					data:  "file=" + curr_url + fileNamef,/* */ 
+					success : function(msg) { 
+						$(ui.draggable).remove();
+						rescan();
+						if (msg === "fail"){
+							var h = window.location.hash;	
+							window.location.hash = "Error";
+							window.location.hash = h;
+						}
+					}
+				});
+			}
+			
+		}
+	});
+	
+	
+	/*$(".trash").sortable({
+		over: function (event, ui){
+			$('.trash-bg').css('opacity', '0.8');
+			$('.trash-icon').css('opacity', '1');
+			$('.trash-icon').css('transform', 'scale(' + 0.65*$('.trash').height()/100+','+ 0.65*$('.trash').height()/100+')');
+			$('.lid').css('transform', 'rotate(10deg)').css('margin-bottom', '8px');
+			$('.lidcap').css('transform', 'rotate(10deg)').css('margin-bottom', '8px');
+		},
+		out: function (event, ui) {
+			$('.trash-bg').css('opacity', '0.5');
+			$('.trash-icon').css('opacity', '1');
+			$('.trash-icon').css('transform', 'scale(' + 0.5*$('.trash').height()/100+','+ 0.5*$('.trash').height()/100+')');
+			$('.lid').css('transform', 'rotate(0deg)').css('margin-bottom', '0px');
+			$('.lidcap').css('transform', 'rotate(0deg)').css('margin-bottom', '0px');
+		}
+	});
+	$(".data").sortable({
+		connectWith: ".trash",
+		activate: function( event, ui ) {
+			ui.item.css('opacity', '0.3');
+			ui.item.children().css('opacity', '0.3');
+			$('.trash').css('display', 'block');
+			$('.trash-bg').css('height', $('.trash').height());
+			$('.trash-icon').css('transform', 'scale(' + 0.5*$('.trash').height()/100+','+ 0.5*$('.trash').height()/100+')');
+		},
+		over: function (event, ui){
+			ui.item.css('opacity', '1');
+		},
+		deactivate: function( event, ui ) {
+			ui.item.css('opacity', '1');
+			ui.item.children().css('opacity', '1');
+			$('.trash').css('display', 'none');
+			$('.trash-bg').css('height', '0');
+			$('.trash-icon').css('transform', 'scale(0,0)');
+		},
+		cursorAt: { top: 80 }
+	});*/
+	</script>
+	<!------   End File Manager   ------->
+	
+	
+	
+	<!------   File Uploader     Plus at very top.   Applies to DOM tree------->
+<div class="container">
+    <span class="btn-success fileinput-button" style="display:hidden">
+        <input id="fileupload" type="file" name="files[]" multiple style="visibility:hidden;">
+    </span>
+</div>
+
+
+
+  <div class="overall-progress-bar progress-bar progress-bar-success progress-bar-striped" role="progressbar" style="position:fixed; z-index:900; top:0; width:0%; height:7px; transition:1s;">
+  <div style="margin:auto;width:100px;"
+  </div>
+
+<script src="file-upload/js/jquery.iframe-transport.js"></script>
+<script src="file-upload/js/jquery.fileupload.js"></script>
+<script>
+var folder_prompted = false;
+$(function () {
+    'use strict';
+    var url = '../../';
+    $('#fileupload').fileupload({
+		autoupload:true,
+        url: url,
+        dataType: 'json',
+		add: function(e, data) {
+			if (!(data.files.length < 1 || data.files[0].relativePath.length > 0 || data.files[0].webkitRelativePath.length > 0)) {
+				data.submit();
+			}
+			else {/*uploading folders*/
+			  if (folder_prompted == true || window.confirm("Most modern browsers do not support folder upload. All files in the folder (and its sub-folders) will be taken out and uploaded to here. To upload folder directories, zip it and then upload/unzip.\nPress yes to upload all files without folders.")){
+				data.submit();
+				folder_prompted = true;
+			  }
+			} 
+		},
+		start: function(){
+			$('.overall-progress-bar').css('transition', '1s');
+		},
+        done: function (e, data) {
+			//rerender();
+			var images = [];
+			$.each(data.result.files, function (index, file) {
+				images.push(file.url);
+            });
+			var ddd = JSON.stringify(images);
+			$.ajax({
+				type: "post",
+				url: "crop.php" ,
+				data:  JSON.stringify(images),/* */ 
+				success : function(msg) { 
+					alert( msg);
+					//rerender();
+				}
+			});
+        },
+        progressall: function (e, data) {
+            var progress = parseInt(data.loaded / data.total * 100, 10);
+            $('.overall-progress-bar').css(
+                'width',
+                progress + '%'
+            );
+        },
+		always : function (){
+			window.setTimeout(function() {
+				$('.overall-progress-bar').css('opacity', 0);
+				window.setTimeout(function() {
+					$('.overall-progress-bar').css('transition', '0s').css('width', 0).css('opacity', 1);
+				}, 1000);
+			}, 500);
+		}
+    }).prop('disabled', !$.support.fileInput)
+        .parent().addClass($.support.fileInput ? undefined : 'disabled');
+});
+</script>
+<!------   End File Uploader   ------->
+	
+<!------   Enables touch on click events   ------>
+<script src="js/jquery-touch-punch.js"></script>
+	
+</body>
+
+</html>
