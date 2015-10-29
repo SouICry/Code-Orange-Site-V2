@@ -88,24 +88,44 @@
         margin: 155px 10px 5px 88px;
       }
       @include tablet {
-        font-size: 30px;
+        font-size: 32px;
         line-height: 50px;
         margin: 225px 20px 10px 128px;
       }
       @include small-desktop {
-        font-size: 34px;
+        font-size: 36px;
         line-height: 64px;
         margin: 284px 40px 24px 168px;
       }
       @include medium-desktop {
-        font-size: 38px;
+        font-size: 40px;
         line-height: 74px;
         margin: 364px 60px 24px 208px;
       }
       @include large-desktop {
-        font-size: 42px;
+        font-size: 44px;
         line-height: 84px;
         margin: 464px 80px 24px 248px;
+      }
+
+      p {
+        margin: 0;
+        font-size: 20px;
+        @include large-phone {
+          font-size: 28px;
+        }
+        @include tablet {
+          font-size: 32px;
+        }
+        @include small-desktop {
+          font-size: 36px;
+        }
+        @include medium-desktop {
+          font-size: 40px;
+        }
+        @include large-desktop {
+          font-size: 44px;
+        }
       }
     }
     .caption {

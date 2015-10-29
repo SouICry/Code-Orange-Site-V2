@@ -503,7 +503,10 @@ sheet.insertRule(".manage-none { display: none;}", 0);
 
 
 $('.preview-button').click(function () {
-    window.open('/' + currURL);
+    modalProgress("Saving...");
+    savePage(function(){
+        window.location.href = '/' + currURL;
+    });
 });
 
 

@@ -34,7 +34,10 @@ a.block, a.block-half{
   //background-color: $teal;
 
 
-
+  p {
+    margin: 0;
+    font-size: inherit;
+  }
 
   height: 100%;
   font-family: zekton, sans-serif;
@@ -68,6 +71,7 @@ a.block, a.block-half{
     text-align: center;
     height: 30px;
     font-size: 20px;
+
   }
   .type {
     position: absolute;

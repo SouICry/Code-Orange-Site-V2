@@ -117,7 +117,7 @@
         ?>
     </div>
 </div>
-<div id="body">
+ <?php include $_SERVER['DOCUMENT_ROOT'].'/php/body-prepend.php'; ?><div id="body">
     <?php include 'content-edit.htm'; ?>
 </div>
 <div id="footer">
