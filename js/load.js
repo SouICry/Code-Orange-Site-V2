@@ -369,7 +369,7 @@ function closeBody(callback) {
     var body = document.getElementById("body");
     body.style.opacity = 0;
     body.style.transform = "translateY(200px)";
-    body.style.height = '1000px';
+    body.style.height = '1337px';
     window.scrollTo(0, 0);
     setTimeout(function () {
         if (document.getElementById("fullpage") !== null) {
@@ -438,32 +438,34 @@ function checkLoadEdit() {
             "filePath": path}),
         success : function(msg) {
             if (msg === "true"){
-                if (confirm("An unpublished save file already exists for this page. Click OK to load the save file, or click cancel " +
-                        "to discard it and load the current page")) {
-                    window.location.href = ((currURL.length > 0 ? "/"+currURL : "") + "edit.php?edit=true");
-                }
-                else {
-                    var xhr = new XMLHttpRequest();
-                    xhr.onreadystatechange = function () {
-                        if (xhr.readyState == 4) {
-                            if (xhr.status == 200) {
-                                window.location.href = ((currURL.length > 0 ? "/"+currURL : "") + "edit.php?edit=true");
-                            }
-                            else {
-                                error();
-                            }
-                        }
-                    };
-                    xhr.open("GET", "/php/load-content-edit.php?url=" + encodeURIComponent(trimForwardSlashAndFileName(currURL)), true);
-                    xhr.send();
-                }
+                modalConfirm("An unpublished save file already exists for this page. Click OK to load the saved file, or click cancel " +
+                    "to discard it and load the current page", function(choice){
+                   if (choice){
+                       window.location.href = (trimForwardSlashAndFileName(currURL)+ "/" + "edit.php?edit=true");
+                   }
+                    else {
+                       var xhr = new XMLHttpRequest();
+                       xhr.onreadystatechange = function () {
+                           if (xhr.readyState == 4) {
+                               if (xhr.status == 200) {
+                                   window.location.href = (trimForwardSlashAndFileName(currURL)+ "/" + "edit.php?edit=true");
+                               }
+                               else {
+                                   error();
+                               }
+                           }
+                       };
+                       xhr.open("GET", "/php/load-content-edit.php?url=" + encodeURIComponent(trimForwardSlashAndFileName(currURL)), true);
+                       xhr.send();
+                   }
+                });
             }
             else {
                 var xhr1 = new XMLHttpRequest();
                 xhr1.onreadystatechange = function () {
                     if (xhr1.readyState == 4) {
                         if (xhr1.status == 200) {
-                            window.location.href = ((currURL.length > 0 ? "/"+currURL : "") + "/edit.php?edit=true");
+                            window.location.href = (trimForwardSlashAndFileName(currURL)+ "/" + "edit.php?edit=true");
                         }
                         else {
                             error();

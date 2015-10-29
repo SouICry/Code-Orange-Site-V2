@@ -14,7 +14,7 @@ $(document).ready(function () {
             '<div class="modal-confirm-inner">' +
                 '<div class="modal-confirm-content"></div>' +
                 '<div class="modal-confirm-footer">' +
-                    '<div class="btn modal-confirm-yes">Yes</div>' +
+                    '<div class="btn modal-confirm-yes">Ok</div>' +
                     '<div class="btn modal-confirm-cancel">Cancel</div>' +
                 '</div>' +
             '</div>' +
@@ -76,8 +76,8 @@ function closeConfirmModal() {
 function modalOk(text, callback){
     $('.modal-ok-content').html(text);
     $('.modal-ok-ok').click(function () {
-        callback(true);
         closeConfirmModal();
+        callback();
     });
     $('.modal-ok').css('display', 'block').css('opacity', 1);
 }

@@ -772,7 +772,7 @@ button.btn-floating {
 
 .modal-confirm-content, .modal-ok-content {
   width: 100%;
-  line-height: 80px;
+  padding: 30px;
   text-align: center;
   float: left; }
 
@@ -794,7 +794,7 @@ button.btn-floating {
   transition: all 1s; }
 
 .modal-progress-inner {
-  line-height: 80px;
+  padding: 30px;
   text-align: center;
   display: block;
   position: absolute;
