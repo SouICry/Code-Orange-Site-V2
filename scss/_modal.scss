@@ -1,4 +1,6 @@
 .modal {
+  display: none;
+  opacity: 0;
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -26,6 +28,15 @@
   width: 100%;
   padding: 30px;
 }
+
+.modal-content {
+  height: 600px;
+  width: 100%;
+  background-color: rgba(0,0,0,0.1);
+  line-height: 80px;
+  text-align: center;
+}
+
 .modal-footer {
   float: right;
   height: 90px;
@@ -34,20 +45,78 @@
     margin: 10px;
   }
 }
-.modal-select-image {
-  height: 600px;
+
+
+.modal-confirm{
+  position: fixed;
+  display: none;
+  opacity: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(200, 200, 200, 0.2);
+  z-index: 900;
+  transition: all 0.5s;
+}
+.modal-confirm-inner {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  background-color: green;
+  @include outline-shadow;
+}
+.modal-confirm-content {
   width: 100%;
-  background-color: rgba(0,0,0,0.1);
   line-height: 80px;
   text-align: center;
-
+  float: left;
 }
-.images {
+.modal-confirm-footer {
+  float: right;
+  height: 90px;
+  padding: 20px;
+  div {
+    margin: 10px;
+  }
+}
+
+
+.modal-progress {
+  position: fixed;
+  display: none;
+  opacity: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(200, 200, 200, 0.2);
+  z-index: 1000;
+  transition: all 0.5s;
+}
+.modal-progress-inner {
+  line-height: 80px;
+  text-align: center;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  background-color: green;
+  @include outline-shadow;
+}
+
+
+//Select images
+.modal-options {
   width: 100%;
   height: calc(100% - 80px);
   overflow: auto;
   padding: 0 10px;
-  .modal-image {
+  .modal-option {
+    line-height: 100%;
+    white-space: nowrap;
+    text-align: center;
     width: 230px;
     height: 230px;
     margin: 0;
@@ -65,5 +134,8 @@
       max-width: 100%;
       max-height: 100%;
     }
+  }
+  .selected{
+    border-color: $orange-accent-4;
   }
 }

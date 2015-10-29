@@ -68,30 +68,70 @@ $('.section-inner .content').addClass('editable').attr('contenteditable', 'true'
 
 //Closes active context menu when editable content selected (since this doesnt normally work)
 $('.editable').on('mousedown', function () {
-        $('.iw-curMenu').contextMenu('close');
+    $('.iw-curMenu').contextMenu('close');
 });
 
-
-
+$(document).ready(function () {
+    $.fn.fullpage.setKeyboardScrolling(false);
+});
 //Creates left click menus
 //Fullpage sections
 var edit_section = [
     {
         name: 'Change section background image',
         fun: function (data) {
-
+            modalImageSelect(function (src) {
+                data.trigger.closest('.section').css('background-image', 'url(' + src + ')');
+            });
         }
     },
     {
         name: 'Delete this section',
         fun: function (data) {
+            modalConfirm("Are you sure you want to delete this section?", function () {
+                data.trigger.closest('.section').remove();
+                modalProgress('Deleting...');
+                savePage(function () {
+                    window.location.reload();
+                });
+            });
 
         }
     },
     {
         name: 'Add new section',
         fun: function (data) {
-
+            modalSelect(function (choice) {
+                if (choice == 'Title Section') {
+                    $('#fullpage').prepend('' +
+                        '<div class="section"style="background-image:url();"><div class="section-inner">' +
+                        '<div class="title">' +
+                            '<h1>Title</h1>' +
+                            '<div class="sub-title"><p>Subtitle</p></div>' +
+                        '</div> ' +
+                        '<a onclick="moveSectionDown();" href="" class="scroll-for-more"><img src="/icon/down.svg"></a> ' +
+                        '</div> </div>'
+                    );
+                    modalProgress('Adding...');
+                    $.fn.fullpage.destroy('all');
+                    fullpageInit();
+                    savePage(function () {
+                        window.location.reload();
+                    });
+                }
+                else if (choice == 'Content Section') {
+                    $('#fullpage').prepend('' +
+                        '<div class="section" style="background-image:url();"><div class="section-inner"> ' +
+                        '<div class="content"><h1>h1</h1><h2>h2</h2><p>paragraph</p></div></div></div>'
+                    );
+                    modalProgress('Adding...');
+                    $.fn.fullpage.destroy('all');
+                    fullpageInit();
+                    savePage(function () {
+                        window.location.reload();
+                    });
+                }
+            }, 'Select Type', 'Title Section', 'Content Section');
         }
     }
 ];

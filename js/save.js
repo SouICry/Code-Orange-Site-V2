@@ -1,5 +1,5 @@
 //Content saving wip code.
-function savePage() {
+function savePage(callback) {
     var content = "";
 //Full page
     if ($('#fullpage').length > 0) {
@@ -20,11 +20,15 @@ function savePage() {
             "content": content
         }),
         success: function (msg) {
-            alert(msg);
+            callback(msg)
         }
     });
 }
 
 $('.save-button').click(function () {
-    savePage();
+    modalProgress("Saving...");
+    savePage(function(){
+        closeModalProgress();
+        alert(msg);
+    });
 });
