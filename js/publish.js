@@ -1,5 +1,5 @@
 function publishPage(){
-    if (confirm("Are you sure you want to make these changes live?")){
+    modalConfirm("Are you sure you want to make these changes live?", function(){
         $.ajax({
             type: "post",
             url: "/php/publish-content.php",
@@ -7,13 +7,17 @@ function publishPage(){
                 "url": trimForwardSlashAndFileName(currURL)
             }),
             success: function (msg) {
-                alert(msg);
                 if (msg == "Publish successful!") {
-                    window.location.href = "index.php";
+                    modalOk("Publish successful! Redirecting to page.", function() {
+                            window.location.href = "/" + trimForwardSlashAndFileName(currURL);
+                    });
+                }
+                else {
+                    alert(msg);
                 }
             }
         });
-    }
+    });
 }
 
 $('.publish-button').click(function () {

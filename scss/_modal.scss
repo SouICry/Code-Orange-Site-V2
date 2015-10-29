@@ -47,7 +47,7 @@
 }
 
 
-.modal-confirm{
+.modal-confirm, .modal-ok{
   position: fixed;
   display: none;
   opacity: 0;
@@ -55,9 +55,9 @@
   height: 100vh;
   background-color: rgba(200, 200, 200, 0.2);
   z-index: 900;
-  transition: all 0.5s;
+  transition: all 0.6s;
 }
-.modal-confirm-inner {
+.modal-confirm-inner, .modal-ok-inner {
   display: block;
   position: absolute;
   top: 50%;
@@ -67,13 +67,13 @@
   background-color: green;
   @include outline-shadow;
 }
-.modal-confirm-content {
+.modal-confirm-content, .modal-ok-content  {
   width: 100%;
   line-height: 80px;
   text-align: center;
   float: left;
 }
-.modal-confirm-footer {
+.modal-confirm-footer, .modal-ok-footer {
   float: right;
   height: 90px;
   padding: 20px;
@@ -91,7 +91,7 @@
   height: 100vh;
   background-color: rgba(200, 200, 200, 0.2);
   z-index: 1000;
-  transition: all 0.5s;
+  transition: all 1s;
 }
 .modal-progress-inner {
   line-height: 80px;

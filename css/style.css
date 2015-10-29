@@ -744,7 +744,7 @@ button.btn-floating {
   .modal-footer div {
     margin: 10px; }
 
-.modal-confirm {
+.modal-confirm, .modal-ok {
   position: fixed;
   display: none;
   opacity: 0;
@@ -752,9 +752,9 @@ button.btn-floating {
   height: 100vh;
   background-color: rgba(200, 200, 200, 0.2);
   z-index: 900;
-  transition: all 0.5s; }
+  transition: all 0.6s; }
 
-.modal-confirm-inner {
+.modal-confirm-inner, .modal-ok-inner {
   display: block;
   position: absolute;
   top: 50%;
@@ -764,23 +764,23 @@ button.btn-floating {
   background-color: green;
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5); }
   @media (min-width: 720px) and (max-width: 1023px) {
-    .modal-confirm-inner {
+    .modal-confirm-inner, .modal-ok-inner {
       box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5); } }
   @media (min-width: 1024px) {
-    .modal-confirm-inner {
+    .modal-confirm-inner, .modal-ok-inner {
       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5); } }
 
-.modal-confirm-content {
+.modal-confirm-content, .modal-ok-content {
   width: 100%;
   line-height: 80px;
   text-align: center;
   float: left; }
 
-.modal-confirm-footer {
+.modal-confirm-footer, .modal-ok-footer {
   float: right;
   height: 90px;
   padding: 20px; }
-  .modal-confirm-footer div {
+  .modal-confirm-footer div, .modal-ok-footer div {
     margin: 10px; }
 
 .modal-progress {
@@ -791,7 +791,7 @@ button.btn-floating {
   height: 100vh;
   background-color: rgba(200, 200, 200, 0.2);
   z-index: 1000;
-  transition: all 0.5s; }
+  transition: all 1s; }
 
 .modal-progress-inner {
   line-height: 80px;

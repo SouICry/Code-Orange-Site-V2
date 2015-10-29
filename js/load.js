@@ -339,6 +339,9 @@ function trimForwardSlashAndFileName(stringToTrim) {
     if (stringToTrim.charAt(0) === "/") {
         stringToTrim = stringToTrim.substr(1);
     }
+    if (stringToTrim.indexOf("/") < 0){
+        return "";
+    }
     if (stringToTrim.lastIndexOf(".") > stringToTrim.lastIndexOf("/")) {
         return stringToTrim.substring(0, stringToTrim.lastIndexOf("/"));
     }

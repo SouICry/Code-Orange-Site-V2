@@ -19,6 +19,14 @@ $(document).ready(function () {
                 '</div>' +
             '</div>' +
         '</div>' +
+        '<div class="modal-ok">' +
+            '<div class="modal-ok-inner">' +
+                '<div class="modal-ok-content"></div>' +
+                '<div class="modal-ok-footer">' +
+                    '<div class="btn modal-ok-ok">Ok</div>' +
+                '</div>' +
+            '</div>' +
+        '</div>' +
         '<div class="modal-progress">' +
             '<div class="modal-progress-inner"></div>' +
         '</div>'
@@ -31,10 +39,13 @@ function modalProgress(text){
     $('.modal-progress-inner').html(text);
 }
 function closeModalProgress(){
-    $('.modal-progress').css('opacity', '0');
+    $('.modal-progress').css('opacity', '1');
+    setTimeout(function () {
+        $('.modal-progress').css('opacity', '0');
+    }, 500);
     setTimeout(function () {
         $('.modal-progress').css('display', 'none');
-    }, 500);
+    }, 1500);
 }
 
 function modalConfirm(text, yesCallback) {
@@ -50,13 +61,33 @@ function modalConfirm(text, yesCallback) {
     });
 }
 
+
+
 function closeConfirmModal() {
-    $('.modal-confirm').off('click').css('opacity', 0);
+    $('.modal-confirm').css('opacity', 0);
     setTimeout(function () {
         $('.modal-confirm').css('display', 'none');
         $('.modal-confirm-yes').off('click');
         $('.modal-confirm-cancel').off('click');
         $('.modal-confirm-content').empty();
+    }, 500);
+}
+
+function modalOk(text, callback){
+    $('.modal-ok-content').html(text);
+    $('.modal-ok-ok').click(function () {
+        callback(true);
+        closeConfirmModal();
+    });
+    $('.modal-ok').css('display', 'block').css('opacity', 1);
+}
+
+function closeOkModal() {
+    $('.modal-ok').css('opacity', 0);
+    setTimeout(function () {
+        $('.modal-ok').css('display', 'none');
+        $('.modal-ok-ok').off('click');
+        $('.modal-ok-content').empty();
     }, 500);
 }
 
@@ -75,7 +106,7 @@ function closeModal() {
             $(this).off('click');
         });
         $('.modal-content').empty();
-    }, 500);
+    }, 100);
 }
 
 function modalSelect(callback, title, options){
