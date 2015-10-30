@@ -145,27 +145,6 @@ $('.section-inner > *').click(function (event) {
 });
 
 
-//Sidebar (left)
-var edit_sidebar = [{
-    name: 'Add image to sidebar',
-    fun: function (data) {
-
-    }
-},
-    {
-        name: 'Add block to sidebar',
-        fun: function (data) {
-
-        }
-    },
-    {name: '', disable: true},
-    {
-        name: 'Add a sidebar somewhere else',
-        fun: function (data) {
-
-        }
-    }
-];
 
 var edit_sidebar_img = [{
     name: 'Switch image',
@@ -180,9 +159,8 @@ var edit_sidebar_img = [{
         fun: function (data) {
             data.trigger.closest('.img').remove();
         }
-    },
-    {name: '', disable: true}
-].concat(edit_sidebar);
+    }
+];
 
 
 var edit_sidebar_block = [{
@@ -247,9 +225,8 @@ var edit_sidebar_block = [{
                 data.trigger.closest('.block').remove();
             }
         }
-    },
-    {name: '', disable: true}
-].concat(edit_sidebar);
+    }
+];
 
 var edit_sidebar_block_img = [{
     name: 'Switch image',
@@ -262,10 +239,7 @@ var edit_sidebar_block_img = [{
 ].concat(edit_sidebar_block);
 
 $('.sidebar .img img').contextMenu(edit_sidebar_img);
-$('.sidebar .img img').click(function (event) {
-    event.preventDefault();
-    event.stopPropagation();
-});
+
 $('.sidebar .block').contextMenu(edit_sidebar_block);
 $('.sidebar .block > *').click(function (event) {
     event.preventDefault();
@@ -273,23 +247,9 @@ $('.sidebar .block > *').click(function (event) {
 });
 $('.sidebar .block img').contextMenu(edit_sidebar_block_img);
 
-$('.sidebar').contextMenu(edit_sidebar);
 
 
 //Blocks section
-
-var edit_blocks_section = [{
-    name: 'Add block to this section',
-    fun: function (data) {
-
-    }
-},
-    {
-        name: 'Delete entire blocks section',
-        fun: function (data) {
-
-        }
-    }];
 
 var edit_blocks_section_block = [{
     name: 'Toggle image and text',
@@ -352,9 +312,8 @@ var edit_blocks_section_block = [{
                 data.trigger.closest('.manage').remove();
             }
         }
-    },
-    {name: '', disable: true}
-].concat(edit_blocks_section);
+    }
+];
 
 var edit_blocks_section_block_img = [{
     name: 'Switch image',
@@ -366,7 +325,6 @@ var edit_blocks_section_block_img = [{
 }
 ].concat(edit_blocks_section_block);
 
-$('.blocks.manage').contextMenu(edit_blocks_section);
 $('.blocks.manage a.manage').contextMenu(edit_blocks_section_block);
 $('.blocks.manage a.manage > *').click(function (event) {
     event.preventDefault();
@@ -504,16 +462,7 @@ function edit_mode() {
 
 //Testing toggle sorting/editing
 
-var t = false;
-$('#footer').click(function () {
-    t = !t;
-    if (t) {
-        rearrange_mode();
-    }
-    else {
-        edit_mode()
-    }
-});
+
 //end test
 
 

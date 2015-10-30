@@ -10,6 +10,7 @@
 @import 'layout_content';
 @import 'layout_structure';
 @import 'layout_block';
+@import 'edit-panel';
 @import 'buttons';
 @import 'modal';
 @import 'header';
@@ -18,6 +19,8 @@
 @import 'title';
 @import 'carousel';
 @import 'fullpage';
+
+
 
 .manage-none {
 
@@ -79,8 +82,11 @@ h3.manage {
 
 .manage.sidebar {
   padding-bottom: 100px;
-  background-color: $teal-lighten-1;
-  border-color: yellow;
+  border-color: purple;
+}
+
+.content.editable {
+  border-color: purple;
 }
 
 .sidebar > .manage, .blocks.manage > *{
@@ -135,6 +141,10 @@ h3.manage {
   }
 }
 
+.youtube.manage, .iframe.manage {
+  border-color: white;
+}
+
 .youtube iframe {
   z-index: 10;
   position: absolute;
@@ -157,6 +167,9 @@ body {
 }
 
 
+.edit-panel-active-section {
+  background-color: $teal-lighten-1;
+}
 
 
 
