@@ -76,7 +76,7 @@
         min-height: 100px;
       }
       @include small-desktop {
-        width: 224px;
+        width: 254px;
         margin: 0 10px;
       }
       @include medium-desktop {
@@ -120,7 +120,7 @@
       margin: 0;
       width: 100%;
       @include small-desktop {
-        width: 734px;
+        width: 704px;
       }
       @include medium-desktop {
         width: 774px;

@@ -8,6 +8,20 @@ blockquote {
 }
 
 
+.content-section ul, .content-section ol{
+  font-size: 17px;
+  @include small-desktop {
+    font-size: 17px;
+  }
+  @include medium-desktop {
+    font-size: 19px;
+  }
+  @include large-desktop {
+    font-size: 19px;
+  }
+  text-decoration: none;
+}
+
 p {
   font-size: 17px;
   @include small-desktop {
@@ -44,6 +58,16 @@ table {
   }
   @include desktop {
     margin: 20px;
+  }
+  font-size: 17px;
+  @include small-desktop {
+    font-size: 17px;
+  }
+  @include medium-desktop {
+    font-size: 19px;
+  }
+  @include large-desktop {
+    font-size: 19px;
   }
 }
 

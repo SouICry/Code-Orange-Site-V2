@@ -423,54 +423,61 @@ function openSelectionBar(innerHTML) {
 function checkLoadEdit() {
     var t = trimForwardSlashAndFileName(currURL);
     var slasht = '/' + t;
-    var path = (t.length < 1 ? "content-edit.htm" : t + "/content-edit.htm");
-    $.ajax({
-        type: "post",
-        url: "/php/file-exists.php",
-        data: "data=" + JSON.stringify({
-            "filePath": path
-        }),
-        success: function (msg) {
-            if (msg === "true") {
-                modalConfirm("An unpublished save file already exists for this page. Click OK to load the saved file, or click cancel " +
-                    "to discard it and load the current page", function (choice) {
-                    if (choice) {
-                        window.location.href = (slasht + "/" + "edit.php?edit=true");
-                    }
-                    else {
-                        var xhr = new XMLHttpRequest();
-                        xhr.onreadystatechange = function () {
-                            if (xhr.readyState == 4) {
-                                if (xhr.status == 200) {
-                                    window.location.href = (slasht + "/" + "edit.php?edit=true");
-                                }
-                                else {
-                                    error();
-                                }
-                            }
-                        };
-                        xhr.open("GET", "/php/load-content-edit.php?url=" + encodeURIComponent(t), true);
-                        xhr.send();
-                    }
-                });
-            }
-            else {
-                var xhr1 = new XMLHttpRequest();
-                xhr1.onreadystatechange = function () {
-                    if (xhr1.readyState == 4) {
-                        if (xhr1.status == 200) {
+
+    if (currURL.indexOf('edit.php') > 0){
+        window.location.href = (slasht + "/" + "edit.php?edit=true");
+    }
+    else {
+
+        var path = (t.length < 1 ? "content-edit.htm" : t + "/content-edit.htm");
+        $.ajax({
+            type: "post",
+            url: "/php/file-exists.php",
+            data: "data=" + JSON.stringify({
+                "filePath": path
+            }),
+            success: function (msg) {
+                if (msg === "true") {
+                    modalConfirm("An unpublished save file already exists for this page. Click OK to load the saved file, or click cancel " +
+                        "to discard it and load the current page", function (choice) {
+                        if (choice) {
                             window.location.href = (slasht + "/" + "edit.php?edit=true");
                         }
                         else {
-                            error();
+                            var xhr = new XMLHttpRequest();
+                            xhr.onreadystatechange = function () {
+                                if (xhr.readyState == 4) {
+                                    if (xhr.status == 200) {
+                                        window.location.href = (slasht + "/" + "edit.php?edit=true");
+                                    }
+                                    else {
+                                        error();
+                                    }
+                                }
+                            };
+                            xhr.open("GET", "/php/load-content-edit.php?url=" + encodeURIComponent(t), true);
+                            xhr.send();
                         }
-                    }
-                };
-                xhr1.open("GET", "/php/load-content-edit.php?url=" + encodeURIComponent(t), true);
-                xhr1.send();
+                    });
+                }
+                else {
+                    var xhr1 = new XMLHttpRequest();
+                    xhr1.onreadystatechange = function () {
+                        if (xhr1.readyState == 4) {
+                            if (xhr1.status == 200) {
+                                window.location.href = (slasht + "/" + "edit.php?edit=true");
+                            }
+                            else {
+                                error();
+                            }
+                        }
+                    };
+                    xhr1.open("GET", "/php/load-content-edit.php?url=" + encodeURIComponent(t), true);
+                    xhr1.send();
+                }
             }
-        }
-    });
+        });
+    }
 }
 
 $('.edit-button').click(checkLoadEdit);

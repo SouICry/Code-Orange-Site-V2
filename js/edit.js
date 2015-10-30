@@ -72,7 +72,9 @@ $('.editable').on('mousedown', function () {
 });
 
 $(document).ready(function () {
-    $.fn.fullpage.setKeyboardScrolling(false);
+    if (document.getElementById("fullpage") !== null) {
+        $.fn.fullpage.setKeyboardScrolling(false);
+    }
 });
 //Creates left click menus
 //Fullpage sections
@@ -106,8 +108,8 @@ var edit_section = [
                     $('#fullpage').prepend('' +
                         '<div class="section"style="background-image:url();"><div class="section-inner">' +
                         '<div class="title">' +
-                            '<h1>Title</h1>' +
-                            '<div class="sub-title"><p>Subtitle</p></div>' +
+                        '<h1>Title</h1>' +
+                        '<div class="sub-title"><p>Subtitle</p></div>' +
                         '</div> ' +
                         '<a onclick="moveSectionDown();" href="" class="scroll-for-more"><img src="/icon/down.svg"></a> ' +
                         '</div> </div>'
@@ -166,34 +168,101 @@ var edit_sidebar = [{
 ];
 
 var edit_sidebar_img = [{
-    name: 'Delete this image',
+    name: 'Switch image',
     fun: function (data) {
-
+        modalImageSelect(function (src) {
+            data.trigger.attr('src', src);
+        });
     }
 },
+    {
+        name: 'Delete this image',
+        fun: function (data) {
+            data.trigger.closest('.img').remove();
+        }
+    },
     {name: '', disable: true}
 ].concat(edit_sidebar);
 
 
 var edit_sidebar_block = [{
-    name: 'Delete this block',
+    name: 'Toggle image and text.',
     fun: function (data) {
-
+        if (data.trigger.hasClass('block')) {
+            var b = data.trigger;
+            var i = b.find('img');
+            if (i.length > 0) {
+                i.remove();
+                b.append('<h2 class="editable" contenteditable="true"></h2>');
+                $('.sidebar .block > h2').click(function (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                });
+            }
+            else {
+                modalImageSelect(function (src) {
+                    b.find('h2').remove();
+                    b.append('<img src="' + src + '" />');
+                    $('.sidebar .block > img').click(function (event) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    });
+                    $('.sidebar .block img').contextMenu(edit_sidebar_block_img);
+                });
+            }
+        }
+        else {
+            var b1 = data.trigger.closest('.block');
+            var i1 = b1.find('img');
+            if (i1.length > 0) {
+                i1.remove();
+                b1.append('<h2 class="editable" contenteditable="true"></h2>');
+                $('.sidebar .block > h2').click(function (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                });
+            }
+            else {
+                modalImageSelect(function (src) {
+                    b1.find('h2').remove();
+                    b1.append('<img src="' + src + '" />');
+                    $('.sidebar .block > img').click(function (event) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    });
+                    $('.sidebar .block img').contextMenu(edit_sidebar_block_img);
+                });
+            }
+        }
     }
+
 },
+    {
+        name: 'Delete this block',
+        fun: function (data) {
+            if (data.trigger.hasClass('block')) {
+                data.trigger.remove();
+            }
+            else {
+                data.trigger.closest('.block').remove();
+            }
+        }
+    },
     {name: '', disable: true}
 ].concat(edit_sidebar);
 
 var edit_sidebar_block_img = [{
-    name: 'Add image instead of text',
+    name: 'Switch image',
     fun: function (data) {
-        data.trigger.remove();
+        modalImageSelect(function (src) {
+            data.trigger.attr('src', src);
+        });
     }
 }
 ].concat(edit_sidebar_block);
 
-$('.sidebar .img').contextMenu(edit_sidebar_img);
-$('.sidebar .img').click(function (event) {
+$('.sidebar .img img').contextMenu(edit_sidebar_img);
+$('.sidebar .img img').click(function (event) {
     event.preventDefault();
     event.stopPropagation();
 });
@@ -204,7 +273,7 @@ $('.sidebar .block > *').click(function (event) {
 });
 $('.sidebar .block img').contextMenu(edit_sidebar_block_img);
 
-$('.sidbar').contextMenu(edit_sidebar);
+$('.sidebar').contextMenu(edit_sidebar);
 
 
 //Blocks section
@@ -223,34 +292,79 @@ var edit_blocks_section = [{
     }];
 
 var edit_blocks_section_block = [{
-    name: 'Add image instead of text',
+    name: 'Toggle image and text',
     fun: function (data) {
-        alert('i am delete button')
+        if (data.trigger.hasClass('manage')) {
+            var b = data.trigger;
+            var i = b.find('img');
+            if (i.length > 0) {
+                i.remove();
+                b.append('<h2 class="editable" contenteditable="true"></h2>');
+                $('.blocks.manage a.manage > h2').click(function (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                });
+            }
+            else {
+                modalImageSelect(function (src) {
+                    b.find('h2').remove();
+                    b.append('<img src="' + src + '" />');
+                    $('.blocks.manage a.manage > img').click(function (event) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    });
+                    $('.blocks.manage a.manage img').contextMenu(edit_blocks_section_block_img);
+                });
+            }
+        }
+        else {
+            var b1 = data.trigger.closest('.manage');
+            var i1 = b1.find('img');
+            if (i1.length > 0) {
+                i1.remove();
+                b1.append('<h2 class="editable" contenteditable="true"></h2>');
+                $('.blocks.manage a.manage > h2').click(function (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                });
+            }
+            else {
+                modalImageSelect(function (src) {
+                    b1.find('h2').remove();
+                    b1.append('<img src="' + src + '" />');
+                    $('.blocks.manage a.manage > img').click(function (event) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    });
+                    $('.blocks.manage a.manage img').contextMenu(edit_blocks_section_block_img);
+                });
+            }
+        }
     }
 },
     {
         name: 'Delete this block',
         fun: function (data) {
-            data.trigger.remove();
+            if (data.trigger.hasClass('manage')) {
+                data.trigger.remove();
+            }
+            else {
+                data.trigger.closest('.manage').remove();
+            }
         }
     },
     {name: '', disable: true}
 ].concat(edit_blocks_section);
 
 var edit_blocks_section_block_img = [{
-    name: 'Add text instead of image',
+    name: 'Switch image',
     fun: function (data) {
-        data.trigger.remove();
+        modalImageSelect(function (src) {
+            data.trigger.attr('src', src);
+        });
     }
-},
-    {
-        name: 'Delete this block',
-        fun: function (data) {
-            data.trigger.parent().remove();
-        }
-    },
-    {name: '', disable: true}
-].concat(edit_blocks_section);
+}
+].concat(edit_blocks_section_block);
 
 $('.blocks.manage').contextMenu(edit_blocks_section);
 $('.blocks.manage a.manage').contextMenu(edit_blocks_section_block);
@@ -406,6 +520,25 @@ $('#footer').click(function () {
 var manage_gallery_button =
     '<div class="btn manage-button">Manage Gallery</div>';
 $('.carousel .caption').append(manage_gallery_button);
+$('.carousel .manage-button').click(function(){
+    modalCarouselImages(function(json){
+        $.ajax({
+            type: "post",
+            url: "/php/rename-carousel-images.php",
+            data: "data=" + JSON.stringify(json),
+            success: function (success) {
+                if (success == 'true') {
+                    savePage(function(){
+                        window.location.reload();
+                    });
+                }
+                else {
+                    alert(success);
+                }
+            }
+        });
+    });
+});
 
 
 var manage_youtube_button =
@@ -504,7 +637,7 @@ sheet.insertRule(".manage-none { display: none;}", 0);
 
 $('.preview-button').click(function () {
     modalProgress("Saving...");
-    savePage(function(){
+    savePage(function () {
         window.location.href = '/' + currURL;
     });
 });

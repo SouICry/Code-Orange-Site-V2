@@ -1,4 +1,9 @@
 /*
+ * Note: This is a slightly modified fork with onclose disabled because it was being fired
+ * on undefined after a fix to stop it from hogging focus on contenteditable click.
+ */
+
+/*
  *contextMenu.js v 1.4.1
  *Author: Sudhanshu Yadav
  *s-yadav.github.com
@@ -636,11 +641,11 @@
             $('.iw-contextMenu').css('display', 'none');
             $(document).focus();
 
-            //call close function
+            /*/call close function
             option.onClose.call(this, {
                 trigger: trigger,
                 menu: menu
-            }, e);
+            }, e);*/
         },
         getPxSize: function(size, of) {
             if (!isNaN(size)) {
