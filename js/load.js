@@ -420,6 +420,12 @@ function openSelectionBar(innerHTML) {
 }
 
 
+function scrollTo(element){
+    $('html, body').animate({
+        scrollTop: $(element).offset().top
+    }, 1000);
+}
+
 function checkLoadEdit() {
     var t = trimForwardSlashAndFileName(currURL);
     var slasht = '/' + t;

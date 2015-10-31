@@ -58,7 +58,7 @@ function closeConfirmModal() {
 function modalOk(text, callback) {
     $('.modal-ok-content').html(text);
     $('.modal-ok-ok').click(function () {
-        closeConfirmModal();
+        closeOkModal();
         callback();
     });
     $('.modal-ok').css('display', 'block').css('opacity', 1);
@@ -91,7 +91,7 @@ function closeModal() {
     }, 100);
 }
 
-function modalSelect(callback, title, options) {
+function modalSelect(yesCallback, title, params_options) {
     $('.modal-header').html(title);
     $('.modal-content').html('<div class="modal-options"></div>');
 
@@ -106,7 +106,7 @@ function modalSelect(callback, title, options) {
         closeModal();
     });
     $('.modal-accept').click(function () {
-        callback($('.modal-option.selected').data('option'));
+        yesCallback($('.modal-option.selected').data('option'));
         closeModal();
     });
     $('.modal-option').off('click').click(function () {

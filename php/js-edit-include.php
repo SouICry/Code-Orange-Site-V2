@@ -19,7 +19,7 @@
     <div id="toggle-gallery" class="edit-panel-button-special">
         <p>Enable Gallery</p>
     </div>
-    <div id='add-row' class="edit-panel-button-special">
+    <div id='add-section' class="edit-panel-button-special">
         <p>Add Section</p>
     </div>
     <div id='delete-section' class="edit-panel-button-special">
