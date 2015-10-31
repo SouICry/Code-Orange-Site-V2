@@ -31,15 +31,15 @@ function closeModalProgress() {
     }, 1500);
 }
 
-function modalConfirm(text, yesCallback) {
+function modalConfirm(text, choiceCallback) {
     $('.modal-confirm-content').html(text);
     $('.modal-confirm').css('display', 'block').css('opacity', 1);
     $('.modal-confirm .modal-confirm-yes').click(function () {
-        yesCallback(true);
+        choiceCallback(true);
         closeConfirmModal();
     });
     $('.modal-confirm .modal-confirm-cancel').click(function () {
-        yesCallback(false);
+        choiceCallback(false);
         closeConfirmModal();
     });
 }
@@ -117,13 +117,12 @@ function modalSelect(callback, title, options) {
     });
 }
 
-function modalCarouselImages(doneCallback) {
+function modalCarouselImages(yesCallback) {
     $('.modal-header').html('Manage Image Gallery');
     $('.modal-content').html('Drag and drop from your computer or ' +
         '<div class="btn modal-browse">Browse</div> to add images. Drag to reorder them in the gallery. <div class="modal-options"></div>');
     $('.modal-footer').prepend('<div class="btn modal-delete">Delete image</div>');
     $('.modal-accept').html('Done');
-    $('.modal-cancel').remove();
 
     $('.modal').css('display', 'block').css('opacity', '1');
 
@@ -136,22 +135,24 @@ function modalCarouselImages(doneCallback) {
                 "carousel": true
             }),
             success: function (imgs) {
-                var selection = $('.modal-content .modal-options')
-                selection.empty();
-                var c = JSON.parse('[' + imgs + ']');
-                selection.append('<div class="modal-option selected"><img src="' + c[0] + '"></div>');
-                for (var i = 1; i < c.length; i++) {
-                    selection.append('<div class="modal-option"><img src="' + c[i] + '"></div>');
-                }
-                $('.modal-option').off('click').click(function () {
-                    $(this).siblings().each(function () {
-                        $(this).removeClass('selected');
+                if (imgs != 'false') {
+                    var selection = $('.modal-content .modal-options');
+                    selection.empty();
+                    var c = JSON.parse('[' + imgs + ']');
+                    selection.append('<div class="modal-option selected"><img src="' + c[0] + '"></div>');
+                    for (var i = 1; i < c.length; i++) {
+                        selection.append('<div class="modal-option"><img src="' + c[i] + '"></div>');
+                    }
+                    $('.modal-option').off('click').click(function () {
+                        $(this).siblings().each(function () {
+                            $(this).removeClass('selected');
+                        });
+                        $(this).addClass('selected');
                     });
-                    $(this).addClass('selected');
-                });
 
-                if (selection.sortable('instance') == undefined) {
-                    selection.sortable();
+                    if (selection.sortable('instance') == undefined) {
+                        selection.sortable();
+                    }
                 }
             }
         });
@@ -192,7 +193,11 @@ function modalCarouselImages(doneCallback) {
 
         $('.modal-content .modal-options').sortable('disable');
         closeModal();
-        doneCallback(images);
+        yesCallback(images);
+    });
+
+    $('.modal-cancel').click(function () {
+        closeModal();
     });
 }
 

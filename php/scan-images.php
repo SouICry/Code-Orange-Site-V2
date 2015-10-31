@@ -4,6 +4,7 @@ $path = "";
 $relv_path = "";
 if (strlen($json->url) == 0){
     if ($json->carousel == true) {
+
         $path = $_SERVER['DOCUMENT_ROOT'] . '/img/carousel/';
         $relv_path = '/img/carousel/';
     }
@@ -21,6 +22,10 @@ else {
         $path = $_SERVER['DOCUMENT_ROOT'].'/'.$json->url.'/img/';
         $relv_path = '/'.$json->url.'/img/';
     }
+}
+
+if (!is_dir($path)){
+    mkdir($path);
 }
 
 $response = scan($path, $relv_path);
@@ -43,6 +48,12 @@ function scan($dir, $relv_dir){
     }
     return $files;
 }
+
+if (sizeof($response) > 0) {
 // Output the directory listing as JSON
-header('Content-type: application/json');
-echo json_encode($response);
+    header('Content-type: application/json');
+    echo json_encode($response);
+}
+else {
+    echo 'false';
+}

@@ -55,21 +55,24 @@ getBlocksData();
 
 
 //Highlights objects or makes enables contenteditable
-$('.content-row, .sidebar, .youtube, .blocks, .blocks > a, .sidebar > *, .iframe').addClass('manage');
-$('.section-inner').addClass('manage');
+function enableContentEditable(){
+    $('.content-row, .sidebar, .youtube, .blocks, .blocks > a, .sidebar > *, .iframe').addClass('manage');
+    $('.section-inner').addClass('manage');
 
-$('.title h1, .title .sub-title, .content-row .content, .content-row > h3').addClass('editable').attr('contenteditable', 'true');
-$('.blocks > a > .type, .blocks > a > .view, .blocks > a > h2').addClass('editable').attr('contenteditable', 'true');
-$('.sidebar .block .type, .sidebar .block .view, .sidebar .block  h2').addClass('editable').attr('contenteditable', 'true');
-$('.content-row:not(:has(.sidebar))').addClass('editable').attr('contenteditable', 'true');
+    $('.title h1, .title .sub-title, .content-row .content, .content-row > h3').addClass('editable').attr('contenteditable', 'true');
+    $('.blocks > a > .type, .blocks > a > .view, .blocks > a > h2').addClass('editable').attr('contenteditable', 'true');
+    $('.sidebar .block .type, .sidebar .block .view, .sidebar .block  h2').addClass('editable').attr('contenteditable', 'true');
+    $('.content-row:not(:has(.sidebar))').addClass('editable').attr('contenteditable', 'true');
 
 
-$('.section-inner .content').addClass('editable').attr('contenteditable', 'true');
+    $('.section-inner .content').addClass('editable').attr('contenteditable', 'true');
 
-//Closes active context menu when editable content selected (since this doesnt normally work)
-$('.editable').on('mousedown', function () {
-    $('.iw-curMenu').contextMenu('close');
-});
+    //Closes active context menu when editable content selected (since this doesnt normally work)
+    $('.editable').on('mousedown', function () {
+        $('.iw-curMenu').contextMenu('close');
+    });
+}
+enableContentEditable();
 
 $(document).ready(function () {
     if (document.getElementById("fullpage") !== null) {
@@ -90,12 +93,14 @@ var edit_section = [
     {
         name: 'Delete this section',
         fun: function (data) {
-            modalConfirm("Are you sure you want to delete this section?", function () {
-                data.trigger.closest('.section').remove();
-                modalProgress('Deleting...');
-                savePage(function () {
-                    window.location.reload();
-                });
+            modalConfirm("Are you sure you want to delete this section?", function (choice) {
+                if (choice) {
+                    data.trigger.closest('.section').remove();
+                    modalProgress('Deleting...');
+                    savePage(function () {
+                        window.location.reload();
+                    });
+                }
             });
 
         }
