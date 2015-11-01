@@ -1,19 +1,25 @@
 //body-prepend.php has modal html
 
-function modalString(text, callback) {
+function modalString(text, yesCallback) {
     $('.modal-string-header').html(text);
     $('.modal-string').css('display', 'block').css('opacity', '1');
     $('.modal-string-ok').click(function () {
-        callback($('.modal-string-input').val());
+        yesCallback($('.modal-string-input').val());
+        closeModalString();
+    });
+    $('.modal-string-cancel').click(function () {
+        closeModalString();
     });
 }
 
 function closeModalString() {
     $('.modal-string').css('opacity', 0);
+    $('.modal-string .btn').off('click');
     setTimeout(function () {
         $('.modal-string-input').val('');
         $('.modal-string').css('display', 'none');
     }, 500);
+
 }
 
 function modalProgress(text) {
@@ -22,6 +28,7 @@ function modalProgress(text) {
 
 }
 function closeModalProgress() {
+    $('.modal-progress .btn').off('click');
     $('.modal-progress').css('opacity', '1');
     setTimeout(function () {
         $('.modal-progress').css('opacity', '0');
@@ -46,6 +53,7 @@ function modalConfirm(text, choiceCallback) {
 
 
 function closeConfirmModal() {
+    $('.modal-string .btn').off('click');
     $('.modal-confirm').css('opacity', 0);
     setTimeout(function () {
         $('.modal-confirm').css('display', 'none');
@@ -65,6 +73,7 @@ function modalOk(text, callback) {
 }
 
 function closeOkModal() {
+    $('.modal-ok .btn').off('click');
     $('.modal-ok').css('opacity', 0);
     setTimeout(function () {
         $('.modal-ok').css('display', 'none');
@@ -74,6 +83,7 @@ function closeOkModal() {
 }
 
 function closeModal() {
+    $('.modal .btn').off('click');
     $('.modal').css('opacity', 0);
     setTimeout(function () {
         $('.modal').css('display', 'none');
@@ -89,6 +99,23 @@ function closeModal() {
         });
         $('.modal-content').empty();
     }, 100);
+}
+
+function modalIframe(title, defaultHeight, yesCallback){
+    $('.modal-header').html(title);
+    $('.modal-content').html('Url or iframe embed code: <input id="modal-input-string" class="modal-input-string" type="text" name="string"/>' +
+        'Height (in pixels): <input id="modal-input-number" class="modal-input-number" type="number" name="height" value="' + defaultHeight + '">');
+
+    $('.modal').css('display', 'block').css('opacity', '1');
+
+    $('.modal-cancel').click(function(){
+        closeModal();
+    });
+
+    $('.modal-accept').click(function () {
+        yesCallback(document.getElementById('modal-input-string').value, document.getElementById('modal-input-number').value);
+        closeModal();
+    });
 }
 
 function modalSelect(yesCallback, title, params_options) {
@@ -185,8 +212,8 @@ function modalCarouselImages(yesCallback) {
 
     $('.modal-accept').click(function () {
         var images = [];
-        $('.modal-options').children().each(function(){
-            if ($(this).children().first().is('img')){
+        $('.modal-options').children().each(function () {
+            if ($(this).children().first().is('img')) {
                 images.push($(this).children().first().attr('src'));
             }
         });

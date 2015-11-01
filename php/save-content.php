@@ -1,8 +1,10 @@
 <?php
 $json = json_decode($_POST['data']);
-
-if (strlen($json->url) == 0) {
-    if (file_put_contents($_SERVER['DOCUMENT_ROOT'] .'/content-edit.htm', $json->content) === false){
+$str = $json->content;
+$str = str_replace("ESCAPED_AMPERSAND", "&amp;", $str);
+echo $str;
+if (strlen($json->url) > 0) {
+    if (file_put_contents($_SERVER['DOCUMENT_ROOT'] .'/'.$json->url.'/content-edit.htm', $str) === false){
         echo "Save failed.";
     }
     else {
@@ -10,7 +12,7 @@ if (strlen($json->url) == 0) {
     }
 }
 else {
-    if (file_put_contents($_SERVER['DOCUMENT_ROOT'] .'/'.$json->url.'/content-edit.htm', $json->content) === false){
+    if (file_put_contents($_SERVER['DOCUMENT_ROOT'] .'/content-edit.htm', $str) === false){
         echo "Save failed.";
     }
     else {

@@ -499,6 +499,10 @@ var manage_youtube_button =
     '<div class="btn manage-button">Manage Youtube Video</div>';
 $('.youtube').append(manage_youtube_button);
 
+$('.youtube .manage-button').click(function(){
+
+});
+
 var manage_iframe_button =
     '<div class="btn manage-button">Manage iframe</div>';
 $('.iframe').append(manage_iframe_button);

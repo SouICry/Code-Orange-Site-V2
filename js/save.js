@@ -10,14 +10,14 @@ function savePage(callback) {
     }
 
     content = content.replace('<p><br></p>', '');
-    content = content.replace('&amp;', '&');
+    content = content.replace(new RegExp('&amp;', 'g'), 'ESCAPED_AMPERSAND');
 
     $.ajax({
         type: "post",
         url: "/php/save-content.php",
         data: "data=" + JSON.stringify({
-            "url": trimForwardSlashAndFileName(currURL),
-            "content": content
+            url: trimForwardSlashAndFileName(currURL),
+            content: content
         }),
         success: function (msg) {
             callback(msg)
@@ -27,8 +27,10 @@ function savePage(callback) {
 
 $('.save-button').click(function () {
     modalProgress("Saving...");
-    savePage(function(){
+    savePage(function(msg){
+        if (msg != 'Save successful!') {
+            alert(msg);
+        }
         closeModalProgress();
-        alert(msg);
     });
 });

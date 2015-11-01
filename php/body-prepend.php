@@ -33,6 +33,7 @@
         </div>
         <div class="modal-1-footer modal-string-footer">
             <div class="btn modal-string-ok">Ok</div>
+            <div class="btn modal-string-cancel">Cancel</div>
         </div>
     </div>
 </div>

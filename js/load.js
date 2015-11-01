@@ -420,7 +420,7 @@ function openSelectionBar(innerHTML) {
 }
 
 
-function scrollTo(element){
+function scrollToElement(element){
     $('html, body').animate({
         scrollTop: $(element).offset().top
     }, 1000);

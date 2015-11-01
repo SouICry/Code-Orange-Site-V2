@@ -47,8 +47,8 @@ function loadEditPanel(node, arrayToUse) {
 if ($('#fullpage').length == 0) {
 
     var blocksEditButtons = ['Add block'];
-    var sidebarEditButtons = ['Add image to sidebar', 'Add block to sidebar', 'Add another sidebar'];
-    var contentEditButtons = ['Add image', 'Add Youtube video', 'Add Google Doc Sheet Form etc', 'Add other embedded content'];
+    var sidebarEditButtons = ['Add image to sidebar', 'Add block to sidebar'];
+    var contentEditButtons = ['Add image', 'Add Youtube video', 'Add Google Doc Sheet Form etc', 'Add other embedded content - iframe'];
     var contentRowEditButtons = ['Add header text - h3', 'Add image', 'Add Youtube video', 'Add Google Doc Sheet Form etc', 'Add other embedded content - iframe'];
 
 
@@ -95,20 +95,21 @@ if ($('#fullpage').length == 0) {
     $('#add-section').click(function () {
         modalSelect(function (choice) {
             if (choice == 'Two column section') {
-                $('.content-section').first().prepend(
+                $('.content-section').first().append(
                     '<div class="content-row manage new-section"><div class="sidebar"></div><div class="content"><h3>Two column section content</h3><p>You can copy, cut, paste, undo changes made to this block of content, copy contents from the content editor of another page, or copy content from a Google/Word document.</p><p>Keep in mind that the formatting may change when copying from an outside document</p><p>Add other types of content using the buttons on the bottom of the screen.</p><h3>h3</h3><h4>h4</h4><p>paragraph</p><ul><li>list item</li></ul></div></div>'
                 );
             }
             else if (choice == 'One column section') {
-                $('.content-section').first().prepend(
+                $('.content-section').first().append(
                     '<div class="content-row manage new-section"><h3>Single column section</h3></div>'
                 );
             }
             else if (choice == 'Blocks section') {
-                $('.content-section').first().prepend(
+                $('.content-section').first().append(
                     '<div class="blocks manage new-section"><a class="block-3" data-class="block-3" href="undefined"><div class="type"><p>Title</p></div><h2>Block (1/3)</h2><div class="view"><p>Leave any boxes blank to not show them</p></div></a></div>'
                 );
             }
+            scrollToElement($('.new-section').last());
             savePage(function(){
                 window.location.reload();
             });
@@ -122,9 +123,11 @@ if ($('#fullpage').length == 0) {
 
                     if ($(currentNode).hasClass('blocks') || $(currentNode).hasClass('content-row')) {
                         $(currentNode).remove();
+                        currentNode = null;
                     }
                     else {
                         $(currentNode).closest('.content-row').remove();
+                        currentNode = null;
                     }
                 }
 
@@ -134,6 +137,109 @@ if ($('#fullpage').length == 0) {
             modalOk('Click on a section first.');
         }
     });
+
+
+
+
+function editContentShared() {
+
+    $('#Add-Youtube-video').off('click').click(function () {
+        modalString('Enter youtube url:', function(url){
+            var vequals = url.indexOf('v=');
+            var embed = url.indexOf('embed/');
+            var list = url.indexOf('list=');
+
+            var vid, listid;
+            if (vequals >= 0) {
+                vid = url.substr(vequals + 2, 11);
+            }
+            if (embed >= 0) {
+                vid = url.substr(embed + 6, 11);
+            }
+            var link = 'https://www.youtube.com/embed/' + vid;
+            if (list >= 0) {
+                listid = url.substr(list + 5, 18);
+                link += '?list=' + listid;
+            }
+
+            $(currentNode).append(
+                '<div class="youtube"><div class="data-fix">' + link + '</div>' +
+                '<div class="btn manage-button">Manage Youtube Video</div></div>');
+            enableContentEditable();
+        });
+
+    });
+
+    $('#Add-Google-Doc-Sheet-Form-etc, #Add-other-embedded-content---iframe').off('click').click(function(){
+        var id = $(this).attr('id');
+
+        function callback(urlOrCode, height){
+            if (urlOrCode.charAt(0) == '"' || urlOrCode.charAt(0) == "'"){
+                urlOrCode = urlOrCode.substring(1, urlOrCode.length - 1);
+            }
+
+            if (height.charAt(0) == '"' || height.charAt(0) == "'"){
+                height = height.substring(1, height.length - 1);
+            }
+            
+            var src = urlOrCode.indexOf('src=');
+            var link;
+            if (src >= 0){
+                link = urlOrCode.substring(src + 4);
+                var qq = link.indexOf('"');
+                var q = link.indexOf("'");
+                var quoteType;
+                if (qq >= 0){
+                    if (q >= 0) {
+                        if (qq < q){
+                            quoteType = link.charAt(qq);
+                        }
+                        else {
+                            quoteType = link.charAt(q);
+                        }
+                    }
+                    else {
+                        quoteType = link.charAt(qq);
+                    }
+                }
+                else if (q >= 0){
+                    quoteType = link.charAt(q);
+                }
+                else {
+                    alert("Invalid url");
+                    return;
+                }
+                link = link.substring(link.indexOf(quoteType) + 1);
+                link = link.substr(0, link.indexOf(quoteType));
+            }
+            else {
+                link = urlOrCode;
+                if (link.charAt(0) == '"' || link.charAt(0) == "'"){
+                    link = link.substring(1, link.length - 1);
+                }
+            }
+
+            $(currentNode).append(
+                '<div class="iframe" style="height:'+ height + ';"><div class="data-fix">' + link + '</div>' +
+                '<img height="' + height +'"/>'+
+                '<div class="btn manage-button">Manage '
+                    + (id.indexOf('iframe') > 0 ? 'iframe Embed' : 'Google Embed')
+                + '</div></div>');
+            enableContentEditable();
+        }
+        if ($(currentNode).hasClass('content-row')) {
+            modalIframe("Enter Url and Height", 750, callback)
+        }
+        else {
+            modalIframe("Enter Url and Height", 420, callback)
+        }
+    });
+}
+
+
+
+
+
 
 
     $('.blocks').on('mousedown', function () {
@@ -146,12 +252,14 @@ if ($('#fullpage').length == 0) {
         if (this != currentNode) {
             loadEditPanel(this, contentRowEditButtons);
             $('#section-indicator').html('<h2>One Column Section</h2>');
+            editContentShared();
         }
     });
     $('.content-row .content').on('mousedown', function () {
         if (this != currentNode) {
             loadEditPanel(this, contentEditButtons);
             $('#section-indicator').html('<h2>Two Column Section</h2>');
+            editContentShared();
         }
     });
     $('.content-row .sidebar').on('mousedown', function () {

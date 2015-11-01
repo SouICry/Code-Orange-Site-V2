@@ -107,6 +107,9 @@ function save_content_row(content_row) {
             }
             else if ($(this).hasClass('youtube')) {
                 var src1 = $(this).find('.data-fix').html();
+                if (src1.charAt(0) == '"' || src1.charAt(0) == "'"){
+                    src1 = src1.substring(1, src1.length - 1);
+                }
                 s += '<div class="youtube">' +
                     '<div class="data-fix">' + src1 + '</div>' +
                     '<iframe src="' + src1 + '" frameborder="0" allowfullscreen></iframe>' +
@@ -114,6 +117,9 @@ function save_content_row(content_row) {
             }
             else if ($(this).hasClass('iframe')) {
                 var src2 = $(this).find('.data-fix').html();
+                if (src2.charAt(0) == '"' || src2.charAt(0) == "'"){
+                    src2 = src2.substring(1, src2.length - 1);
+                }
                 s += '<div class="iframe">' +
                     '<div class="data-fix">' + src2 + '</div>' +
                     '<iframe height="' + $(this).css('height') + '" src="' + src2 + '" ></iframe>' +
@@ -145,6 +151,9 @@ function save_content(content) {
         }
         else if ($(this).hasClass('youtube')) {
             var src3 = $(this).find('.data-fix').html();
+            if (src3.charAt(0) == '"' || src3.charAt(0) == "'"){
+                src3 = src3.substring(1, src3.length - 1);
+            }
             s += '<div class="youtube">' +
                 '<div class="data-fix">' + src3 + '</div>' +
                 '<iframe src="' + src3 + '" frameborder="0" allowfullscreen></iframe>' +
@@ -152,6 +161,9 @@ function save_content(content) {
         }
         else if ($(this).hasClass('iframe')) {
             var src4 = $(this).find('.data-fix').html();
+            if (src4.charAt(0) == '"' || src4.charAt(0) == "'"){
+                src4 = src4.substring(1, src4.length - 1);
+            }
             s += '<div class="iframe">' +
                 '<div class="data-fix">' + src4 + '</div>' +
                 '<iframe height="' + $(this).css('height') + '" src="' + src4 + '" frameborder="0" ></iframe>' +
