@@ -221,6 +221,37 @@ var edit_sidebar_block = [{
 
 },
     {
+        name: 'Modify url link',
+        fun: function (data) {
+            var elem;
+            if (data.trigger.hasClass('block')) {
+                elem = data.trigger;
+            }
+            else {
+                elem = data.trigger.closest('.block');
+            }
+            modalString('Enter url to link to, or leave blank if none: ', function (url) {
+                if (url.length > 0){
+                    if ($(elem).is('a')){
+                        $(elem).attr('href', url);
+                    }
+                    else {
+                        $(elem).replaceWith(
+                            '<a class="block" href="' + url +'">' + $(elem).html() + '</a>')
+                    }
+                }
+                else {
+                    (elem).replaceWith(
+                        '<div class="block">' + $(elem).html() + '</div>')
+                }
+                enableContentEditable();
+            });
+            if ($(elem).is('a')) {
+                $('.modal-string-input').val($(elem).attr('href'));
+            }
+        }
+    },
+    {
         name: 'Delete this block',
         fun: function (data) {
             if (data.trigger.hasClass('block')) {
@@ -295,6 +326,37 @@ var edit_blocks_section_block = [{
     }
 },
     {
+        name: 'Modify url link',
+        fun: function (data) {
+            var elem;
+            if (data.trigger.hasClass('manage')) {
+                elem = data.trigger;
+            }
+            else {
+                elem = data.trigger.closest('.manage');
+            }
+            modalString('Enter url to link to, or leave blank if none: ', function (url) {
+                if (url.length > 0) {
+                    if ($(elem).is('a')) {
+                        $(elem).attr('href', url);
+                    }
+                    else {
+                        $(elem).replaceWith(
+                            '<a class="' + $(elem).data('class') + '" data-class="' + $(elem).data('class') + '" href="' + url + '">' + $(elem).html() + '</a>')
+                    }
+                }
+                else {
+                    (elem).replaceWith(
+                        '<div class="' + $(elem).data('class') + '" data-class="' + $(elem).data('class') + '">' + $(elem).html() + '</div>')
+                }
+                enableContentEditable();
+            });
+            if ($(elem).is('a')) {
+                $('.modal-string-input').val($(elem).attr('href'));
+            }
+        }
+    },
+    {
         name: 'Delete this block',
         fun: function (data) {
             if (data.trigger.hasClass('manage')) {
@@ -337,12 +399,12 @@ function bindContextMenus(){
     $('.sidebar .block img').off('click').contextMenu(edit_sidebar_block_img);
 
 
-    $('.blocks.manage a.manage').off('click').contextMenu(edit_blocks_section_block);
-    $('.blocks.manage a.manage > *').off('click').click(function (event) {
+    $('.blocks.manage .manage').off('click').contextMenu(edit_blocks_section_block);
+    $('.blocks.manage .manage > *').off('click').click(function (event) {
         event.preventDefault();
         event.stopPropagation();
     });
-    $('.blocks.manage a.manage img').off('click').contextMenu(edit_blocks_section_block_img);
+    $('.blocks.manage .manage img').off('click').contextMenu(edit_blocks_section_block_img);
 }
 
 
@@ -614,11 +676,11 @@ function edit_mode() {
 
 
 function enableContentEditable(){
-    $('.content-row, .sidebar, .youtube, .blocks, .blocks > a, .sidebar > *, .iframe').addClass('manage');
+    $('.content-row, .sidebar, .youtube, .blocks, .blocks > *, .sidebar > *, .iframe').addClass('manage');
     $('.section-inner').addClass('manage');
 
     $('.title h1, .title .sub-title, .content-row .content').addClass('editable').attr('contenteditable', 'true');
-    $('.blocks > a > .type, .blocks > a > .view, .blocks > a > h2').addClass('editable').attr('contenteditable', 'true');
+    $('.blocks .type, .blocks .view, .blocks  h2').addClass('editable').attr('contenteditable', 'true');
     $('.sidebar .block .type, .sidebar .block .view, .sidebar .block  h2').addClass('editable').attr('contenteditable', 'true');
 
     $('.section-inner .content, .content-row:not(:has(.sidebar))').addClass('editable').attr('contenteditable', 'true');
@@ -639,81 +701,6 @@ function enableContentEditable(){
 enableContentEditable();
 
 
-
-
-
-//var manage_two_column_content_buttons =
-//    '<div class="blocks manage-button">' +
-//    '<div class="manage" style="width: 100%">' +
-//    '<h2>2 column content row - Manage</h2>' +
-//    '</div>' +
-//    '<a class="block-6 manage">' +
-//    '<h2>Add Image</h2> ' +
-//    '</a>' +
-//    '<a class="block-6 manage">' +
-//    '<h2>Add Youtube Video</h2>' +
-//    '</a>' +
-//    '<a class="block-6 manage">' +
-//    '<h2>Add Google Form</h2>' +
-//    '</a>' +
-//    '<a class="block-6 manage">' +
-//    '<h2>Add Google Docs</h2>' +
-//    '</a>' +
-//    '<a class="block-6 manage">' +
-//    '<h2>Add Google Maps</h2>' +
-//    '</a>' +
-//    '<a class="block-6 manage">' +
-//    '<h2>Add other iframes</h2>' +
-//    '</a>' +
-//    '<a class="block-6 manage">' +
-//    '<h2>Delete this content row</h2>' +
-//    '</a>' +
-//    '<a class="block-6 manage">' +
-//    '<h2>Add new content row</h2>' +
-//    '</a>' +
-//    '</div>';
-//
-//$('.content-row:has(.sidebar)').append(manage_two_column_content_buttons);
-
-
-//var manage_one_column_content_buttons =
-//    '<div class="blocks manage-button">' +
-//    '<div class="manage" style="width: 100%">' +
-//    '<h2>1 column content row - Manage</h2>' +
-//    '</div>' +
-//    '<a class="block-6 manage">' +
-//    '<h2>Add header (h3)</h2> ' +
-//    '</a>' +
-//    '<a class="block-6 manage">' +
-//    '<h2>Add Blocks Section</h2>' +
-//    '</a>' +
-//    '<a class="block-6 manage">' +
-//    '<h2>Add Image</h2> ' +
-//    '</a>' +
-//    '<a class="block-6 manage">' +
-//    '<h2>Add Youtube Video</h2>' +
-//    '</a>' +
-//    '<a class="block-6 manage">' +
-//    '<h2>Add Google Form</h2>' +
-//    '</a>' +
-//    '<a class="block-6 manage">' +
-//    '<h2>Add Google Docs</h2>' +
-//    '</a>' +
-//    '<a class="block-6 manage">' +
-//    '<h2>Add Google Maps</h2>' +
-//    '</a>' +
-//    '<a class="block-6 manage">' +
-//    '<h2>Add other iframes</h2>' +
-//    '</a>' +
-//    '<a class="block-6 manage">' +
-//    '<h2>Delete this content row</h2>' +
-//    '</a>' +
-//    '<a class="block-6 manage">' +
-//    '<h2>Add new content row</h2>' +
-//    '</a>' +
-//    '</div>';
-//
-//$('.content-row:not(:has(.sidebar))').append(manage_one_column_content_buttons);
 
 
 //TODO: async loading library.

@@ -704,23 +704,23 @@ h4, thead td {
   display: flex;
   justify-content: center; }
 
-a.block:hover, a.block-2:hover, a.block-3:hover, a.block-4:hover, a.block-6:hover, a.block-half:hover, a.block-2-half:hover, a.block-3-half:hover, a.block-4-half:hover, a.block-6-half:hover {
+.block:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover, .block-half:hover, .block-2-half:hover, .block-3-half:hover, .block-4-half:hover, .block-6-half:hover {
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5);
   z-index: 10; }
   @media (min-width: 720px) and (max-width: 1023px) {
-    a.block:hover, a.block-2:hover, a.block-3:hover, a.block-4:hover, a.block-6:hover, a.block-half:hover, a.block-2-half:hover, a.block-3-half:hover, a.block-4-half:hover, a.block-6-half:hover {
+    .block:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover, .block-half:hover, .block-2-half:hover, .block-3-half:hover, .block-4-half:hover, .block-6-half:hover {
       box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5); } }
   @media (min-width: 1024px) {
-    a.block:hover, a.block-2:hover, a.block-3:hover, a.block-4:hover, a.block-6:hover, a.block-half:hover, a.block-2-half:hover, a.block-3-half:hover, a.block-4-half:hover, a.block-6-half:hover {
+    .block:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover, .block-half:hover, .block-2-half:hover, .block-3-half:hover, .block-4-half:hover, .block-6-half:hover {
       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5); } }
-a.block:active, a.block-2:active, a.block-3:active, a.block-4:active, a.block-6:active, a.block-half:active, a.block-2-half:active, a.block-3-half:active, a.block-4-half:active, a.block-6-half:active {
+.block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .block-half:active, .block-2-half:active, .block-3-half:active, .block-4-half:active, .block-6-half:active {
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8);
   z-index: 10; }
   @media (min-width: 720px) and (max-width: 1023px) {
-    a.block:active, a.block-2:active, a.block-3:active, a.block-4:active, a.block-6:active, a.block-half:active, a.block-2-half:active, a.block-3-half:active, a.block-4-half:active, a.block-6-half:active {
+    .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .block-half:active, .block-2-half:active, .block-3-half:active, .block-4-half:active, .block-6-half:active {
       box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.8); } }
   @media (min-width: 1024px) {
-    a.block:active, a.block-2:active, a.block-3:active, a.block-4:active, a.block-6:active, a.block-half:active, a.block-2-half:active, a.block-3-half:active, a.block-4-half:active, a.block-6-half:active {
+    .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .block-half:active, .block-2-half:active, .block-3-half:active, .block-4-half:active, .block-6-half:active {
       box-shadow: 0 0 25px 0px rgba(0, 0, 0, 0.8); } }
 
 .block, .block-2, .block-3, .block-4, .block-6, .block-half, .block-2-half, .block-3-half, .block-4-half, .block-6-half {
@@ -825,42 +825,42 @@ a.block:active, a.block-2:active, a.block-3:active, a.block-4:active, a.block-6:
   max-width: 95%;
   max-height: 95%; }
 
-a.block-2:hover, a.block-3:hover, a.block-4:hover, a.block-6:hover {
+.block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover {
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5);
   z-index: 10; }
   @media (min-width: 720px) and (max-width: 1023px) {
-    a.block-2:hover, a.block-3:hover, a.block-4:hover, a.block-6:hover {
+    .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover {
       box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5); } }
   @media (min-width: 1024px) {
-    a.block-2:hover, a.block-3:hover, a.block-4:hover, a.block-6:hover {
+    .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover {
       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5); } }
-a.block-2:active, a.block-3:active, a.block-4:active, a.block-6:active {
+.block-2:active, .block-3:active, .block-4:active, .block-6:active {
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8);
   z-index: 10; }
   @media (min-width: 720px) and (max-width: 1023px) {
-    a.block-2:active, a.block-3:active, a.block-4:active, a.block-6:active {
+    .block-2:active, .block-3:active, .block-4:active, .block-6:active {
       box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.8); } }
   @media (min-width: 1024px) {
-    a.block-2:active, a.block-3:active, a.block-4:active, a.block-6:active {
+    .block-2:active, .block-3:active, .block-4:active, .block-6:active {
       box-shadow: 0 0 25px 0px rgba(0, 0, 0, 0.8); } }
 
-a.block-2-half:hover, a.block-3-half:hover, a.block-4-half:hover, a.block-6-half:hover {
+.block-2-half:hover, .block-3-half:hover, .block-4-half:hover, .block-6-half:hover {
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5);
   z-index: 10; }
   @media (min-width: 720px) and (max-width: 1023px) {
-    a.block-2-half:hover, a.block-3-half:hover, a.block-4-half:hover, a.block-6-half:hover {
+    .block-2-half:hover, .block-3-half:hover, .block-4-half:hover, .block-6-half:hover {
       box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5); } }
   @media (min-width: 1024px) {
-    a.block-2-half:hover, a.block-3-half:hover, a.block-4-half:hover, a.block-6-half:hover {
+    .block-2-half:hover, .block-3-half:hover, .block-4-half:hover, .block-6-half:hover {
       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5); } }
-a.block-2-half:active, a.block-3-half:active, a.block-4-half:active, a.block-6-half:active {
+.block-2-half:active, .block-3-half:active, .block-4-half:active, .block-6-half:active {
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8);
   z-index: 10; }
   @media (min-width: 720px) and (max-width: 1023px) {
-    a.block-2-half:active, a.block-3-half:active, a.block-4-half:active, a.block-6-half:active {
+    .block-2-half:active, .block-3-half:active, .block-4-half:active, .block-6-half:active {
       box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.8); } }
   @media (min-width: 1024px) {
-    a.block-2-half:active, a.block-3-half:active, a.block-4-half:active, a.block-6-half:active {
+    .block-2-half:active, .block-3-half:active, .block-4-half:active, .block-6-half:active {
       box-shadow: 0 0 25px 0px rgba(0, 0, 0, 0.8); } }
 
 .block-2, .block-2-half {
@@ -1061,23 +1061,23 @@ a.block-2-half:active, a.block-3-half:active, a.block-4-half:active, a.block-6-h
   display: flex;
   justify-content: center; }
 
-a.block:hover, a.block-2:hover, a.block-3:hover, a.block-4:hover, a.block-6:hover, a.block-half:hover, a.block-2-half:hover, a.block-3-half:hover, a.block-4-half:hover, a.block-6-half:hover {
+.block:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover, .block-half:hover, .block-2-half:hover, .block-3-half:hover, .block-4-half:hover, .block-6-half:hover {
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5);
   z-index: 10; }
   @media (min-width: 720px) and (max-width: 1023px) {
-    a.block:hover, a.block-2:hover, a.block-3:hover, a.block-4:hover, a.block-6:hover, a.block-half:hover, a.block-2-half:hover, a.block-3-half:hover, a.block-4-half:hover, a.block-6-half:hover {
+    .block:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover, .block-half:hover, .block-2-half:hover, .block-3-half:hover, .block-4-half:hover, .block-6-half:hover {
       box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5); } }
   @media (min-width: 1024px) {
-    a.block:hover, a.block-2:hover, a.block-3:hover, a.block-4:hover, a.block-6:hover, a.block-half:hover, a.block-2-half:hover, a.block-3-half:hover, a.block-4-half:hover, a.block-6-half:hover {
+    .block:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover, .block-half:hover, .block-2-half:hover, .block-3-half:hover, .block-4-half:hover, .block-6-half:hover {
       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5); } }
-a.block:active, a.block-2:active, a.block-3:active, a.block-4:active, a.block-6:active, a.block-half:active, a.block-2-half:active, a.block-3-half:active, a.block-4-half:active, a.block-6-half:active {
+.block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .block-half:active, .block-2-half:active, .block-3-half:active, .block-4-half:active, .block-6-half:active {
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8);
   z-index: 10; }
   @media (min-width: 720px) and (max-width: 1023px) {
-    a.block:active, a.block-2:active, a.block-3:active, a.block-4:active, a.block-6:active, a.block-half:active, a.block-2-half:active, a.block-3-half:active, a.block-4-half:active, a.block-6-half:active {
+    .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .block-half:active, .block-2-half:active, .block-3-half:active, .block-4-half:active, .block-6-half:active {
       box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.8); } }
   @media (min-width: 1024px) {
-    a.block:active, a.block-2:active, a.block-3:active, a.block-4:active, a.block-6:active, a.block-half:active, a.block-2-half:active, a.block-3-half:active, a.block-4-half:active, a.block-6-half:active {
+    .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .block-half:active, .block-2-half:active, .block-3-half:active, .block-4-half:active, .block-6-half:active {
       box-shadow: 0 0 25px 0px rgba(0, 0, 0, 0.8); } }
 
 .block, .block-2, .block-3, .block-4, .block-6, .block-half, .block-2-half, .block-3-half, .block-4-half, .block-6-half {
@@ -1182,42 +1182,42 @@ a.block:active, a.block-2:active, a.block-3:active, a.block-4:active, a.block-6:
   max-width: 95%;
   max-height: 95%; }
 
-a.block-2:hover, a.block-3:hover, a.block-4:hover, a.block-6:hover {
+.block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover {
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5);
   z-index: 10; }
   @media (min-width: 720px) and (max-width: 1023px) {
-    a.block-2:hover, a.block-3:hover, a.block-4:hover, a.block-6:hover {
+    .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover {
       box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5); } }
   @media (min-width: 1024px) {
-    a.block-2:hover, a.block-3:hover, a.block-4:hover, a.block-6:hover {
+    .block-2:hover, .block-3:hover, .block-4:hover, .block-6:hover {
       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5); } }
-a.block-2:active, a.block-3:active, a.block-4:active, a.block-6:active {
+.block-2:active, .block-3:active, .block-4:active, .block-6:active {
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8);
   z-index: 10; }
   @media (min-width: 720px) and (max-width: 1023px) {
-    a.block-2:active, a.block-3:active, a.block-4:active, a.block-6:active {
+    .block-2:active, .block-3:active, .block-4:active, .block-6:active {
       box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.8); } }
   @media (min-width: 1024px) {
-    a.block-2:active, a.block-3:active, a.block-4:active, a.block-6:active {
+    .block-2:active, .block-3:active, .block-4:active, .block-6:active {
       box-shadow: 0 0 25px 0px rgba(0, 0, 0, 0.8); } }
 
-a.block-2-half:hover, a.block-3-half:hover, a.block-4-half:hover, a.block-6-half:hover {
+.block-2-half:hover, .block-3-half:hover, .block-4-half:hover, .block-6-half:hover {
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5);
   z-index: 10; }
   @media (min-width: 720px) and (max-width: 1023px) {
-    a.block-2-half:hover, a.block-3-half:hover, a.block-4-half:hover, a.block-6-half:hover {
+    .block-2-half:hover, .block-3-half:hover, .block-4-half:hover, .block-6-half:hover {
       box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5); } }
   @media (min-width: 1024px) {
-    a.block-2-half:hover, a.block-3-half:hover, a.block-4-half:hover, a.block-6-half:hover {
+    .block-2-half:hover, .block-3-half:hover, .block-4-half:hover, .block-6-half:hover {
       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5); } }
-a.block-2-half:active, a.block-3-half:active, a.block-4-half:active, a.block-6-half:active {
+.block-2-half:active, .block-3-half:active, .block-4-half:active, .block-6-half:active {
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8);
   z-index: 10; }
   @media (min-width: 720px) and (max-width: 1023px) {
-    a.block-2-half:active, a.block-3-half:active, a.block-4-half:active, a.block-6-half:active {
+    .block-2-half:active, .block-3-half:active, .block-4-half:active, .block-6-half:active {
       box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.8); } }
   @media (min-width: 1024px) {
-    a.block-2-half:active, a.block-3-half:active, a.block-4-half:active, a.block-6-half:active {
+    .block-2-half:active, .block-3-half:active, .block-4-half:active, .block-6-half:active {
       box-shadow: 0 0 25px 0px rgba(0, 0, 0, 0.8); } }
 
 .block-2, .block-2-half {

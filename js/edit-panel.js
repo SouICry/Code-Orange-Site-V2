@@ -93,8 +93,8 @@ if ($('#fullpage').length == 0) {
     });
 
     $('#add-section').click(function () {
-        if (rearrangeMode){
-            modalOk('Switch to edit mode first.', function(){
+        if (rearrangeMode) {
+            modalOk('Switch to edit mode first.', function () {
 
             })
         }
@@ -117,8 +117,8 @@ if ($('#fullpage').length == 0) {
                 }
                 scrollToElement($('.new-section').last());
                 modalProgress('Adding and saving...');
-                setTimeout(function(){
-                    savePage(function(){
+                setTimeout(function () {
+                    savePage(function () {
                         window.location.reload();
                     });
                 }, 800)
@@ -148,7 +148,6 @@ if ($('#fullpage').length == 0) {
             modalOk('Click on a section first.');
         }
     });
-
 
 
     function editContentShared() {
@@ -254,41 +253,63 @@ if ($('#fullpage').length == 0) {
         });
     }
 
+    function editSidebar() {
+        $('#Add-image-to-sidebar').off('click').click(function () {
+            modalImageSelect(function (path) {
+                $(currentNode).append('<div class="img"><img src="' + path + '"/></div>');
+                enableContentEditable();
+            });
 
+        });
+        $('#Add-block-to-sidebar').off('click').click(function () {
+            modalString('Enter url to link to, or leave blank if none: ', function (url) {
+                if (url.length > 0) {
+                    $(currentNode).append(
+                        '<a class="block" href="' + url + '">' +
+                        '<div class="type"><p>Title</p></div>' +
+                        '<div class="view"><p>Leave any boxes blank to not show them</p></div>' +
+                        '<h2>Text h2</h2></a>');
+                }
+                else {
+                    $(currentNode).append(
+                        '<div class="block">' +
+                        '<div class="type"><p>Title</p></div>' +
+                        '<div class="view"><p>Leave any boxes blank to not show them</p></div>' +
+                        '<h2>Text h2</h2></div>');
+                }
+                enableContentEditable();
+            });
+        });
+    }
 
-    //function toggleSingleColumnH3 (){
-    //    var text_content = $(currentNode).find('.text-content');
-    //    if (text_content.length > 0){
-    //        $('#Add-text-content-section').html('<p>Remove text content section</p>');
-    //    }
-    //    else {
-    //        $('#Add-text-content-section').html('<p>Add text content section</p>');
-    //    }
-    //    $('#Add-text-content-section').off('click').click(function(){
-    //        text_content = $(currentNode).find('.text-content');
-    //        if(text_content.length == 0) {
-    //            $(currentNode).prepend(
-    //                '<div class="text-content">' +
-    //                    '<h3>Text content section</h3>' +
-    //                    '<p>You can start typing here with the inline editor.</p>' +
-    //                    '<p>Or copy and paste content from 2 column content section.</p>' +
-    //                    '<p>Or add content there and drag it over in rearrange mode.</p>' +
-    //                '</div>');
-    //            enableContentEditable();
-    //            $('#Add-text-content-section').html('<p>Remove text content section</p>');
-    //        }
-    //        else {
-    //            text_content.remove();
-    //            $('#Add-text-content-section').html('<p>Add text content section</p>');
-    //        }
-    //    })
-    //}
+    function editBlocks(){
+        $('#Add-block').off('click').click(function () {
+            modalString('Enter url to link to, or leave blank if none: ', function (url) {
+                if (url.length > 0) {
+                    $(currentNode).append(
+                        '<a class="block-3" data-class="block-3" href="'+url+'">' +
+                        '<div class="type"><p>Title</p></div>' +
+                        '<h2>Text h2</h2>' +
+                        '<div class="view"><p>Leave any boxes blank to not show them</p></div></a>');
+                }
+                else {
+                    $(currentNode).append(
+                        '<div class="block-3" data-class="block-3">' +
+                        '<div class="type"><p>Title</p></div>' +
+                        '<h2>Text h2</h2>' +
+                        '<div class="view"><p>Leave any boxes blank to not show them</p></div></div>');
+                }
+                enableContentEditable();
+            });
+        });
+    }
 
     function bindEditPanelTriggers() {
         $('.blocks').off('mouseDown').on('mousedown', function () {
             if (this != currentNode) {
                 loadEditPanel(this, blocksEditButtons);
                 $('#section-indicator').html('<h2>Blocks Section</h2>');
+                editBlocks();
             }
         });
         $('.content-row:not(:has(.sidebar))').off('mouseDown').on('mousedown', function () {
@@ -311,6 +332,7 @@ if ($('#fullpage').length == 0) {
             if (this != currentNode) {
                 loadEditPanel(this, sidebarEditButtons);
                 $('#section-indicator').html('<h2>Sidebar</h2>');
+                editSidebar();
             }
         });
     }

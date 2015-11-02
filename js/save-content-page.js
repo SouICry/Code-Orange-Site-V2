@@ -50,10 +50,10 @@ function save_content_page() {
 function save_blocks(block) {
     var s = '';
     if (block.is('a')) {
-        s += '<a class="' + block.data('class') + '" href="' + block.attr('href') + '">';
+        s += '<a class="' + block.data('class') + '"  data-class="' + block.data('class') + '" href="' + block.attr('href') + '">';
     }
     else {
-        s += '<div class="' + block.data('class') + '">';
+        s += '<div class="' + block.data('class') + '" data-class="' + block.data('class') + '">';
     }
     block.children().each(function () {
         if ($(this).hasClass('type')) {

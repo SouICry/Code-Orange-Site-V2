@@ -8,7 +8,7 @@
   justify-content: center;
 }
 
-a.block, a.block-half{
+.block, .block-half{
   &:hover {
     @include outline-shadow;
 
@@ -157,8 +157,6 @@ a.block, a.block-half{
 
 .block-2, .block-3, .block-4, .block-6 {
   @extend .block;
-}
-a.block-2, a.block-3, a.block-4, a.block-6 {
   &:hover {
     @include outline-shadow;
     z-index: 10;
@@ -171,8 +169,7 @@ a.block-2, a.block-3, a.block-4, a.block-6 {
 
 .block-2-half, .block-3-half, .block-4-half, .block-6-half {
   @extend .block-half;
-}
-a.block-2-half, a.block-3-half, a.block-4-half, a.block-6-half {
+
   &:hover {
     @include outline-shadow;
     z-index: 10;
