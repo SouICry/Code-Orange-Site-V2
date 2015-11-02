@@ -8,6 +8,51 @@
 
 //TODO: fix nav bar not scrolling when scrolled from top (bugginess)
 
+
+//From underscore.js
+// Returns a function, that, as long as it continues to be invoked, will not
+// be triggered. The function will be called after it stops being called for
+// N milliseconds. If `immediate` is passed, trigger the function on the
+// leading edge, instead of the trailing.
+function debounce(func, wait, immediate) {
+    var timeout;
+    return function() {
+        var context = this, args = arguments;
+        var later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
+};
+
+
+var header_height = 210;
+var headScroll = null;
+function fullpageInit(){
+    if (document.getElementById("fullpage") !== null) {
+        $('#fullpage').fullpage({
+            navigation: true,
+            fitToSection: false,
+            scrollBar: true,
+            scrollingSpeed: 1000,
+            responsiveWidth: 1024
+        });
+    }
+}
+function moveSectionDown(){
+    $.fn.fullpage.moveSectionDown();
+}
+$(document).ready(function () {
+    fullpageInit();
+});
+
+
+
+
 window.onpopstate = pop;
 
 function pop(event) {
@@ -123,9 +168,9 @@ function setHeaderHeight() {
 
 
 setHeaderScroll();
-window.addEventListener("resize", function () {
-    setHeaderScroll()
-}, false);
+window.addEventListener("resize", debounce(function () {
+    setHeaderScroll();
+}, 100), false);
 
 var navItems1 = null;
 var navItems2 = null;
@@ -349,6 +394,8 @@ function trimForwardSlashAndFileName(stringToTrim) {
 }
 
 
+//Changes selection bar width to be all elements + 20px on load and resize.
+var selection_bar_item_width = 0;
 function fixHeaderWidth() {
     var slide = $('.scroll-fix');
     if (slide.length) {
@@ -358,11 +405,16 @@ function fixHeaderWidth() {
                 width += $(this).outerWidth(true);
             });
             $(this).width(width);
+            selectionBarHeaderwidth = $(this).children().first().outerWidth();
         });
     }
 }
-
 fixHeaderWidth();
+$(window).resize(debounce(function(){
+    if ($('.scroll-fix').children().first().outerWidth() != selection_bar_item_width){
+        fixHeaderWidth();
+    }
+}, 100));
 
 
 function closeBody(callback) {
@@ -429,6 +481,10 @@ function scrollToElement(element){
 function checkLoadEdit() {
     var t = trimForwardSlashAndFileName(currURL);
     var slasht = '/' + t;
+    if (t.length == 0){
+        slasht = '';
+    }
+
 
     if (currURL.indexOf('edit.php') > 0){
         window.location.href = (slasht + "/" + "edit.php?edit=true");

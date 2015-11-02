@@ -1,3 +1,48 @@
+if ($('#fullpage').length == 0) {
+    $('body').append(
+    '<div class="edit-panel">' +
+        '<div id="edit-shrink-button" title="Auto-hide edit panel" class="btn">V</div>' +
+        '<div id="mode-indicator" class="edit-panel-section">' +
+            '<h2>Edit Mode</h2>' +
+        '</div>' +
+        '<div id="toggle-edit-rearrange" class="edit-panel-button-special">' +
+            '<p>Switch to Rearrange Mode</p>' +
+        '</div>' +
+        '<div id="toggle-gallery" class="edit-panel-button-special">' +
+            '<p>Enable Gallery</p>' +
+        '</div>' +
+        '<div id="add-section" class="edit-panel-button-special">' +
+            '<p>Add Section</p>' +
+        '</div>' +
+        '<div id="delete-section" class="edit-panel-button-special">' +
+            '<p>Delete entire section (red border)</p>' +
+        '</div>' +
+        '<div id="section-indicator" class="edit-panel-section">' +
+            '<h2></h2>' +
+        '</div>' +
+    '</div>'
+    );
+}
+else {
+    $(document).ready(function(){
+        $.fn.fullpage.destroy();
+    });
+    $('body').append(
+        '<div class="edit-panel">' +
+        '<div id="edit-shrink-button" title="Auto-hide edit panel" class="btn">V</div>' +
+        '<div id="mode-indicator" class="edit-panel-section">' +
+        '<h2>Edit Mode</h2>' +
+        '</div>' +
+        '<div id="toggle-edit-rearrange" class="edit-panel-button-special">' +
+        '<p>Switch to Rearrange Mode</p>' +
+        '</div>' +
+        '</div>'
+    );
+}
+
+
+
+
 var rearrangeMode = false;
 $('#toggle-edit-rearrange').click(function () {
     rearrangeMode = !rearrangeMode;
@@ -49,7 +94,6 @@ if ($('#fullpage').length == 0) {
     var blocksEditButtons = ['Add block'];
     var sidebarEditButtons = ['Add image to sidebar', 'Add block to sidebar'];
     var contentEditButtons = ['Add image', 'Add Youtube video', 'Add Google Doc Sheet Form etc', 'Add other embedded content - iframe'];
-    //var contentRowEditButtons = ['Add text content section', 'Add image', 'Add Youtube video', 'Add Google Doc Sheet Form etc', 'Add other embedded content - iframe'];
 
 
     var gallery = $('#toggle-gallery');
@@ -102,12 +146,12 @@ if ($('#fullpage').length == 0) {
             modalSelect(function (choice) {
                 if (choice == 'Two column section') {
                     $('.content-section').first().append(
-                        '<div class="content-row manage new-section"><div class="sidebar"></div><div class="content"><h3>Two column section content</h3><p>You can copy, cut, paste, undo changes made to this block of content, copy contents from the content editor of another page, or copy content from a Google/Word document.</p><p>Keep in mind that the formatting may change when copying from an outside document</p><p>Add other types of content using the buttons on the bottom of the screen.</p><h3>h3</h3><h4>h4</h4><p>paragraph</p><ul><li>list item</li></ul></div></div>'
+                        '<div class="content-row manage new-section"><div class="sidebar"></div><div class="content"><h3>Two column section content</h3><p>Note: the editor breaks some formatting, so preview to confirm.</p><p>You can copy, cut, paste, undo changes made to this block of content, copy contents from the content editor of another page, or copy content from a Google/Word document.</p><p>Keep in mind that the formatting may change when copying from an outside document</p><p>Add other types of content using the buttons on the bottom of the screen.</p><h3>h3</h3><h4>h4</h4><p>paragraph</p><ul><li>list item</li></ul></div></div>'
                     );
                 }
                 else if (choice == 'One column section') {
                     $('.content-section').first().append(
-                        '<div class="content-row manage new-section"><h3>Single column section</h3><p>This works the same way as the content in a two column section.</p><p>You can event copy/paste or drag between the two</p></div>'
+                        '<div class="content-row manage new-section"><h3>Single column section</h3><p>Note: the editor breaks some formatting, so preview to confirm.</p><p>This works the same way as the content in a two column section.</p><p>You can event copy/paste or drag between the two</p></div>'
                     );
                 }
                 else if (choice == 'Blocks section') {
@@ -338,7 +382,4 @@ if ($('#fullpage').length == 0) {
     }
 
     bindEditPanelTriggers();
-}
-else {
-
 }
