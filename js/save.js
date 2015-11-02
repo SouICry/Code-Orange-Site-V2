@@ -11,7 +11,7 @@ function savePage(callback) {
 
     content = content.replace('<p><br></p>', '');
     content = content.replace(new RegExp('&amp;', 'g'), 'ESCAPED_AMPERSAND');
-
+    content = content.replace(new RegExp('&', 'g'), 'ESCAPED_AMPERSAND');
     $.ajax({
         type: "post",
         url: "/php/save-content.php",

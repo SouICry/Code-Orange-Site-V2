@@ -92,47 +92,20 @@ function save_content_row(content_row) {
                 s += save_sidebar($(this));
             }
             else if ($(this).hasClass('content')) {
-                s += save_content($(this));
+                s += '<div class="content">' + save_content($(this)) + '</div>';
             }
         });
 
     }
     else {
-        content_row.children().each(function () {
-            if ($(this).is('h3')) {
-                s += '<h3>' + $(this).html() + '</h3>';
-            }
-            else if ($(this).is('h4')) {
-                s += '<h4>' + $(this).html() + '</h4>';
-            }
-            else if ($(this).hasClass('youtube')) {
-                var src1 = $(this).find('.data-fix').html();
-                if (src1.charAt(0) == '"' || src1.charAt(0) == "'"){
-                    src1 = src1.substring(1, src1.length - 1);
-                }
-                s += '<div class="youtube">' +
-                    '<div class="data-fix">' + src1 + '</div>' +
-                    '<iframe src="' + src1 + '" frameborder="0" allowfullscreen></iframe>' +
-                    '</div>';
-            }
-            else if ($(this).hasClass('iframe')) {
-                var src2 = $(this).find('.data-fix').html();
-                if (src2.charAt(0) == '"' || src2.charAt(0) == "'"){
-                    src2 = src2.substring(1, src2.length - 1);
-                }
-                s += '<div class="iframe">' +
-                    '<div class="data-fix">' + src2 + '</div>' +
-                    '<iframe height="' + $(this).css('height') + '" src="' + src2 + '" ></iframe>' +
-                    '</div>';
-            }
-        });
+        s += save_content(content_row);
     }
     s += '</div>';
     return s;
 }
 
 function save_content(content) {
-    var s = '<div class="content">';
+    var s = '';
     content.children().each(function () {
         if ($(this).is('h3')) {
             s += '<h3>' + $(this).html() + '</h3>';
@@ -142,6 +115,9 @@ function save_content(content) {
         }
         else if ($(this).is('h4')) {
             s += '<h4>' + $(this).html() + '</h4>';
+        }
+        else if ($(this).is('img')) {
+            s += '<img src="' + $(this).attr('src') + '"/>';
         }
         else if ($(this).is('ul')) {
             s += '<ul>' + $(this).html() + '</ul>';
@@ -164,13 +140,12 @@ function save_content(content) {
             if (src4.charAt(0) == '"' || src4.charAt(0) == "'"){
                 src4 = src4.substring(1, src4.length - 1);
             }
-            s += '<div class="iframe">' +
+            s += '<div class="iframe" data-height="'+$(this).data('height')+'">' +
                 '<div class="data-fix">' + src4 + '</div>' +
-                '<iframe height="' + $(this).css('height') + '" src="' + src4 + '" frameborder="0" ></iframe>' +
+                '<iframe height="' + $(this).data('height') + '" src="' + src4 + '" frameborder="0" ></iframe>' +
                 '</div>';
         }
     });
-    s += '</div>';
     return s;
 }
 

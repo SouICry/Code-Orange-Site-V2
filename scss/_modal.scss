@@ -92,6 +92,10 @@
 }
 
 
+.modal-1.modal-ok, .modal-1.modal-confirm {
+  z-index: 999;
+}
+
 .modal-progress {
   position: fixed;
   display: none;

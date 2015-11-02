@@ -57,7 +57,7 @@
     width: 100%;
     margin: 0;
     @include desktop {
-      min-height: 200px;
+      min-height: 80px;
     }
 
     /* Sticky scroll until end of content row*/
@@ -114,6 +114,11 @@
     }
 
 
+
+    .text-content {
+      width: 100%;
+      min-height: 80px;
+    }
 
     .content {
       float: left;

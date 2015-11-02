@@ -17,14 +17,6 @@
         </div>
     </div>
 </div>
-<div class="modal-1 modal-ok">
-    <div class="modal-1-inner modal-ok-inner">
-        <div class="modal-1-content modal-ok-content"></div>
-        <div class="modal-1-footer modal-ok-footer">
-            <div class="btn modal-ok-ok">Ok</div>
-        </div>
-    </div>
-</div>
 <div class="modal-1 modal-string">
     <div class="modal-1-inner modal-string-inner">
         <div class="modal-string-header"></div>
@@ -37,6 +29,19 @@
         </div>
     </div>
 </div>
+
+
+
+
+<div class="modal-1 modal-ok">
+    <div class="modal-1-inner modal-ok-inner">
+        <div class="modal-1-content modal-ok-content"></div>
+        <div class="modal-1-footer modal-ok-footer">
+            <div class="btn modal-ok-ok">Ok</div>
+        </div>
+    </div>
+</div>
 <div class="modal-progress">
     <div class="modal-progress-inner"></div>
 </div>
+

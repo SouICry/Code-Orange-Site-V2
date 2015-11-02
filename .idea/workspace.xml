@@ -2,22 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c6d85cd-f7c8-4f3c-a2fc-a00c4fde1311" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tst1.htm" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\Robots\Hanalei\img\carousel\0_2015-10-29__05-54-52pm.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\Robots\Hanalei\img\carousel\1_2015-10-29__05-54-52pm.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\Robots\Hanalei\img\carousel\2_2015-10-29__05-54-52pm.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\Robots\Hanalei\img\carousel\3_2015-10-29__05-54-52pm.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\Robots\Hanalei\img\carousel\4_2015-10-29__05-54-52pm.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\SouICry\Desktop\Code-Orange-Site-V2\Robots\Hanalei\img\carousel\5_2015-10-29__05-54-52pm.jpg" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/_layout_structure.scss" afterPath="$PROJECT_DIR$/scss/_layout_structure.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/_modal.scss" afterPath="$PROJECT_DIR$/scss/_modal.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/body-prepend.php" afterPath="$PROJECT_DIR$/php/body-prepend.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/content-edit.htm" afterPath="$PROJECT_DIR$/content-edit.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/About/Contact_Us/content-edit.htm" afterPath="$PROJECT_DIR$/About/Contact_Us/content-edit.htm" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robots/Hanalei/content-edit.htm" afterPath="$PROJECT_DIR$/Robots/Hanalei/content-edit.htm" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/edit-panel.js" afterPath="$PROJECT_DIR$/js/edit-panel.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/edit.js" afterPath="$PROJECT_DIR$/js/edit.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/load.js" afterPath="$PROJECT_DIR$/js/load.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modal.js" afterPath="$PROJECT_DIR$/js/modal.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/save-content-page.js" afterPath="$PROJECT_DIR$/js/save-content-page.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/save-content.php" afterPath="$PROJECT_DIR$/php/save-content.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/save.js" afterPath="$PROJECT_DIR$/js/save.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css.map" afterPath="$PROJECT_DIR$/css/style.css.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tst.html" afterPath="$PROJECT_DIR$/tst.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/style.scss" afterPath="$PROJECT_DIR$/scss/style.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Code-Orange-Site-V2.iws" />
@@ -58,11 +62,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="save-content-page.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="save-content-page.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/save-content-page.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="143" column="51" selection-start-line="143" selection-start-column="51" selection-end-line="143" selection-end-column="51" />
+                <state vertical-scroll-proportion="0.65482235">
+                  <caret line="143" column="60" selection-start-line="143" selection-start-column="60" selection-end-line="143" selection-end-column="60" />
                   <folding />
                 </state>
               </provider>
@@ -71,8 +75,8 @@
           <file leaf-file-name="content-edit.htm" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Robots/Hanalei/content-edit.htm">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="4.923077">
-                  <caret line="2" column="86" selection-start-line="2" selection-start-column="86" selection-end-line="2" selection-end-column="86" />
+                <state vertical-scroll-proportion="-1.3809524">
+                  <caret line="92" column="54" selection-start-line="92" selection-start-column="54" selection-end-line="92" selection-end-column="54" />
                   <folding />
                 </state>
               </provider>
@@ -82,18 +86,22 @@
             <entry file="file://$PROJECT_DIR$/js/save.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="12" column="47" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="47" />
+                  <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="tst.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/tst.html">
+          <file leaf-file-name="edit.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/js/edit.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-69.96154">
-                  <caret line="107" column="32" selection-start-line="107" selection-start-column="32" selection-end-line="107" selection-end-column="32" />
-                  <folding />
+                <state vertical-scroll-proportion="-5.8965516">
+                  <caret line="563" column="47" selection-start-line="563" selection-start-column="47" selection-end-line="563" selection-end-column="47" />
+                  <folding>
+                    <element signature="n#!!doc" expanded="true" />
+                    <marker date="1446444251151" expanded="true" signature="2792:2815" placeholder="..." />
+                    <marker date="1446444251151" expanded="true" signature="3661:3684" placeholder="..." />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -102,7 +110,7 @@
             <entry file="file://$PROJECT_DIR$/js/load.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="422" column="24" selection-start-line="422" selection-start-column="24" selection-end-line="422" selection-end-column="24" />
+                  <caret line="381" column="47" selection-start-line="381" selection-start-column="47" selection-end-line="381" selection-end-column="47" />
                   <folding />
                 </state>
               </provider>
@@ -111,28 +119,8 @@
           <file leaf-file-name="modal.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/modal.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-9.965517">
-                  <caret line="214" column="35" selection-start-line="214" selection-start-column="33" selection-end-line="214" selection-end-column="35" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="body-prepend.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/php/body-prepend.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-20.26923">
-                  <caret line="31" column="72" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="72" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="save-content.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/php/save-content.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.058553386">
-                  <caret line="3" column="46" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
+                <state vertical-scroll-proportion="107.27586">
+                  <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -142,7 +130,27 @@
             <entry file="file://$PROJECT_DIR$/js/edit-panel.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="29" column="75" selection-start-line="29" selection-start-column="75" selection-end-line="29" selection-end-column="75" />
+                  <caret line="240" column="54" selection-start-line="240" selection-start-column="54" selection-end-line="240" selection-end-column="54" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="body-prepend.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/php/body-prepend.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-11.115385">
+                  <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="save-content.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/php/save-content.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-12.423077">
+                  <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
                   <folding />
                 </state>
               </provider>
@@ -152,11 +160,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="style.scss" pinned="false" current-in-tab="false">
+          <file leaf-file-name="style.scss" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/scss/style.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="79" column="20" selection-start-line="79" selection-start-column="20" selection-end-line="79" selection-end-column="20" />
+                <state vertical-scroll-proportion="0.097345136">
+                  <caret line="155" column="10" selection-start-line="155" selection-start-column="10" selection-end-line="155" selection-end-column="10" />
                   <folding />
                 </state>
               </provider>
@@ -165,8 +173,8 @@
           <file leaf-file-name="_modal.scss" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/scss/_modal.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-11.884615">
-                  <caret line="84" column="45" selection-start-line="84" selection-start-column="45" selection-end-line="84" selection-end-column="45" />
+                <state vertical-scroll-proportion="-2.7818182">
+                  <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
                   <folding />
                 </state>
               </provider>
@@ -175,7 +183,7 @@
           <file leaf-file-name="_fullpage.scss" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/scss/_fullpage.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
+                <state vertical-scroll-proportion="-0.0">
                   <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
                   <folding />
                 </state>
@@ -185,8 +193,8 @@
           <file leaf-file-name="_layout_structure.scss" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/scss/_layout_structure.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="77" column="30" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
+                <state vertical-scroll-proportion="-3.2692308">
+                  <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
                   <folding />
                 </state>
               </provider>
@@ -235,18 +243,8 @@
           <file leaf-file-name="rename-carousel-images.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/php/rename-carousel-images.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-1.3076923">
-                  <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="tst1.htm" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/tst1.htm">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="0" column="4053" selection-start-line="0" selection-start-column="4053" selection-end-line="0" selection-end-column="4053" />
+                <state vertical-scroll-proportion="-2.6153846">
+                  <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
                   <folding />
                 </state>
               </provider>
@@ -299,11 +297,9 @@
         <option value="$PROJECT_DIR$/scss/_layout_content.scss" />
         <option value="$PROJECT_DIR$/scss/_text.scss" />
         <option value="$PROJECT_DIR$/js/contextMenu.js" />
-        <option value="$PROJECT_DIR$/scss/_layout_structure.scss" />
         <option value="$PROJECT_DIR$/php/rename-carousel-images.php" />
         <option value="$PROJECT_DIR$/scss/edit-panel.scss" />
         <option value="$PROJECT_DIR$/Robots/About_Our_Robots/content.htm" />
-        <option value="$PROJECT_DIR$/scss/style.scss" />
         <option value="$PROJECT_DIR$/scss/_layout_block.scss" />
         <option value="$PROJECT_DIR$/Error/content.htm" />
         <option value="$PROJECT_DIR$/scss/_header.scss" />
@@ -311,18 +307,20 @@
         <option value="$PROJECT_DIR$/php/scan-images.php" />
         <option value="$PROJECT_DIR$/Robots/Cloud_9/content-edit.htm" />
         <option value="$PROJECT_DIR$/js/load.js" />
-        <option value="$PROJECT_DIR$/php/body-prepend.php" />
-        <option value="$PROJECT_DIR$/js/edit.js" />
         <option value="$PROJECT_DIR$/php/js-edit-include.php" />
-        <option value="$PROJECT_DIR$/scss/_modal.scss" />
-        <option value="$PROJECT_DIR$/js/modal.js" />
-        <option value="$PROJECT_DIR$/js/edit-panel.js" />
-        <option value="$PROJECT_DIR$/js/save-content-page.js" />
         <option value="$PROJECT_DIR$/tst.html" />
         <option value="$PROJECT_DIR$/tst1.htm" />
-        <option value="$PROJECT_DIR$/Robots/Hanalei/content-edit.htm" />
+        <option value="$PROJECT_DIR$/scss/style.scss" />
         <option value="$PROJECT_DIR$/js/save.js" />
+        <option value="$PROJECT_DIR$/php/body-prepend.php" />
+        <option value="$PROJECT_DIR$/scss/_modal.scss" />
+        <option value="$PROJECT_DIR$/js/modal.js" />
         <option value="$PROJECT_DIR$/php/save-content.php" />
+        <option value="$PROJECT_DIR$/scss/_layout_structure.scss" />
+        <option value="$PROJECT_DIR$/js/edit-panel.js" />
+        <option value="$PROJECT_DIR$/js/edit.js" />
+        <option value="$PROJECT_DIR$/Robots/Hanalei/content-edit.htm" />
+        <option value="$PROJECT_DIR$/js/save-content-page.js" />
       </list>
     </option>
   </component>
@@ -782,7 +780,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15831557" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15618336" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3254717" sideWeight="0.50206244" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -791,7 +789,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971016" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33081082" sideWeight="0.49793753" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24946696" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33081082" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33081082" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39891893" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -838,13 +836,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="44" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ckeditor/plugins/templates/dialogs/templates.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16887417">
@@ -1020,22 +1011,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scss/_layout_structure.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="77" column="30" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scss/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="79" column="20" selection-start-line="79" selection-start-column="20" selection-end-line="79" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scss/_layout_block.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1052,14 +1027,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scss/_fullpage.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Error/content.htm">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.11710677">
@@ -1072,7 +1039,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="2" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1113,15 +1080,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/edit.js">
+    <entry file="file://$PROJECT_DIR$/tst.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-69.96154">
+          <caret line="107" column="32" selection-start-line="107" selection-start-column="32" selection-end-line="107" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tst1.htm">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="517" column="32" selection-start-line="517" selection-start-column="32" selection-end-line="517" selection-end-column="32" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <marker date="1446323467009" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1446323467009" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
+          <caret line="0" column="4014" selection-start-line="0" selection-start-column="4014" selection-end-line="0" selection-end-column="4014" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/rename-carousel-images.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.6153846">
+          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1133,66 +1112,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scss/_fullpage.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/carousel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.7038918">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scss/_modal.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.884615">
-          <caret line="84" column="45" selection-start-line="84" selection-start-column="45" selection-end-line="84" selection-end-column="45" />
+        <state vertical-scroll-proportion="-2.7818182">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/rename-carousel-images.php">
+    <entry file="file://$PROJECT_DIR$/php/save-content.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3076923">
-          <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tst1.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="4053" selection-start-line="0" selection-start-column="4053" selection-end-line="0" selection-end-column="4053" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/edit-panel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="75" selection-start-line="29" selection-start-column="75" selection-end-line="29" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/save-content-page.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="143" column="51" selection-start-line="143" selection-start-column="51" selection-end-line="143" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Robots/Hanalei/content-edit.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.923077">
-          <caret line="2" column="86" selection-start-line="2" selection-start-column="86" selection-end-line="2" selection-end-column="86" />
+        <state vertical-scroll-proportion="-12.423077">
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/body-prepend.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.26923">
-          <caret line="31" column="72" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/modal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.965517">
-          <caret line="214" column="35" selection-start-line="214" selection-start-column="33" selection-end-line="214" selection-end-column="35" />
+        <state vertical-scroll-proportion="-11.115385">
+          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -1200,15 +1157,15 @@
     <entry file="file://$PROJECT_DIR$/js/load.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="422" column="24" selection-start-line="422" selection-start-column="24" selection-end-line="422" selection-end-column="24" />
+          <caret line="381" column="47" selection-start-line="381" selection-start-column="47" selection-end-line="381" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tst.html">
+    <entry file="file://$PROJECT_DIR$/js/modal.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-69.96154">
-          <caret line="107" column="32" selection-start-line="107" selection-start-column="32" selection-end-line="107" selection-end-column="32" />
+        <state vertical-scroll-proportion="107.27586">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1216,15 +1173,59 @@
     <entry file="file://$PROJECT_DIR$/js/save.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="47" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="47" />
+          <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/save-content.php">
+    <entry file="file://$PROJECT_DIR$/scss/_layout_structure.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.058553386">
-          <caret line="3" column="46" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
+        <state vertical-scroll-proportion="-3.2692308">
+          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/style.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.097345136">
+          <caret line="155" column="10" selection-start-line="155" selection-start-column="10" selection-end-line="155" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/edit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8965516">
+          <caret line="563" column="47" selection-start-line="563" selection-start-column="47" selection-end-line="563" selection-end-column="47" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1446444251151" expanded="true" signature="2792:2815" placeholder="..." />
+            <marker date="1446444251151" expanded="true" signature="3661:3684" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/edit-panel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="240" column="54" selection-start-line="240" selection-start-column="54" selection-end-line="240" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Robots/Hanalei/content-edit.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3809524">
+          <caret line="92" column="54" selection-start-line="92" selection-start-column="54" selection-end-line="92" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/save-content-page.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65482235">
+          <caret line="143" column="60" selection-start-line="143" selection-start-column="60" selection-end-line="143" selection-end-column="60" />
           <folding />
         </state>
       </provider>

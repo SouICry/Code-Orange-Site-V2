@@ -19,6 +19,9 @@ function closeModalString() {
         $('.modal-string-input').val('');
         $('.modal-string').css('display', 'none');
     }, 500);
+    $('.modal-string-footer').html(
+        '<div class="btn modal-string-ok">Ok</div>' +
+        '<div class="btn modal-string-cancel">Cancel</div>');
 
 }
 
@@ -42,18 +45,20 @@ function modalConfirm(text, choiceCallback) {
     $('.modal-confirm-content').html(text);
     $('.modal-confirm').css('display', 'block').css('opacity', 1);
     $('.modal-confirm .modal-confirm-yes').click(function () {
-        choiceCallback(true);
         closeConfirmModal();
+        choiceCallback(true);
+
     });
     $('.modal-confirm .modal-confirm-cancel').click(function () {
-        choiceCallback(false);
         closeConfirmModal();
+        choiceCallback(false);
+
     });
 }
 
 
 function closeConfirmModal() {
-    $('.modal-string .btn').off('click');
+    $('.modal-confirm .btn').off('click');
     $('.modal-confirm').css('opacity', 0);
     setTimeout(function () {
         $('.modal-confirm').css('display', 'none');
@@ -116,6 +121,8 @@ function modalIframe(title, defaultHeight, yesCallback){
         yesCallback(document.getElementById('modal-input-string').value, document.getElementById('modal-input-number').value);
         closeModal();
     });
+
+
 }
 
 function modalSelect(yesCallback, title, params_options) {

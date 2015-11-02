@@ -55,30 +55,21 @@ getBlocksData();
 
 
 //Highlights objects or makes enables contenteditable
-function enableContentEditable(){
-    $('.content-row, .sidebar, .youtube, .blocks, .blocks > a, .sidebar > *, .iframe').addClass('manage');
-    $('.section-inner').addClass('manage');
-
-    $('.title h1, .title .sub-title, .content-row .content, .content-row > h3').addClass('editable').attr('contenteditable', 'true');
-    $('.blocks > a > .type, .blocks > a > .view, .blocks > a > h2').addClass('editable').attr('contenteditable', 'true');
-    $('.sidebar .block .type, .sidebar .block .view, .sidebar .block  h2').addClass('editable').attr('contenteditable', 'true');
-    $('.content-row:not(:has(.sidebar))').addClass('editable').attr('contenteditable', 'true');
 
 
-    $('.section-inner .content').addClass('editable').attr('contenteditable', 'true');
-
-    //Closes active context menu when editable content selected (since this doesnt normally work)
-    $('.editable').on('mousedown', function () {
-        $('.iw-curMenu').contextMenu('close');
-    });
-}
-enableContentEditable();
+$("iframe").each(function() {
+    $(this).replaceWith('<img height="'+$(this).attr('height')+'" />');
+});
 
 $(document).ready(function () {
     if (document.getElementById("fullpage") !== null) {
         $.fn.fullpage.setKeyboardScrolling(false);
     }
 });
+
+
+
+
 //Creates left click menus
 //Fullpage sections
 var edit_section = [
@@ -143,14 +134,24 @@ var edit_section = [
     }
 ];
 
-$('.section-inner').contextMenu(edit_section);
-$('.section-inner > *').click(function (event) {
-    event.preventDefault();
-    event.stopPropagation();
-});
+//img in content
+var edit_content_img = [{
+    name: 'Switch image',
+    fun: function (data) {
+        modalImageSelect(function (src) {
+            data.trigger.attr('src', src);
+        });
+    }
+},
+    {
+        name: 'Delete this image',
+        fun: function (data) {
+            data.trigger.remove();
+        }
+    }
+];
 
-
-
+//Sidebar
 var edit_sidebar_img = [{
     name: 'Switch image',
     fun: function (data) {
@@ -166,7 +167,6 @@ var edit_sidebar_img = [{
         }
     }
 ];
-
 
 var edit_sidebar_block = [{
     name: 'Toggle image and text.',
@@ -232,7 +232,6 @@ var edit_sidebar_block = [{
         }
     }
 ];
-
 var edit_sidebar_block_img = [{
     name: 'Switch image',
     fun: function (data) {
@@ -243,19 +242,7 @@ var edit_sidebar_block_img = [{
 }
 ].concat(edit_sidebar_block);
 
-$('.sidebar .img img').contextMenu(edit_sidebar_img);
-
-$('.sidebar .block').contextMenu(edit_sidebar_block);
-$('.sidebar .block > *').click(function (event) {
-    event.preventDefault();
-    event.stopPropagation();
-});
-$('.sidebar .block img').contextMenu(edit_sidebar_block_img);
-
-
-
 //Blocks section
-
 var edit_blocks_section_block = [{
     name: 'Toggle image and text',
     fun: function (data) {
@@ -319,7 +306,6 @@ var edit_blocks_section_block = [{
         }
     }
 ];
-
 var edit_blocks_section_block_img = [{
     name: 'Switch image',
     fun: function (data) {
@@ -330,12 +316,174 @@ var edit_blocks_section_block_img = [{
 }
 ].concat(edit_blocks_section_block);
 
-$('.blocks.manage a.manage').contextMenu(edit_blocks_section_block);
-$('.blocks.manage a.manage > *').click(function (event) {
-    event.preventDefault();
-    event.stopPropagation();
-});
-$('.blocks.manage a.manage img').contextMenu(edit_blocks_section_block_img);
+
+function bindContextMenus(){
+
+    $('#fullpage .section-inner').off('click').contextMenu(edit_section);
+    $('#fullpage .section-inner > *').off('click').click(function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    });
+
+    $('.content-row > img, .content-row .content > img').off('click').contextMenu(edit_content_img);
+
+
+    $('.sidebar .img img').off('click').contextMenu(edit_sidebar_img);
+    $('.sidebar .block').off('click').contextMenu(edit_sidebar_block);
+    $('.sidebar .block > *').off('click').click(function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    });
+    $('.sidebar .block img').off('click').contextMenu(edit_sidebar_block_img);
+
+
+    $('.blocks.manage a.manage').off('click').contextMenu(edit_blocks_section_block);
+    $('.blocks.manage a.manage > *').off('click').click(function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    });
+    $('.blocks.manage a.manage img').off('click').contextMenu(edit_blocks_section_block_img);
+}
+
+
+
+//Manage buttons
+var manage_gallery_button =
+    '<div class="btn manage-button">Manage Gallery</div>';
+$('.carousel .caption').append(manage_gallery_button);
+
+var manage_youtube_button =
+    '<div class="btn manage-button">Manage Youtube Video</div>';
+$('.youtube').append(manage_youtube_button);
+
+var manage_iframe_button =
+    '<div class="btn manage-button">Manage iframe</div>';
+$('.iframe').append(manage_iframe_button);
+
+function bindManageButtons(){
+    $('.carousel .manage-button').off('click').click(function(){
+        modalCarouselImages(function(json){
+            $.ajax({
+                type: "post",
+                url: "/php/rename-carousel-images.php",
+                data: "data=" + JSON.stringify(json),
+                success: function (success) {
+                    if (success == 'true') {
+                        savePage(function(){
+                            window.location.reload();
+                        });
+                    }
+                    else {
+                        alert(success);
+                    }
+                }
+            });
+        });
+    });
+
+    $('.iframe .btn').off('click').click(function(event){
+
+        function callback(urlOrCode, height){
+            if (urlOrCode.charAt(0) == '"' || urlOrCode.charAt(0) == "'"){
+                urlOrCode = urlOrCode.substring(1, urlOrCode.length - 1);
+            }
+
+            if (height.charAt(0) == '"' || height.charAt(0) == "'"){
+                height = height.substring(1, height.length - 1);
+            }
+
+            var iframe = urlOrCode.indexOf('iframe');
+            var link;
+            if (iframe >= 0){
+                link = urlOrCode.substring(src + 4);
+                var qq = link.indexOf('"');
+                var q = link.indexOf("'");
+                var quoteType;
+                if (qq >= 0){
+                    if (q >= 0) {
+                        if (qq < q){
+                            quoteType = link.charAt(qq);
+                        }
+                        else {
+                            quoteType = link.charAt(q);
+                        }
+                    }
+                    else {
+                        quoteType = link.charAt(qq);
+                    }
+                }
+                else if (q >= 0){
+                    quoteType = link.charAt(q);
+                }
+                else {
+                    alert("Invalid url");
+                    return;
+                }
+                link = link.substring(link.indexOf(quoteType) + 1);
+                link = link.substr(0, link.indexOf(quoteType));
+            }
+            else {
+                link = urlOrCode;
+                if (link.charAt(0) == '"' || link.charAt(0) == "'"){
+                    link = link.substring(1, link.length - 1);
+                }
+            }
+
+            $(event.target).siblings('.data-fix').html(link);
+            $(event.target).siblings('img').height(height);
+            $(event.target).closest('.iframe').height(height).data('height', height);
+        }
+        modalIframe("Enter Url and Height", 750, callback);
+        $('.modal-footer').prepend('<div class="btn modal-delete">Delete this iframe</div>');
+        $('.modal-delete').off('click').click(function () {
+            modalConfirm('Are you sure you want to delete this iframe?', function (choice) {
+                if (choice) {
+                    $(event.target).closest('.iframe').remove();
+                    closeModal();
+                }
+            });
+        });
+        $('#modal-input-string').val($(event.target).siblings('.data-fix').html());
+        $('#modal-input-number').val($(event.target).siblings('img').height());
+    });
+
+    $('.youtube .btn').off('click').click(function(event){
+        modalString('Enter youtube url:', function(url){
+            var vequals = url.indexOf('v=');
+            var embed = url.indexOf('embed/');
+            var list = url.indexOf('list=');
+
+            var vid, listid;
+            if (vequals >= 0) {
+                vid = url.substr(vequals + 2, 11);
+            }
+            if (embed >= 0) {
+                vid = url.substr(embed + 6, 11);
+            }
+            var link = 'https://www.youtube.com/embed/' + vid;
+            if (list >= 0) {
+                listid = url.substr(list + 5, 18);
+                link += '?list=' + listid;
+            }
+
+            $(event.target).siblings('.data-fix').html(link);
+        });
+
+        $('.modal-string-footer').prepend('<div class="btn modal-string-delete">Delete this Youtube video</div>');
+        $('.modal-string-delete').off('click').click(function () {
+            modalConfirm('Are you sure you want to remove this Youtube video?', function (choice) {
+                if (choice) {
+                    $(event.target).closest('.youtube').remove();
+                    closeModalString();
+                }
+
+            });
+        });
+        $('.modal-string input').val($(event.target).siblings('.data-fix').html());
+    });
+}
+
+
 
 
 //Sortable enable/disable
@@ -369,7 +517,7 @@ function disable_rearrange_sidebar() {
 function enable_rearrange_blocks_section() {
     if ($('.blocks').sortable("instance") == undefined) {
         $('.blocks').sortable({
-            connectWith: ".sidebar"
+            connectWith: ".blocks"
         });
     }
     else {
@@ -382,12 +530,10 @@ function disable_rearrange_blocks_section() {
 
 function enable_rearrange_content_section() {
     if ($('.content-section').sortable('instance') == undefined) {
-        $('.content-section').sortable({
-            connectWith: '.content-row .content'
-        });
+        $('.content-section').sortable();
     }
     else {
-        $('.content-section').sortable('disable');
+        $('.content-section').sortable('enable');
     }
 }
 function disable_rearrange_content_section() {
@@ -395,47 +541,45 @@ function disable_rearrange_content_section() {
 }
 
 function enable_rearrange_content_row() {
-    if ($('.content-row:not(:has(.sidebar))').sortable('instance') == undefined) {
-        $('.content-row:not(:has(.sidebar))').sortable({
-            connectWith: '.content-row:not(:has(.sidebar))'
-        });
-    }
-    else {
-        $('.content-row:not(:has(.sidebar))').sortable('disable');
-    }
     if ($('.content-row:has(.sidebar)').sortable('instance') == undefined) {
         $('.content-row:has(.sidebar)').sortable({
             connectWith: '.content-row:has(.sidebar)'
         });
     }
     else {
-        $('.content-row:has(.sidebar)').sortable('disable');
+        $('.content-row:has(.sidebar)').sortable('enable');
     }
 }
 function disable_rearrange_content_row() {
-    $('.content-row:not(:has(.sidebar))').sortable('disable');
     $('.content-row:has(.sidebar)').sortable('disable');
 }
 
 function enable_rearrange_content_row_content() {
+    $('.content-row:not(:has(.sidebar)) > *').addClass('sorting-content');
     $('.content-row > .content > *').addClass('sorting-content');
     $('.content-row > .content').addClass('sorting-content');
     $('.content-row > h3').addClass('sorting-content');
 
     if ($('.content-row > .content').sortable("instance") == undefined) {
         $('.content-row > .content').sortable({
-            connectWith: '.content-row > .content'
+            connectWith: '.content-row > .content, .content-row:not(:has(.sidebar))'
+        });
+        $('.content-row:not(:has(.sidebar))').sortable({
+            connectWith: '.content-row > .content, .content-row:not(:has(.sidebar))'
         });
     }
     else {
         $('.content-row > .content').sortable('enable');
+        $('.content-row:not(:has(.sidebar))').sortable('enable');
     }
 }
 function disable_rearrange_content_row_content() {
+    $('.content-row:not(:has(.sidebar)) > *').removeClass('sorting-content');
     $('.content-row > .content > *').removeClass('sorting-content');
     $('.content-row > .content').removeClass('sorting-content');
     $('.content-row > h3').removeClass('sorting-content');
 
+    $('.content-row:not(:has(.sidebar))').sortable('disable');
     $('.content-row > .content').sortable('disable');
 }
 
@@ -465,47 +609,38 @@ function edit_mode() {
 }
 
 
-//Testing toggle sorting/editing
 
 
-//end test
 
 
-var manage_gallery_button =
-    '<div class="btn manage-button">Manage Gallery</div>';
-$('.carousel .caption').append(manage_gallery_button);
-$('.carousel .manage-button').click(function(){
-    modalCarouselImages(function(json){
-        $.ajax({
-            type: "post",
-            url: "/php/rename-carousel-images.php",
-            data: "data=" + JSON.stringify(json),
-            success: function (success) {
-                if (success == 'true') {
-                    savePage(function(){
-                        window.location.reload();
-                    });
-                }
-                else {
-                    alert(success);
-                }
-            }
-        });
+function enableContentEditable(){
+    $('.content-row, .sidebar, .youtube, .blocks, .blocks > a, .sidebar > *, .iframe').addClass('manage');
+    $('.section-inner').addClass('manage');
+
+    $('.title h1, .title .sub-title, .content-row .content').addClass('editable').attr('contenteditable', 'true');
+    $('.blocks > a > .type, .blocks > a > .view, .blocks > a > h2').addClass('editable').attr('contenteditable', 'true');
+    $('.sidebar .block .type, .sidebar .block .view, .sidebar .block  h2').addClass('editable').attr('contenteditable', 'true');
+
+    $('.section-inner .content, .content-row:not(:has(.sidebar))').addClass('editable').attr('contenteditable', 'true');
+
+    //Closes active context menu when editable content selected (since this doesnt normally work)
+    $('.editable').on('mousedown', function () {
+        $('.iw-curMenu').contextMenu('close');
     });
-});
+
+    bindManageButtons();
+
+    bindContextMenus();
+
+    disableLinks();
+}
 
 
-var manage_youtube_button =
-    '<div class="btn manage-button">Manage Youtube Video</div>';
-$('.youtube').append(manage_youtube_button);
+enableContentEditable();
 
-$('.youtube .manage-button').click(function(){
 
-});
 
-var manage_iframe_button =
-    '<div class="btn manage-button">Manage iframe</div>';
-$('.iframe').append(manage_iframe_button);
+
 
 //var manage_two_column_content_buttons =
 //    '<div class="blocks manage-button">' +
@@ -603,5 +738,6 @@ $('.preview-button').click(function () {
 
 CKEDITOR.config.contentsCss = '/css/style.css';
 CKEDITOR.inlineAll();
+CKEDITOR.config.format_tags = 'p;h1;h2;h3;h4;h5;h6;pre;address;div;iframe;img';
 
 
