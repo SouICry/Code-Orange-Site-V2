@@ -1,3 +1,4 @@
+
 //TODO: gallery maximize on click, close and reset title on it.
 
 //TODO: add fittext support for carousel titles/titles on phones. Center instead on larger devices
@@ -334,12 +335,16 @@ function highlightActiveNav() {
 highlightActiveNav();
 
 //Selects on click
-var selectable = document.querySelectorAll('.scroll-fix a');
-for (var ii5 = 0; ii5 < selectable.length; ii5++){
-    selectable[ii5].onclick = function(){
-        this.className = "selected";
+
+function bindSelectOnClick() {
+    var selectable = document.querySelectorAll('.scroll-fix a');
+    for (var ii5 = 0; ii5 < selectable.length; ii5++) {
+        selectable[ii5].onclick = function () {
+            this.className = "selected";
+        }
     }
 }
+bindSelectOnClick();
 
 
 
@@ -548,6 +553,7 @@ function closeBody(callback) {
     }, 300);
 }
 function openBody(innerHTML) {
+    highlightActiveNav();
     var body = document.getElementById("body");
     body.innerHTML = innerHTML;
     checkLoadCarousel();
@@ -557,7 +563,7 @@ function openBody(innerHTML) {
     body.style.height = 'auto';
     filterLinks();
 
-    highlightActiveNav();
+
     fullpageInit();
 }
 function closeSelectionBar(callback) {
@@ -575,6 +581,7 @@ function closeSelectionBar(callback) {
     }, 300);
 }
 function openSelectionBar(innerHTML) {
+    highlightActiveNav();
     var s = document.getElementById("selection-bar");
     var s1 = document.getElementById("selection-bar-filler");
     s.innerHTML = '<div class="slider-left"><span></span></div>' + innerHTML + '<div class="slider-right"><span></span></div>';
@@ -583,9 +590,10 @@ function openSelectionBar(innerHTML) {
     s.style.transform = "translateY(0)";
     s1.style.opacity = 1;
     s1.style.transform = "translateY(0)";
-    highlightActiveNav();
+
     fixHeaderWidth();
     bindSelectionBarScroll();
+    bindSelectOnClick();
 }
 
 

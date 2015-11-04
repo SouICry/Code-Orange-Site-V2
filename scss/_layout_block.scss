@@ -21,7 +21,14 @@
   }
 }
 
-
+div.block, div.block-half{
+  &:hover {
+    box-shadow: none;
+  }
+  &:active {
+    box-shadow: none;
+  }
+}
 
 .block, .block-half {
   color: white;

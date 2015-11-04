@@ -162,6 +162,7 @@ h3.manage {
 
 html {
   overflow-y: scroll;
+  margin: 0;
 }
 
 body {
@@ -175,7 +176,5 @@ body {
 .edit-panel-active-section {
   background-color: $teal-lighten-1;
 }
-
-
 
 

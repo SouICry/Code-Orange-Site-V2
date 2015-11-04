@@ -81,6 +81,49 @@ function checkLoadCarousel() {
             el2.style.display = "none";
         }
 
+        //Fullscreen, if available
+        el1.addEventListener("mousedown", fullScreen, false);
+        function fullScreen() {
+
+            if (
+                document.fullscreenEnabled ||
+                document.webkitFullscreenEnabled ||
+                document.mozFullScreenEnabled ||
+                document.msFullscreenEnabled
+            ) {
+                //On close, restore title overlay
+                function FShandler() {
+                    if (
+                        document.fullscreenElement ||
+                        document.webkitFullscreenElement ||
+                        document.mozFullScreenElement ||
+                        document.msFullscreenElement
+                    ) {
+                        el2.style.display = "block";
+                        el1.addEventListener("mousedown", hide, false);
+                        el1.addEventListener("touchstart", hide, false);
+                    }
+                }
+
+                document.addEventListener("fullscreenchange", FShandler);
+                document.addEventListener("webkitfullscreenchange", FShandler);
+                document.addEventListener("mozfullscreenchange", FShandler);
+                document.addEventListener("MSFullscreenChange", FShandler);
+
+                // go full-screen
+                if (c.requestFullscreen) {
+                    c.requestFullscreen();
+                } else if (c.webkitRequestFullscreen) {
+                    c.webkitRequestFullscreen();
+                } else if (c.mozRequestFullScreen) {
+                    c.mozRequestFullScreen();
+                } else if (c.msRequestFullscreen) {
+                    c.msRequestFullscreen();
+                }
+            }
+        }
+
+
         if (el1 !== null) {
             el1.removeEventListener("mousedown", hide, false);
             el1.removeEventListener("touchstart", hide, false);

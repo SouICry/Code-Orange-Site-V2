@@ -723,6 +723,11 @@ h4, thead td {
     .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .block-half:active, .block-2-half:active, .block-3-half:active, .block-4-half:active, .block-6-half:active {
       box-shadow: 0 0 25px 0px rgba(0, 0, 0, 0.8); } }
 
+div.block:hover, div.block-2:hover, div.block-3:hover, div.block-4:hover, div.block-6:hover, div.block-half:hover, div.block-2-half:hover, div.block-3-half:hover, div.block-4-half:hover, div.block-6-half:hover {
+  box-shadow: none; }
+div.block:active, div.block-2:active, div.block-3:active, div.block-4:active, div.block-6:active, div.block-half:active, div.block-2-half:active, div.block-3-half:active, div.block-4-half:active, div.block-6-half:active {
+  box-shadow: none; }
+
 .block, .block-2, .block-3, .block-4, .block-6, .block-half, .block-2-half, .block-3-half, .block-4-half, .block-6-half {
   color: white;
   position: relative;
@@ -1079,6 +1084,11 @@ h4, thead td {
   @media (min-width: 1024px) {
     .block:active, .block-2:active, .block-3:active, .block-4:active, .block-6:active, .block-half:active, .block-2-half:active, .block-3-half:active, .block-4-half:active, .block-6-half:active {
       box-shadow: 0 0 25px 0px rgba(0, 0, 0, 0.8); } }
+
+div.block:hover, div.block-2:hover, div.block-3:hover, div.block-4:hover, div.block-6:hover, div.block-half:hover, div.block-2-half:hover, div.block-3-half:hover, div.block-4-half:hover, div.block-6-half:hover {
+  box-shadow: none; }
+div.block:active, div.block-2:active, div.block-3:active, div.block-4:active, div.block-6:active, div.block-half:active, div.block-2-half:active, div.block-3-half:active, div.block-4-half:active, div.block-6-half:active {
+  box-shadow: none; }
 
 .block, .block-2, .block-3, .block-4, .block-6, .block-half, .block-2-half, .block-3-half, .block-4-half, .block-6-half {
   color: white;
@@ -2244,6 +2254,7 @@ h1 {
     display: block; } }
 /* ------------- General ------------- */
 #carousel {
+  margin: 0;
   position: relative;
   width: 100%;
   padding: 0;
@@ -3030,7 +3041,8 @@ h3.manage {
   top: 0; }
 
 html {
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  margin: 0; }
 
 body {
   background-color: #00897b;
