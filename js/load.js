@@ -1,12 +1,6 @@
-//TODO: Scroll buttons for selection bar slider by device width. Re-hide scrollbar.
-
-//TODO: Sync scrolling and highlighting across two nav menus (both ways)
-
 //TODO: gallery maximize on click, close and reset title on it.
 
 //TODO: add fittext support for carousel titles/titles on phones. Center instead on larger devices
-
-//TODO: fix nav bar not scrolling when scrolled from top (bugginess)
 
 
 //From underscore.js
@@ -306,35 +300,47 @@ bindSelectionBarScroll();
 var navItems1 = null;
 var navItems2 = null;
 function highlightActiveNav() {
+    //Removes new to mark for clearing to clear later
+    var oldItems = document.querySelectorAll(".selected.new");
+    if (oldItems != null) {
+        for (var i3 = 0; i3 < oldItems.length; i3++) {
+            oldItems[i3].className = "selected old";
+        }
+    }
+
+    //Marks or re-marks valid selections
     var c = currURL.split("/");
     if (c.length > 0) {
         navItems1 = document.querySelectorAll("[data-nav='" + c[0] + "']");
         for (var i1 = 0; i1 < navItems1.length; i1++) {
-            navItems1[i1].className = "selected";
+            navItems1[i1].className = "selected new";
         }
     }
     if (c.length > 1) {
         navItems2 = document.querySelectorAll("[data-nav='" + c[1] + "']");
         for (var i2 = 0; i2 < navItems2.length; i2++) {
-            navItems2[i2].className = "selected";
+            navItems2[i2].className = "selected new";
         }
     }
-}
-function clearActiveSelection() {
-    if (navItems2 !== null) {
-        for (var i = 0; i < navItems2.length; i++) {
-            navItems2[i].className = "";
-        }
-    }
-}
-function clearActiveNav() {
-    if (navItems1 !== null) {
-        for (var i = 0; i < navItems1.length; i++) {
-            navItems1[i].className = "";
+
+    //Clears still remaining old selections
+    oldItems = document.querySelectorAll(".selected.old");
+    if (oldItems != null) {
+        for (var i4 = 0; i4 < oldItems.length; i4++) {
+            oldItems[i4].className = "";
         }
     }
 }
 highlightActiveNav();
+
+//Selects on click
+var selectable = document.querySelectorAll('.scroll-fix a');
+for (var ii5 = 0; ii5 < selectable.length; ii5++){
+    selectable[ii5].onclick = function(){
+        this.className = "selected";
+    }
+}
+
 
 
 //Routing helpers
@@ -422,7 +428,7 @@ function loadURL(newURL, statePopped) {
         closeBody(function () {
             //Index
             if (newURL.length == 0) {
-                clearActiveNav();
+                //clearActiveNav();
                 closeSelectionBar(function () {
                     ajaxLoadContent(newURL, function (a) {
                         openBody(a);
@@ -435,7 +441,7 @@ function loadURL(newURL, statePopped) {
 
                 //Page without selection-bar
                 if (n.length == 1) {
-                    clearActiveNav();
+                    //clearActiveNav();
                     //Redirects to first page if top level menu
                     if (menuItemExists(n[0])) {
                         newURL = n[0] + "/" + getMenuItem(n[0])['pages'][0];
@@ -461,7 +467,7 @@ function loadURL(newURL, statePopped) {
                         var c = currURL.split("/");
                         //Same menu item
                         if (c.length == 2 && c[0] === n[0]) {
-                            clearActiveSelection();
+                            //clearActiveSelection();
                             ajaxLoadContent(newURL, function (a) {
                                 openBody(a);
                                 setHeaderScroll();
@@ -469,7 +475,7 @@ function loadURL(newURL, statePopped) {
                         }
                         //Different menu item
                         else {
-                            clearActiveNav();
+                            //clearActiveNav();
                             closeSelectionBar(function () {
                                 ajaxLoadContent(n[0], function (a) {
                                     openSelectionBar(a);

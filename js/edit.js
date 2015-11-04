@@ -53,18 +53,8 @@ function getBlocksData() {
 getBlocksData();
 
 
-//function disableIframes(){
-//    $('iframe').each(function(){
-//        $(this).data('src', $(this).attr('src'));
-//        $(this).attr('src', ' ').css('z-index','-20');
-//    });
-//}
-//disableIframes();
-
 
 //Highlights objects or makes enables contenteditable
-
-
 $("iframe").each(function() {
     $(this).replaceWith('<img height="'+$(this).attr('height')+'" />');
 });
