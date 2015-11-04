@@ -36,8 +36,7 @@
                     }
                     ?>
                 </div>
-                <div id="nav-menu">
-                    <div class="scroll-hide">
+                <div id="nav-menu" class="nav-nav">                     <div class="slider-left"><span></span></div>                         <div class="scroll-hide">
                         <div class="scroll-fix">
                             <?php
                             if (file_exists($_SERVER['DOCUMENT_ROOT'].'/php/menu-edit.php')){
@@ -49,11 +48,7 @@
                             ?>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="selection-bar" class="selection-nav">
+                <div class="slider-right"><span></span></div>                 </div>             </div>         </div>     </div>     <div id="selection-bar" class="selection-nav">         <div class="slider-left"><span></span></div>
         <?php
         if (file_exists('../content-edit.htm')){
             include '../content-edit.htm';
@@ -62,9 +57,7 @@
             include '../content.htm';
         }
         ?>
-    </div>
-</div>
-<div id="header-filler">
+    <div class="slider-right"><span></span></div>     </div> </div> <div id="header-filler">
     <div id="nav-filler">
         <div class="row">
             <div class="column">
@@ -88,9 +81,7 @@
                     }
                     ?>
                 </div>
-                <div id="nav-menu-filler">
-                    <div class="scroll-hide">
-                        <div class="scroll-fix">
+                <div id="nav-menu-filler" class="nav-nav">                     <div class="slider-left"><span></span></div>                     <div class="scroll-hide">                         <div class="scroll-fix">
                             <?php
                             if (file_exists($_SERVER['DOCUMENT_ROOT'].'/php/menu-edit.php')){
                                 include $_SERVER['DOCUMENT_ROOT'].'/php/menu-edit.php';
@@ -100,12 +91,7 @@
                             }
                             ?>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="selection-bar-filler" class="selection-nav">
+                    <div class="slider-right"><span></span></div>                 </div>             </div>         </div>     </div>     <div id="selection-bar-filler" class="selection-nav">             <div class="slider-left"><span></span></div>
         <?php
         if (file_exists('../content-edit.htm')){
             include '../content-edit.htm';

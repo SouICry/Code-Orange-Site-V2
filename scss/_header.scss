@@ -5,7 +5,7 @@
 #header {
   position: fixed;
   display: block;
-  z-index: 600;
+  z-index: 700;
   width: 100%;
   height: auto;
 }
@@ -37,7 +37,7 @@
   float: left;
   width: 100%;
   position: relative;
-  z-index: 700;
+  z-index: 600;
 }
 
 #selection-bar-filler {
@@ -47,17 +47,20 @@
   background-color: $orange-darken-3;
   width: 100%;
   z-index: 51;
-  position: relative;
+
   float: left;
   @include outline-shadow;
 
   font-family: zekton, sans-serif;
-
+  position: relative;
   overflow: hidden;
   height: $nav-height * 2;
   @include desktop {
     height: $nav-height;
   }
+
+
+
 }
 #nav-filler{
   //box-shadow: none;
@@ -103,15 +106,78 @@
   float: left;
 }
 
+
+.slider-left, .slider-right {
+  display: none;
+}
+
+.slider-filler{
+  display: none;
+  width: 0;
+}
+
+@media (min-device-width: 1025px) {
+  .show .slider-left, .show .slider-right{
+    display: block;
+  }
+
+  .show .slider-filler {
+    display: block;
+    opacity: 0;
+    width: 40px;
+  }
+}
+
+.slider-left, .slider-right {
+  position: absolute;
+  width: 40px;
+  top: 0;
+  border: none;
+  height: 100%;
+  background-color: rgba(239,108,0,0.6);
+  z-index: 52;
+}
+
+.slider-left {
+  left: 0;
+}
+
+.slider-right {
+  right: 0;
+}
+.slider-left span,
+.slider-right span {
+  width: 0;
+  height: 0;
+  position: absolute;
+
+  top: calc(50% - 10px);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+.slider-left span {
+  left: 13px;
+  border-right: 10px solid $orange-accent-1;
+}
+
+.slider-right span {
+  right: 13px;
+  border-left: 10px solid $orange-accent-1;
+}
+
 #nav-menu, #nav-menu-filler {
   height: $nav-height;
   overflow: hidden;
   float: left;
+  position: relative;
+  padding: 0;
   max-width:100%;
   min-width: 100%;
   @include desktop {
     min-width: 0;
   }
+
 
   .scroll-hide  {
     max-width: 100%;
@@ -132,6 +198,7 @@
       color: $orange-accent-1;
       font-size: 20px;
       padding: 0 20px;
+      margin: 0;
       line-height: $nav-height - 3px;
       height: $nav-height;
       text-align: center;

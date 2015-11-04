@@ -16,9 +16,9 @@
 // leading edge, instead of the trailing.
 function debounce(func, wait, immediate) {
     var timeout;
-    return function() {
+    return function () {
         var context = this, args = arguments;
-        var later = function() {
+        var later = function () {
             timeout = null;
             if (!immediate) func.apply(context, args);
         };
@@ -27,12 +27,10 @@ function debounce(func, wait, immediate) {
         timeout = setTimeout(later, wait);
         if (callNow) func.apply(context, args);
     };
-};
+}
 
 
-var header_height = 210;
-var headScroll = null;
-function fullpageInit(){
+function fullpageInit() {
     if (document.getElementById("fullpage") !== null) {
         $('#fullpage').fullpage({
             navigation: true,
@@ -43,14 +41,12 @@ function fullpageInit(){
         });
     }
 }
-function moveSectionDown(){
+function moveSectionDown() {
     $.fn.fullpage.moveSectionDown();
 }
 $(document).ready(function () {
     fullpageInit();
 });
-
-
 
 
 window.onpopstate = pop;
@@ -131,6 +127,10 @@ var currURL = trimForwardSlash(window.location.pathname);
 //history.replaceState({"url": currURL}, "", "/" + currURL);
 filterLinks();
 
+
+//Header hide/show on scroll
+var header_height = 210;
+var headScroll = null;
 function setHeaderScroll() {
     setHeaderHeight();
     var elem = document.querySelector("#header");
@@ -148,10 +148,8 @@ function setHeaderScroll() {
     });
     headScroll.init();
 }
-
 function setHeaderHeight() {
     var c = currURL.split("/");
-
 
     if (c.length < 2) {
         if (window.outerWidth > 1024)
@@ -162,21 +160,153 @@ function setHeaderHeight() {
     else {
         header_height = 210;
     }
-
-
 }
-
 
 setHeaderScroll();
 window.addEventListener("resize", debounce(function () {
     setHeaderScroll();
-}, 100), false);
+}, 250), false);
 
+//Syncs two header scrolling
+var scroll1 = $('#selection-bar .scroll-hide');
+var scroll2 = $('#selection-bar-filler .scroll-hide');
+var scroll3 = $('#nav-menu .scroll-hide');
+var scroll4 = $('#nav-menu-filler .scroll-hide');
+function syncHeaderScroll() {
+    scroll1.scroll(debounce(function () {
+        scroll2.scrollLeft(scroll1.scrollLeft());
+    }, 250));
+    scroll2.scroll(debounce(function () {
+        scroll1.scrollLeft(scroll2.scrollLeft());
+    }, 250));
+    scroll3.scroll(debounce(function () {
+        scroll4.scrollLeft(scroll3.scrollLeft());
+    }, 250));
+    scroll4.scroll(debounce(function () {
+        scroll3.scrollLeft(scroll4.scrollLeft());
+    }, 250));
+}
+syncHeaderScroll();
+
+//Sets selection bar width to be all elements + 20px on load and resize.
+
+function fixHeaderWidth() {
+    var width;
+    var slide = $('.selection-nav .scroll-fix');
+    if (slide.length) {
+        width = 20;
+        $(slide[0]).children().each(function () {
+            width += $(this).outerWidth(true);
+        });
+        slide.width(width);
+
+        var selectionnav = $('.selection-nav');
+        //Toggles scroll buttons
+        if (width > selectionnav.outerWidth()) {
+            if (!selectionnav.hasClass('show')) {
+                selectionnav.addClass('show');
+            }
+        }
+        else {
+            if (selectionnav.hasClass('show')) {
+                selectionnav.removeClass('show');
+            }
+        }
+    }
+
+    slide = $('.nav-nav .scroll-fix');
+    if (slide.length) {
+        width = 20;
+        $(slide[0]).children().each(function () {
+            width += $(this).outerWidth(true);
+        });
+        slide.width(width);
+
+        var navnav = $('.nav-nav');
+        //Toggles scroll buttons
+        if (width > navnav.outerWidth()) {
+            if (!navnav.hasClass('show')) {
+                navnav.addClass('show');
+            }
+        }
+        else {
+            if (navnav.hasClass('show')) {
+                navnav.removeClass('show');
+            }
+        }
+    }
+}
+fixHeaderWidth();
+$(window).resize(debounce(function () {
+    fixHeaderWidth();
+}, 100));
+
+
+
+function bindSelectionBarScroll() {
+    var selectionNav = $('.selection-nav .scroll-hide');
+
+    function selectionNavScrollLeft() {
+        selectionNav.stop().animate({scrollLeft: '-=250'}, 1000, 'linear', selectionNavScrollLeft);
+    }
+
+    function selectionNavScrollRight() {
+        selectionNav.stop().animate({scrollLeft: '+=250'}, 1000, 'linear', selectionNavScrollRight);
+    }
+
+    function selectionNavScrollStop() {
+        selectionNav.stop();
+    }
+
+    var selectionSlideButtons = $('.selection-nav .slider-left, .selection-nav .slider-right');
+    $('.selection-nav').hover(function () {
+        selectionSlideButtons.css('background-color', 'rgba(255,152,0,0.6)');
+    }, function () {
+        selectionSlideButtons.css('background-color', 'rgba(251,140,0,0.6)');
+    });
+
+    $('.selection-nav .slider-left').hover(selectionNavScrollLeft, selectionNavScrollStop);
+    $('.selection-nav .slider-right').hover(selectionNavScrollRight, selectionNavScrollStop);
+}
+
+function bindNavBarScroll() {
+    var navNav = $('.nav-nav .scroll-hide');
+
+    function navNavScrollLeft() {
+        navNav.stop().animate({scrollLeft: '-=200'}, 1000, 'linear', navNavScrollLeft);
+    }
+
+    function navNavScrollRight() {
+        navNav.stop().animate({scrollLeft: '+=200'}, 1000, 'linear', navNavScrollRight);
+    }
+
+    function navNavScrollStop() {
+        navNav.stop();
+    }
+
+
+    var navSlideButtons = $('.nav-nav .slider-left, .nav-nav .slider-right');
+    $('.nav-nav').hover(function () {
+        navSlideButtons.css('background-color', 'rgba(245,124,0,0.6)');
+    }, function () {
+        navSlideButtons.css('background-color', 'rgba(239,108,0,0.6)');
+    });
+
+    $('.nav-nav .slider-left').hover(navNavScrollLeft, navNavScrollStop);
+    $('.nav-nav .slider-right').hover(navNavScrollRight, navNavScrollStop);
+}
+
+bindNavBarScroll();
+bindSelectionBarScroll();
+
+
+
+
+//Highlights(underlines) the active nav/selection bar items
 var navItems1 = null;
 var navItems2 = null;
 function highlightActiveNav() {
     var c = currURL.split("/");
-
     if (c.length > 0) {
         navItems1 = document.querySelectorAll("[data-nav='" + c[0] + "']");
         for (var i1 = 0; i1 < navItems1.length; i1++) {
@@ -204,10 +334,10 @@ function clearActiveNav() {
         }
     }
 }
-
 highlightActiveNav();
 
 
+//Routing helpers
 function goToPage(path) {
     currURL = path;
     history.pushState({"url": path}, "", "/" + path);
@@ -217,15 +347,18 @@ function goBackPage(path) {
     currURL = path;
 }
 
+//Loads error page. Replaces state so it doesn't cause a back button loop
 function error() {
     closeBody(function () {
         closeSelectionBar(function () {
             ajaxLoadContent("Error", openBody);
-            goToPage("Error");
+            currURL = "Error";
+            history.replaceState({"url": "Error"}, "", "/Error");
         });
     });
 }
 
+//Gets or checks whether given item exists in nav.json
 function getMenuItem(name) {
     for (var i = 0; i < nav['menu-items'].length; i++) {
         if (nav['menu-items'][i].name === name) {
@@ -234,7 +367,6 @@ function getMenuItem(name) {
     }
     return null;
 }
-
 function menuItemExists(name) {
     for (var i = 0; i < nav['menu-items'].length; i++) {
         if (nav['menu-items'][i].name === name) {
@@ -266,6 +398,7 @@ function unlistedItemExists(name) {
     return false;
 }
 
+//Actual routing function
 /*
  * Routes:
  * [empty] - loads index
@@ -394,29 +527,7 @@ function trimForwardSlashAndFileName(stringToTrim) {
 }
 
 
-//Changes selection bar width to be all elements + 20px on load and resize.
-var selection_bar_item_width = 0;
-function fixHeaderWidth() {
-    var slide = $('.scroll-fix');
-    if (slide.length) {
-        slide.each(function () {
-            var width = 20;
-            $(this).children().each(function () {
-                width += $(this).outerWidth(true);
-            });
-            $(this).width(width);
-            selectionBarHeaderwidth = $(this).children().first().outerWidth();
-        });
-    }
-}
-fixHeaderWidth();
-$(window).resize(debounce(function(){
-    if ($('.scroll-fix').children().first().outerWidth() != selection_bar_item_width){
-        fixHeaderWidth();
-    }
-}, 100));
-
-
+//Closes (and clears content) or opens (and displays content) for body/selection bar
 function closeBody(callback) {
     var body = document.getElementById("body");
     body.style.opacity = 0;
@@ -454,39 +565,41 @@ function closeSelectionBar(callback) {
     setTimeout(function () {
         s.innerHTML = "";
         s1.innerHTML = "";
-        //s1.style.height = '0';
         callback();
     }, 300);
 }
 function openSelectionBar(innerHTML) {
     var s = document.getElementById("selection-bar");
     var s1 = document.getElementById("selection-bar-filler");
-    s.innerHTML = innerHTML;
-    s1.innerHTML = innerHTML;
+    s.innerHTML = '<div class="slider-left"><span></span></div>' + innerHTML + '<div class="slider-right"><span></span></div>';
+    s1.innerHTML = '<div class="slider-left"><span></span></div>' + innerHTML + '<div class="slider-right"><span></span></div>';
     s.style.opacity = 1;
     s.style.transform = "translateY(0)";
     s1.style.opacity = 1;
     s1.style.transform = "translateY(0)";
     highlightActiveNav();
     fixHeaderWidth();
+    bindSelectionBarScroll();
 }
 
 
-function scrollToElement(element){
+//Scrolls to given jQuery element
+function scrollToElement(element) {
     $('html, body').animate({
         scrollTop: $(element).offset().top
     }, 1000);
 }
 
+
+//Loads editor. Functions are here, but server requires user tokens to actually perform changes
 function checkLoadEdit() {
     var t = trimForwardSlashAndFileName(currURL);
     var slasht = '/' + t;
-    if (t.length == 0){
+    if (t.length == 0) {
         slasht = '';
     }
 
-
-    if (currURL.indexOf('edit.php') > 0){
+    if (currURL.indexOf('edit.php') >= 0) {
         window.location.href = (slasht + "/" + "edit.php?edit=true");
     }
     else {

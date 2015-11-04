@@ -21,11 +21,13 @@
 @import 'fullpage';
 
 
-
-
-
 .manage-none {
-
+  display: none;
+}
+@include desktop {
+  .manage-none {
+    display: block;
+  }
 }
 
 .editable p  {

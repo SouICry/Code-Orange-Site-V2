@@ -26,18 +26,22 @@ background-color: orange; z-index: 200; transition: all 1s"></div>
                 <div id="user">
                     <?php include $_SERVER['DOCUMENT_ROOT'] . '/php/user.php'; ?>
                 </div>
-                <div id="nav-menu">
+                <div id="nav-menu" class="nav-nav">
+                    <div class="slider-left"><span></span></div>
                     <div class="scroll-hide">
                         <div class="scroll-fix">
                             <?php include $_SERVER['DOCUMENT_ROOT'] . '/php/menu.php'; ?>
                         </div>
                     </div>
+                    <div class="slider-right"><span></span></div>
                 </div>
             </div>
         </div>
     </div>
     <div id="selection-bar" class="selection-nav">
+        <div class="slider-left"><span></span></div>
 
+        <div class="slider-right"><span></span></div>
     </div>
 </div>
 <div id="header-filler">
@@ -50,21 +54,26 @@ background-color: orange; z-index: 200; transition: all 1s"></div>
                 <div id="user">
                     <?php include $_SERVER['DOCUMENT_ROOT'] . '/php/user.php'; ?>
                 </div>
-                <div id="nav-menu-filler">
+                <div id="nav-menu-filler" class="nav-nav">
+                    <div class="slider-left"><span></span></div>
                     <div class="scroll-hide">
                         <div class="scroll-fix">
                             <?php include $_SERVER['DOCUMENT_ROOT'] . '/php/menu.php'; ?>
                         </div>
+                        <div class="slider-right"><span></span></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div id="selection-bar-filler" class="selection-nav">
+        <div class="slider-left"><span></span></div>
 
+        <div class="slider-right"><span></span></div>
     </div>
 </div>
- <?php include $_SERVER['DOCUMENT_ROOT'].'/php/body-prepend.php'; ?><div id="body">
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/php/body-prepend.php'; ?>
+<div id="body">
     <?php include 'content.htm'; ?>
 </div>
 <div id="footer">

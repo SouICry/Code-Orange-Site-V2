@@ -9,7 +9,7 @@ if (strlen($json->url) == 0) {
         echo "Published failed.";
         return;
     }
-
+    $backupPath = $_SERVER['DOCUMENT_ROOT'].'/backups/content_'.$time.'.htm';
     if (!is_dir(dirname($backupPath))){
         mkdir(dirname($backupPath), 0755, true);
     }

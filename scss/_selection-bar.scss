@@ -1,15 +1,7 @@
 
-#selection-bar, #selection-bar-filler, #selection-bar-outside {
-  float: left;
-  position: relative;
-  width: 100%;
-  background-color: $orange-darken-1;
-  margin: 0;
-  padding: 0;
-  transition: all 0.3s;
 
-  @include outline-shadow;
-}
+
+
 
 
 $slider-item-height: 160px;
@@ -20,7 +12,7 @@ $slider-item-phone-width: 110px;
 $slider-item-padding: 0;
 
 $hide-scrollbar: 40px;
-$hide-scrollbar-phone: 0px;
+$hide-scrollbar-phone: 40px;
 /* Arbitrarily large enough (40px) to hide, 0 to show */
 $max-slider-width: 9001px;
 /* Arbitrarily large enough to fit all items horizontally in nav mode. Or cutoff beyond this point*/
@@ -231,4 +223,43 @@ $slider-item-outline-shadow-size: 10px;
     left: 0;
     width: 100%;
   }
+}
+
+
+
+#selection-bar, #selection-bar-filler, #selection-bar-outside {
+  float: left;
+  position: relative;
+  width: 100%;
+  background-color: $orange-darken-1;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s;
+
+
+  @include outline-shadow;
+
+  .slider-left, .slider-right,  {
+    width: 50px;
+    background-color: rgba(251,140,0,0.6);
+    z-index: 50;
+  }
+  .slider-left span,
+  .slider-right span {
+    top: calc(50% - 20px);
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+  }
+  .slider-left span {
+    left: 13px;
+    border-right: 20px solid $orange-accent-1;
+  }
+  .slider-right span {
+    right: 13px;
+    border-left: 20px solid $orange-accent-1;
+  }
+}
+.show .slider a.slider-filler {
+  width: 50px;
+  opacity: 0;
 }

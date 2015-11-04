@@ -35,7 +35,8 @@ if (!include $_SERVER['DOCUMENT_ROOT'] . '/php/verify-user.php') {
                     }
                     ?>
                 </div>
-                <div id="nav-menu">
+                <div id="nav-menu" class="nav-nav">
+                    <div class="slider-left"><span></span></div>
                     <div class="scroll-hide">
                         <div class="scroll-fix">
                             <?php
@@ -47,11 +48,13 @@ if (!include $_SERVER['DOCUMENT_ROOT'] . '/php/verify-user.php') {
                             ?>
                         </div>
                     </div>
+                    <div class="slider-right"><span></span></div>
                 </div>
             </div>
         </div>
     </div>
     <div id="selection-bar" class="selection-nav">
+        <div class="slider-left"><span></span></div>
         <?php
         if (file_exists('../content-edit.htm')) {
             include '../content-edit.htm';
@@ -59,6 +62,7 @@ if (!include $_SERVER['DOCUMENT_ROOT'] . '/php/verify-user.php') {
             include '../content.htm';
         }
         ?>
+        <div class="slider-right"><span></span></div>
     </div>
 </div>
 <div id="header-filler">
@@ -83,7 +87,8 @@ if (!include $_SERVER['DOCUMENT_ROOT'] . '/php/verify-user.php') {
                     }
                     ?>
                 </div>
-                <div id="nav-menu-filler">
+                <div id="nav-menu-filler" class="nav-nav">
+                    <div class="slider-left"><span></span></div>
                     <div class="scroll-hide">
                         <div class="scroll-fix">
                             <?php
@@ -95,11 +100,13 @@ if (!include $_SERVER['DOCUMENT_ROOT'] . '/php/verify-user.php') {
                             ?>
                         </div>
                     </div>
+                    <div class="slider-right"><span></span></div>
                 </div>
             </div>
         </div>
     </div>
     <div id="selection-bar-filler" class="selection-nav">
+        <div class="slider-left"><span></span></div>
         <?php
         if (file_exists('../content-edit.htm')) {
             include '../content-edit.htm';
@@ -107,6 +114,7 @@ if (!include $_SERVER['DOCUMENT_ROOT'] . '/php/verify-user.php') {
             include '../content.htm';
         }
         ?>
+        <div class="slider-right"><span></span></div>
     </div>
 </div>
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/php/body-prepend.php'; ?>

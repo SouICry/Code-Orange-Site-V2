@@ -19,21 +19,14 @@
                 <div id="user">
                     <?php include $_SERVER['DOCUMENT_ROOT'].'/php/user.php'; ?>
                 </div>
-                <div id="nav-menu">
-                    <div class="scroll-hide">
+                <div id="nav-menu" class="nav-nav">                     <div class="slider-left"><span></span></div>                         <div class="scroll-hide">
                         <div class="scroll-fix">
                             <?php include $_SERVER['DOCUMENT_ROOT'].'/php/menu.php'; ?>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="selection-bar" class="selection-nav">
+                <div class="slider-right"><span></span></div>                 </div>             </div>         </div>     </div>     <div id="selection-bar" class="selection-nav">         <div class="slider-left"><span></span></div>
         <?php include '../content.htm'; ?>
-    </div>
-</div>
-<div id="header-filler">
+    <div class="slider-right"><span></span></div>     </div> </div> <div id="header-filler">
     <div id="nav-filler">
         <div class="row">
             <div class="column">
@@ -43,17 +36,10 @@
                 <div id="user-filler">
                     <?php include $_SERVER['DOCUMENT_ROOT'].'/php/user.php'; ?>
                 </div>
-                <div id="nav-menu-filler">
-                    <div class="scroll-hide">
-                        <div class="scroll-fix">
+                <div id="nav-menu-filler" class="nav-nav">                     <div class="slider-left"><span></span></div>                     <div class="scroll-hide">                         <div class="scroll-fix">
                             <?php include $_SERVER['DOCUMENT_ROOT'].'/php/menu.php'; ?>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="selection-bar-filler" class="selection-nav">
+                    <div class="slider-right"><span></span></div>                 </div>             </div>         </div>     </div>     <div id="selection-bar-filler" class="selection-nav">             <div class="slider-left"><span></span></div>
         <?php include '../content.htm'; ?>
     </div>
 </div>

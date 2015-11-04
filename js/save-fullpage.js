@@ -23,10 +23,10 @@ function save_fullpage_section_inner(section) {
     }
     else if (r.length > 0){
         if (r.hasClass('right')){
-            s += '<div class="content right">' + r.html()+ '</div>';
+            s += '<div class="content right">' + r.html().replace(new RegExp('sorting-content', 'g'), '')+ '</div>';
         }
         else {
-            s += '<div class="content">' + r.html()+ '</div>';
+            s += '<div class="content">' + r.html().replace(new RegExp('sorting-content', 'g'), '')+ '</div>';
         }
     }
     s += '</div>';

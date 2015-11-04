@@ -19,6 +19,14 @@
  */
 
 
+$('.selection-nav .scroll-fix').append(
+    '<a class="manage-button"> <div class="slider-content"> <h2>Manage pages</h2> <div class="content"> </div> <div class="name"></div> </div> </a>'
+);
+$('.nav-nav .scroll-fix').append(
+    '<a class="manage-button">Manage</a>'
+);
+
+
 
 //Disables all a href links
 function disableLink(event) {
@@ -553,13 +561,21 @@ function bindManageButtons(){
 function enable_rearrange_fullpage_sections() {
     if ($('#fullpage').sortable("instance") == undefined) {
         $('#fullpage').sortable();
+        $('#fullpage .content').sortable({
+           connectWith:  '#fullpage .content'
+        });
+        $('#fullpage .content > *').addClass('sorting-content');
     }
     else {
         $('#fullpage').sortable("enable");
+        $('#fullpage .content').sortable('enable');
+        $('#fullpage .content > *').addClass('sorting-content');
     }
 }
 function disable_rearrange_fullpage_sections() {
     $('#fullpage').sortable("disable");
+    $('#fullpage .content').sortable('disable');
+    $('#fullpage .content > *').removeClass('sorting-content');
 }
 
 function enable_rearrange_sidebar() {
