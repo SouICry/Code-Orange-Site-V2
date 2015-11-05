@@ -106,6 +106,14 @@ function closeModal() {
     }, 100);
 }
 
+function modalManagePages(title, yesCallback) {
+    $('.modal-header').html(title);
+    $('.modal-content').html();
+
+    $('.modal').css('display', 'block').css('opacity', '1');
+}
+
+
 function modalIframe(title, defaultHeight, yesCallback){
     $('.modal-header').html(title);
     $('.modal-content').html('Url or iframe embed code: <input id="modal-input-string" class="modal-input-string" type="text" name="string"/>' +
@@ -121,8 +129,6 @@ function modalIframe(title, defaultHeight, yesCallback){
         yesCallback(document.getElementById('modal-input-string').value, document.getElementById('modal-input-number').value);
         closeModal();
     });
-
-
 }
 
 function modalSelect(yesCallback, title, params_options) {

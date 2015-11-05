@@ -1767,61 +1767,6 @@ button.btn-floating {
 /* Arbitrarily large enough (40px) to hide, 0 to show */
 /* Arbitrarily large enough to fit all items horizontally in nav mode. Or cutoff beyond this point*/
 /* Only if using outline-shadow*/
-.selection-content .slider {
-  height: auto; }
-.selection-content .slider .scroll-hide {
-  overflow-y: visible;
-  height: auto; }
-.selection-content .slider .scroll-fix {
-  width: auto; }
-.selection-content .slider a {
-  margin: 10px;
-  width: calc(100% - 20px); }
-  @media (min-width: 480px) and (max-width: 719px) {
-    .selection-content .slider a {
-      width: calc(50% - 20px); } }
-  @media (min-width: 720px) and (max-width: 1023px) {
-    .selection-content .slider a {
-      width: calc(50% - 20px); } }
-  @media (min-width: 1024px) and (max-width: 1279px) {
-    .selection-content .slider a {
-      width: calc(33% - 20px); } }
-  @media (min-width: 1280px) and (max-width: 1439px) {
-    .selection-content .slider a {
-      width: calc(25% - 20px); } }
-  @media (min-width: 1440px) {
-    .selection-content .slider a {
-      width: calc(25% - 20px); } }
-  .selection-content .slider a:after {
-    content: "";
-    display: block;
-    padding-bottom: 100%; }
-  .selection-content .slider a:hover {
-    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5);
-    background-color: rgba(200, 200, 200, 0.05);
-    text-decoration: none; }
-    @media (min-width: 720px) and (max-width: 1023px) {
-      .selection-content .slider a:hover {
-        box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5); } }
-    @media (min-width: 1024px) {
-      .selection-content .slider a:hover {
-        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5); } }
-  .selection-content .slider a:active {
-    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8);
-    background-color: rgba(200, 200, 200, 0.08);
-    text-decoration: none; }
-    @media (min-width: 720px) and (max-width: 1023px) {
-      .selection-content .slider a:active {
-        box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.8); } }
-    @media (min-width: 1024px) {
-      .selection-content .slider a:active {
-        box-shadow: 0 0 25px 0px rgba(0, 0, 0, 0.8); } }
-.selection-content .slider-content .content {
-  height: calc(100% - 30px); }
-.selection-content .slider-content .name {
-  height: 30px;
-  font-size: 20px; }
-
 .selection-nav .slider {
   height: 110px; }
   @media (min-width: 1024px) {
@@ -1862,18 +1807,30 @@ button.btn-floating {
     text-decoration: none; }
   .selection-nav .slider a:active {
     text-decoration: none; }
-.selection-nav .slider-content h2, .selection-nav .slider-content img {
+.selection-nav .slider-content h2 {
   margin: 0;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); }
-.selection-nav .slider-content .content {
+.selection-nav .slider-content .img {
+  display: block;
   position: relative;
-  height: calc(100% - 20px); }
+  height: calc(100% - 20px);
+  width: 100%; }
   @media (min-width: 1024px) {
-    .selection-nav .slider-content .content {
+    .selection-nav .slider-content .img {
       height: calc(100% - 30px); } }
+  .selection-nav .slider-content .img img {
+    width: auto;
+    height: auto;
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
 .selection-nav .slider-content .name {
   height: 20px;
   font-size: 16px; }
@@ -1881,6 +1838,12 @@ button.btn-floating {
     .selection-nav .slider-content .name {
       height: 30px;
       font-size: 20px; } }
+
+#selection-bar-filler.managing {
+  z-index: 1000000;
+  height: 100vh;
+  padding-top: 100px;
+  position: fixed; }
 
 .slider {
   overflow-y: hidden;

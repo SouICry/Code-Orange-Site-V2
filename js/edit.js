@@ -1,30 +1,44 @@
-/*
- Format:
- edit.php - preview normally when default loaded.
- content-edit.htm - exact content of content.php, copied over on publish
 
- Editor works on both main page and standalone edit.php/content-edit.htm.
- //NOnono, for security must load edit.php to edit
- Publish overrides content.htm
-
- On add new page/section:
- Add it on selection-bar/nav as display hidden normally, show on edit mode
- index.php as expected.
- content.html redirects to edit.php
- content-edit.htm is generated, work progresses in standalone.
- Publish unhides the menu items as necessary
-
- Footer changes published immediately
-
- */
 
 
 $('.selection-nav .scroll-fix').append(
-    '<a class="manage-button"> <div class="slider-content"> <h2>Manage pages</h2> <div class="content"> </div> <div class="name"></div> </div> </a>'
+    '<a class="manage-pages manage-button"> <div class="slider-content"> <h2>Manage pages</h2> <div class="content"> </div> <div class="name"></div> </div> </a>'
 );
-$('.nav-nav .scroll-fix').append(
-    '<a class="manage-button">Manage</a>'
+$('.nav-nav .scroll-fix').prepend(
+    '<a class="manage-sections manage-button">Manage</a>'
 );
+
+fixHeaderWidth();
+
+
+$('.manage-pages').click(function(){
+    $('#selection-bar-filler').addClass('managing').prepend(
+        "<h2>Drag and drop to rearrange pages, or click add a new page.<br/>" +
+        "The first page will be the default page that is loaded when the section is clicked on the nav-bar</h2>");
+    $('.manage-pages').css('display', 'none');
+    $('.selection-nav .scroll-fix').append(
+        '<a class="manage-pages-add manage-button"> <div class="slider-content"> <h2>Add page</h2> <div class="content"> </div> <div class="name"></div> </div> </a>' +
+        '<a class="manage-pages-close manage-button"> <div class="slider-content"> <h2>Save and exit</h2> <div class="content"> </div> <div class="name"></div> </div> </a>'
+    );
+
+
+    $('.selection-nav .scroll-fix').sortable();
+    $('.edit-panel').css('display', 'none');
+    $('.manage-pages-close').off('click').click(function(){
+        modalProgress('Saving..');
+        savePages(function(msg){
+            if (msg == 'Save successful!'){
+                modalOk('Save successful!', function(){
+                    window.location.reload();
+                })
+            }
+            else {
+                alert(msg);
+            }
+        });
+    });
+
+});
 
 
 

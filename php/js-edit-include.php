@@ -7,6 +7,6 @@
 <script src="/js/save.js"></script>
 <script src="/js/edit.js"></script>
 <script src="/js/publish.js"></script>
-
+<script src="/js/save-pages.js"></script>
 
 <script src="/js/edit-panel.js"></script>

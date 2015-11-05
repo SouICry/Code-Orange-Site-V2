@@ -1,1 +1,1 @@
-<a href="#">Code Orange</a>
+<a href="/">Code Orange</a>

@@ -20,66 +20,6 @@ $max-slider-width: 9001px;
 $slider-item-outline-shadow-size: 10px;
 /* Only if using outline-shadow*/
 
-.selection-content {
-  .slider {
-    height: auto;
-  }
-  .slider .scroll-hide {
-    overflow-y: visible;
-    height: auto;
-  }
-  .slider .scroll-fix {
-    width: auto;
-  }
-  .slider a {
-    margin: $slider-item-outline-shadow-size;
-    width: calc(100% - #{$slider-item-outline-shadow-size * 2});
-    @include large-phone {
-      width: calc(50% - #{$slider-item-outline-shadow-size * 2});
-    }
-    @include tablet {
-      width: calc(50% - #{$slider-item-outline-shadow-size * 2});
-    }
-    @include small-desktop {
-      width: calc(33% - #{$slider-item-outline-shadow-size * 2});
-    }
-    @include medium-desktop {
-      width: calc(25% - #{$slider-item-outline-shadow-size * 2});
-    }
-    @include large-desktop {
-      width: calc(25% - #{$slider-item-outline-shadow-size * 2});
-    }
-
-    &:after {
-      content: "";
-      display: block;
-      //padding-bottom: calc(100% - #{$hide-scrollbar - $slider-item-outline-shadow-size});
-      padding-bottom: 100%;
-    }
-    &:hover {
-      @include outline-shadow;
-      background-color: rgba(200, 200, 200, 0.05);
-      text-decoration: none;
-    }
-    &:active {
-      @include emphasis-shadow;
-      background-color: rgba(200, 200, 200, 0.08);
-      text-decoration: none;
-    }
-  }
-
-  .slider-content {
-    .content {
-      height: calc(100% - 30px);
-    }
-    .name {
-      height: 30px;
-      font-size: 20px;
-    }
-
-  }
-}
-
 .selection-nav {
   .slider {
     height: $slider-item-phone-height;
@@ -124,7 +64,6 @@ $slider-item-outline-shadow-size: 10px;
 
   .slider .scroll-hide {
     overflow-y: hidden;
-
   }
   .slider .scroll-fix {
     width: $max-slider-width;
@@ -141,21 +80,33 @@ $slider-item-outline-shadow-size: 10px;
     }
   }
   .slider-content {
-    h2, img {
+    h2 {
       margin: 0;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
     }
-    .content {
+    .img {
+      display: block;
       position: relative;
       height: calc(100% - 20px);
+      width: 100%;
       @include desktop {
         height: calc(100% - 30px);
       }
+      img {
+        width: auto;
+        height: auto;
+        max-height: 100%;
+        max-width: 100%;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
-
 
     .name {
       height: 20px;
@@ -168,8 +119,14 @@ $slider-item-outline-shadow-size: 10px;
   }
 }
 
-.slider {
+#selection-bar-filler.managing {
+  z-index: 1000000;
+  height: 100vh;
+  padding-top: 100px;
+  position: fixed;
+}
 
+.slider {
   overflow-y: hidden;
   overflow-x: visible;
   width: 100%;

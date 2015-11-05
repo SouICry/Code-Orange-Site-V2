@@ -1,5 +1,5 @@
 
-//TODO: gallery maximize on click, close and reset title on it.
+//TODO: manages pages
 
 //TODO: add fittext support for carousel titles/titles on phones. Center instead on larger devices
 
