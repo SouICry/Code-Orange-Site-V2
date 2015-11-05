@@ -1,6 +1,3 @@
-
-
-
 $('.selection-nav .scroll-fix').append(
     '<a class="manage-pages manage-button"> <div class="slider-content"> <h2>Manage pages</h2> <div class="content"> </div> <div class="name"></div> </div> </a>'
 );
@@ -11,7 +8,7 @@ $('.nav-nav .scroll-fix').prepend(
 fixHeaderWidth();
 
 
-$('.manage-pages').click(function(){
+$('.manage-pages').click(function () {
     $('#selection-bar-filler').addClass('managing').prepend(
         "<h2>Drag and drop to rearrange pages, or click add a new page.<br/>" +
         "The first page will be the default page that is loaded when the section is clicked on the nav-bar</h2>");
@@ -24,22 +21,119 @@ $('.manage-pages').click(function(){
 
     $('.selection-nav .scroll-fix').sortable();
     $('.edit-panel').css('display', 'none');
-    $('.manage-pages-close').off('click').click(function(){
-        modalProgress('Saving..');
-        savePages(function(msg){
-            if (msg == 'Save successful!'){
-                modalOk('Save successful!', function(){
-                    window.location.reload();
-                })
+
+    $('.manage-pages-add').off('click').click(function () {
+
+        modalString("Enter page name. Only letters, numbers, spaces, -, _ allowed.", function (name) {
+            if (name.match(/^[\w\-\s]+$/) != null) {
+                modalOk(" Only letters, numbers, spaces, -, _ allowed.");
             }
             else {
-                alert(msg);
+
+                var newName = name.toLowerCase().replace(/-|\s/g, "_");
+                var newURL = trimForwardSlashAndFileName(currURL) + '/' + newName;
+
+                $('.selection-nav .scroll-fix').each(function(){
+                    $(this).append(
+                        '<a class="unsaved" data-nav="' + name + '" href="' + newURL + '">' +
+                        '<div class="slider-content"><h2>' + name + '</h2></div>' +
+                        '</a>');
+                });
+
+                modalSelect(function(choice){
+                    if (choice == 'Copy existing page'){
+                        modalString('Enter the url from an existing page (http://teamcodeorange.com/<section>/<page>)',
+                            function(url){
+                                var index = url.indexOf('teamcodeorange.com');
+                                if (index < 0){
+                                    modalOk("Please enter a valid url");
+                                }
+                                else {
+                                    url = trimForwardSlashAndFileName(url.substring(index + 18));
+                                    $.ajax({
+                                        type: "post",
+                                        url: "/php/new-page.php",
+                                        data: "data=" + JSON.stringify({
+                                            type: 'Copy existing page',
+                                            url: newURL,
+                                            copyPageURL: url
+                                        }),
+                                        success: function(msg){
+                                            if (msg == "Page creation successful!") {
+                                                modalProgress('Saving and adding ...');
+                                                savePages(false, function () {
+                                                    if (msg == "Pages save successful!") {
+                                                        savePage(function () {
+                                                            window.location.href = newURL;
+                                                        });
+                                                    }
+                                                    else {
+                                                        closeModalProgress();
+                                                        alert(msg);
+                                                    }
+                                                })
+                                            }
+                                            else {
+                                                alert(msg);
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        );
+                    }
+                    else {
+                        $.ajax({
+                            type: "post",
+                            url: "/php/new-page.php",
+                            data: "data=" + JSON.stringify({
+                                type: choice,
+                                url: newURL
+                            }),
+                            success: function(msg){
+                                if (msg == "Page creation successful!") {
+                                    modalProgress('Saving and adding ...');
+                                    savePages(false, function (msg) {
+                                        if (msg == "Pages save successful!") {
+                                            savePage(function () {
+                                                window.location.href = newURL;
+                                            });
+                                        }
+                                        else {
+                                            closeModalProgress();
+                                            alert(msg);
+                                        }
+                                    })
+                                }
+                                else {
+                                    alert(msg);
+                                }
+                            }
+                        });
+                    }
+
+                }, 'Select page type', 'Content page (2 column template)','Content page (1 column template)','Full image-background page', 'Copy existing page');
             }
         });
     });
 
+    $('.manage-pages-close').off('click').click(function () {
+        modalProgress('Saving..');
+        savePages(true, function (msg) {
+            if (msg == 'Save successful!') {
+                modalOk('Save successful!', function () {
+                    savePage(function () {
+                        window.location.reload();
+                    });
+                })
+            }
+            else {
+                closeModalProgress();
+                alert(msg);
+            }
+        });
+    });
 });
-
 
 
 //Disables all a href links
@@ -67,10 +161,9 @@ function getBlocksData() {
 getBlocksData();
 
 
-
 //Highlights objects or makes enables contenteditable
-$("iframe").each(function() {
-    $(this).replaceWith('<img height="'+$(this).attr('height')+'" />');
+$("iframe").each(function () {
+    $(this).replaceWith('<img height="' + $(this).attr('height') + '" />');
 });
 
 $(document).ready(function () {
@@ -78,8 +171,6 @@ $(document).ready(function () {
         $.fn.fullpage.setKeyboardScrolling(false);
     }
 });
-
-
 
 
 //Creates left click menus
@@ -243,13 +334,13 @@ var edit_sidebar_block = [{
                 elem = data.trigger.closest('.block');
             }
             modalString('Enter url to link to, or leave blank if none: ', function (url) {
-                if (url.length > 0){
-                    if ($(elem).is('a')){
+                if (url.length > 0) {
+                    if ($(elem).is('a')) {
                         $(elem).attr('href', url);
                     }
                     else {
                         $(elem).replaceWith(
-                            '<a class="block" href="' + url +'">' + $(elem).html() + '</a>')
+                            '<a class="block" href="' + url + '">' + $(elem).html() + '</a>')
                     }
                 }
                 else {
@@ -391,7 +482,7 @@ var edit_blocks_section_block_img = [{
 ].concat(edit_blocks_section_block);
 
 
-function bindContextMenus(){
+function bindContextMenus() {
 
     $('#fullpage .section-inner').off('click').contextMenu(edit_section);
     $('#fullpage .section-inner > *').off('click').click(function (event) {
@@ -420,7 +511,6 @@ function bindContextMenus(){
 }
 
 
-
 //Manage buttons
 var manage_gallery_button =
     '<div class="btn manage-button">Manage Gallery</div>';
@@ -434,16 +524,16 @@ var manage_iframe_button =
     '<div class="btn manage-button">Manage iframe</div>';
 $('.iframe').append(manage_iframe_button);
 
-function bindManageButtons(){
-    $('.carousel .manage-button').off('click').click(function(){
-        modalCarouselImages(function(json){
+function bindManageButtons() {
+    $('.carousel .manage-button').off('click').click(function () {
+        modalCarouselImages(function (json) {
             $.ajax({
                 type: "post",
                 url: "/php/rename-carousel-images.php",
                 data: "data=" + JSON.stringify(json),
                 success: function (success) {
                     if (success == 'true') {
-                        savePage(function(){
+                        savePage(function () {
                             window.location.reload();
                         });
                     }
@@ -455,27 +545,27 @@ function bindManageButtons(){
         });
     });
 
-    $('.iframe .btn').off('click').click(function(event){
+    $('.iframe .btn').off('click').click(function (event) {
 
-        function callback(urlOrCode, height){
-            if (urlOrCode.charAt(0) == '"' || urlOrCode.charAt(0) == "'"){
+        function callback(urlOrCode, height) {
+            if (urlOrCode.charAt(0) == '"' || urlOrCode.charAt(0) == "'") {
                 urlOrCode = urlOrCode.substring(1, urlOrCode.length - 1);
             }
 
-            if (height.charAt(0) == '"' || height.charAt(0) == "'"){
+            if (height.charAt(0) == '"' || height.charAt(0) == "'") {
                 height = height.substring(1, height.length - 1);
             }
 
             var iframe = urlOrCode.indexOf('iframe');
             var link;
-            if (iframe >= 0){
+            if (iframe >= 0) {
                 link = urlOrCode.substring(src + 4);
                 var qq = link.indexOf('"');
                 var q = link.indexOf("'");
                 var quoteType;
-                if (qq >= 0){
+                if (qq >= 0) {
                     if (q >= 0) {
-                        if (qq < q){
+                        if (qq < q) {
                             quoteType = link.charAt(qq);
                         }
                         else {
@@ -486,7 +576,7 @@ function bindManageButtons(){
                         quoteType = link.charAt(qq);
                     }
                 }
-                else if (q >= 0){
+                else if (q >= 0) {
                     quoteType = link.charAt(q);
                 }
                 else {
@@ -498,7 +588,7 @@ function bindManageButtons(){
             }
             else {
                 link = urlOrCode;
-                if (link.charAt(0) == '"' || link.charAt(0) == "'"){
+                if (link.charAt(0) == '"' || link.charAt(0) == "'") {
                     link = link.substring(1, link.length - 1);
                 }
             }
@@ -507,6 +597,7 @@ function bindManageButtons(){
             $(event.target).siblings('img').height(height);
             $(event.target).closest('.iframe').height(height).data('height', height);
         }
+
         modalIframe("Enter Url and Height", 750, callback);
         $('.modal-footer').prepend('<div class="btn modal-delete">Delete this iframe</div>');
         $('.modal-delete').off('click').click(function () {
@@ -521,8 +612,8 @@ function bindManageButtons(){
         $('#modal-input-number').val($(event.target).siblings('img').height());
     });
 
-    $('.youtube .btn').off('click').click(function(event){
-        modalString('Enter youtube url:', function(url){
+    $('.youtube .btn').off('click').click(function (event) {
+        modalString('Enter youtube url:', function (url) {
             var vequals = url.indexOf('v=');
             var embed = url.indexOf('embed/');
             var list = url.indexOf('list=');
@@ -558,15 +649,13 @@ function bindManageButtons(){
 }
 
 
-
-
 //Sortable enable/disable
 
 function enable_rearrange_fullpage_sections() {
     if ($('#fullpage').sortable("instance") == undefined) {
         $('#fullpage').sortable();
         $('#fullpage .content').sortable({
-           connectWith:  '#fullpage .content'
+            connectWith: '#fullpage .content'
         });
         $('#fullpage .content > *').addClass('sorting-content');
     }
@@ -691,11 +780,7 @@ function edit_mode() {
 }
 
 
-
-
-
-
-function enableContentEditable(){
+function enableContentEditable() {
     $('.content-row, .sidebar, .youtube, .blocks, .blocks > *, .sidebar > *, .iframe').addClass('manage');
     $('.section-inner').addClass('manage');
 
@@ -719,8 +804,6 @@ function enableContentEditable(){
 
 
 enableContentEditable();
-
-
 
 
 //TODO: async loading library.

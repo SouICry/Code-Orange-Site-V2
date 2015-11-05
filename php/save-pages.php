@@ -13,5 +13,10 @@ if ($new == 'false'){
     }
 }
 else {
-
+    if (file_put_contents($_SERVER['DOCUMENT_ROOT'] .'/'.$url.'/content-edit.htm', $content) === false){
+        echo "Save failed.";
+    }
+    else {
+        echo "Save successful!";
+    }
 }
