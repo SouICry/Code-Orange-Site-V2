@@ -27,7 +27,6 @@ else {
 if (!is_dir($path)){
     mkdir($path);
 }
-
 $response = scan($path, $relv_path);
 // This function scans the files folder recursively, and builds a large array
 function scan($dir, $relv_dir){
@@ -55,5 +54,5 @@ if (sizeof($response) > 0) {
     echo json_encode($response);
 }
 else {
-    echo 'false';
+    echo '';
 }

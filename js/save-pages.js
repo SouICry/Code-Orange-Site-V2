@@ -77,7 +77,10 @@ function savePages(normalSave, callback) {
             }
             s += '<a class="slider-filler"></a></div></div></div></div>';
 
-            var content = s.replace('<p><br></p>', '');
+            var content = s.replace(new RegExp('<p>', 'g'), '');
+            content = content.replace(new RegExp('</p>', 'g'), '');
+            content = content.replace(new RegExp('<br>', 'g'), '');
+            content = content.replace(new RegExp('<br/>', 'g'), '');
 
             var url = trimForwardSlashAndFileName(currURL);
             if (url.length > 0) {

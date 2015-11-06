@@ -10,3 +10,4 @@
 <script src="/js/save-pages.js"></script>
 
 <script src="/js/edit-panel.js"></script>
+<script src="/js/edit-pages.js"></script>

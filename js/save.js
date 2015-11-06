@@ -9,7 +9,7 @@ function savePage(callback) {
         content = save_content_page();
     }
 
-    content = content.replace('<p><br></p>', '');
+    content = content.replace(new RegExp('<p><br></p>', 'g'), '');
     content = content.replace(new RegExp('&amp;', 'g'), 'ESCAPED_AMPERSAND');
     content = content.replace(new RegExp('&', 'g'), 'ESCAPED_AMPERSAND');
     $.ajax({

@@ -103,6 +103,7 @@ h3.manage {
 }
 
 .iframe {
+  border: none;
   position: relative;
   float: left;
   width: 100%;
@@ -148,6 +149,8 @@ h3.manage {
 
 .youtube.manage, .iframe.manage {
   border-color: white;
+  border-width: 3px;
+  border-style: dashed
 }
 
 .youtube iframe {

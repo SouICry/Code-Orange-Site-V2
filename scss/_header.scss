@@ -188,6 +188,7 @@
     .scroll-fix {
       width: 1000px;
       min-width: 100%;
+
       @include desktop {
         min-width: 0;
         width: 650px;

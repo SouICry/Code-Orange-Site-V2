@@ -1277,7 +1277,7 @@ div.block:active, div.block-2:active, div.block-3:active, div.block-4:active, di
 
 .edit-panel {
   background-color: rgba(0, 0, 0, 0.3);
-  z-index: 699;
+  z-index: 800;
   color: white;
   position: fixed;
   width: 100vw;
@@ -1455,7 +1455,7 @@ button.btn-floating {
   width: 100vw;
   height: 100vh;
   background-color: rgba(200, 200, 200, 0.2);
-  z-index: 800;
+  z-index: 850;
   transition: all 0.3s; }
 
 .modal-inner {
@@ -1800,7 +1800,8 @@ button.btn-floating {
 .selection-nav .slider .scroll-hide {
   overflow-y: hidden; }
 .selection-nav .slider .scroll-fix {
-  width: 9001px; }
+  width: 9001px;
+  height: 100px; }
 .selection-nav .slider a {
   margin: 0; }
   .selection-nav .slider a:hover {
@@ -1862,7 +1863,6 @@ button.btn-floating {
   position: relative;
   float: left;
   color: #ffd180;
-  font-size: 20px;
   padding: 0;
   text-align: center;
   background-color: transparent; }
@@ -2956,6 +2956,7 @@ h3.manage {
   display: none; }
 
 .iframe {
+  border: none;
   position: relative;
   float: left;
   width: 100%;
@@ -2993,7 +2994,9 @@ h3.manage {
     z-index: 0; }
 
 .youtube.manage, .iframe.manage {
-  border-color: white; }
+  border-color: white;
+  border-width: 3px;
+  border-style: dashed; }
 
 .youtube iframe {
   z-index: 10;

@@ -5,7 +5,7 @@
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/php/head-include.php'; ?>
 </head>
 <body>
-<div id="title-overlay" style="position: fixed;width: 100vw; height: 100vh;
+<!--div id="title-overlay" style="position: fixed;width: 100vw; height: 100vh;
 background-color: orange; z-index: 200; transition: all 1s"></div>
 <script>
     $('#title-overlay').click(function () {
@@ -15,7 +15,7 @@ background-color: orange; z-index: 200; transition: all 1s"></div>
             $('#title-overlay').css('display', 'none');
         }, 1000);
     })
-</script>
+</script-->
 <div id="header">
     <div id="nav">
         <div class="row">

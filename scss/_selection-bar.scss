@@ -67,6 +67,7 @@ $slider-item-outline-shadow-size: 10px;
   }
   .slider .scroll-fix {
     width: $max-slider-width;
+    height: 100px;
   }
   .slider a {
     margin: 0;
@@ -81,6 +82,7 @@ $slider-item-outline-shadow-size: 10px;
   }
   .slider-content {
     h2 {
+
       margin: 0;
       position: absolute;
       top: 50%;
@@ -146,7 +148,6 @@ $slider-item-outline-shadow-size: 10px;
   position: relative;
   float: left;
   color: $orange-accent-1;
-  font-size: 20px;
   padding: $slider-item-padding;
   text-align: center;
   background-color: transparent;

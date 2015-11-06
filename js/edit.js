@@ -1,139 +1,13 @@
-$('.selection-nav .scroll-fix').append(
-    '<a class="manage-pages manage-button"> <div class="slider-content"> <h2>Manage pages</h2> <div class="content"> </div> <div class="name"></div> </div> </a>'
+$('.selection-nav .scroll-fix').prepend(
+    '<a class="slider-filler"></a><a class="manage-pages manage-button"> <div class="slider-content"> <h2>Manage pages</h2> <div class="content"> </div> <div class="name"></div> </div> </a>'
 );
 $('.nav-nav .scroll-fix').prepend(
-    '<a class="manage-sections manage-button">Manage</a>'
+    '<a class="slider-filler"></a><a class="manage-sections manage-button">Manage</a>'
 );
 
 fixHeaderWidth();
 
 
-$('.manage-pages').click(function () {
-    $('#selection-bar-filler').addClass('managing').prepend(
-        "<h2>Drag and drop to rearrange pages, or click add a new page.<br/>" +
-        "The first page will be the default page that is loaded when the section is clicked on the nav-bar</h2>");
-    $('.manage-pages').css('display', 'none');
-    $('.selection-nav .scroll-fix').append(
-        '<a class="manage-pages-add manage-button"> <div class="slider-content"> <h2>Add page</h2> <div class="content"> </div> <div class="name"></div> </div> </a>' +
-        '<a class="manage-pages-close manage-button"> <div class="slider-content"> <h2>Save and exit</h2> <div class="content"> </div> <div class="name"></div> </div> </a>'
-    );
-
-
-    $('.selection-nav .scroll-fix').sortable();
-    $('.edit-panel').css('display', 'none');
-
-    $('.manage-pages-add').off('click').click(function () {
-
-        modalString("Enter page name. Only letters, numbers, spaces, -, _ allowed.", function (name) {
-            if (name.match(/^[\w\-\s]+$/) != null) {
-                modalOk(" Only letters, numbers, spaces, -, _ allowed.");
-            }
-            else {
-
-                var newName = name.toLowerCase().replace(/-|\s/g, "_");
-                var newURL = trimForwardSlashAndFileName(currURL) + '/' + newName;
-
-                $('.selection-nav .scroll-fix').each(function(){
-                    $(this).append(
-                        '<a class="unsaved" data-nav="' + name + '" href="' + newURL + '">' +
-                        '<div class="slider-content"><h2>' + name + '</h2></div>' +
-                        '</a>');
-                });
-
-                modalSelect(function(choice){
-                    if (choice == 'Copy existing page'){
-                        modalString('Enter the url from an existing page (http://teamcodeorange.com/<section>/<page>)',
-                            function(url){
-                                var index = url.indexOf('teamcodeorange.com');
-                                if (index < 0){
-                                    modalOk("Please enter a valid url");
-                                }
-                                else {
-                                    url = trimForwardSlashAndFileName(url.substring(index + 18));
-                                    $.ajax({
-                                        type: "post",
-                                        url: "/php/new-page.php",
-                                        data: "data=" + JSON.stringify({
-                                            type: 'Copy existing page',
-                                            url: newURL,
-                                            copyPageURL: url
-                                        }),
-                                        success: function(msg){
-                                            if (msg == "Page creation successful!") {
-                                                modalProgress('Saving and adding ...');
-                                                savePages(false, function () {
-                                                    if (msg == "Pages save successful!") {
-                                                        savePage(function () {
-                                                            window.location.href = newURL;
-                                                        });
-                                                    }
-                                                    else {
-                                                        closeModalProgress();
-                                                        alert(msg);
-                                                    }
-                                                })
-                                            }
-                                            else {
-                                                alert(msg);
-                                            }
-                                        }
-                                    });
-                                }
-                            }
-                        );
-                    }
-                    else {
-                        $.ajax({
-                            type: "post",
-                            url: "/php/new-page.php",
-                            data: "data=" + JSON.stringify({
-                                type: choice,
-                                url: newURL
-                            }),
-                            success: function(msg){
-                                if (msg == "Page creation successful!") {
-                                    modalProgress('Saving and adding ...');
-                                    savePages(false, function (msg) {
-                                        if (msg == "Pages save successful!") {
-                                            savePage(function () {
-                                                window.location.href = newURL;
-                                            });
-                                        }
-                                        else {
-                                            closeModalProgress();
-                                            alert(msg);
-                                        }
-                                    })
-                                }
-                                else {
-                                    alert(msg);
-                                }
-                            }
-                        });
-                    }
-
-                }, 'Select page type', 'Content page (2 column template)','Content page (1 column template)','Full image-background page', 'Copy existing page');
-            }
-        });
-    });
-
-    $('.manage-pages-close').off('click').click(function () {
-        modalProgress('Saving..');
-        savePages(true, function (msg) {
-            if (msg == 'Save successful!') {
-                modalOk('Save successful!', function () {
-                    savePage(function () {
-                        window.location.reload();
-                    });
-                })
-            }
-            else {
-                closeModalProgress();
-                alert(msg);
-            }
-        });
-    });
-});
 
 
 //Disables all a href links
@@ -522,7 +396,18 @@ $('.youtube').append(manage_youtube_button);
 
 var manage_iframe_button =
     '<div class="btn manage-button">Manage iframe</div>';
-$('.iframe').append(manage_iframe_button);
+
+var manage_google_iframe_button =
+    '<div class="btn manage-button">Manage Google content iframe</div>';
+
+$('.iframe').each(function () {
+    if ($(this).find('.data-fix').html().indexOf('google') >= 0) {
+        $(this).append(manage_google_iframe_button);
+    }
+    else {
+        $(this).append(manage_iframe_button);
+    }
+});
 
 function bindManageButtons() {
     $('.carousel .manage-button').off('click').click(function () {
@@ -729,18 +614,21 @@ function enable_rearrange_content_row_content() {
     $('.content-row:not(:has(.sidebar)) > *').addClass('sorting-content');
     $('.content-row > .content > *').addClass('sorting-content');
     $('.content-row > .content').addClass('sorting-content');
-    $('.content-row > h3').addClass('sorting-content');
 
     if ($('.content-row > .content').sortable("instance") == undefined) {
         $('.content-row > .content').sortable({
             connectWith: '.content-row > .content, .content-row:not(:has(.sidebar))'
         });
+    }
+    else {
+        $('.content-row > .content').sortable('enable');
+    }
+    if ($('.content-row:not(:has(.sidebar))').sortable("instance") == undefined) {
         $('.content-row:not(:has(.sidebar))').sortable({
             connectWith: '.content-row > .content, .content-row:not(:has(.sidebar))'
         });
     }
     else {
-        $('.content-row > .content').sortable('enable');
         $('.content-row:not(:has(.sidebar))').sortable('enable');
     }
 }
@@ -748,7 +636,6 @@ function disable_rearrange_content_row_content() {
     $('.content-row:not(:has(.sidebar)) > *').removeClass('sorting-content');
     $('.content-row > .content > *').removeClass('sorting-content');
     $('.content-row > .content').removeClass('sorting-content');
-    $('.content-row > h3').removeClass('sorting-content');
 
     $('.content-row:not(:has(.sidebar))').sortable('disable');
     $('.content-row > .content').sortable('disable');
@@ -826,8 +713,7 @@ $('.preview-button').click(function () {
 });
 
 
-CKEDITOR.config.contentsCss = '/css/style.css';
 CKEDITOR.inlineAll();
 CKEDITOR.config.format_tags = 'p;h1;h2;h3;h4;h5;h6;pre;address;div;iframe;img';
-
+CKEDITOR.config.contentsCss = '/css/style.css';
 

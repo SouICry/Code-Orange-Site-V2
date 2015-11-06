@@ -72,7 +72,9 @@ function modalOk(text, callback) {
     $('.modal-ok-content').html(text);
     $('.modal-ok-ok').click(function () {
         closeOkModal();
-        callback();
+        if (arguments.length > 1) {
+            callback();
+        }
     });
     $('.modal-ok').css('display', 'block').css('opacity', 1);
 }
@@ -241,7 +243,7 @@ function modalCarouselImages(yesCallback) {
     });
 }
 
-function modalImageSelect(yesCallback) {
+function modalImageSelect(yesCallback, isPages) {
     $('.modal-header').html('Select Image');
     $('.modal-content').html('Drag and drop from your computer, or ' +
         '<div class="btn modal-browse">Browse</div> to add image choices. Then pick one.<div class="modal-options"></div>');
@@ -249,12 +251,19 @@ function modalImageSelect(yesCallback) {
 
     $('.modal').css('display', 'block').css('opacity', '1');
 
+
+    var url = trimForwardSlashAndFileName(currURL);
+
+    if (arguments.length > 1 && isPages){
+        url = url.split('/')[0];
+        var ccc= 0;
+    }
     function loadImages() {
         $.ajax({
             type: "post",
             url: "/php/scan-images.php",
             data: "data=" + JSON.stringify({
-                "url": trimForwardSlashAndFileName(currURL),
+                "url": url,
                 "carousel": false
             }),
             success: function (imgs) {

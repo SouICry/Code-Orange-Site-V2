@@ -81,7 +81,9 @@ var currentNode = null;
 function loadEditPanel(node, arrayToUse) {
     currentNode = node;
     $('.edit-panel-active-section').removeClass('edit-panel-active-section');
-    $(node).addClass('edit-panel-active-section');
+    if (node != null) {
+        $(node).addClass('edit-panel-active-section');
+    }
     $('.edit-panel-button').each(function () {
         $(this).remove();
     });
@@ -280,7 +282,7 @@ if ($('#fullpage').length == 0) {
                 }
 
                 $(currentNode).append(
-                    '<div class="iframe" data-height="' + height + '" style="height:' + height + ';"><div class="data-fix">' + link + '</div>' +
+                    '<div class="iframe" data-height="' + height + '" style="height:' + height + 'px;"><div class="data-fix">' + link + '</div>' +
                     '<img height="' + height + '"/>' +
                     '<div class="btn manage-button">Manage '
                     + (id.indexOf('iframe') > 0 ? 'iframe Embed' : 'Google Embed')
