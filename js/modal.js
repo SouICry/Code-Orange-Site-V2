@@ -72,7 +72,7 @@ function modalOk(text, callback) {
     $('.modal-ok-content').html(text);
     $('.modal-ok-ok').click(function () {
         closeOkModal();
-        if (arguments.length > 1) {
+        if (arguments.length > 0) {
             callback();
         }
     });

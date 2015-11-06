@@ -55,7 +55,13 @@ if (!include $_SERVER['DOCUMENT_ROOT'] . '/php/verify-user.php') {
     </div>
     <div id="selection-bar" class="selection-nav">
         <div class="slider-left"><span></span></div>
-
+        <?php
+        if (file_exists('content-edit.htm')) {
+            include 'content-edit.htm';
+        } else {
+            include 'content.htm';
+        }
+        ?>
         <div class="slider-right"><span></span></div>
     </div>
 </div>
@@ -93,20 +99,27 @@ if (!include $_SERVER['DOCUMENT_ROOT'] . '/php/verify-user.php') {
                             }
                             ?>
                         </div>
-                        <div class="slider-right"><span></span></div>
                     </div>
+                    <div class="slider-right"><span></span></div>
                 </div>
             </div>
         </div>
     </div>
     <div id="selection-bar-filler" class="selection-nav">
         <div class="slider-left"><span></span></div>
+        <?php
+        if (file_exists('content-edit.htm')) {
+            include 'content-edit.htm';
+        } else {
+            include 'content.htm';
+        }
+        ?>
         <div class="slider-right"><span></span></div>
     </div>
 </div>
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/php/body-prepend.php'; ?>
 <div id="body">
-    <?php include 'content-edit.htm'; ?>
+
 </div>
 <div id="footer">
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/php/footer.php'; ?>

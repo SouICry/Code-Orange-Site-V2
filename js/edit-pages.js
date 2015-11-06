@@ -1,3 +1,140 @@
+var edit_sections = [{
+    name: 'Remove this section',
+    fun: function (data) {
+        modalConfirm("This function only removes the link from the nav bar, so you can easily restore it by adding a " +
+            "section with same name. It leaves all pages and content within  it accessible by anyone who has the " +
+            "correct link. " +
+            "You can permanently delete it by deleting the folder /" + trimForwardSlashAndFileName(currURL).split('/')[0] +
+            " from the server." +
+            "<br/>Are you sure you want to remove this section?",
+            function (choice) {
+                if (choice) {
+                    if (data.trigger.is('a')) {
+                        data.trigger.remove();
+                    }
+                    else {
+                        data.trigger.closest('a').remove();
+                    }
+                }
+            }
+        )
+    }
+}];
+
+function enableManageSectionsContentEditable() {
+    var items = $('#nav-menu-filler a').not('.manage-button').not('.slider-filler');
+    items.addClass('editable').attr('contenteditable', 'true').contextMenu(edit_sections).click(function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    });
+
+}
+
+$('.manage-sections').click(function () {
+
+    enableManageSectionsContentEditable()
+    $('#header-filler').css('z-index', 701);
+    $('#nav-filler').addClass('managing').prepend(
+        "<h2>Use buttons below. Switch to rearrange mode and drag and drop to reorder sections.</h2>");
+    $('.manage-sections').css('display', 'none');
+    $('#user-filler').css('display', 'none');
+    $('#logo-filler').click(function(){
+        alert("todo");
+    });
+
+
+
+    var togglePagesRearrange = false;
+    var c = $('.edit-panel').children();
+    for (var i = 3; i < c.length; i++) {
+        $(c[i]).remove();
+    }
+
+    var sectionsEditButtons = ['Add Section', 'Save and Exit', 'Cancel'];
+    loadEditPanel(null, sectionsEditButtons);
+
+    var slider = $('#nav-menu-filler .scroll-fix');
+
+    $('#toggle-edit-rearrange').off('click').click(function () {
+        togglePagesRearrange = !togglePagesRearrange;
+        if (togglePagesRearrange) {
+            if (slider.sortable('instance') == undefined) {
+                slider.sortable();
+            }
+            else {
+                slider.sortable('enable');
+            }
+            $('#mode-indicator').html('<h2>Rearrange Mode</h2>');
+            $('#toggle-edit-rearrange').html('<p>Switch to Edit Mode</p>');
+        }
+        else {
+            slider.sortable('disable');
+            $('#mode-indicator').html('<h2>Edit Mode</h2>');
+            $('#toggle-edit-rearrange').html('<p>Switch to Rearrange Mode</p>');
+        }
+    });
+
+
+    $('#Add-Section').click(function () {
+        modalString("Enter section name. Only letters, numbers, spaces, -, _ allowed.", function (name) {
+            if (name.match(/^[\w\-\s]+$/) != null) {
+                modalOk(" Only letters, numbers, spaces, -, _ allowed.");
+            }
+            else {
+                var newSectionName = name.replace(/|\s/g, "_");
+                slider.append('<a data-nav="' + newSectionName + '" href="">' + name + '</a>');
+
+                $.ajax({
+                    type: "post",
+                    url: "/php/new-section.php",
+                    data: "data=" + JSON.stringify({
+                        name: newSectionName
+                    }),
+                    success: function (msg) {
+                        if (msg == "Create section successful!") {
+                            saveSections(false, function(){
+                                savePage(function(){
+                                    window.location.href = "/" + newSectionName + "/edit.php";
+                                });
+                            });
+                        }
+                        else {
+                            alert(msg);
+                        }
+                    }
+                });
+
+            }
+        });
+    });
+
+    $('#Save-and-Exit').click(function () {
+        modalProgress('Saving...');
+        saveSections(true, function (msg) {
+            if (msg == 'Save sections successful!') {
+                closeModalProgress();
+                modalOk('Save successful!', function () {
+                    savePage(function () {
+                        window.location.reload();
+                    });
+                })
+            }
+            else {
+                closeModalProgress();
+                alert(msg);
+            }
+        });
+    });
+
+    $('#Cancel').click(function () {
+        modalProgress('Loading...');
+        savePage(function () {
+            window.location.reload();
+        });
+    });
+
+});
+
 
 var edit_pages = [{
     name: 'Toggle image and text.',
@@ -38,7 +175,6 @@ var edit_pages = [{
             }
         }
     }
-
 },
     {
         name: 'Modify url link',
@@ -57,18 +193,24 @@ var edit_pages = [{
         }
     },
     {
-        name: 'Delete this page',
+        name: 'Remove this page',
         fun: function (data) {
-            modalConfirm("Are you sure you want to delete this page?", function (choice) {
-                if (choice) {
-                    if (data.trigger.is('a')) {
-                        data.trigger.remove();
-                    }
-                    else {
-                        data.trigger.closest('a').remove();
+            modalConfirm("This function only removes the page from the menu bar, so you can easily restore it by adding" +
+                "a page with the same name. It leaves the page content accessible by anyone with the right link. " +
+                "You can permanently delete it by deleting the folder /" + trimForwardSlashAndFileName(currURL) +
+                " from the server." +
+                "<br/>Are you sure you want to remove this page? ",
+                function (choice) {
+                    if (choice) {
+                        if (data.trigger.is('a')) {
+                            data.trigger.remove();
+                        }
+                        else {
+                            data.trigger.closest('a').remove();
+                        }
                     }
                 }
-            });
+            );
         }
     }
 ];
@@ -117,7 +259,6 @@ $('.manage-pages').click(function () {
     enableManagePagesContentEditable();
 
 
-
     $('#header-filler').css('z-index', 701);
     $('#selection-bar-filler').addClass('managing').prepend(
         "<h2>Use buttons below. Switch to rearrange mode and drag and drop to reorder pages in the menu bar.<br/>" +
@@ -125,6 +266,8 @@ $('.manage-pages').click(function () {
     $('.manage-pages').css('display', 'none');
 
     var slider = $('#selection-bar-filler .scroll-fix');
+
+
     var togglePagesRearrange = false;
     var c = $('.edit-panel').children();
     for (var i = 3; i < c.length; i++) {
@@ -176,7 +319,7 @@ $('.manage-pages').click(function () {
                 modalOk(" Only letters, numbers, spaces, -, _ allowed.");
             }
             else {
-                var newName = name.toLowerCase().replace(/|\s/g, "_");
+                var newName = name.replace(/|\s/g, "_");
                 var newURL = trimForwardSlashAndFileName(currURL) + '/' + newName;
 
                 $('.selection-nav .scroll-fix').each(function () {
@@ -206,21 +349,13 @@ $('.manage-pages').click(function () {
                                             copyPageURL: url
                                         }),
                                         success: function (msg) {
-                                            if (msg == "Page creation successful!") {
+                                            if (msg == "Create page successful!") {
                                                 savePages(false, function () {
-                                                    if (msg == "Pages save successful!") {
+                                                    if (msg == "Save pages successful!") {
                                                         closeModalProgress;
-                                                        modalConfirm('Changes to current page?', function (choice) {
-                                                            if (choice) {
-                                                                savePage(function () {
-                                                                    window.location.href = newURL;
-                                                                });
-                                                            }
-                                                            else {
-                                                                window.location.href = newURL;
-                                                            }
+                                                        savePage(function () {
+                                                            window.location.href = newURL;
                                                         });
-
                                                     }
                                                     else {
                                                         closeModalProgress();
@@ -251,15 +386,8 @@ $('.manage-pages').click(function () {
                                     savePages(false, function (msg) {
                                         if (msg == "Pages save successful!") {
                                             closeModalProgress;
-                                            modalConfirm('Changes to current page?', function (choice) {
-                                                if (choice) {
-                                                    savePage(function () {
-                                                        window.location.href = newURL;
-                                                    });
-                                                }
-                                                else {
-                                                    window.location.href = newURL;
-                                                }
+                                            savePage(function () {
+                                                window.location.href = newURL;
                                             });
                                         }
                                         else {

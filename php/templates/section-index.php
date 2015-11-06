@@ -37,10 +37,10 @@
     <div id="nav-filler">
         <div class="row">
             <div class="column">
-                <div id="logo">
+                <div id="logo-filler">
                     <?php include $_SERVER['DOCUMENT_ROOT'] . '/php/logo.php'; ?>
                 </div>
-                <div id="user">
+                <div id="user-filler">
                     <?php include $_SERVER['DOCUMENT_ROOT'] . '/php/user.php'; ?>
                 </div>
                 <div id="nav-menu-filler" class="nav-nav">
@@ -49,8 +49,8 @@
                         <div class="scroll-fix">
                             <?php include $_SERVER['DOCUMENT_ROOT'] . '/php/menu.php'; ?>
                         </div>
-                        <div class="slider-right"><span></span></div>
                     </div>
+                    <div class="slider-right"><span></span></div>
                 </div>
             </div>
         </div>
@@ -61,13 +61,11 @@
         <div class="slider-right"><span></span></div>
     </div>
 </div>
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/php/body-prepend.php'; ?>
+
+
 <div id="body">
-    <?php include 'content.htm'; ?>
+    <script src="/js/load.js"></script>
 </div>
 <div id="footer">
-    <?php include $_SERVER['DOCUMENT_ROOT'] . '/php/footer.php'; ?>
-</div>
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/php/js-include.php'; ?>
 </body>
 </html>

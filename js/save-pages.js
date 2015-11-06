@@ -21,11 +21,16 @@ function saveSections(normalSave, callback) {
     }
     s += '<a class="slider-filler"></a>';
 
+    var content = s.replace(new RegExp('<p>', 'g'), '');
+    content = content.replace(new RegExp('</p>', 'g'), '');
+    content = content.replace(new RegExp('<br>', 'g'), '');
+    content = content.replace(new RegExp('<br/>', 'g'), '');
+
     $.ajax({
         type: "post",
         url: "/php/save-sections.php",
         data: "data=" + JSON.stringify({
-            content: s,
+            content: content,
             new: normalSave
         }),
         success: function (msg) {

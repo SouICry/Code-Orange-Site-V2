@@ -121,12 +121,7 @@ $slider-item-outline-shadow-size: 10px;
   }
 }
 
-#selection-bar-filler.managing {
-  z-index: 1000000;
-  height: 100vh;
-  padding-top: 100px;
-  position: fixed;
-}
+
 
 .slider {
   overflow-y: hidden;

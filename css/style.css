@@ -1840,12 +1840,6 @@ button.btn-floating {
       height: 30px;
       font-size: 20px; } }
 
-#selection-bar-filler.managing {
-  z-index: 1000000;
-  height: 100vh;
-  padding-top: 100px;
-  position: fixed; }
-
 .slider {
   overflow-y: hidden;
   overflow-x: visible;
@@ -2889,6 +2883,12 @@ html.fp-enabled,
 .fp-auto-height .fp-slide,
 .fp-auto-height .fp-tableCell {
   height: auto !important; }
+
+#nav-filler.managing, #selection-bar-filler.managing {
+  z-index: 1000000;
+  height: 100vh;
+  padding-top: 100px;
+  position: fixed; }
 
 .manage-none {
   display: none; }

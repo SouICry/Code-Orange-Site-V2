@@ -21,6 +21,15 @@
 @import 'fullpage';
 
 
+
+#nav-filler.managing, #selection-bar-filler.managing {
+  z-index: 1000000;
+  height: 100vh;
+  padding-top: 100px;
+  position: fixed;
+}
+
+
 .manage-none {
   display: none;
 }
