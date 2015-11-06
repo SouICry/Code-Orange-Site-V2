@@ -7,6 +7,7 @@ $('.nav-nav .scroll-fix').prepend(
 
 fixHeaderWidth();
 
+$('.nav-nav .scroll-fix a').off('click');
 
 
 

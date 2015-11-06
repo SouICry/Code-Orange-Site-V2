@@ -124,7 +124,7 @@ $('.manage-pages').click(function () {
         "The first page will be the default page that is loaded when the section is clicked on the nav-bar</h2>");
     $('.manage-pages').css('display', 'none');
 
-    var slider = $('.selection-nav .scroll-fix');
+    var slider = $('#selection-bar-filler .scroll-fix');
     var togglePagesRearrange = false;
     var c = $('.edit-panel').children();
     for (var i = 3; i < c.length; i++) {
@@ -166,11 +166,11 @@ $('.manage-pages').click(function () {
                 '<a href="' + url + '">' +
                 '<div class="slider-content"><h2>Sponsor name</h2></div>' +
                 '</a>');
+            enableManagePagesContentEditable();
         });
     });
 
     $('.manage-pages-add').off('click').click(function () {
-
         modalString("Enter page name. Only letters, numbers, spaces, -, _ allowed.", function (name) {
             if (name.match(/^[\w\-\s]+$/) != null) {
                 modalOk(" Only letters, numbers, spaces, -, _ allowed.");
@@ -283,7 +283,8 @@ $('.manage-pages').click(function () {
     $('.manage-pages-close').off('click').click(function () {
         modalProgress('Saving...');
         savePages(true, function (msg) {
-            if (msg == 'Save successful!') {
+            if (msg == 'Save pages successful!') {
+                closeModalProgress();
                 modalOk('Save successful!', function () {
                     savePage(function () {
                         window.location.reload();

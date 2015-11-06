@@ -2,7 +2,7 @@
  * Created by SouICry on 11/3/2015.
  */
 
-//TODO: php parts
+//TODO: save new page js and php
 
 function saveSections(normalSave, callback) {
     var nav;
@@ -16,14 +16,14 @@ function saveSections(normalSave, callback) {
     var s = '<a class="slider-filler"></a>';
 
     for (var i = 0; i < nav.length; i++) {
-        var p = nav[i];
+        var p = $(nav[i]);
         s += '<a ' + (p.hasClass('unsaved') ? 'class="unsaved"' : '') + ' data-nav="' + p.data('nav') + '" href="' + p.attr('href') + '">' + p.html() + '</a>';
     }
     s += '<a class="slider-filler"></a>';
 
     $.ajax({
         type: "post",
-        url: "/php/save-pages.php",
+        url: "/php/save-sections.php",
         data: "data=" + JSON.stringify({
             content: s,
             new: normalSave
@@ -37,7 +37,7 @@ function saveSections(normalSave, callback) {
 
 function savePages(normalSave, callback) {
 
-    var pages, nav;
+    var pages;
     if (normalSave) {
         pages = $('#selection-bar-filler .scroll-fix a').not('.manage-button').not('.slider-filler').not('.unsaved');
     }
@@ -45,11 +45,12 @@ function savePages(normalSave, callback) {
         pages = $('#selection-bar-filler .scroll-fix a').not('.manage-button').not('.slider-filler');
     }
 
-    var defaultPage = pages.first().date('nav');
-    $('#nav-menu-filler .scroll-fix a[data-nav=' + defaultPage + ']').attr('src', pages.first().attr('src'));
+    var navItem = $('#nav-menu-filler a.new');
+    navItem.replaceWith(
+        '<a class="selected new" data-nav="' + navItem.data('nav') + '" href="' + $(pages).first().attr('href') + '">' + navItem.html() + '</a>');
 
     saveSections(normalSave, function (msg) {
-        if (msg != "Sections save successful!") {
+        if (msg != "Save sections successful!") {
             callback("Save failed.");
         }
         else {
@@ -62,17 +63,17 @@ function savePages(normalSave, callback) {
                 var p = $(pages[i]);
                 var img = p.find('img');
                 if (img.length > 0) {
-                    s += '<a ' + (p.hasClass('unsaved') ? 'class="unsaved"' : '') + ' date-nav="' + p.data('nav') + '" href="' + p.attr('href') + '">' +
+                    s += '<a ' + (p.hasClass('unsaved') ? 'class="unsaved"' : '') + ' data-nav="' + p.data('nav') + '" href="' + p.attr('href') + '">' +
                         '<div class="slider-content">' +
                         '<div class="name">' + p.find('.name').html() + '</div>' +
-                        '<div class="img"><img src="' + p.attr('src') + '"/></div>' +
-                        ' </a>';
+                        '<div class="img"><img src="' + p.find('img').attr('src') + '"/></div>' +
+                        '</div></a>';
                 }
                 else {
-                    s += '<a ' + (p.hasClass('unsaved') ? 'class="unsaved"' : '') + ' date-nav="' + p.data('nav') + '" href="' + p.attr('href') + '">' +
+                    s += '<a ' + (p.hasClass('unsaved') ? 'class="unsaved"' : '') + ' data-nav="' + p.data('nav') + '" href="' + p.attr('href') + '">' +
                         '<div class="slider-content">' +
                         '<h2>' + p.find('h2').html() + '</h2>' +
-                        ' </a>';
+                        '</div></a>';
                 }
             }
             s += '<a class="slider-filler"></a></div></div></div></div>';
@@ -92,15 +93,13 @@ function savePages(normalSave, callback) {
                     data: "data=" + JSON.stringify({
                         url: url,
                         content: content,
-                        new: normalSave,
+                        new: normalSave
                     }),
                     success: function (msg) {
                         callback(msg)
                     }
                 });
             }
-
-            callback("Save failed.");
         }
     });
 }
