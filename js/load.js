@@ -1,7 +1,11 @@
-//TODO: manages pages
+//TODO: add pages, sections
+
+//TODO: change page layout fullpage - content
+
+//TODO: image upload
 
 //TODO: add fittext support for carousel titles/titles on phones. Center instead on larger devices
-
+//Probably just gonna center dual float like fullpage title.
 
 //Gets the redirect path if top level menu item entered
 var nav_items = $('#nav-menu-filler .scroll-fix a').not('.manage-button').not('.slider-filler');
@@ -342,47 +346,57 @@ var navItems1 = null;
 var navItems2 = null;
 function highlightActiveNav() {
     //Removes new to mark for clearing to clear later
-    var oldItems = document.querySelectorAll(".selected.new");
-    if (oldItems != null) {
-        for (var i3 = 0; i3 < oldItems.length; i3++) {
-            oldItems[i3].className = "selected old";
-        }
-    }
+    //var oldItems = document.querySelectorAll(".selected.new");
+    //if (oldItems != null) {
+    //    for (var i3 = 0; i3 < oldItems.length; i3++) {
+    //        oldItems[i3].className = "selected old";
+    //    }
+    //}
+    $('.selected.new').addClass('selected old');
+
 
     //Marks or re-marks valid selections
     var c = currURL.split("/");
     if (c.length > 0) {
-        navItems1 = document.querySelectorAll("[data-nav='" + c[0] + "']");
-        for (var i1 = 0; i1 < navItems1.length; i1++) {
-            navItems1[i1].className = "selected new";
-        }
+        //navItems1 = document.querySelectorAll("[data-nav='" + c[0] + "']");
+        //for (var i1 = 0; i1 < navItems1.length; i1++) {
+        //    navItems1[i1].className = "selected new";
+        //}
+        $("[data-nav='" + c[0] + "']").addClass('selected new');
     }
     if (c.length > 1) {
-        navItems2 = document.querySelectorAll("[data-nav='" + c[1] + "']");
-        for (var i2 = 0; i2 < navItems2.length; i2++) {
-            navItems2[i2].className = "selected new";
-        }
+        //navItems2 = document.querySelectorAll("[data-nav='" + c[1] + "']");
+        //for (var i2 = 0; i2 < navItems2.length; i2++) {
+        //    navItems2[i2].className = "selected new";
+        //}
+        $("[data-nav='" + c[1] + "']").addClass('selected new');
     }
 
     //Clears still remaining old selections
-    oldItems = document.querySelectorAll(".selected.old");
-    if (oldItems != null) {
-        for (var i4 = 0; i4 < oldItems.length; i4++) {
-            oldItems[i4].className = "";
-        }
-    }
+    //oldItems = document.querySelectorAll(".selected.old");
+    //if (oldItems != null) {
+    //    for (var i4 = 0; i4 < oldItems.length; i4++) {
+    //        oldItems[i4].className = "";
+    //    }
+    //}
+    $('.selected.old').removeClass('selected old');
+
 }
 highlightActiveNav();
 
 //Selects on click
 
 function bindSelectOnClick() {
-    var selectable = document.querySelectorAll('.scroll-fix a');
-    for (var ii5 = 0; ii5 < selectable.length; ii5++) {
-        selectable[ii5].onclick = function () {
-            this.className = "selected";
-        }
-    }
+    //var selectable = document.querySelectorAll('.scroll-fix a');
+    //for (var ii5 = 0; ii5 < selectable.length; ii5++) {
+    //    selectable[ii5].onclick = function () {
+    //        this.className = "selected";
+    //    }
+    //}
+    $('.scroll-fix a').click(function(){
+        $(this).addClass('selected');
+    })
+
 }
 bindSelectOnClick();
 
@@ -597,12 +611,15 @@ function scrollToElement(element) {
 //Loads editor. Functions are here, but server requires user tokens to actually perform changes
 function checkLoadEdit() {
     var t = trimForwardSlashAndFileName(currURL);
+    if (arguments.length > 0 && (typeof arguments[0] === 'string' || arguments[0] instanceof String)){
+        t = arguments[0];
+    }
     var slasht = '/' + t;
     if (t.length == 0) {
         slasht = '';
     }
 
-    if (currURL.indexOf('edit.php') >= 0) {
+    if (currURL.indexOf('edit.php') >= 0 && (arguments.length == 0 || !(typeof arguments[0] === 'string' || arguments[0] instanceof String)) ) {
         window.location.href = (slasht + "/" + "edit.php?edit=true");
     }
     else {

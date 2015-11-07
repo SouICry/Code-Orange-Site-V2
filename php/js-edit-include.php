@@ -1,5 +1,11 @@
 <script src="/ckeditor/ckeditor.js"></script>
 <script src='/js/jquery-ui.js'></script>
+<script>
+    var nav_json;
+    ajaxLoad("nav.json", function (text) {
+        nav_json = JSON.parse(text);
+    });
+</script>
 <script src="/js/contextMenu.js"></script>
 <script src="/js/save-fullpage.js"></script>
 <script src="/js/save-content-page.js"></script>

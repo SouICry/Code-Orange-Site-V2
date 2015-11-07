@@ -1,6 +1,9 @@
 /*
+//
  * Note: This is a slightly modified fork with onclose disabled because it was being fired
  * on undefined after a fix to stop it from hogging focus on contenteditable click.
+ *
+ * ** Also changed to close on any key press
  */
 
 /*
@@ -558,9 +561,12 @@
                 option = e.data.option,
                 keyCode = e.keyCode;
             // handle cursor keys
-            if (keyCode == 27) {
+
+            //Changed Modified
+            //Closes on any button press
+            //if (keyCode == 27) {
                 iMethods.closeContextMenu(option, e.data.trigger, menu, e);
-            }
+            //}
             if (e.data.method == 'menu') {
                 var curMenu = $('.iw-curMenu'),
                     optList = curMenu.children('li:not(.iw-mDisable)'),
@@ -607,29 +613,31 @@
                             parMenu.addClass('iw-curMenu');
                         }
                     };
-                switch (keyCode) {
-                    case 13:
-                        selected.click();
-                        break;
-                    case 40:
-                        (index == optList.length - 1 || selected.length == 0) ? first() : next();
-                        break;
-                    case 38:
-                        (index == 0 || selected.length == 0) ? last() : prev();
-                        break;
-                    case 33:
-                        first();
-                        break;
-                    case 34:
-                        last();
-                        break;
-                    case 37:
-                        parMenu();
-                        break;
-                    case 39:
-                        subMenu();
-                        break;
-                }
+
+                //Changed modified
+                //switch (keyCode) {
+                //    case 13:
+                //        selected.click();
+                //        break;
+                //    case 40:
+                //        (index == optList.length - 1 || selected.length == 0) ? first() : next();
+                //        break;
+                //    case 38:
+                //        (index == 0 || selected.length == 0) ? last() : prev();
+                //        break;
+                //    case 33:
+                //        first();
+                //        break;
+                //    case 34:
+                //        last();
+                //        break;
+                //    case 37:
+                //        parMenu();
+                //        break;
+                //    case 39:
+                //        subMenu();
+                //        break;
+                //}
             }
         },
         closeContextMenu: function(option, trigger, menu, e) {

@@ -1,32 +1,63 @@
+function saveNavJSON(successCallback) {
+    $.ajax({
+        type: "post",
+        url: "/php/save-file.php",
+        data: "data=" + JSON.stringify({
+            path: 'nav.json',
+            content: JSON.stringify(nav_json),
+        }),
+        success: function (msg) {
+            if (msg == 'Save successful!') {
+                successCallback();
+            }
+            else {
+                alert(msg);
+            }
+        }
+    });
+}
+
 var edit_sections = [{
-    name: 'Remove this section',
+    name: 'Edit this section',
     fun: function (data) {
-        modalConfirm("This function only removes the link from the nav bar, so you can easily restore it by adding a " +
-            "section with same name. It leaves all pages and content within  it accessible by anyone who has the " +
-            "correct link. " +
-            "You can permanently delete it by deleting the folder /" + trimForwardSlashAndFileName(currURL).split('/')[0] +
-            " from the server." +
-            "<br/>Are you sure you want to remove this section?",
-            function (choice) {
-                if (choice) {
-                    if (data.trigger.is('a')) {
-                        data.trigger.remove();
-                    }
-                    else {
-                        data.trigger.closest('a').remove();
+        var elem;
+        if (data.trigger.is('a')) {
+            elem = data.trigger;
+        }
+        else {
+            elem = data.trigger.closest('a');
+        }
+        modalConfirm('This will discard any changes you made to the current page. Proceed?',function(choice){
+            if (choice){
+                checkLoadEdit(trimForwardSlash($(elem).attr('href')));
+            }
+        });
+    }
+},
+    {
+        name: 'Hide from nav',
+        fun: function (data) {
+            modalConfirm("This function only hides this button on the nav menu. You can restore it by adding a section" +
+                "with the same name (the files will remain the same if the name already exists). " +
+                "You can permanently delete it through 'Manage All Pages'." +
+                "<br/>Are you sure you want to hide this section?",
+                function (choice) {
+                    if (choice) {
+                        if (data.trigger.is('a')) {
+                            data.trigger.remove();
+                        }
+                        else {
+                            data.trigger.closest('a').remove();
+                        }
                     }
                 }
-            }
-        )
-    }
-}];
+            )
+        }
+    }];
 
 function enableManageSectionsContentEditable() {
     var items = $('#nav-menu-filler a').not('.manage-button').not('.slider-filler');
-    items.addClass('editable').attr('contenteditable', 'true').contextMenu(edit_sections).click(function (event) {
-        event.preventDefault();
-        event.stopPropagation();
-    });
+    items.addClass('editable').attr('contenteditable', 'true').contextMenu(edit_sections);
 
 }
 
@@ -35,13 +66,12 @@ $('.manage-sections').click(function () {
     enableManageSectionsContentEditable()
     $('#header-filler').css('z-index', 701);
     $('#nav-filler').addClass('managing').prepend(
-        "<h2>Use buttons below. Switch to rearrange mode and drag and drop to reorder sections.</h2>");
+        "<h2>Click on the text to edit the text, click around the text for more options. Use buttons below for even more options. Switch to rearrange mode and drag and drop to reorder sections.</h2>");
     $('.manage-sections').css('display', 'none');
     $('#user-filler').css('display', 'none');
-    $('#logo-filler').click(function(){
+    $('#logo-filler').click(function () {
         alert("todo");
     });
-
 
 
     var togglePagesRearrange = false;
@@ -77,12 +107,12 @@ $('.manage-sections').click(function () {
 
     $('#Add-Section').click(function () {
         modalString("Enter section name. Only letters, numbers, spaces, -, _ allowed.", function (name) {
-            if (name.match(/^[\w\-\s]+$/) != null) {
+            if (name.match(/^[\w -]+$/) != null && name.length > 0) {
                 modalOk(" Only letters, numbers, spaces, -, _ allowed.");
             }
             else {
-                var newSectionName = name.replace(/|\s/g, "_");
-                slider.append('<a data-nav="' + newSectionName + '" href="">' + name + '</a>');
+                var newSectionName = name.replace(/[ ]/g, "_");
+
 
                 $.ajax({
                     type: "post",
@@ -92,9 +122,25 @@ $('.manage-sections').click(function () {
                     }),
                     success: function (msg) {
                         if (msg == "Create section successful!") {
-                            saveSections(false, function(){
-                                savePage(function(){
-                                    window.location.href = "/" + newSectionName + "/edit.php";
+                            slider.append('<a data-nav="' + newSectionName + '" href=""><span>' + name + '</span></a>');
+
+                            var json = {
+                                "name": newSectionName,
+                                "published": false,
+                                "hidden": true,
+                                "pages": []
+                            };
+                            nav_json['sections'].push(json);
+                            saveNavJSON(function () {
+                                saveSections(false, function (msg) {
+                                    if (msg == "Save sections successful!") {
+                                        savePage(function () {
+                                            window.location.href = "/" + newSectionName + "/edit.php";
+                                        });
+                                    }
+                                    else {
+                                        alert(msg);
+                                    }
                                 });
                             });
                         }
@@ -141,7 +187,7 @@ var edit_pages = [{
     fun: function (data) {
         if (data.trigger.is('a')) {
             var b = data.trigger;
-            var i = b.find('img');
+            var i = b.find('.img');
             if (i.length > 0) {
                 i.remove();
 
@@ -159,7 +205,7 @@ var edit_pages = [{
         }
         else {
             var b1 = data.trigger.closest('a');
-            var i1 = b1.find('img');
+            var i1 = b1.find('.img');
             if (i1.length > 0) {
                 i1.remove();
                 b1.find('.slider-content').append('<h2 class="editable" contenteditable="true">' + b1.find('.name').html() + '</h2>');
@@ -193,13 +239,29 @@ var edit_pages = [{
         }
     },
     {
-        name: 'Remove this page',
+        name: 'Edit this page',
         fun: function (data) {
-            modalConfirm("This function only removes the page from the menu bar, so you can easily restore it by adding" +
-                "a page with the same name. It leaves the page content accessible by anyone with the right link. " +
-                "You can permanently delete it by deleting the folder /" + trimForwardSlashAndFileName(currURL) +
-                " from the server." +
-                "<br/>Are you sure you want to remove this page? ",
+            var elem;
+            if (data.trigger.is('a')) {
+                elem = data.trigger;
+            }
+            else {
+                elem = data.trigger.closest('a');
+            }
+            modalConfirm('This will discard any changes you made to the current page. Proceed?',function(choice){
+                if (choice){
+                    checkLoadEdit(trimForwardSlash($(elem).attr('href')));
+                }
+            });
+        }
+    },
+    {
+        name: 'Hide this page',
+        fun: function (data) {
+            modalConfirm("This function only hides this button on the menu. You can restore it by adding a page" +
+                "with the same name (the files will remain the same if the name already exists). " +
+                "You can permanently delete it through 'Manage All Pages'." +
+                "<br/>Are you sure you want to hide this page? ",
                 function (choice) {
                     if (choice) {
                         if (data.trigger.is('a')) {
@@ -315,95 +377,133 @@ $('.manage-pages').click(function () {
 
     $('.manage-pages-add').off('click').click(function () {
         modalString("Enter page name. Only letters, numbers, spaces, -, _ allowed.", function (name) {
-            if (name.match(/^[\w\-\s]+$/) != null) {
+            if (name.match(/[^\w\- ]+/) != null && name.length > 0) {
                 modalOk(" Only letters, numbers, spaces, -, _ allowed.");
             }
             else {
-                var newName = name.replace(/|\s/g, "_");
-                var newURL = trimForwardSlashAndFileName(currURL) + '/' + newName;
+                var newName = name.replace(/[ ]/g, "_");
+                var currSection = trimForwardSlashAndFileName(currURL).split('/')[0];
+                var newURL = currSection + '/' + newName;
 
-                $('.selection-nav .scroll-fix').each(function () {
-                    $(this).append(
-                        '<a class="unsaved" data-nav="' + name + '" href="' + newURL + '">' +
-                        '<div class="slider-content"><h2>' + name + '</h2></div>' +
-                        '</a>');
-                });
 
                 modalSelect(function (choice) {
-                    if (choice == 'Copy existing page') {
-                        modalString('Enter the url from an existing page (http://teamcodeorange.com/<section>/<page>)',
-                            function (url) {
-                                var index = url.indexOf('teamcodeorange.com');
-                                if (index < 0) {
-                                    modalOk("Please enter a valid url");
-                                }
-                                else {
-                                    modalProgress('Adding ...');
-                                    url = trimForwardSlashAndFileName(url.substring(index + 18));
-                                    $.ajax({
-                                        type: "post",
-                                        url: "/php/new-page.php",
-                                        data: "data=" + JSON.stringify({
-                                            type: 'Copy existing page',
-                                            url: newURL,
-                                            copyPageURL: url
-                                        }),
-                                        success: function (msg) {
-                                            if (msg == "Create page successful!") {
-                                                savePages(false, function () {
-                                                    if (msg == "Save pages successful!") {
-                                                        closeModalProgress;
-                                                        savePage(function () {
-                                                            window.location.href = newURL;
-                                                        });
-                                                    }
-                                                    else {
-                                                        closeModalProgress();
-                                                        alert(msg);
-                                                    }
-                                                })
-                                            }
-                                            else {
-                                                alert(msg);
-                                            }
-                                        }
-                                    });
-                                }
-                            }
-                        );
-                    }
-                    else {
-                        modalProgress('Adding ...');
-                        $.ajax({
-                            type: "post",
-                            url: "/php/new-page.php",
-                            data: "data=" + JSON.stringify({
-                                type: choice,
-                                url: newURL
-                            }),
-                            success: function (msg) {
-                                if (msg == "Page creation successful!") {
-                                    savePages(false, function (msg) {
-                                        if (msg == "Pages save successful!") {
-                                            closeModalProgress;
-                                            savePage(function () {
-                                                window.location.href = newURL;
-                                            });
-                                        }
-                                        else {
-                                            closeModalProgress();
-                                            alert(msg);
-                                        }
-                                    })
-                                }
-                                else {
-                                    alert(msg);
-                                }
-                            }
-                        });
-                    }
+                        if (choice == 'Copy existing page') {
+                            modalString('Enter the url from an existing page (http://teamcodeorange.com/section/page)',
+                                function (url) {
+                                    var index = url.indexOf('teamcodeorange.com');
+                                    if (index < 0) {
+                                        modalOk("Please enter a complete and valid url.");
+                                    }
+                                    else {
+                                        modalProgress('Adding ...');
+                                        url = trimForwardSlashAndFileName(url.substring(index + 18));
+                                        $.ajax({
+                                            type: "post",
+                                            url: "/php/new-page.php",
+                                            data: "data=" + JSON.stringify({
+                                                type: 'Copy existing page',
+                                                url: newURL,
+                                                copyPageURL: url,
+                                                orphan: 'false'
+                                            }),
+                                            success: function (msg) {
+                                                if (msg == "Create page successful!") {
+                                                    $('#selection-bar-filler .scroll-fix').append(
+                                                        '<a class="unsaved" data-nav="' + newName + '" href="' + newURL + '">' +
+                                                        '<div class="slider-content"><h2>' + name + '</h2></div>' +
+                                                        '</a>');
 
-                }, 'Select page type', 'Content page (2 column template)', 'Content page (1 column template)', 'Full image-background page', 'Copy existing page');
+
+                                                    var json = {
+                                                        "name": newName,
+                                                        "published": false,
+                                                        "hidden": true
+                                                    };
+                                                    for (var i = 0; i < nav_json['sections'].length; i++) {
+                                                        if (nav_json['sections'][i]['name'] == currSection) {
+                                                            nav_json['sections'][i]['pages'].push(json);
+                                                            break;
+                                                        }
+                                                    }
+
+                                                    saveNavJSON(function () {
+                                                        savePages(false, function (msg) {
+                                                            if (msg == "Save pages successful!") {
+                                                                closeModalProgress();
+                                                                savePage(function () {
+                                                                    window.location.href = '/' + newURL + '/edit.php?edit=true';
+                                                                });
+                                                            }
+                                                            else {
+                                                                closeModalProgress();
+                                                                alert(msg);
+                                                            }
+                                                        })
+                                                    });
+                                                }
+                                                else {
+                                                    alert(msg);
+                                                }
+                                            }
+                                        });
+                                    }
+                                }
+                            );
+                        }
+                        else {
+                            modalProgress('Adding ...');
+                            $.ajax({
+                                type: "post",
+                                url: "/php/new-page.php",
+                                data: "data=" + JSON.stringify({
+                                    type: choice,
+                                    url: newURL,
+                                    copyPageURL: '',
+                                    orphan: 'false'
+                                }),
+                                success: function (msg) {
+                                    if (msg == "Create page successful!") {
+                                        $('#selection-bar-filler .scroll-fix').append(
+                                            '<a class="unsaved" data-nav="' + newName + '" href="' + newURL + '">' +
+                                            '<div class="slider-content"><h2>' + name + '</h2></div>' +
+                                            '</a>');
+
+                                        var json = {
+                                            "name": newName,
+                                            "published": false,
+                                            "hidden": true
+                                        };
+                                        for (var i = 0; i < nav_json['sections'].length; i++) {
+                                            if (nav_json['sections'][i]['name'] == currSection) {
+                                                nav_json['sections'][i]['pages'].push(json);
+                                                break;
+                                            }
+                                        }
+
+                                        saveNavJSON(function () {
+                                            savePages(false, function (msg) {
+                                                if (msg == "Save pages successful!") {
+                                                    closeModalProgress();
+                                                    savePage(function () {
+                                                        window.location.href = '/' + newURL + '/edit.php?edit=true';
+                                                    });
+                                                }
+                                                else {
+                                                    closeModalProgress();
+                                                    alert(msg);
+                                                }
+                                            })
+                                        });
+                                    }
+                                    else {
+                                        alert(msg);
+                                    }
+                                }
+                            });
+                        }
+
+                    }, 'Select page template, or copy content from any existing page', 'Content page (2 column template)', 'Content page (1 column template)',
+                    'Full image-background page', 'Copy existing page');
             }
         });
     });

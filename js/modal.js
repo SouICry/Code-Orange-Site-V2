@@ -70,10 +70,11 @@ function closeConfirmModal() {
 
 function modalOk(text, callback) {
     $('.modal-ok-content').html(text);
+    var originalArguments = arguments;
     $('.modal-ok-ok').click(function () {
         closeOkModal();
-        if (arguments.length > 0) {
-            callback();
+        if (originalArguments.length > 1) {
+            originalArguments[1]();
         }
     });
     $('.modal-ok').css('display', 'block').css('opacity', 1);

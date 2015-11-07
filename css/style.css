@@ -1583,7 +1583,6 @@ button.btn-floating {
   padding: 0 10px; }
   .modal-options .modal-option {
     line-height: 100%;
-    white-space: nowrap;
     text-align: center;
     width: 230px;
     height: 230px;
@@ -1647,6 +1646,14 @@ button.btn-floating {
   @media (min-width: 1024px) {
     #nav, #nav-filler {
       height: 50px; } }
+  #nav span, #nav-filler span {
+    font-style: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+    background: none; }
 
 #body {
   width: 100%;
