@@ -1,4 +1,4 @@
-//TODO: add pages, sections
+//TODO: page section manafer
 
 //TODO: change page layout fullpage - content
 
@@ -53,7 +53,7 @@ function fullpageInit() {
         $('#fullpage').fullpage({
             navigation: true,
             fitToSection: false,
-            scrollBar: true,
+            //scrollBar: true,
             scrollingSpeed: 1000,
             responsiveWidth: 1024
         });

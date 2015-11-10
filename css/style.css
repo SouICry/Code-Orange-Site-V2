@@ -1588,8 +1588,7 @@ button.btn-floating {
     height: 230px;
     margin: 0;
     float: left;
-    border: 3px solid;
-    border-color: rgba(0, 0, 0, 0.1);
+    border: 3px solid rgba(0, 0, 0, 0.1);
     overflow: hidden;
     display: flex;
     justify-content: center;
