@@ -19,20 +19,12 @@ if (!include $_SERVER['DOCUMENT_ROOT'] . '/php/verify-user.php') {
             <div class="column">
                 <div id="logo">
                     <?php
-                    if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/php/logo-edit.php')) {
-                        include $_SERVER['DOCUMENT_ROOT'] . '/php/logo-edit.php';
-                    } else {
                         include $_SERVER['DOCUMENT_ROOT'] . '/php/logo.php';
-                    }
                     ?>
                 </div>
                 <div id="user">
                     <?php
-                    if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/php/user-edit.php')) {
-                        include $_SERVER['DOCUMENT_ROOT'] . '/php/user-edit.php';
-                    } else {
                         include $_SERVER['DOCUMENT_ROOT'] . '/php/user.php';
-                    }
                     ?>
                 </div>
                 <div id="nav-menu" class="nav-nav">
@@ -40,11 +32,7 @@ if (!include $_SERVER['DOCUMENT_ROOT'] . '/php/verify-user.php') {
                     <div class="scroll-hide">
                         <div class="scroll-fix">
                             <?php
-                            if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/php/menu-edit.php')) {
-                                include $_SERVER['DOCUMENT_ROOT'] . '/php/menu-edit.php';
-                            } else {
                                 include $_SERVER['DOCUMENT_ROOT'] . '/php/menu.php';
-                            }
                             ?>
                         </div>
                     </div>
@@ -56,11 +44,7 @@ if (!include $_SERVER['DOCUMENT_ROOT'] . '/php/verify-user.php') {
     <div id="selection-bar" class="selection-nav">
         <div class="slider-left"><span></span></div>
         <?php
-        if (file_exists('content-edit.htm')) {
-            include 'content-edit.htm';
-        } else {
             include 'content.htm';
-        }
         ?>
         <div class="slider-right"><span></span></div>
     </div>
@@ -71,20 +55,12 @@ if (!include $_SERVER['DOCUMENT_ROOT'] . '/php/verify-user.php') {
             <div class="column">
                 <div id="logo-filler">
                     <?php
-                    if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/php/logo-edit.php')) {
-                        include $_SERVER['DOCUMENT_ROOT'] . '/php/logo-edit.php';
-                    } else {
                         include $_SERVER['DOCUMENT_ROOT'] . '/php/logo.php';
-                    }
                     ?>
                 </div>
                 <div id="user-filler">
                     <?php
-                    if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/php/user-edit.php')) {
-                        include $_SERVER['DOCUMENT_ROOT'] . '/php/user-edit.php';
-                    } else {
                         include $_SERVER['DOCUMENT_ROOT'] . '/php/user.php';
-                    }
                     ?>
                 </div>
                 <div id="nav-menu-filler" class="nav-nav">
@@ -92,11 +68,7 @@ if (!include $_SERVER['DOCUMENT_ROOT'] . '/php/verify-user.php') {
                     <div class="scroll-hide">
                         <div class="scroll-fix">
                             <?php
-                            if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/php/menu-edit.php')) {
-                                include $_SERVER['DOCUMENT_ROOT'] . '/php/menu-edit.php';
-                            } else {
                                 include $_SERVER['DOCUMENT_ROOT'] . '/php/menu.php';
-                            }
                             ?>
                         </div>
                     </div>
@@ -108,11 +80,7 @@ if (!include $_SERVER['DOCUMENT_ROOT'] . '/php/verify-user.php') {
     <div id="selection-bar-filler" class="selection-nav">
         <div class="slider-left"><span></span></div>
         <?php
-        if (file_exists('content-edit.htm')) {
-            include 'content-edit.htm';
-        } else {
             include 'content.htm';
-        }
         ?>
         <div class="slider-right"><span></span></div>
     </div>

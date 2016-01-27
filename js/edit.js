@@ -1,3 +1,8 @@
+//Unhides the unsaved sections and pages
+$('.scroll-fix a.unsaved').css('display', 'block');
+fixHeaderWidth();
+
+
 $('.selection-nav .scroll-fix').prepend(
     '<a class="slider-filler"></a><a class="manage-pages manage-button"> <div class="slider-content"> <h2>Manage pages</h2> <div class="content"> </div> <div class="name"></div> </div> </a>'
 );
@@ -668,6 +673,13 @@ function edit_mode() {
 }
 
 
+function fixEditableClickMenu(){
+    //Closes active context menu when editable content selected (since this doesnt normally work)
+    $('.editable').on('mousedown', function () {
+        $('.iw-curMenu').contextMenu('close');
+    });
+}
+
 function enableContentEditable() {
     $('.content-row, .sidebar, .youtube, .blocks, .blocks > *, .sidebar > *, .iframe').addClass('manage');
     $('.section-inner').addClass('manage');
@@ -678,10 +690,7 @@ function enableContentEditable() {
 
     $('.section-inner .content, .content-row:not(:has(.sidebar))').addClass('editable').attr('contenteditable', 'true');
 
-    //Closes active context menu when editable content selected (since this doesnt normally work)
-    $('.editable').on('mousedown', function () {
-        $('.iw-curMenu').contextMenu('close');
-    });
+    fixEditableClickMenu();
 
     bindManageButtons();
 
@@ -689,6 +698,7 @@ function enableContentEditable() {
 
     disableLinks();
 }
+
 
 
 enableContentEditable();

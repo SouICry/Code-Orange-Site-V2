@@ -6,7 +6,7 @@ function save_fullpage() {
 function save_fullpage_sections() {
     var s = "";
     $('#fullpage .section').each(function () {
-        s += '<div class="section" style="background-image:' + $(this).css('background-image').replace(')', "')").replace("url(", "url('") + ';">'
+        s += '<div class="section" style="background-image:' + $(this).css('background-image').replace('")', "')").replace('url("', "url('") + ';">'
             + save_fullpage_section_inner($(this)) + '</div>';
     });
     return s;

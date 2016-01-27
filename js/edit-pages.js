@@ -1,3 +1,12 @@
+//TODO: make first page default landing for section
+//TODO: fix add section
+//TODO: fix click on text propagation and make it more easily clickable otherwise
+//TODO: fix toggle image and text
+//TODO: fix name bar showing up for text
+//TODO: fix (or remove) navigate to edit page/section feature
+
+//TODO: add orphan top level page option
+
 function saveNavJSON(successCallback) {
     $.ajax({
         type: "post",
@@ -18,7 +27,7 @@ function saveNavJSON(successCallback) {
 }
 
 var edit_sections = [{
-    name: 'Edit this section',
+    name: 'Navigate to this section and edit it',
     fun: function (data) {
         var elem;
         if (data.trigger.is('a')) {
@@ -63,10 +72,12 @@ function enableManageSectionsContentEditable() {
 
 $('.manage-sections').click(function () {
 
-    enableManageSectionsContentEditable()
+    enableManageSectionsContentEditable();
     $('#header-filler').css('z-index', 701);
     $('#nav-filler').addClass('managing').prepend(
-        "<h2>Click on the text to edit the text, click around the text for more options. Use buttons below for even more options. Switch to rearrange mode and drag and drop to reorder sections.</h2>");
+        "<h2>Click on the text to edit the text, click the box around the text for more options. <br/> Use buttons below for even more" +
+        " options. Switch to rearrange mode and drag and drop to reorder sections. <br/>" +
+        "After you add a new section, you need to save one of its pages first for the section to be visible by the public.</h2>");
     $('.manage-sections').css('display', 'none');
     $('#user-filler').css('display', 'none');
     $('#logo-filler').click(function () {
@@ -107,7 +118,7 @@ $('.manage-sections').click(function () {
 
     $('#Add-Section').click(function () {
         modalString("Enter section name. Only letters, numbers, spaces, -, _ allowed.", function (name) {
-            if (name.match(/^[\w -]+$/) != null && name.length > 0) {
+            if (name.match(/[^\w\- ]+/) != null && name.length > 0) {
                 modalOk(" Only letters, numbers, spaces, -, _ allowed.");
             }
             else {
@@ -122,7 +133,7 @@ $('.manage-sections').click(function () {
                     }),
                     success: function (msg) {
                         if (msg == "Create section successful!") {
-                            slider.append('<a data-nav="' + newSectionName + '" href=""><span>' + name + '</span></a>');
+                            slider.append('<a class="unsaved" data-nav="' + newSectionName + '" href=""><span>' + name + '</span></a>');
 
                             var json = {
                                 "name": newSectionName,
@@ -132,7 +143,7 @@ $('.manage-sections').click(function () {
                             };
                             nav_json['sections'].push(json);
                             saveNavJSON(function () {
-                                saveSections(false, function (msg) {
+                                saveSections(function (msg) {
                                     if (msg == "Save sections successful!") {
                                         savePage(function () {
                                             window.location.href = "/" + newSectionName + "/edit.php";
@@ -156,7 +167,7 @@ $('.manage-sections').click(function () {
 
     $('#Save-and-Exit').click(function () {
         modalProgress('Saving...');
-        saveSections(true, function (msg) {
+        saveSections(function (msg) {
             if (msg == 'Save sections successful!') {
                 closeModalProgress();
                 modalOk('Save successful!', function () {
@@ -239,7 +250,7 @@ var edit_pages = [{
         }
     },
     {
-        name: 'Edit this page',
+        name: 'Navigate to this page and edit it',
         fun: function (data) {
             var elem;
             if (data.trigger.is('a')) {
@@ -323,8 +334,9 @@ $('.manage-pages').click(function () {
 
     $('#header-filler').css('z-index', 701);
     $('#selection-bar-filler').addClass('managing').prepend(
-        "<h2>Use buttons below. Switch to rearrange mode and drag and drop to reorder pages in the menu bar.<br/>" +
-        "The first page will be the default page that is loaded when the section is clicked on the nav-bar</h2>");
+        "<h2>Click on the text to edit the text, click the box around the text for more options. <br/> Use buttons below for more options. Switch to rearrange mode and drag and drop to reorder pages in the menu bar.<br/>" +
+        "The first page will be the default page that is loaded when the section is clicked on the nav-bar.<br/>" +
+        "After you add a new page, you need to save it first for the page to be visible to the public.</h2>");
     $('.manage-pages').css('display', 'none');
 
     var slider = $('#selection-bar-filler .scroll-fix');
@@ -387,130 +399,130 @@ $('.manage-pages').click(function () {
 
 
                 modalSelect(function (choice) {
-                        if (choice == 'Copy existing page') {
-                            modalString('Enter the url from an existing page (http://teamcodeorange.com/section/page)',
-                                function (url) {
-                                    var index = url.indexOf('teamcodeorange.com');
-                                    if (index < 0) {
-                                        modalOk("Please enter a complete and valid url.");
-                                    }
-                                    else {
-                                        modalProgress('Adding ...');
-                                        url = trimForwardSlashAndFileName(url.substring(index + 18));
-                                        $.ajax({
-                                            type: "post",
-                                            url: "/php/new-page.php",
-                                            data: "data=" + JSON.stringify({
-                                                type: 'Copy existing page',
-                                                url: newURL,
-                                                copyPageURL: url,
-                                                orphan: 'false'
-                                            }),
-                                            success: function (msg) {
-                                                if (msg == "Create page successful!") {
-                                                    $('#selection-bar-filler .scroll-fix').append(
-                                                        '<a class="unsaved" data-nav="' + newName + '" href="' + newURL + '">' +
-                                                        '<div class="slider-content"><h2>' + name + '</h2></div>' +
-                                                        '</a>');
-
-
-                                                    var json = {
-                                                        "name": newName,
-                                                        "published": false,
-                                                        "hidden": true
-                                                    };
-                                                    for (var i = 0; i < nav_json['sections'].length; i++) {
-                                                        if (nav_json['sections'][i]['name'] == currSection) {
-                                                            nav_json['sections'][i]['pages'].push(json);
-                                                            break;
-                                                        }
-                                                    }
-
-                                                    saveNavJSON(function () {
-                                                        savePages(false, function (msg) {
-                                                            if (msg == "Save pages successful!") {
-                                                                closeModalProgress();
-                                                                savePage(function () {
-                                                                    window.location.href = '/' + newURL + '/edit.php?edit=true';
-                                                                });
-                                                            }
-                                                            else {
-                                                                closeModalProgress();
-                                                                alert(msg);
-                                                            }
-                                                        })
-                                                    });
-                                                }
-                                                else {
-                                                    alert(msg);
-                                                }
-                                            }
-                                        });
-                                    }
+                    if (choice == 'Copy existing page') {
+                        modalString('Enter the url from an existing page (http://teamcodeorange.com/section/page)',
+                            function (url) {
+                                var index = url.indexOf('teamcodeorange.com');
+                                if (index < 0) {
+                                    modalOk("Please enter a complete and valid url.");
                                 }
-                            );
-                        }
-                        else {
-                            modalProgress('Adding ...');
-                            $.ajax({
-                                type: "post",
-                                url: "/php/new-page.php",
-                                data: "data=" + JSON.stringify({
-                                    type: choice,
-                                    url: newURL,
-                                    copyPageURL: '',
-                                    orphan: 'false'
-                                }),
-                                success: function (msg) {
-                                    if (msg == "Create page successful!") {
-                                        $('#selection-bar-filler .scroll-fix').append(
-                                            '<a class="unsaved" data-nav="' + newName + '" href="' + newURL + '">' +
-                                            '<div class="slider-content"><h2>' + name + '</h2></div>' +
-                                            '</a>');
+                                else {
+                                    modalProgress('Adding ...');
+                                    url = trimForwardSlashAndFileName(url.substring(index + 18));
+                                    $.ajax({
+                                        type: "post",
+                                        url: "/php/new-page.php",
+                                        data: "data=" + JSON.stringify({
+                                            type: 'Copy existing page',
+                                            url: newURL,
+                                            copyPageURL: url,
+                                            orphan: 'false'
+                                        }),
+                                        success: function (msg) {
+                                            if (msg == "Create page successful!") {
+                                                $('#selection-bar-filler .scroll-fix').append(
+                                                    '<a class="unsaved" data-nav="' + newName + '" href="' + newURL + '">' +
+                                                    '<div class="slider-content"><h2>' + name + '</h2></div>' +
+                                                    '</a>');
 
-                                        var json = {
-                                            "name": newName,
-                                            "published": false,
-                                            "hidden": true
-                                        };
-                                        for (var i = 0; i < nav_json['sections'].length; i++) {
-                                            if (nav_json['sections'][i]['name'] == currSection) {
-                                                nav_json['sections'][i]['pages'].push(json);
-                                                break;
+
+                                                var json = {
+                                                    "name": newName,
+                                                    "published": false,
+                                                    "hidden": true
+                                                };
+                                                for (var i = 0; i < nav_json['sections'].length; i++) {
+                                                    if (nav_json['sections'][i]['name'] == currSection) {
+                                                        nav_json['sections'][i]['pages'].push(json);
+                                                        break;
+                                                    }
+                                                }
+
+                                                saveNavJSON(function () {
+                                                    savePages(function (msg) {
+                                                        if (msg == "Save pages successful!") {
+                                                            closeModalProgress();
+                                                            savePage(function () {
+                                                                window.location.href = '/' + newURL + '/edit.php?edit=true';
+                                                            });
+                                                        }
+                                                        else {
+                                                            closeModalProgress();
+                                                            alert(msg);
+                                                        }
+                                                    })
+                                                });
+                                            }
+                                            else {
+                                                alert(msg);
                                             }
                                         }
-
-                                        saveNavJSON(function () {
-                                            savePages(false, function (msg) {
-                                                if (msg == "Save pages successful!") {
-                                                    closeModalProgress();
-                                                    savePage(function () {
-                                                        window.location.href = '/' + newURL + '/edit.php?edit=true';
-                                                    });
-                                                }
-                                                else {
-                                                    closeModalProgress();
-                                                    alert(msg);
-                                                }
-                                            })
-                                        });
-                                    }
-                                    else {
-                                        alert(msg);
-                                    }
+                                    });
                                 }
-                            });
-                        }
+                            }
+                        );
+                    }
+                    else {
+                        modalProgress('Adding ...');
+                        $.ajax({
+                            type: "post",
+                            url: "/php/new-page.php",
+                            data: "data=" + JSON.stringify({
+                                type: choice,
+                                url: newURL,
+                                copyPageURL: '',
+                                orphan: 'false'
+                            }),
+                            success: function (msg) {
+                                if (msg == "Create page successful!") {
+                                    $('#selection-bar-filler .scroll-fix').append(
+                                        '<a class="unsaved" data-nav="' + newName + '" href="' + newURL + '">' +
+                                        '<div class="slider-content"><h2>' + name + '</h2></div>' +
+                                        '</a>');
 
-                    }, 'Select page template, or copy content from any existing page', 'Content page (2 column template)', 'Content page (1 column template)',
-                    'Full image-background page', 'Copy existing page');
+                                    var json = {
+                                        "name": newName,
+                                        "published": false,
+                                        "hidden": true
+                                    };
+                                    for (var i = 0; i < nav_json['sections'].length; i++) {
+                                        if (nav_json['sections'][i]['name'] == currSection) {
+                                            nav_json['sections'][i]['pages'].push(json);
+                                            break;
+                                        }
+                                    }
+
+                                    saveNavJSON(function () {
+                                        savePages(function (msg) {
+                                            if (msg == "Save pages successful!") {
+                                                closeModalProgress();
+                                                savePage(function () {
+                                                    window.location.href = '/' + newURL + '/edit.php?edit=true';
+                                                });
+                                            }
+                                            else {
+                                                closeModalProgress();
+                                                alert(msg);
+                                            }
+                                        })
+                                    });
+                                }
+                                else {
+                                    alert(msg);
+                                }
+                            }
+                        });
+                    }
+
+                }, 'Select page template, or copy content from any existing page', 'Content page (2 column template)', 'Content page (1 column template)',
+                'Full image-background page', 'Copy existing page');
             }
         });
     });
 
     $('.manage-pages-close').off('click').click(function () {
         modalProgress('Saving...');
-        savePages(true, function (msg) {
+        savePages(function (msg) {
             if (msg == 'Save pages successful!') {
                 closeModalProgress();
                 modalOk('Save successful!', function () {

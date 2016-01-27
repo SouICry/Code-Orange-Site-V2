@@ -4,14 +4,8 @@
 
 //TODO: save new page js and php
 
-function saveSections(normalSave, callback) {
-    var nav;
-    if (normalSave) {
-        nav = $('#nav-menu-filler .scroll-fix a').not('.manage-button').not('.slider-filler').not('.unsaved');
-    }
-    else {
-        nav = $('#nav-menu-filler .scroll-fix a').not('.manage-button').not('.slider-filler');
-    }
+function saveSections(callback) {
+    var nav = $('#nav-menu-filler .scroll-fix a').not('.manage-button').not('.slider-filler');
 
     var s = '<a class="slider-filler"></a>';
 
@@ -30,8 +24,7 @@ function saveSections(normalSave, callback) {
         type: "post",
         url: "/php/save-sections.php",
         data: "data=" + JSON.stringify({
-            content: content,
-            new: normalSave
+            content: content
         }),
         success: function (msg) {
             callback(msg)
@@ -40,21 +33,16 @@ function saveSections(normalSave, callback) {
 }
 
 
-function savePages(normalSave, callback) {
+function savePages(callback) {
 
-    var pages;
-    if (normalSave) {
-        pages = $('#selection-bar-filler .scroll-fix a').not('.manage-button').not('.slider-filler').not('.unsaved');
-    }
-    else {
-        pages = $('#selection-bar-filler .scroll-fix a').not('.manage-button').not('.slider-filler');
-    }
+    var pages = $('#selection-bar-filler .scroll-fix a').not('.manage-button').not('.slider-filler');
+
 
     var navItem = $('#nav-menu-filler a.new');
     navItem.replaceWith(
         '<a class="selected new" data-nav="' + navItem.data('nav') + '" href="' + $(pages).first().attr('href') + '">' + navItem.html() + '</a>');
 
-    saveSections(normalSave, function (msg) {
+    saveSections(function (msg) {
         if (msg != "Save sections successful!") {
             callback("Save failed.");
         }
@@ -97,8 +85,7 @@ function savePages(normalSave, callback) {
                     url: "/php/save-pages.php",
                     data: "data=" + JSON.stringify({
                         url: url,
-                        content: content,
-                        new: normalSave
+                        content: content
                     }),
                     success: function (msg) {
                         callback(msg)

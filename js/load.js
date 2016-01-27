@@ -211,14 +211,14 @@ function syncHeaderScroll() {
 }
 syncHeaderScroll();
 
-//Sets selection bar width to be all elements + 20px on load and resize.
+//Sets selection bar width to be all visible elements + 20px on load and resize.
 
 function fixHeaderWidth() {
     var width;
     var slide = $('.selection-nav .scroll-fix');
     if (slide.length) {
         width = 20;
-        $(slide[0]).children().each(function () {
+        $(slide[0]).children().not('.unsaved').each(function () {
             width += $(this).outerWidth(true);
         });
         slide.width(width);
@@ -240,7 +240,7 @@ function fixHeaderWidth() {
     slide = $('.nav-nav .scroll-fix');
     if (slide.length) {
         width = 20;
-        $(slide[0]).children().each(function () {
+        $(slide[0]).children().not('.unsaved').each(function () {
             width += $(this).outerWidth(true);
         });
         slide.width(width);

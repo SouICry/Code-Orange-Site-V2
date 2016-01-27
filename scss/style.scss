@@ -29,6 +29,9 @@
   position: fixed;
 }
 
+.scroll-fix a.unsaved {
+  display: none;
+}
 
 .manage-none {
   display: none;
