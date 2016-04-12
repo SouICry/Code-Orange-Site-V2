@@ -7,24 +7,22 @@
 
 //TODO: add orphan top level page option
 
-function saveNavJSON(successCallback) {
-    $.ajax({
-        type: "post",
-        url: "/php/save-file.php",
-        data: "data=" + JSON.stringify({
-            path: 'nav.json',
-            content: JSON.stringify(nav_json),
-        }),
-        success: function (msg) {
-            if (msg == 'Save successful!') {
-                successCallback();
-            }
-            else {
-                alert(msg);
-            }
-        }
-    });
-}
+
+
+/*
+So direction:
+
+Remove nav.json and separate manager - Done!
+Move manage pages function to the edit.php belonging to the section, redirect to it and back. This way can
+fundamentally change it (instead of displaying slide, take it apart and split into 3 droppables
+ - live, hidden, unpublished)
+ unpublished means content.htm displays the error page content (replace to make unpublished, overwrite to publish)
+ unpublished is tagged with .nav-unpublished, and hidden is tagged with .nav-hidden; they dont show up.
+ save just saves everything stringed together like currently
+
+
+*/
+
 
 var edit_sections = [{
     name: 'Navigate to this section and edit it',
@@ -133,7 +131,7 @@ $('.manage-sections').click(function () {
                     }),
                     success: function (msg) {
                         if (msg == "Create section successful!") {
-                            slider.append('<a class="unsaved" data-nav="' + newSectionName + '" href=""><span>' + name + '</span></a>');
+                            slider.append('<a class="nav-unpublished" data-nav="' + newSectionName + '" href=""><span>' + name + '</span></a>');
 
                             var json = {
                                 "name": newSectionName,
@@ -141,20 +139,7 @@ $('.manage-sections').click(function () {
                                 "hidden": true,
                                 "pages": []
                             };
-                            nav_json['sections'].push(json);
-                            saveNavJSON(function () {
-                                saveSections(function (msg) {
-                                    if (msg == "Save sections successful!") {
-                                        savePage(function () {
-                                            window.location.href = "/" + newSectionName + "/edit.php";
-                                        });
-                                    }
-                                    else {
-                                        alert(msg);
-                                    }
-                                });
-                            });
-                        }
+                                                   }
                         else {
                             alert(msg);
                         }
@@ -421,37 +406,9 @@ $('.manage-pages').click(function () {
                                         success: function (msg) {
                                             if (msg == "Create page successful!") {
                                                 $('#selection-bar-filler .scroll-fix').append(
-                                                    '<a class="unsaved" data-nav="' + newName + '" href="' + newURL + '">' +
+                                                    '<a class="nav-unpublished" data-nav="' + newName + '" href="' + newURL + '">' +
                                                     '<div class="slider-content"><h2>' + name + '</h2></div>' +
                                                     '</a>');
-
-
-                                                var json = {
-                                                    "name": newName,
-                                                    "published": false,
-                                                    "hidden": true
-                                                };
-                                                for (var i = 0; i < nav_json['sections'].length; i++) {
-                                                    if (nav_json['sections'][i]['name'] == currSection) {
-                                                        nav_json['sections'][i]['pages'].push(json);
-                                                        break;
-                                                    }
-                                                }
-
-                                                saveNavJSON(function () {
-                                                    savePages(function (msg) {
-                                                        if (msg == "Save pages successful!") {
-                                                            closeModalProgress();
-                                                            savePage(function () {
-                                                                window.location.href = '/' + newURL + '/edit.php?edit=true';
-                                                            });
-                                                        }
-                                                        else {
-                                                            closeModalProgress();
-                                                            alert(msg);
-                                                        }
-                                                    })
-                                                });
                                             }
                                             else {
                                                 alert(msg);
@@ -476,36 +433,9 @@ $('.manage-pages').click(function () {
                             success: function (msg) {
                                 if (msg == "Create page successful!") {
                                     $('#selection-bar-filler .scroll-fix').append(
-                                        '<a class="unsaved" data-nav="' + newName + '" href="' + newURL + '">' +
+                                        '<a class="nav-unpublished" data-nav="' + newName + '" href="' + newURL + '">' +
                                         '<div class="slider-content"><h2>' + name + '</h2></div>' +
                                         '</a>');
-
-                                    var json = {
-                                        "name": newName,
-                                        "published": false,
-                                        "hidden": true
-                                    };
-                                    for (var i = 0; i < nav_json['sections'].length; i++) {
-                                        if (nav_json['sections'][i]['name'] == currSection) {
-                                            nav_json['sections'][i]['pages'].push(json);
-                                            break;
-                                        }
-                                    }
-
-                                    saveNavJSON(function () {
-                                        savePages(function (msg) {
-                                            if (msg == "Save pages successful!") {
-                                                closeModalProgress();
-                                                savePage(function () {
-                                                    window.location.href = '/' + newURL + '/edit.php?edit=true';
-                                                });
-                                            }
-                                            else {
-                                                closeModalProgress();
-                                                alert(msg);
-                                            }
-                                        })
-                                    });
                                 }
                                 else {
                                     alert(msg);

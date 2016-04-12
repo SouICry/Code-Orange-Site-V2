@@ -29,7 +29,7 @@
   position: fixed;
 }
 
-.scroll-fix a.unsaved {
+.scroll-fix a.nav-unpublished, .scroll-fix a.nav-hidden {
   display: none;
 }
 

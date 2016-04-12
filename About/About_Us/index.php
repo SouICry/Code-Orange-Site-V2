@@ -1,3 +1,5 @@
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/php/templates/content-index.php'; ?>
+
 <?php
 //Auto-generated content. Changes made may be lost at any time.
 

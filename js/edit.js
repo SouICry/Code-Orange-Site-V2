@@ -1,5 +1,5 @@
 //Unhides the unsaved sections and pages
-$('.scroll-fix a.unsaved').css('display', 'block');
+$('.scroll-fix a.nav-unpublished, .scroll-fix a.nav-hidden').css('display', 'block');
 fixHeaderWidth();
 
 

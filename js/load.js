@@ -1,4 +1,8 @@
-//TODO: page section manafer
+//Nope, cant include php templates - the image directories are relative
+
+//TODO: Unsaved must be put at back when mixed, and must NOT modify menu.php links
+
+//TODO: page section manager
 
 //TODO: change page layout fullpage - content
 
@@ -218,7 +222,7 @@ function fixHeaderWidth() {
     var slide = $('.selection-nav .scroll-fix');
     if (slide.length) {
         width = 20;
-        $(slide[0]).children().not('.unsaved').each(function () {
+        $(slide[0]).children().not('.nav-hidden, .nav-unpublished').each(function () {
             width += $(this).outerWidth(true);
         });
         slide.width(width);
@@ -240,7 +244,7 @@ function fixHeaderWidth() {
     slide = $('.nav-nav .scroll-fix');
     if (slide.length) {
         width = 20;
-        $(slide[0]).children().not('.unsaved').each(function () {
+        $(slide[0]).children().not('.nav-hidden, .nav-unpublished').each(function () {
             width += $(this).outerWidth(true);
         });
         slide.width(width);
@@ -345,41 +349,19 @@ bindSelectionBarScroll();
 var navItems1 = null;
 var navItems2 = null;
 function highlightActiveNav() {
-    //Removes new to mark for clearing to clear later
-    //var oldItems = document.querySelectorAll(".selected.new");
-    //if (oldItems != null) {
-    //    for (var i3 = 0; i3 < oldItems.length; i3++) {
-    //        oldItems[i3].className = "selected old";
-    //    }
-    //}
-    $('.selected.new').addClass('selected old');
-
-
     //Marks or re-marks valid selections
     var c = currURL.split("/");
     if (c.length > 0) {
-        //navItems1 = document.querySelectorAll("[data-nav='" + c[0] + "']");
-        //for (var i1 = 0; i1 < navItems1.length; i1++) {
-        //    navItems1[i1].className = "selected new";
-        //}
-        $("[data-nav='" + c[0] + "']").addClass('selected new');
+        $("a[data-nav='" + c[0] + "']").addClass('selected new newest');
     }
     if (c.length > 1) {
-        //navItems2 = document.querySelectorAll("[data-nav='" + c[1] + "']");
-        //for (var i2 = 0; i2 < navItems2.length; i2++) {
-        //    navItems2[i2].className = "selected new";
-        //}
-        $("[data-nav='" + c[1] + "']").addClass('selected new');
+        $("a[data-nav='" + c[1] + "']").addClass('selected new newest');
     }
 
-    //Clears still remaining old selections
-    //oldItems = document.querySelectorAll(".selected.old");
-    //if (oldItems != null) {
-    //    for (var i4 = 0; i4 < oldItems.length; i4++) {
-    //        oldItems[i4].className = "";
-    //    }
-    //}
-    $('.selected.old').removeClass('selected old');
+
+    $('.selected.new').not('.newest').removeClass('selected new');
+
+    $('.selected.newest').removeClass('newest');
 
 }
 highlightActiveNav();
@@ -387,14 +369,13 @@ highlightActiveNav();
 //Selects on click
 
 function bindSelectOnClick() {
-    //var selectable = document.querySelectorAll('.scroll-fix a');
-    //for (var ii5 = 0; ii5 < selectable.length; ii5++) {
-    //    selectable[ii5].onclick = function () {
-    //        this.className = "selected";
-    //    }
-    //}
-    $('.scroll-fix a').click(function(){
+    $('.selection-nav .scroll-fix a').click(function(){
         $(this).addClass('selected');
+        $('.selection-nav .selected.new').removeClass('selected new');
+    });
+    $('.nav-nav .scroll-fix a').click(function(){
+        $(this).addClass('selected');
+        $('.nav-nav .selected.new').removeClass('selected new');
     })
 
 }
@@ -583,7 +564,7 @@ function closeSelectionBar(callback) {
     }, 300);
 }
 function openSelectionBar(innerHTML) {
-    highlightActiveNav();
+    //highlightActiveNav();
     var s = document.getElementById("selection-bar");
     var s1 = document.getElementById("selection-bar-filler");
     s.innerHTML = '<div class="slider-left"><span></span></div>' + innerHTML + '<div class="slider-right"><span></span></div>';

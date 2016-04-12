@@ -66,6 +66,8 @@
 <div id="body">
     <script src="/js/load.js"></script>
 </div>
-<div id="footer">
+
+<div id="footer">     <?php include $_SERVER['DOCUMENT_ROOT'] . '/php/footer.php'; ?> </div>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/php/js-include.php'; ?>
 </body>
 </html>

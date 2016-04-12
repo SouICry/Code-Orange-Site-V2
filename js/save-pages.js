@@ -56,14 +56,14 @@ function savePages(callback) {
                 var p = $(pages[i]);
                 var img = p.find('img');
                 if (img.length > 0) {
-                    s += '<a ' + (p.hasClass('unsaved') ? 'class="unsaved"' : '') + ' data-nav="' + p.data('nav') + '" href="' + p.attr('href') + '">' +
+                    s += '<a ' + (p.hasClass('unsaved') ? 'class="unsaved ' : 'class="') + (i == 0 ? 'selected"' : '"') + ' data-nav="' + p.data('nav') + '" href="' + p.attr('href') + '">' +
                         '<div class="slider-content">' +
                         '<div class="name">' + p.find('.name').html() + '</div>' +
                         '<div class="img"><img src="' + p.find('img').attr('src') + '"/></div>' +
                         '</div></a>';
                 }
                 else {
-                    s += '<a ' + (p.hasClass('unsaved') ? 'class="unsaved"' : '') + ' data-nav="' + p.data('nav') + '" href="' + p.attr('href') + '">' +
+                    s += '<a ' + (p.hasClass('unsaved') ? 'class="unsaved ' : 'class="') + (i == 0 ? 'selected"' : '"') + ' data-nav="' + p.data('nav') + '" href="' + p.attr('href') + '">' +
                         '<div class="slider-content">' +
                         '<h2>' + p.find('h2').html() + '</h2>' +
                         '</div></a>';
