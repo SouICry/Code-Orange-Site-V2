@@ -1,5 +1,9 @@
 //Nope, cant include php templates - the image directories are relative
 
+//TODO: Fix stick top errors (lags a bit when scrolling up now with chrome smooth scroll)
+
+//TODO: Fix back button not working on home page, and scroll hide, and other issues with home page
+
 //TODO: Unsaved must be put at back when mixed, and must NOT modify menu.php links
 
 //TODO: page section manager
@@ -57,7 +61,7 @@ function fullpageInit() {
         $('#fullpage').fullpage({
             navigation: true,
             fitToSection: false,
-            //scrollBar: true,
+            scrollBar: true,
             scrollingSpeed: 1000,
             responsiveWidth: 1024
         });
@@ -349,6 +353,7 @@ bindSelectionBarScroll();
 var navItems1 = null;
 var navItems2 = null;
 function highlightActiveNav() {
+
     //Marks or re-marks valid selections
     var c = currURL.split("/");
     if (c.length > 0) {
@@ -358,9 +363,16 @@ function highlightActiveNav() {
         $("a[data-nav='" + c[1] + "']").addClass('selected new newest');
     }
 
+    //remove default if needed
+    var def = $('.selected.default');
+    if ($(def).hasClass('new')){
+        $(def).removeClass('default');
+    }
+    else {
+        $(def).removeClass('selected default');
+    }
 
     $('.selected.new').not('.newest').removeClass('selected new');
-
     $('.selected.newest').removeClass('newest');
 
 }
